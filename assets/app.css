@@ -45,6 +45,21 @@
   padding: 2rem;
   background-color: #ffffff;
   overflow-y: auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar + .main-pane {
+  margin-left: 0;
+}
+
+.main-pane > div {
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
 }
 
 .page-title {
@@ -63,4 +78,5 @@
   gap: 1rem;
   margin-top: 1.5rem;
   align-items: center;
+  width: 100%;
 }
