@@ -13,7 +13,7 @@
 
 def main [] {
   const out_file = 'src/saola/icons.gleam'
-  const icon_def_file = 'src/lucide_lustre.gleam'
+  const icon_def_file = 'src/saola/internal/lucide_lustre.gleam'
   
   # Read the icon definition file and extract all public icon function names
   let icon_functions = (open --raw $icon_def_file
@@ -32,10 +32,9 @@ def main [] {
       }
     | str join "\n")
   
-  # Build the complete Gleam source using raw string to avoid interpolation issues
   let gleam_code = ([
     "// Auto-generated, do not manually modify!",
-    "import lucide_lustre as ll",
+    "import saola/internal/lucide_lustre as ll",
     "import lustre/element",
     "",
     "pub fn get_icon(name: String) {",

@@ -2,3 +2,7 @@
 preview $ERL_FLAGS="+B":
 	@echo "Run Lustre app for preview"
 	gleam run -m lustre/dev start preview
+
+build:
+	@echo "Build to JS"
+	gleam run -m lustre/dev build

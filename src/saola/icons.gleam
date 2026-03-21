@@ -1,5 +1,5 @@
 // Auto-generated, do not manually modify!
-import lucide_lustre as ll
+import saola/internal/lucide_lustre as ll
 import lustre/element
 
 pub fn get_icon(name: String) {
@@ -22,11 +22,9 @@ pub fn get_icon(name: String) {
     "align-center-vertical" -> ll.align_center_vertical([])
     "align-end-horizontal" -> ll.align_end_horizontal([])
     "align-end-vertical" -> ll.align_end_vertical([])
-    "align-horizontal-distribute-center" ->
-      ll.align_horizontal_distribute_center([])
+    "align-horizontal-distribute-center" -> ll.align_horizontal_distribute_center([])
     "align-horizontal-distribute-end" -> ll.align_horizontal_distribute_end([])
-    "align-horizontal-distribute-start" ->
-      ll.align_horizontal_distribute_start([])
+    "align-horizontal-distribute-start" -> ll.align_horizontal_distribute_start([])
     "align-horizontal-justify-center" -> ll.align_horizontal_justify_center([])
     "align-horizontal-justify-end" -> ll.align_horizontal_justify_end([])
     "align-horizontal-justify-start" -> ll.align_horizontal_justify_start([])
@@ -34,8 +32,7 @@ pub fn get_icon(name: String) {
     "align-horizontal-space-between" -> ll.align_horizontal_space_between([])
     "align-start-horizontal" -> ll.align_start_horizontal([])
     "align-start-vertical" -> ll.align_start_vertical([])
-    "align-vertical-distribute-center" ->
-      ll.align_vertical_distribute_center([])
+    "align-vertical-distribute-center" -> ll.align_vertical_distribute_center([])
     "align-vertical-distribute-end" -> ll.align_vertical_distribute_end([])
     "align-vertical-distribute-start" -> ll.align_vertical_distribute_start([])
     "align-vertical-justify-center" -> ll.align_vertical_justify_center([])
@@ -1402,10 +1399,8 @@ pub fn get_icon(name: String) {
     "square-arrow-up-right" -> ll.square_arrow_up_right([])
     "square-asterisk" -> ll.square_asterisk([])
     "square-bottom-dashed-scissors" -> ll.square_bottom_dashed_scissors([])
-    "square-centerline-dashed-horizontal" ->
-      ll.square_centerline_dashed_horizontal([])
-    "square-centerline-dashed-vertical" ->
-      ll.square_centerline_dashed_vertical([])
+    "square-centerline-dashed-horizontal" -> ll.square_centerline_dashed_horizontal([])
+    "square-centerline-dashed-vertical" -> ll.square_centerline_dashed_vertical([])
     "square-chart-gantt" -> ll.square_chart_gantt([])
     "square-check" -> ll.square_check([])
     "square-check-big" -> ll.square_check_big([])
