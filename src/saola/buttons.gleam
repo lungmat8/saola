@@ -37,15 +37,16 @@ pub fn button_full(
   // Note: `msg` is lowercase, it is a generic (type parameter)
   click_message: Option(msg),
 ) -> Element(msg) {
-  let css =
-    a.class(case size, variant {
-      Large, Primary -> "btn-lg-primary"
-      Large, Secondary -> "btn-lg-secondary"
-      Large, WithIcon(_i) -> "btn-lg-outline"
-      Small, Primary -> "btn-sm-primary"
-      Small, Secondary -> "btn-sm-secondary"
-      Small, WithIcon(_i) -> "btn-sm-outline"
-    })
+  // We are following the CSS class here: https://basecoatui.com/kitchen-sink/#button
+  let css_name = case size, variant {
+    Large, Primary -> "btn-lg-primary"
+    Large, Secondary -> "btn-lg-secondary"
+    Large, WithIcon(_i) -> "btn-lg-outline"
+    Small, Primary -> "btn-sm-primary"
+    Small, Secondary -> "btn-sm-secondary"
+    Small, WithIcon(_i) -> "btn-sm-outline"
+  }
+  let css_class = a.class(css_name)
   let event_handler =
     click_message |> option.map(e.on_click) |> option.unwrap(a.none())
   let icon = case variant {
@@ -53,10 +54,10 @@ pub fn button_full(
     _ -> element.none()
   }
   let label = case string.trim(label) {
-    text if text != "" -> h.text(text)
-    _ -> element.none()
+    "" -> element.none()
+    text -> h.text(text)
   }
-  h.button([css, event_handler], [icon, label])
+  h.button([css_class, event_handler], [icon, label])
 }
 
 // -- Some common used buttons --
