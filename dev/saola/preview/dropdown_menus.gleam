@@ -1,71 +1,72 @@
-import gleam/option.{Some}
+import gleam/option.{None, Some}
 
 import lustre/attribute as a
 import lustre/element.{type Element, text}
 import lustre/element/html as h
-import saola/preview/models.{type Msg}
-import saola/dropdown_menus as dropdown
+import saola/dropdown_menus as dd
+import saola/preview/models.{type Model, type Msg, ToggleDropdown}
 
-pub fn view_dropdown_menus() -> Element(Msg) {
+pub fn view_dropdown_menus(model: Model) -> Element(Msg) {
   let basic_items = [
-    dropdown.Item("Save"),
-    dropdown.Item("Edit"),
-    dropdown.Separator,
-    dropdown.Item("Delete"),
+    dd.Item("Save"),
+    dd.Item("Edit"),
+    dd.Separator,
+    dd.Item("Delete"),
   ]
 
   let items_with_icons = [
-    dropdown.ItemWithIcon("plus", "New Item"),
-    dropdown.ItemWithIcon("edit", "Edit Item"),
-    dropdown.Separator,
-    dropdown.ItemWithIcon("trash", "Delete Item"),
+    dd.ItemWithIcon("plus", "New Item"),
+    dd.ItemWithIcon("edit", "Edit Item"),
+    dd.Separator,
+    dd.ItemWithIcon("trash", "Delete Item"),
   ]
 
   let items_with_links = [
-    dropdown.Link("Dashboard", "/dashboard"),
-    dropdown.Link("Settings", "/settings"),
-    dropdown.Separator,
-    dropdown.Link("Logout", "/logout"),
+    dd.Link("Dashboard", "/dashboard"),
+    dd.Link("Settings", "/settings"),
+    dd.Separator,
+    dd.Link("Logout", "/logout"),
   ]
 
   let grouped_items = [
-    dropdown.Group("Actions", [
-      dropdown.Item("Save"),
-      dropdown.Item("Edit"),
+    dd.Group("Actions", [
+      dd.Item("Save"),
+      dd.Item("Edit"),
     ]),
-    dropdown.Separator,
-    dropdown.Group("Navigation", [
-      dropdown.Item("Home"),
-      dropdown.Item("Profile"),
+    dd.Separator,
+    dd.Group("Navigation", [
+      dd.Item("Home"),
+      dd.Item("Profile"),
     ]),
   ]
 
   let mixed_items = [
-    dropdown.Item("Plain Item"),
-    dropdown.ItemWithIcon("star", "Starred Item"),
-    dropdown.Link("External Link", "https://example.com"),
-    dropdown.LinkWithIcon("download", "Download", "/download"),
-    dropdown.Separator,
-    dropdown.Group("Submenu", [
-      dropdown.Item("Sub Item 1"),
-      dropdown.Item("Sub Item 2"),
+    dd.Item("Plain Item"),
+    dd.ItemWithIcon("star", "Starred Item"),
+    dd.Link("External Link", "https://example.com"),
+    dd.LinkWithIcon("download", "Download", "/download"),
+    dd.Separator,
+    dd.Group("Submenu", [
+      dd.Item("Sub Item 1"),
+      dd.Item("Sub Item 2"),
     ]),
   ]
 
-  let custom_minor_attrs = dropdown.MinorAttrs(
-    "my-dropdown",
-    "custom-main",
-    "custom-popover",
-    "custom-menu",
-  )
+  let custom_minor_attrs =
+    dd.MinorAttrs("my-dropdown", "custom-main", "custom-popover", "custom-menu")
 
-  let custom_trigger_with_icon = dropdown.TriggerAttrs(
-    "Menu Options",
-    Some("chevron-down"),
-    "btn-custom",
-  )
+  let custom_trigger_with_icon =
+    dd.TriggerAttrs("Menu Options", Some("chevron-down"), "btn-custom")
 
-  let trigger_with_icon_only = dropdown.TriggerAttrs("", Some("settings"), "")
+  let trigger_with_icon_only = dd.TriggerAttrs("", Some("settings"), "")
+
+  // Helper to check if a specific dropdown is open
+  let is_open = fn(id: String) -> Bool {
+    case model.open_dropdown {
+      Some(open_id) -> open_id == id
+      None -> False
+    }
+  }
 
   h.div([], [
     h.h1([a.class("page-title")], [text("Dropdown Menus")]),
@@ -75,49 +76,78 @@ pub fn view_dropdown_menus() -> Element(Msg) {
 
     h.h2([], [text("Basic Dropdown")]),
     h.div([a.class("grid gap-4")], [
-      dropdown.dropdown_simple(basic_items),
+      dd.dropdown_simple(
+        items: basic_items,
+        is_open: is_open("basic"),
+        trigger_click: ToggleDropdown("basic"),
+      ),
     ]),
 
     h.h2([a.class("mt-4")], [text("With Trigger Label")]),
     h.div([a.class("grid gap-4")], [
-      dropdown.dropdown_with_trigger(items_with_icons, "Actions"),
+      dd.dropdown_with_trigger(
+        items: items_with_icons,
+        trigger_label: "Actions",
+        is_open: is_open("actions"),
+        trigger_click: ToggleDropdown("actions"),
+      ),
     ]),
 
     h.h2([a.class("mt-4")], [text("With Icons")]),
     h.div([a.class("grid gap-4")], [
-      dropdown.dropdown_simple(items_with_icons),
+      dd.dropdown_simple(
+        items: items_with_icons,
+        is_open: is_open("icons"),
+        trigger_click: ToggleDropdown("icons"),
+      ),
     ]),
 
     h.h2([a.class("mt-4")], [text("With Links")]),
     h.div([a.class("grid gap-4")], [
-      dropdown.dropdown_simple(items_with_links),
+      dd.dropdown_simple(
+        items: items_with_links,
+        is_open: is_open("links"),
+        trigger_click: ToggleDropdown("links"),
+      ),
     ]),
 
     h.h2([a.class("mt-4")], [text("Grouped Items")]),
     h.div([a.class("grid gap-4")], [
-      dropdown.dropdown_simple(grouped_items),
+      dd.dropdown_simple(
+        items: grouped_items,
+        is_open: is_open("grouped"),
+        trigger_click: ToggleDropdown("grouped"),
+      ),
     ]),
 
     h.h2([a.class("mt-4")], [text("Mixed Item Types")]),
     h.div([a.class("grid gap-4")], [
-      dropdown.dropdown_simple(mixed_items),
+      dd.dropdown_simple(
+        items: mixed_items,
+        is_open: is_open("mixed"),
+        trigger_click: ToggleDropdown("mixed"),
+      ),
     ]),
 
     h.h2([a.class("mt-4")], [text("Custom Trigger with Icon")]),
     h.div([a.class("grid gap-4")], [
-      dropdown.dropdown_menu_full(
-        mixed_items,
-        trigger_with_icon_only,
-        dropdown.default_minor_attrs,
+      dd.dropdown_menu_full(
+        items: mixed_items,
+        trigger_attrs: trigger_with_icon_only,
+        is_open: is_open("custom-icon"),
+        trigger_click: ToggleDropdown("custom-icon"),
+        minor_attrs: dd.default_minor_attrs,
       ),
     ]),
 
     h.h2([a.class("mt-4")], [text("Custom Configuration")]),
     h.div([a.class("grid gap-4")], [
-      dropdown.dropdown_menu_full(
-        mixed_items,
-        custom_trigger_with_icon,
-        custom_minor_attrs,
+      dd.dropdown_menu_full(
+        items: mixed_items,
+        trigger_attrs: custom_trigger_with_icon,
+        is_open: is_open("custom-config"),
+        trigger_click: ToggleDropdown("custom-config"),
+        minor_attrs: custom_minor_attrs,
       ),
     ]),
   ])

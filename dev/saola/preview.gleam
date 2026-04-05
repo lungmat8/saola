@@ -1,4 +1,6 @@
+import gleam/option.{None, Some}
 import gleam/uri.{type Uri}
+
 import lustre
 import lustre/attribute as a
 import lustre/effect.{type Effect}
@@ -8,7 +10,7 @@ import modem
 
 import saola/preview/models.{
   type Model, type Msg, Alerts, Buttons, DropdownMenus, Forms, Home, Inputs,
-  Model, OnRouteChange,
+  Model, OnRouteChange, ToggleDropdown,
 }
 import saola/preview/views
 
@@ -27,7 +29,10 @@ fn init(_args) -> #(Model, Effect(Msg)) {
     }
     Error(_) -> effect.none()
   }
-  #(Model(route: Home), effect.batch([modem.init(on_url_change), whatnext]))
+  #(
+    Model(route: Home, open_dropdown: None),
+    effect.batch([modem.init(on_url_change), whatnext]),
+  )
 }
 
 fn on_url_change(uri: Uri) -> Msg {
@@ -42,16 +47,24 @@ fn on_url_change(uri: Uri) -> Msg {
   OnRouteChange(route)
 }
 
-fn update(_model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
+fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
   case msg {
-    OnRouteChange(route) -> #(Model(route: route), effect.none())
+    OnRouteChange(route) -> #(Model(..model, route: route), effect.none())
+    ToggleDropdown(id) -> {
+      // Toggle dropdown: if already open, close it; otherwise open it
+      let new_open = case model.open_dropdown {
+        Some(current) if current == id -> None
+        _ -> Some(id)
+      }
+      #(Model(..model, open_dropdown: new_open), effect.none())
+    }
   }
 }
 
 fn view(model: Model) -> Element(Msg) {
   h.div([a.class("app-container")], [
     sidebar(model.route),
-    main_pane(model.route),
+    main_pane(model),
   ])
 }
 
@@ -85,15 +98,15 @@ fn nav_link(path: String, label: String, is_active: Bool) -> Element(Msg) {
   )
 }
 
-fn main_pane(route: models.Route) -> Element(Msg) {
+fn main_pane(model: Model) -> Element(Msg) {
   h.div([a.class("main-pane")], [
-    case route {
+    case model.route {
       Home -> h.div([], [element.text("Select a widget category to preview.")])
       Alerts -> views.view_alerts()
       Buttons -> views.view_buttons()
       Inputs -> views.view_inputs()
       Forms -> views.view_forms()
-      DropdownMenus -> views.view_dropdown_menus()
+      DropdownMenus -> views.view_dropdown_menus(model)
     },
   ])
 }

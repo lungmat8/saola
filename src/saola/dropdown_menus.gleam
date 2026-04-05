@@ -5,6 +5,7 @@ import gleam/result
 import lustre/attribute as a
 import lustre/element.{type Element}
 import lustre/element/html as h
+import lustre/event as e
 import typeid
 
 import saola/icons
@@ -75,22 +76,35 @@ fn render_item_group(
 
 /// Render a fully customizable dropdown menu
 ///
+/// NOTE: We use a custom `data-popover` attribute instead of the native HTML `popover` API
+/// because the native popover API places elements in a "top layer" that breaks out of the
+/// normal document flow. This makes CSS positioning (like placing the menu directly below
+/// the trigger button) impossible without CSS anchor positioning, which is not yet
+/// supported in all browsers (e.g., Firefox). By using `data-popover` with `aria-hidden`
+/// toggled via click events, we can reliably position the dropdown menu using standard
+/// CSS `position: absolute` relative to the parent container.
+///
 /// Example:
 /// ```gleam
 /// type Msg {
 ///    UserClickSave
 ///    UserClickDelete
+///    ToggleDropdown
 /// }
 ///
 /// dropdown_menu_full(
-///   [Item("Save"), Separator, Item("Delete")],
-///   default_trigger_attrs,
-///   default_minor_attrs,
+///   items: [Item("Save"), Separator, Item("Delete")],
+///   trigger_attrs: default_trigger_attrs,
+///   is_open: model.dropdown_open,
+///   trigger_click: ToggleDropdown,
+///   minor_attrs: default_minor_attrs,
 /// )
 /// ```
 pub fn dropdown_menu_full(
   items items: List(DropdownMenuItem),
   trigger_attrs trigger_attrs: TriggerAttrs,
+  is_open is_open: Bool,
+  trigger_click trigger_click: msg,
   minor_attrs minor_attrs: MinorAttrs,
 ) -> Element(msg) {
   let base_id =
@@ -107,6 +121,8 @@ pub fn dropdown_menu_full(
   let trigger_main_attrs = [
     a.type_("button"),
     a.id(trigger_id),
+    e.on_click(trigger_click),
+    a.class("btn-outline"),
     a.aria_haspopup("menu"),
     a.aria_expanded(False),
     a.aria_controls(menu_id),
@@ -139,17 +155,18 @@ pub fn dropdown_menu_full(
     )
 
   // Build popover wrapper
-  let popover_class = case minor_attrs.popover_class {
-    "" -> a.none()
-    c -> a.class(c)
+  // NOTE: Using data-popover instead of native popover API for cross-browser positioning support
+  let popover_class_value = case minor_attrs.popover_class {
+    "" -> ""
+    c -> c
   }
   let popover =
     h.div(
       [
         a.id(popover_id),
-        a.attribute("data-popover", ""),
-        a.aria_hidden(True),
-        popover_class,
+        a.data("popover", ""),
+        a.class(popover_class_value),
+        a.aria_hidden(!is_open),
       ],
       [menu],
     )
@@ -163,12 +180,22 @@ pub fn dropdown_menu_full(
 ///
 /// Example:
 /// ```gleam
-/// dropdown_simple([Item("Save"), Item("Delete")])
+/// dropdown_simple(
+///   items: [Item("Save"), Item("Delete")],
+///   is_open: model.dropdown_open,
+///   trigger_click: UserClickedDropdown,
+/// )
 /// ```
-pub fn dropdown_simple(items: List(DropdownMenuItem)) -> Element(msg) {
+pub fn dropdown_simple(
+  items items: List(DropdownMenuItem),
+  is_open is_open: Bool,
+  trigger_click trigger_click: msg,
+) -> Element(msg) {
   dropdown_menu_full(
     items: items,
     trigger_attrs: default_trigger_attrs,
+    is_open: is_open,
+    trigger_click: trigger_click,
     minor_attrs: default_minor_attrs,
   )
 }
@@ -178,17 +205,23 @@ pub fn dropdown_simple(items: List(DropdownMenuItem)) -> Element(msg) {
 /// Example:
 /// ```gleam
 /// dropdown_with_trigger(
-///   [Item("Option 1"), Item("Option 2")],
-///   "Actions",
+///   items: [Item("Option 1"), Item("Option 2")],
+///   trigger_label: "Actions",
+///   is_open: model.dropdown_open,
+///   trigger_click: UserClickedDropdown,
 /// )
 /// ```
 pub fn dropdown_with_trigger(
   items items: List(DropdownMenuItem),
   trigger_label trigger_label: String,
+  is_open is_open: Bool,
+  trigger_click trigger_click: msg,
 ) -> Element(msg) {
   dropdown_menu_full(
     items: items,
     trigger_attrs: TriggerAttrs(trigger_label, None, ""),
+    is_open: is_open,
+    trigger_click: trigger_click,
     minor_attrs: default_minor_attrs,
   )
 }

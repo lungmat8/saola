@@ -5,7 +5,7 @@ import lustre/element/html as h
 import saola/preview/buttons
 import saola/preview/dropdown_menus
 import saola/preview/inputs
-import saola/preview/models.{type Msg}
+import saola/preview/models.{type Model, type Msg}
 
 pub fn view_alerts() -> Element(Msg) {
   h.div([], [
@@ -24,8 +24,8 @@ pub fn view_buttons() -> Element(Msg) {
   buttons.view_buttons()
 }
 
-pub fn view_dropdown_menus() -> Element(Msg) {
-  dropdown_menus.view_dropdown_menus()
+pub fn view_dropdown_menus(model: Model) -> Element(Msg) {
+  dropdown_menus.view_dropdown_menus(model)
 }
 
 pub fn view_forms() -> Element(Msg) {

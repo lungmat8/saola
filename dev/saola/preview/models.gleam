@@ -1,3 +1,5 @@
+import gleam/option.{type Option}
+
 // Note: Keep these in sync:
 //  - on_url_change
 pub type Route {
@@ -10,9 +12,10 @@ pub type Route {
 }
 
 pub type Model {
-  Model(route: Route)
+  Model(route: Route, open_dropdown: Option(String))
 }
 
 pub type Msg {
   OnRouteChange(Route)
+  ToggleDropdown(String)
 }
