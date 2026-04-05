@@ -8,4 +8,8 @@ erl_crash.dump
 dist
 
 *.env.nu
+.bk.yaml
+
+# AI agents config
 .crush
+.codex

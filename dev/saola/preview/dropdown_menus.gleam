@@ -6,6 +6,13 @@ import lustre/element/html as h
 import saola/dropdown_menus as dd
 import saola/preview/models.{type Model, type Msg, ToggleDropdown}
 
+fn is_dropdown_open(model: Model, id: String) -> Bool {
+  case model.open_dropdown {
+    Some(open_id) -> open_id == id
+    None -> False
+  }
+}
+
 pub fn view_dropdown_menus(model: Model) -> Element(Msg) {
   let basic_items = [
     dd.Item("Save"),
@@ -60,95 +67,87 @@ pub fn view_dropdown_menus(model: Model) -> Element(Msg) {
 
   let trigger_with_icon_only = dd.TriggerAttrs("", Some("settings"), "")
 
-  // Helper to check if a specific dropdown is open
-  let is_open = fn(id: String) -> Bool {
-    case model.open_dropdown {
-      Some(open_id) -> open_id == id
-      None -> False
-    }
-  }
-
   h.div([], [
-    h.h1([a.class("page-title")], [text("Dropdown Menus")]),
-    h.p([a.class("page-description")], [
-      text("Showcase of dropdown menu components."),
-    ]),
+  h.h1([a.class("page-title")], [text("Dropdown Menus")]),
+  h.p([a.class("page-description")], [
+    text("Showcase of dropdown menu components."),
+  ]),
 
-    h.h2([], [text("Basic Dropdown")]),
-    h.div([a.class("grid gap-4")], [
-      dd.dropdown_simple(
-        items: basic_items,
-        is_open: is_open("basic"),
-        trigger_click: ToggleDropdown("basic"),
-      ),
-    ]),
+  h.h2([], [text("Basic Dropdown")]),
+  h.div([a.class("grid gap-4")], [
+    dd.dropdown_simple(
+      items: basic_items,
+      is_open: is_dropdown_open(model, "basic"),
+      trigger_click: ToggleDropdown("basic"),
+    ),
+  ]),
 
-    h.h2([a.class("mt-4")], [text("With Trigger Label")]),
-    h.div([a.class("grid gap-4")], [
-      dd.dropdown_with_trigger(
-        items: items_with_icons,
-        trigger_label: "Actions",
-        is_open: is_open("actions"),
-        trigger_click: ToggleDropdown("actions"),
-      ),
-    ]),
+  h.h2([a.class("mt-4")], [text("With Trigger Label")]),
+  h.div([a.class("grid gap-4")], [
+    dd.dropdown_with_trigger(
+      items: items_with_icons,
+      trigger_label: "Actions",
+      is_open: is_dropdown_open(model, "actions"),
+      trigger_click: ToggleDropdown("actions"),
+    ),
+  ]),
 
-    h.h2([a.class("mt-4")], [text("With Icons")]),
-    h.div([a.class("grid gap-4")], [
-      dd.dropdown_simple(
-        items: items_with_icons,
-        is_open: is_open("icons"),
-        trigger_click: ToggleDropdown("icons"),
-      ),
-    ]),
+  h.h2([a.class("mt-4")], [text("With Icons")]),
+  h.div([a.class("grid gap-4")], [
+    dd.dropdown_simple(
+      items: items_with_icons,
+      is_open: is_dropdown_open(model, "icons"),
+      trigger_click: ToggleDropdown("icons"),
+    ),
+  ]),
 
-    h.h2([a.class("mt-4")], [text("With Links")]),
-    h.div([a.class("grid gap-4")], [
-      dd.dropdown_simple(
-        items: items_with_links,
-        is_open: is_open("links"),
-        trigger_click: ToggleDropdown("links"),
-      ),
-    ]),
+  h.h2([a.class("mt-4")], [text("With Links")]),
+  h.div([a.class("grid gap-4")], [
+    dd.dropdown_simple(
+      items: items_with_links,
+      is_open: is_dropdown_open(model, "links"),
+      trigger_click: ToggleDropdown("links"),
+    ),
+  ]),
 
-    h.h2([a.class("mt-4")], [text("Grouped Items")]),
-    h.div([a.class("grid gap-4")], [
-      dd.dropdown_simple(
-        items: grouped_items,
-        is_open: is_open("grouped"),
-        trigger_click: ToggleDropdown("grouped"),
-      ),
-    ]),
+  h.h2([a.class("mt-4")], [text("Grouped Items")]),
+  h.div([a.class("grid gap-4")], [
+    dd.dropdown_simple(
+      items: grouped_items,
+      is_open: is_dropdown_open(model, "grouped"),
+      trigger_click: ToggleDropdown("grouped"),
+    ),
+  ]),
 
-    h.h2([a.class("mt-4")], [text("Mixed Item Types")]),
-    h.div([a.class("grid gap-4")], [
-      dd.dropdown_simple(
-        items: mixed_items,
-        is_open: is_open("mixed"),
-        trigger_click: ToggleDropdown("mixed"),
-      ),
-    ]),
+  h.h2([a.class("mt-4")], [text("Mixed Item Types")]),
+  h.div([a.class("grid gap-4")], [
+    dd.dropdown_simple(
+      items: mixed_items,
+      is_open: is_dropdown_open(model, "mixed"),
+      trigger_click: ToggleDropdown("mixed"),
+    ),
+  ]),
 
-    h.h2([a.class("mt-4")], [text("Custom Trigger with Icon")]),
-    h.div([a.class("grid gap-4")], [
-      dd.dropdown_menu_full(
-        items: mixed_items,
-        trigger_attrs: trigger_with_icon_only,
-        is_open: is_open("custom-icon"),
-        trigger_click: ToggleDropdown("custom-icon"),
-        minor_attrs: dd.default_minor_attrs,
-      ),
-    ]),
+  h.h2([a.class("mt-4")], [text("Custom Trigger with Icon")]),
+  h.div([a.class("grid gap-4")], [
+    dd.dropdown_menu_full(
+      items: mixed_items,
+      trigger_attrs: trigger_with_icon_only,
+      is_open: is_dropdown_open(model, "custom-icon"),
+      trigger_click: ToggleDropdown("custom-icon"),
+      minor_attrs: dd.default_minor_attrs,
+    ),
+  ]),
 
-    h.h2([a.class("mt-4")], [text("Custom Configuration")]),
-    h.div([a.class("grid gap-4")], [
-      dd.dropdown_menu_full(
-        items: mixed_items,
-        trigger_attrs: custom_trigger_with_icon,
-        is_open: is_open("custom-config"),
-        trigger_click: ToggleDropdown("custom-config"),
-        minor_attrs: custom_minor_attrs,
-      ),
-    ]),
+  h.h2([a.class("mt-4")], [text("Custom Configuration")]),
+  h.div([a.class("grid gap-4")], [
+    dd.dropdown_menu_full(
+      items: mixed_items,
+      trigger_attrs: custom_trigger_with_icon,
+      is_open: is_dropdown_open(model, "custom-config"),
+      trigger_click: ToggleDropdown("custom-config"),
+      minor_attrs: custom_minor_attrs,
+    ),
+  ]),
   ])
 }

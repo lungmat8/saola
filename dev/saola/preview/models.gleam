@@ -12,7 +12,12 @@ pub type Route {
 }
 
 pub type Model {
-  Model(route: Route, open_dropdown: Option(String))
+  Model(
+    route: Route,
+    // ID of the dropdown widget to be open
+    // (for the preview page of dropdown menus, where we have many widgets)
+    open_dropdown: Option(String),
+  )
 }
 
 pub type Msg {
