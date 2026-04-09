@@ -15,3 +15,8 @@ build-preview:
 vite-build-preview:
 	@echo "Build the preview app with Vite"
 	bun run vite build
+
+vite-dev-preview:
+	@echo "Run preview app with Vite's dev server"
+	bun run vite
+
