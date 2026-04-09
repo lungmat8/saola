@@ -11,3 +11,7 @@ build:
 build-preview:
 	@echo "Build the preview app"
 	gleam run -m lustre/dev build saola/preview
+
+vite-build-preview:
+	@echo "Build the preview app with Vite"
+	bun run vite build

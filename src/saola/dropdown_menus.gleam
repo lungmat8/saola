@@ -10,7 +10,7 @@ import typeid
 
 import saola/icons
 
-pub type DropdownMenuItem {
+pub type BaseDropdownMenuItem {
   /// A clickable menu item (text only)
   Item(label: String)
   /// A clickable menu item with an icon
@@ -20,8 +20,12 @@ pub type DropdownMenuItem {
   /// A link with an icon
   LinkWithIcon(name: String, label: String, url: String)
   Separator
+}
+
+pub type DropdownMenuItem {
+  Flat(BaseDropdownMenuItem)
   /// A group of items with a label
-  Group(label: String, items: List(DropdownMenuItem))
+  Group(label: String, items: List(BaseDropdownMenuItem))
 }
 
 /// Attributes for the trigger button
@@ -44,6 +48,13 @@ pub const default_minor_attrs = MinorAttrs("", "", "", "")
 
 fn render_menu_item(item: DropdownMenuItem) -> Element(msg) {
   case item {
+    Flat(base_item) -> render_base_item(base_item)
+    Group(label, items) -> render_item_group(label, items)
+  }
+}
+
+fn render_base_item(item: BaseDropdownMenuItem) -> Element(msg) {
+  case item {
     Item(label) -> h.div([a.role("menuitem")], [h.text(label)])
     ItemWithIcon(name, label) -> {
       let icon = icons.get_icon(name)
@@ -55,13 +66,12 @@ fn render_menu_item(item: DropdownMenuItem) -> Element(msg) {
       h.a([a.role("menuitem"), a.href(url)], [icon, h.text(label)])
     }
     Separator -> h.hr([a.role("separator")])
-    Group(label, items) -> render_item_group(label, items)
   }
 }
 
 fn render_item_group(
   label: String,
-  items: List(DropdownMenuItem),
+  items: List(BaseDropdownMenuItem),
 ) -> Element(msg) {
   let group_id =
     typeid.new(prefix: "grp")
@@ -70,7 +80,7 @@ fn render_item_group(
   let label_id = group_id <> "-label"
   h.div([a.role("group"), a.aria_labelledby(label_id)], [
     h.div([a.role("heading"), a.id(label_id)], [h.text(label)]),
-    h.div([], items |> list.map(render_menu_item)),
+    h.div([], items |> list.map(render_base_item)),
   ])
 }
 
