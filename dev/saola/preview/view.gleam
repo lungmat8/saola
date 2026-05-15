@@ -6,11 +6,13 @@ import saola/preview/alert
 import saola/preview/badge
 import saola/preview/button
 import saola/preview/card
+import saola/preview/chart_examples
 import saola/preview/dialog
 import saola/preview/dropdown_menu
-import saola/preview/examples
+import saola/preview/form_example
 import saola/preview/input
 import saola/preview/model.{type Model, type Msg}
+import saola/preview/site_example
 import saola/preview/table
 import saola/preview/tabs
 import saola/preview/toast
@@ -56,19 +58,19 @@ pub fn view_toasts(model: Model) -> Element(Msg) {
 }
 
 pub fn view_form_example(model: Model) -> Element(Msg) {
-  examples.view_form_example(model)
+  form_example.view_form_example(model)
 }
 
 pub fn view_small_site_example(model: Model) -> Element(Msg) {
-  examples.view_small_site_example(model)
+  site_example.view_small_site_example(model)
 }
 
 pub fn view_d3_charts() -> Element(Msg) {
-  examples.view_d3_charts()
+  chart_examples.view_d3_charts()
 }
 
 pub fn view_monaco_editor() -> Element(Msg) {
-  examples.view_monaco_editor()
+  chart_examples.view_monaco_editor()
 }
 
 pub fn view_forms() -> Element(Msg) {

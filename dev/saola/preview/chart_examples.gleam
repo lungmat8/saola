@@ -1,0 +1,106 @@
+import gleam/option.{None}
+import lustre/attribute as a
+import lustre/element.{type Element}
+import lustre/element/html as h
+import saola/card
+import saola/d3_bar_chart
+import saola/lustre_bar_chart
+import saola/code_editor
+import saola/preview/model.{type Msg}
+
+pub fn view_d3_charts() -> Element(Msg) {
+  h.div([a.class("grid gap-6")], [
+    h.header([a.class("grid gap-2")], [
+      h.h1([a.class("page-title")], [h.text("D3 Charts")]),
+      h.p([a.class("page-description")], [
+        h.text(
+          "A blackbox Saola widget beside a pure Lustre SVG implementation.",
+        ),
+      ]),
+    ]),
+    d3_card(),
+    lustre_card(),
+  ])
+}
+
+pub fn view_monaco_editor() -> Element(Msg) {
+  h.div([a.class("grid gap-6")], [
+    h.header([a.class("grid gap-2")], [
+      h.h1([a.class("page-title")], [h.text("Code Editor (CodeMirror)")]),
+      h.p([a.class("page-description")], [
+        h.text(
+          "A lighter blackbox widget: Saola renders one custom element, CodeMirror 6 owns the editor runtime and interactions.",
+        ),
+      ]),
+    ]),
+    card.card(card.CardAttrs(
+      title: "Interactive code editor",
+      description: "Try typing, selection, and syntax highlighting powered by CodeMirror 6.",
+      content: [
+        code_editor.editor(
+          attrs: code_editor.EditorAttrs(
+            ..code_editor.default_editor_attrs,
+            value: "import gleam/io\n\npub fn main() {\n  io.println(\"Hello from Saola + CodeMirror\")\n}\n",
+            language: "javascript",
+            height: 420,
+          ),
+        ),
+      ],
+      footer: None,
+    )),
+  ])
+}
+
+fn d3_card() -> Element(Msg) {
+  card.card(card.CardAttrs(
+    title: "D3 blackbox",
+    description: "Rendered by D3, mounted through a Saola custom element.",
+    content: [
+      d3_bar_chart.bar_chart(
+        chart_data_d3(),
+        attrs: d3_bar_chart.BarChartAttrs(
+          ..d3_bar_chart.default_bar_chart_attrs,
+          title: "Revenue",
+          height: 320,
+        ),
+      ),
+    ],
+    footer: None,
+  ))
+}
+
+fn lustre_card() -> Element(Msg) {
+  card.card(card.CardAttrs(
+    title: "Pure Lustre SVG",
+    description: "Rendered as regular Lustre SVG elements with no D3 runtime.",
+    content: [
+      lustre_bar_chart.bar_chart(
+        chart_data_lustre(),
+        attrs: lustre_bar_chart.BarChartAttrs(
+          ..lustre_bar_chart.default_bar_chart_attrs,
+          title: "Revenue",
+          height: 320,
+        ),
+      ),
+    ],
+    footer: None,
+  ))
+}
+
+fn chart_data_d3() -> List(d3_bar_chart.ChartPoint) {
+  [
+    d3_bar_chart.ChartPoint("Q1", 32.0),
+    d3_bar_chart.ChartPoint("Q2", 48.0),
+    d3_bar_chart.ChartPoint("Q3", 41.0),
+    d3_bar_chart.ChartPoint("Q4", 64.0),
+  ]
+}
+
+fn chart_data_lustre() -> List(lustre_bar_chart.ChartPoint) {
+  [
+    lustre_bar_chart.ChartPoint("Q1", 32.0),
+    lustre_bar_chart.ChartPoint("Q2", 48.0),
+    lustre_bar_chart.ChartPoint("Q3", 41.0),
+    lustre_bar_chart.ChartPoint("Q4", 64.0),
+  ]
+}

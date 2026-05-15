@@ -2,6 +2,7 @@ import gleam/int
 import lustre/attribute as a
 import lustre/element.{type Element}
 
+
 pub type EditorAttrs {
   EditorAttrs(
     id: String,
@@ -26,9 +27,9 @@ pub const default_editor_attrs = EditorAttrs(
   aria_label: "Code editor",
 )
 
-/// Render a Monaco-powered code editor as a blackbox custom element.
+/// Render a CodeMirror-powered code editor as a blackbox custom element.
 ///
-/// Import `assets/saola-monaco-editor.mjs` once in the host app. Monaco owns the
+/// Import `assets/saola-codemirror-editor.mjs` once in the host app. CodeMirror owns the
 /// editor runtime, workers, keyboard interaction, and text model.
 pub fn editor(attrs attrs: EditorAttrs) -> Element(msg) {
   let EditorAttrs(
@@ -42,13 +43,13 @@ pub fn editor(attrs attrs: EditorAttrs) -> Element(msg) {
     aria_label:,
   ) = attrs
   element.element(
-    "saola-monaco-editor",
+    "saola-codemirror-editor",
     [
       case id {
         "" -> a.none()
         value -> a.id(value)
       },
-      a.class("saola-monaco-editor " <> class),
+      a.class("saola-codemirror-editor " <> class),
       a.attribute("value", value),
       a.attribute("language", language),
       a.attribute("theme", theme),

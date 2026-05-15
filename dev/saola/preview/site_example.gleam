@@ -60,7 +60,11 @@ fn hero() -> Element(Msg) {
   ])
 }
 
-fn metric_card(title: String, value: String, description: String) -> Element(Msg) {
+fn metric_card(
+  title: String,
+  value: String,
+  description: String,
+) -> Element(Msg) {
   card.card(card.CardAttrs(
     title: title,
     description: description,

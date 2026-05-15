@@ -81,7 +81,11 @@ pub fn view_form_example(model: Model) -> Element(Msg) {
           "Send",
           button.Large,
           None,
-          button.ButtonExtraAttrs(False, Some(button.Submit), button.default_aria),
+          button.ButtonExtraAttrs(
+            False,
+            Some(button.Submit),
+            button.default_aria,
+          ),
         ),
       ]),
       submitted_summary(model.form_submitted_values),
@@ -90,22 +94,28 @@ pub fn view_form_example(model: Model) -> Element(Msg) {
   ))
 }
 
-fn field(id: String, title: String, children: List(Element(Msg))) -> Element(Msg) {
+fn field(
+  id: String,
+  title: String,
+  children: List(Element(Msg)),
+) -> Element(Msg) {
   h.div([a.class("grid gap-2")], [label.label_for(title, id), ..children])
 }
 
 fn submitted_summary(values: List(#(String, String))) -> Element(Msg) {
   case values {
-    [] -> h.p([a.class("text-muted-foreground text-sm")], [
-      h.text("Submit the form to see posted values."),
-    ])
-    _ -> h.ul(
-      [a.class("text-sm")],
-      values
-      |> list.map(fn(pair) {
-        let #(name, value) = pair
-        h.li([], [h.text(name <> ": " <> value)])
-      }),
-    )
+    [] ->
+      h.p([a.class("text-muted-foreground text-sm")], [
+        h.text("Submit the form to see posted values."),
+      ])
+    _ ->
+      h.ul(
+        [a.class("text-sm")],
+        values
+          |> list.map(fn(pair) {
+            let #(name, value) = pair
+            h.li([], [h.text(name <> ": " <> value)])
+          }),
+      )
   }
 }

@@ -193,3 +193,17 @@ h2 {
 .saola-lustre-bar-chart .bar:hover {
   fill: var(--saola-chart-bar-hover, #1d4ed8);
 }
+
+.saola-monaco-editor {
+  display: block;
+  min-width: 0;
+  border: 1px solid color-mix(in oklab, currentColor 16%, transparent);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1e1e1e;
+}
+
+.saola-monaco-editor__surface {
+  width: 100%;
+  min-height: 180px;
+}
