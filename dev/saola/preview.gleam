@@ -10,20 +10,22 @@ import lustre/element.{type Element}
 import lustre/element/html as h
 import modem
 
+import gleam/time/calendar
 import saola/preview/model.{
   type Model, type Msg, AccordionToggled, Accordions, AddToast, AlertDialogCancelled,
   AlertDialogConfirmed, AlertDialogOpened, AlertDialogs, Alerts, AspectRatios, Avatars,
-  Badges, Breadcrumbs, Buttons, Cards, CloseDialog, CollapsibleToggled,
-  Collapsibles, D3Charts, Dialogs, DismissToast, DropdownMenus, ExampleForm,
-  ExampleSite, Fields, FormEmailChanged, FormMessageChanged, FormNameChanged,
-  FormSubmitted, Forms, Home, HoverCardClosed, HoverCardOpened, HoverCards,
-  InputOtpChanged, InputOtps, Inputs, MenubarClosed, MenubarOpened, Menubars,
-  Model, MonacoEditor, OnRouteChange, OpenDialog, Paginations, PaginationChanged,
-  PopoverClosed, Popovers, Progresses, RadioGroups, ScrollAreas, SelectChanged,
-  Selects, Separators, SheetClosed, SheetOpened, Sheets, Skeletons, SliderChanged,
-  Sliders, StartedTrial, Switches, SwitchToggled, TabChanged, Tables, Tabs,
-  Toasts, ToggleBoldChanged, ToggleGroupChanged, ToggleGroups, ToggleItalicChanged,
-  Toggles, Tooltips, ToggleDropdown,
+  Badges, Breadcrumbs, Buttons, CalendarDateSelected, CalendarMonthChanged, Calendars,
+  Cards, CloseDialog, CollapsibleToggled, Collapsibles, D3Charts, DatePickerDateSelected,
+  DatePickerMonthChanged, DatePickerOpenChanged, DatePickers, Dialogs, DismissToast,
+  DropdownMenus, ExampleForm, ExampleSite, Fields, FormEmailChanged, FormMessageChanged,
+  FormNameChanged, FormSubmitted, Forms, Home, HoverCardClosed, HoverCardOpened,
+  HoverCards, InputOtpChanged, InputOtps, Inputs, MenubarClosed, MenubarOpened,
+  Menubars, Model, MonacoEditor, OnRouteChange, OpenDialog, Paginations,
+  PaginationChanged, PopoverClosed, Popovers, Progresses, RadioGroups, ScrollAreas,
+  SelectChanged, Selects, Separators, SheetClosed, SheetOpened, Sheets, Skeletons,
+  SliderChanged, Sliders, StartedTrial, Switches, SwitchToggled, TabChanged, Tables,
+  Tabs, Toasts, ToggleBoldChanged, ToggleGroupChanged, ToggleGroups,
+  ToggleItalicChanged, Toggles, Tooltips, ToggleDropdown,
 }
 import saola/preview/view as views
 
@@ -71,6 +73,13 @@ fn init(_args) -> #(Model, Effect(Msg)) {
       menubar_open: "",
       toggle_bold: False,
       toggle_italic: False,
+      calendar_selected: None,
+      calendar_view_year: 2026,
+      calendar_view_month: calendar.May,
+      date_picker_selected: None,
+      date_picker_open: False,
+      date_picker_view_year: 2026,
+      date_picker_view_month: calendar.May,
     ),
     effect.batch([modem.init(on_url_change), whatnext]),
   )
@@ -117,6 +126,8 @@ fn on_url_change(uri: Uri) -> Msg {
     "/input-otps" -> InputOtps
     "/sheets" -> Sheets
     "/menubars" -> Menubars
+    "/calendars" -> Calendars
+    "/date-pickers" -> DatePickers
     _ -> Home
   }
   OnRouteChange(route)
@@ -239,6 +250,34 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       Model(..model, toggle_italic: val),
       effect.none(),
     )
+    CalendarDateSelected(date) -> #(
+      Model(..model, calendar_selected: Some(date)),
+      effect.none(),
+    )
+    CalendarMonthChanged(year, month) -> #(
+      Model(..model, calendar_view_year: year, calendar_view_month: month),
+      effect.none(),
+    )
+    DatePickerDateSelected(date) -> #(
+      Model(
+        ..model,
+        date_picker_selected: Some(date),
+        date_picker_open: False,
+      ),
+      effect.none(),
+    )
+    DatePickerMonthChanged(year, month) -> #(
+      Model(
+        ..model,
+        date_picker_view_year: year,
+        date_picker_view_month: month,
+      ),
+      effect.none(),
+    )
+    DatePickerOpenChanged(open) -> #(
+      Model(..model, date_picker_open: open),
+      effect.none(),
+    )
   }
 }
 
@@ -289,6 +328,8 @@ fn sidebar(current_route: model.Route) -> Element(Msg) {
     nav_link("/input-otps", "Input OTP", current_route == InputOtps),
     nav_link("/sheets", "Sheet", current_route == Sheets),
     nav_link("/menubars", "Menubar", current_route == Menubars),
+    nav_link("/calendars", "Calendar", current_route == Calendars),
+    nav_link("/date-pickers", "Date Picker", current_route == DatePickers),
     nav_link("/dropdown-menus", "Dropdown Menus", current_route == DropdownMenus),
     nav_link("/tabs", "Tabs", current_route == Tabs),
     nav_link("/dialogs", "Dialogs", current_route == Dialogs),
@@ -351,6 +392,8 @@ fn main_pane(model: Model) -> Element(Msg) {
       InputOtps -> views.view_input_otps(model)
       Sheets -> views.view_sheets(model)
       Menubars -> views.view_menubars(model)
+      Calendars -> views.view_calendars(model)
+      DatePickers -> views.view_date_pickers(model)
       D3Charts -> views.view_d3_charts()
       MonacoEditor -> views.view_monaco_editor()
       ExampleForm -> views.view_form_example(model)

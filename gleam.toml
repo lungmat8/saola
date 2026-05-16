@@ -10,6 +10,7 @@ links = [{ title = "Changelog", href = "https://github.com/tindn/saola/blob/main
 [dependencies]
 gleam_stdlib = ">= 0.44.0 and < 2.0.0"
 gleam_json = ">= 3.1.0 and < 4.0.0"
+gleam_time = ">= 1.8.0 and < 2.0.0"
 lustre = ">= 5.6.0 and < 6.0.0"
 typeid_gleam = ">= 1.1.0 and < 2.0.0"
 

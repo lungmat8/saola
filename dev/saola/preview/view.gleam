@@ -37,6 +37,8 @@ import saola/preview/switch as switch_preview
 import saola/preview/table
 import saola/preview/tabs
 import saola/preview/toast
+import saola/preview/calendar_preview
+import saola/preview/date_picker_preview
 import saola/preview/toggle_group_preview
 import saola/preview/toggle_preview
 import saola/preview/tooltip as tooltip_preview
@@ -191,6 +193,14 @@ pub fn view_sheets(model: Model) -> Element(Msg) {
 
 pub fn view_menubars(model: Model) -> Element(Msg) {
   menubar_preview.view_menubars(model)
+}
+
+pub fn view_calendars(model: Model) -> Element(Msg) {
+  calendar_preview.view_calendars(model)
+}
+
+pub fn view_date_pickers(model: Model) -> Element(Msg) {
+  date_picker_preview.view_date_pickers(model)
 }
 
 pub fn view_forms() -> Element(Msg) {

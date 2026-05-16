@@ -1,4 +1,5 @@
 import gleam/option.{type Option}
+import gleam/time/calendar.{type Date, type Month}
 import saola/toast as saola_toast
 
 // Note: Keep these in sync with the route handlers in view.gleam and the
@@ -44,6 +45,8 @@ pub type Route {
   InputOtps
   Sheets
   Menubars
+  Calendars
+  DatePickers
 }
 
 pub type Model {
@@ -94,6 +97,14 @@ pub type Model {
     // Toggle pressed states
     toggle_bold: Bool,
     toggle_italic: Bool,
+    // Calendar / DatePicker preview state
+    calendar_selected: Option(Date),
+    calendar_view_year: Int,
+    calendar_view_month: Month,
+    date_picker_selected: Option(Date),
+    date_picker_open: Bool,
+    date_picker_view_year: Int,
+    date_picker_view_month: Month,
   )
 }
 
@@ -130,4 +141,9 @@ pub type Msg {
   MenubarClosed
   ToggleBoldChanged(Bool)
   ToggleItalicChanged(Bool)
+  CalendarDateSelected(Date)
+  CalendarMonthChanged(Int, Month)
+  DatePickerDateSelected(Date)
+  DatePickerMonthChanged(Int, Month)
+  DatePickerOpenChanged(Bool)
 }
