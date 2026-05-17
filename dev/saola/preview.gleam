@@ -14,18 +14,20 @@ import gleam/time/calendar
 import saola/preview/model.{
   type Model, type Msg, AccordionToggled, Accordions, AddToast, AlertDialogCancelled,
   AlertDialogConfirmed, AlertDialogOpened, AlertDialogs, Alerts, AspectRatios, Avatars,
-  Badges, Breadcrumbs, Buttons, CalendarDateSelected, CalendarMonthChanged, Calendars,
-  Cards, CloseDialog, CollapsibleToggled, Collapsibles, D3Charts, DatePickerDateSelected,
-  DatePickerMonthChanged, DatePickerOpenChanged, DatePickers, Dialogs, DismissToast,
-  DropdownMenus, ExampleForm, ExampleSite, Fields, FormEmailChanged, FormMessageChanged,
-  FormNameChanged, FormSubmitted, Forms, Home, HoverCardClosed, HoverCardOpened,
-  HoverCards, InputOtpChanged, InputOtps, Inputs, MenubarClosed, MenubarOpened,
-  Menubars, Model, MonacoEditor, OnRouteChange, OpenDialog, Paginations,
-  PaginationChanged, PopoverClosed, Popovers, Progresses, RadioGroups, ScrollAreas,
-  SelectChanged, Selects, Separators, SheetClosed, SheetOpened, Sheets, Skeletons,
-  SliderChanged, Sliders, StartedTrial, Switches, SwitchToggled, TabChanged, Tables,
-  Tabs, Toasts, ToggleBoldChanged, ToggleGroupChanged, ToggleGroups,
-  ToggleItalicChanged, Toggles, Tooltips, ToggleDropdown,
+  Badges, Breadcrumbs, ButtonGroups, Buttons, CalendarDateSelected, CalendarMonthChanged,
+  Calendars, Cards, CloseDialog, CollapsibleToggled, Collapsibles, ContextMenuClosed,
+  ContextMenuOpened, ContextMenus, D3Charts, DatePickerDateSelected, DatePickerMonthChanged,
+  DatePickerOpenChanged, DatePickers, Dialogs, DismissToast, DrawerClosed, DrawerOpened,
+  Drawers, DropdownMenus, ExampleForm, ExampleSite, Fields, FormEmailChanged,
+  FormMessageChanged, FormNameChanged, FormSubmitted, Forms, Home, HoverCardClosed,
+  HoverCardOpened, HoverCards, InputGroups, InputOtpChanged, InputOtps, Inputs,
+  MenubarClosed, MenubarOpened, Menubars, Model, MonacoEditor, NativeSelectChanged,
+  NativeSelects, OnRouteChange, OpenDialog, Paginations, PaginationChanged, PopoverClosed,
+  Popovers, Progresses, RadioGroups, ScrollAreas, SelectChanged, Selects, Separators,
+  SheetClosed, SheetOpened, Sheets, Skeletons, SliderChanged, Sliders, Spinners,
+  StartedTrial, Switches, SwitchToggled, TabChanged, Tables, Tabs, Toasts,
+  ToggleBoldChanged, ToggleGroupChanged, ToggleGroups, ToggleItalicChanged, Toggles,
+  Tooltips, ToggleDropdown,
 }
 import saola/preview/view as views
 
@@ -80,6 +82,11 @@ fn init(_args) -> #(Model, Effect(Msg)) {
       date_picker_open: False,
       date_picker_view_year: 2026,
       date_picker_view_month: calendar.May,
+      native_select_value: "apple",
+      context_menu_open: False,
+      context_menu_x: 0,
+      context_menu_y: 0,
+      drawer_open: False,
     ),
     effect.batch([modem.init(on_url_change), whatnext]),
   )
@@ -128,6 +135,12 @@ fn on_url_change(uri: Uri) -> Msg {
     "/menubars" -> Menubars
     "/calendars" -> Calendars
     "/date-pickers" -> DatePickers
+    "/spinners" -> Spinners
+    "/native-selects" -> NativeSelects
+    "/button-groups" -> ButtonGroups
+    "/input-groups" -> InputGroups
+    "/context-menus" -> ContextMenus
+    "/drawers" -> Drawers
     _ -> Home
   }
   OnRouteChange(route)
@@ -278,6 +291,20 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       Model(..model, date_picker_open: open),
       effect.none(),
     )
+    NativeSelectChanged(val) -> #(
+      Model(..model, native_select_value: val),
+      effect.none(),
+    )
+    ContextMenuOpened(x, y) -> #(
+      Model(..model, context_menu_open: True, context_menu_x: x, context_menu_y: y),
+      effect.none(),
+    )
+    ContextMenuClosed -> #(
+      Model(..model, context_menu_open: False),
+      effect.none(),
+    )
+    DrawerOpened -> #(Model(..model, drawer_open: True), effect.none())
+    DrawerClosed -> #(Model(..model, drawer_open: False), effect.none())
   }
 }
 
@@ -330,6 +357,12 @@ fn sidebar(current_route: model.Route) -> Element(Msg) {
     nav_link("/menubars", "Menubar", current_route == Menubars),
     nav_link("/calendars", "Calendar", current_route == Calendars),
     nav_link("/date-pickers", "Date Picker", current_route == DatePickers),
+    nav_link("/spinners", "Spinner", current_route == Spinners),
+    nav_link("/native-selects", "Native Select", current_route == NativeSelects),
+    nav_link("/button-groups", "Button Group", current_route == ButtonGroups),
+    nav_link("/input-groups", "Input Group", current_route == InputGroups),
+    nav_link("/context-menus", "Context Menu", current_route == ContextMenus),
+    nav_link("/drawers", "Drawer", current_route == Drawers),
     nav_link("/dropdown-menus", "Dropdown Menus", current_route == DropdownMenus),
     nav_link("/tabs", "Tabs", current_route == Tabs),
     nav_link("/dialogs", "Dialogs", current_route == Dialogs),
@@ -394,6 +427,12 @@ fn main_pane(model: Model) -> Element(Msg) {
       Menubars -> views.view_menubars(model)
       Calendars -> views.view_calendars(model)
       DatePickers -> views.view_date_pickers(model)
+      Spinners -> views.view_spinners()
+      NativeSelects -> views.view_native_selects(model)
+      ButtonGroups -> views.view_button_groups()
+      InputGroups -> views.view_input_groups()
+      ContextMenus -> views.view_context_menus(model)
+      Drawers -> views.view_drawers(model)
       D3Charts -> views.view_d3_charts()
       MonacoEditor -> views.view_monaco_editor()
       ExampleForm -> views.view_form_example(model)

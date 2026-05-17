@@ -37,8 +37,14 @@ import saola/preview/switch as switch_preview
 import saola/preview/table
 import saola/preview/tabs
 import saola/preview/toast
+import saola/preview/button_group_preview
 import saola/preview/calendar_preview
+import saola/preview/context_menu_preview
 import saola/preview/date_picker_preview
+import saola/preview/drawer_preview
+import saola/preview/input_group_preview
+import saola/preview/native_select_preview
+import saola/preview/spinner_preview
 import saola/preview/toggle_group_preview
 import saola/preview/toggle_preview
 import saola/preview/tooltip as tooltip_preview
@@ -201,6 +207,30 @@ pub fn view_calendars(model: Model) -> Element(Msg) {
 
 pub fn view_date_pickers(model: Model) -> Element(Msg) {
   date_picker_preview.view_date_pickers(model)
+}
+
+pub fn view_spinners() -> Element(Msg) {
+  spinner_preview.view_spinners()
+}
+
+pub fn view_native_selects(model: Model) -> Element(Msg) {
+  native_select_preview.view_native_selects(model)
+}
+
+pub fn view_button_groups() -> Element(Msg) {
+  button_group_preview.view_button_groups()
+}
+
+pub fn view_input_groups() -> Element(Msg) {
+  input_group_preview.view_input_groups()
+}
+
+pub fn view_context_menus(model: Model) -> Element(Msg) {
+  context_menu_preview.view_context_menus(model)
+}
+
+pub fn view_drawers(model: Model) -> Element(Msg) {
+  drawer_preview.view_drawers(model)
 }
 
 pub fn view_forms() -> Element(Msg) {

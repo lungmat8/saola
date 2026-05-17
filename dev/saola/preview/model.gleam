@@ -47,6 +47,12 @@ pub type Route {
   Menubars
   Calendars
   DatePickers
+  Spinners
+  NativeSelects
+  ButtonGroups
+  InputGroups
+  ContextMenus
+  Drawers
 }
 
 pub type Model {
@@ -105,6 +111,14 @@ pub type Model {
     date_picker_open: Bool,
     date_picker_view_year: Int,
     date_picker_view_month: Month,
+    // Native select preview state
+    native_select_value: String,
+    // Context menu preview state
+    context_menu_open: Bool,
+    context_menu_x: Int,
+    context_menu_y: Int,
+    // Drawer preview state
+    drawer_open: Bool,
   )
 }
 
@@ -146,4 +160,9 @@ pub type Msg {
   DatePickerDateSelected(Date)
   DatePickerMonthChanged(Int, Month)
   DatePickerOpenChanged(Bool)
+  NativeSelectChanged(String)
+  ContextMenuOpened(Int, Int)
+  ContextMenuClosed
+  DrawerOpened
+  DrawerClosed
 }
