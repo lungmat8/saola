@@ -55,6 +55,8 @@ import saola/preview/tooltip as tooltip_preview
 import saola/preview/carousel_preview
 import saola/preview/combobox_preview
 import saola/preview/navigation_menu_preview
+import saola/preview/empty_preview
+import saola/preview/item_preview
 
 pub fn view_alerts() -> Element(Msg) {
   alert.view_alerts()
@@ -266,6 +268,14 @@ pub fn view_comboboxes(model: Model) -> Element(Msg) {
 
 pub fn view_navigation_menus(model: Model) -> Element(Msg) {
   navigation_menu_preview.view_navigation_menus(model)
+}
+
+pub fn view_empties() -> Element(Msg) {
+  empty_preview.view_empties()
+}
+
+pub fn view_items() -> Element(Msg) {
+  item_preview.view_items()
 }
 
 pub fn view_forms() -> Element(Msg) {

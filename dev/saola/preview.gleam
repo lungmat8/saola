@@ -16,7 +16,7 @@ import saola/preview/model.{
   type Model, type Msg, AccordionToggled, Accordions, AddToast, AlertDialogCancelled,
   AlertDialogConfirmed, AlertDialogOpened, AlertDialogs, Alerts, AspectRatios, Avatars,
   Badges, Breadcrumbs, ButtonGroups, Buttons, CalendarDateSelected, CalendarMonthChanged,
-  Calendars, Cards, CarouselChanged, Carousels, CloseDialog, CollapsibleToggled, Collapsibles,
+  Calendars, Cards, CarouselChanged, Carousels, CloseDialog, CollapsibleToggled, Collapsibles, Empties, Items,
   ComboboxOpenChanged, ComboboxQueryChanged, ComboboxSelected, Comboboxes, CommandNavDown,
   CommandNavUp, CommandQueryChanged, CommandSelected, Commands, ContextMenuClosed,
   ContextMenuOpened, ContextMenus, D3Charts, DataTableFilterChanged, DataTablePageChanged,
@@ -166,6 +166,8 @@ fn on_url_change(uri: Uri) -> Msg {
     "/carousels" -> Carousels
     "/comboboxes" -> Comboboxes
     "/navigation-menus" -> NavigationMenus
+    "/empties" -> Empties
+    "/items" -> Items
     _ -> Home
   }
   OnRouteChange(route)
@@ -485,6 +487,8 @@ fn sidebar(current_route: model.Route) -> Element(Msg) {
     nav_link("/carousels", "Carousel", current_route == Carousels),
     nav_link("/comboboxes", "Combobox", current_route == Comboboxes),
     nav_link("/navigation-menus", "Navigation Menu", current_route == NavigationMenus),
+    nav_link("/empties", "Empty", current_route == Empties),
+    nav_link("/items", "Item", current_route == Items),
     nav_link("/dropdown-menus", "Dropdown Menus", current_route == DropdownMenus),
     nav_link("/tabs", "Tabs", current_route == Tabs),
     nav_link("/dialogs", "Dialogs", current_route == Dialogs),
@@ -562,6 +566,8 @@ fn main_pane(model: Model) -> Element(Msg) {
       Carousels -> views.view_carousels(model)
       Comboboxes -> views.view_comboboxes(model)
       NavigationMenus -> views.view_navigation_menus(model)
+      Empties -> views.view_empties()
+      Items -> views.view_items()
       D3Charts -> views.view_d3_charts()
       MonacoEditor -> views.view_monaco_editor()
       ExampleForm -> views.view_form_example(model)

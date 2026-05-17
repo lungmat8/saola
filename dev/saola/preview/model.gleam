@@ -61,6 +61,8 @@ pub type Route {
   Carousels
   Comboboxes
   NavigationMenus
+  Empties
+  Items
 }
 
 pub type Model {
