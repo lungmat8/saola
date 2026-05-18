@@ -1,3 +1,7 @@
+export function request_animation_frame(cb) {
+  if (typeof requestAnimationFrame !== 'undefined') requestAnimationFrame(cb)
+}
+
 // Off-screen canvas for measure_text — reused across calls
 let _mc = null
 
@@ -23,11 +27,14 @@ export function ensure_registered() {
       if (!this._canvas) {
         this._canvas = document.createElement('canvas')
         this.style.display = 'block'
+        this.style.width = '100%'
+        this.style.height = '100%'
         this.append(this._canvas)
         this._ro = new ResizeObserver(() => this._resize())
         this._ro.observe(this)
         this._canvas.addEventListener('click', this._onClick.bind(this))
         this._canvas.addEventListener('mousemove', this._onMouseMove.bind(this))
+        this._canvas.addEventListener('mouseleave', this._onMouseLeave.bind(this))
         this._canvas.addEventListener('mousedown', this._onMouseDown.bind(this))
         this._canvas.addEventListener('mouseup', this._onMouseUp.bind(this))
         this._canvas.addEventListener('wheel', this._onWheel.bind(this), { passive: true })
@@ -87,6 +94,10 @@ export function ensure_registered() {
       this.dispatchEvent(new CustomEvent('canvas-tap', { detail: { x, y }, bubbles: true }))
     }
 
+    _onMouseLeave() {
+      this.dispatchEvent(new CustomEvent('canvas-leave', { bubbles: true }))
+    }
+
     _onMouseMove(e) {
       const { x, y } = this._clientPos(e)
       this.dispatchEvent(new CustomEvent('canvas-hover', { detail: { x, y }, bubbles: true }))
@@ -102,10 +113,12 @@ export function ensure_registered() {
       const { x, y } = this._clientPos(e)
       this._dragging = true
       this._dragStart = { x, y }
+      this.dispatchEvent(new CustomEvent('canvas-mousedown', { detail: { x, y }, bubbles: true }))
     }
 
     _onMouseUp() {
       this._dragging = false
+      this.dispatchEvent(new CustomEvent('canvas-mouseup', { bubbles: true }))
     }
 
     _onWheel(e) {

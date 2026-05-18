@@ -1,5 +1,6 @@
 import formal/form as f
 import gleam/dict
+import gleam/float
 import gleam/int
 import gleam/list
 import gleam/option.{None, Some}
@@ -12,6 +13,8 @@ import lustre/element.{type Element}
 import lustre/element/html as h
 import lustre/event as e
 import modem
+import saola/canvas_command as canvas
+import saola/lustre_heatmap
 import saola/theme
 
 import gleam/time/calendar
@@ -41,9 +44,18 @@ import saola/preview/model.{
   ToggleBoldChanged, ToggleDropdown, ToggleGroupChanged, ToggleGroups,
   ToggleItalicChanged, Toggles, Tooltips,
   Searches, Ratings, NavigationBars, Steppers, TreeViews, TimePickers,
-  Multiselects, Timelines,
+  Multiselects, Timelines, CanvasStressTest, WidgetDashboard,
   SearchQueryChanged, RatingChanged, StepperStepClicked, TreeNodeToggled,
   TimePickerChanged, MultiselectChanged,
+  StressOffsetChanged, StressZoomChanged, StressBarClicked,
+  DashSearchChanged, DashPageChanged, DashRowClicked, DashDrawerClosed,
+  HeatmapComparison, HeatmapSizeChanged, HeatmapCellPxChanged,
+  HeatmapSchemeChanged, HeatmapRandomize,
+  HeatmapSvgHovered, HeatmapSvgHoverLeft,
+  HeatmapCanvasHovered, HeatmapCanvasHoverLeft,
+  HeatmapSvgCellClicked, HeatmapCanvasCellClicked,
+  HeatmapPaintStarted, HeatmapPaintEnded,
+  HeatmapAnimTick,
 }
 import saola/preview/view as views
 
@@ -130,6 +142,26 @@ fn init(_args) -> #(Model, Effect(Msg)) {
       tree_open_ids: [],
       time_picker_value: None,
       multiselect_values: [],
+      stress_offset: 0,
+      stress_zoom: 50,
+      stress_selected: None,
+      dash_search: "",
+      dash_page: 1,
+      dash_drawer_open: False,
+      dash_selected_id: None,
+      heatmap_size: 80,
+      heatmap_cell_px: 6,
+      heatmap_scheme: "blues",
+      heatmap_seed: 0,
+      heatmap_anim_time: 0.0,
+      heatmap_last_ts: 0.0,
+      heatmap_painted: dict.new(),
+      heatmap_painting: False,
+      heatmap_ripple_count: 0,
+      heatmap_svg_ripple: None,
+      heatmap_canvas_ripple: None,
+      heatmap_svg_hover: None,
+      heatmap_canvas_hover: None,
     ),
     effect.batch([
       modem.init(on_url_change),
@@ -206,6 +238,9 @@ fn on_url_change(uri: Uri) -> Msg {
     "/time-pickers" -> TimePickers
     "/multiselects" -> Multiselects
     "/timelines" -> Timelines
+    "/canvas-stress-test" -> CanvasStressTest
+    "/widget-dashboard" -> WidgetDashboard
+    "/heatmap-comparison" -> HeatmapComparison
     _ -> Home
   }
   OnRouteChange(route)
@@ -213,7 +248,13 @@ fn on_url_change(uri: Uri) -> Msg {
 
 fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
   case msg {
-    OnRouteChange(route) -> #(Model(..model, route: route), effect.none())
+    OnRouteChange(route) -> {
+      let eff = case route {
+        HeatmapComparison -> effect.from(heatmap_anim_tick_effect)
+        _ -> effect.none()
+      }
+      #(Model(..model, route: route, heatmap_last_ts: 0.0), eff)
+    }
     ToggleDropdown(id) -> {
       let new_open = case model.open_dropdown {
         Some(current) if current == id -> None
@@ -504,6 +545,169 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       Model(..model, multiselect_values: vals),
       effect.none(),
     )
+    StressOffsetChanged(n) -> #(
+      Model(..model, stress_offset: int.max(0, n)),
+      effect.none(),
+    )
+    StressZoomChanged(n) -> #(
+      Model(..model, stress_zoom: int.clamp(n, min: 10, max: 500)),
+      effect.none(),
+    )
+    StressBarClicked(info) -> #(
+      Model(
+        ..model,
+        stress_selected: case info {
+          "" -> None
+          s -> Some(s)
+        },
+      ),
+      effect.none(),
+    )
+    DashSearchChanged(q) -> #(
+      Model(..model, dash_search: q, dash_page: 1),
+      effect.none(),
+    )
+    DashPageChanged(p) -> #(Model(..model, dash_page: p), effect.none())
+    DashRowClicked(id) -> #(
+      Model(..model, dash_selected_id: Some(id), dash_drawer_open: True),
+      effect.none(),
+    )
+    DashDrawerClosed -> #(
+      Model(..model, dash_drawer_open: False),
+      effect.none(),
+    )
+    HeatmapSizeChanged(n) -> #(
+      Model(
+        ..model,
+        heatmap_size: int.clamp(n, min: 10, max: 200),
+        heatmap_painted: dict.new(),
+        heatmap_svg_ripple: None,
+        heatmap_canvas_ripple: None,
+      ),
+      effect.none(),
+    )
+    HeatmapCellPxChanged(n) -> #(
+      Model(..model, heatmap_cell_px: int.clamp(n, min: 2, max: 20)),
+      effect.none(),
+    )
+    HeatmapSchemeChanged(s) -> #(
+      Model(..model, heatmap_scheme: s),
+      effect.none(),
+    )
+    HeatmapRandomize -> #(
+      Model(
+        ..model,
+        heatmap_seed: model.heatmap_seed + 1,
+        heatmap_painted: dict.new(),
+        heatmap_painting: False,
+        heatmap_svg_ripple: None,
+        heatmap_canvas_ripple: None,
+        heatmap_svg_hover: None,
+        heatmap_canvas_hover: None,
+      ),
+      effect.none(),
+    )
+    HeatmapSvgHovered(mx, my) -> {
+      let cell_px = int.to_float(model.heatmap_cell_px)
+      let col =
+        int.clamp(float.truncate(mx /. cell_px), min: 0, max: model.heatmap_size - 1)
+      let row =
+        int.clamp(float.truncate(my /. cell_px), min: 0, max: model.heatmap_size - 1)
+      let dv = lustre_heatmap.cell_display_value(row, col, model.heatmap_seed)
+      let painted = case model.heatmap_painting {
+        True -> heatmap_add_painted(model.heatmap_painted, row, col)
+        False -> model.heatmap_painted
+      }
+      #(
+        Model(
+          ..model,
+          heatmap_svg_hover: Some(#(row, col, dv, mx, my)),
+          heatmap_painted: painted,
+        ),
+        effect.none(),
+      )
+    }
+    HeatmapSvgHoverLeft -> #(
+      Model(..model, heatmap_svg_hover: None, heatmap_painting: False),
+      effect.none(),
+    )
+    HeatmapCanvasHovered(mx, my) -> {
+      let cell_px = int.to_float(model.heatmap_cell_px)
+      let col =
+        int.clamp(float.truncate(mx /. cell_px), min: 0, max: model.heatmap_size - 1)
+      let row =
+        int.clamp(float.truncate(my /. cell_px), min: 0, max: model.heatmap_size - 1)
+      let dv = lustre_heatmap.cell_display_value(row, col, model.heatmap_seed)
+      let painted = case model.heatmap_painting {
+        True -> heatmap_add_painted(model.heatmap_painted, row, col)
+        False -> model.heatmap_painted
+      }
+      #(
+        Model(
+          ..model,
+          heatmap_canvas_hover: Some(#(row, col, dv, mx, my)),
+          heatmap_painted: painted,
+        ),
+        effect.none(),
+      )
+    }
+    HeatmapCanvasHoverLeft -> #(
+      Model(..model, heatmap_canvas_hover: None, heatmap_painting: False),
+      effect.none(),
+    )
+    HeatmapSvgCellClicked(row, col) -> {
+      let count = model.heatmap_ripple_count + 1
+      #(
+        Model(
+          ..model,
+          heatmap_painted: heatmap_toggle_painted(model.heatmap_painted, row, col),
+          heatmap_ripple_count: count,
+          heatmap_svg_ripple: Some(#(row, col, count)),
+          heatmap_canvas_ripple: Some(#(row, col, count)),
+        ),
+        effect.none(),
+      )
+    }
+    HeatmapCanvasCellClicked(row, col) -> {
+      let count = model.heatmap_ripple_count + 1
+      #(
+        Model(
+          ..model,
+          heatmap_painted: heatmap_toggle_painted(model.heatmap_painted, row, col),
+          heatmap_ripple_count: count,
+          heatmap_svg_ripple: Some(#(row, col, count)),
+          heatmap_canvas_ripple: Some(#(row, col, count)),
+        ),
+        effect.none(),
+      )
+    }
+    HeatmapPaintStarted(row, col) -> #(
+      Model(
+        ..model,
+        heatmap_painting: True,
+        heatmap_painted: heatmap_add_painted(model.heatmap_painted, row, col),
+      ),
+      effect.none(),
+    )
+    HeatmapPaintEnded -> #(
+      Model(..model, heatmap_painting: False),
+      effect.none(),
+    )
+    HeatmapAnimTick(ts) -> {
+      let dt = case model.heatmap_last_ts {
+        0.0 -> 0.0
+        prev -> float.min({ ts -. prev } /. 1000.0, 0.1)
+      }
+      let new_time = model.heatmap_anim_time +. dt
+      let eff = case model.route {
+        HeatmapComparison -> effect.from(heatmap_anim_tick_effect)
+        _ -> effect.none()
+      }
+      #(
+        Model(..model, heatmap_anim_time: new_time, heatmap_last_ts: ts),
+        eff,
+      )
+    }
     SignupSubmitted -> {
       let values = [
         #("name", model.signup_name),
@@ -552,6 +756,30 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
         }
       }
     }
+  }
+}
+
+fn heatmap_anim_tick_effect(dispatch: fn(Msg) -> Nil) -> Nil {
+  canvas.request_animation_frame(fn(ts) { dispatch(HeatmapAnimTick(ts)) })
+}
+
+fn heatmap_add_painted(
+  painted: dict.Dict(String, Bool),
+  row: Int,
+  col: Int,
+) -> dict.Dict(String, Bool) {
+  dict.insert(painted, lustre_heatmap.paint_key(row, col), True)
+}
+
+fn heatmap_toggle_painted(
+  painted: dict.Dict(String, Bool),
+  row: Int,
+  col: Int,
+) -> dict.Dict(String, Bool) {
+  let key = lustre_heatmap.paint_key(row, col)
+  case dict.has_key(painted, key) {
+    True -> dict.delete(painted, key)
+    False -> dict.insert(painted, key, True)
   }
 }
 
@@ -675,6 +903,21 @@ fn sidebar(current_route: model.Route, current_theme: theme.Theme) -> Element(Ms
     nav_link("/time-pickers", "Time Picker", current_route == TimePickers),
     nav_link("/multiselects", "Multiselect", current_route == Multiselects),
     nav_link("/timelines", "Timeline", current_route == Timelines),
+    nav_link(
+      "/canvas-stress-test",
+      "Canvas Stress Test",
+      current_route == CanvasStressTest,
+    ),
+    nav_link(
+      "/widget-dashboard",
+      "Widget Dashboard",
+      current_route == WidgetDashboard,
+    ),
+    nav_link(
+      "/heatmap-comparison",
+      "Heatmap SVG vs Canvas",
+      current_route == HeatmapComparison,
+    ),
     nav_link("/dropdown-menus", "Dropdown Menus", current_route == DropdownMenus),
     nav_link("/tabs", "Tabs", current_route == Tabs),
     nav_link("/dialogs", "Dialogs", current_route == Dialogs),
@@ -763,6 +1006,9 @@ fn main_pane(model: Model) -> Element(Msg) {
       TimePickers -> views.view_time_pickers(model)
       Multiselects -> views.view_multiselects(model)
       Timelines -> views.view_timelines()
+      CanvasStressTest -> views.view_canvas_stress_test(model)
+      WidgetDashboard -> views.view_widget_dashboard(model)
+      HeatmapComparison -> views.view_heatmap_comparison(model)
       D3Charts -> views.view_d3_charts()
       MonacoEditor -> views.view_monaco_editor()
       ExampleForm -> views.view_form_example(model)

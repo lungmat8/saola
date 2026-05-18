@@ -264,6 +264,9 @@ fn ensure_registered() -> Nil
 @external(javascript, "./canvas_ffi.mjs", "measure_text")
 pub fn measure_text(font: String, text: String) -> Float
 
+@external(javascript, "./canvas_ffi.mjs", "request_animation_frame")
+pub fn request_animation_frame(callback: fn(Float) -> Nil) -> Nil
+
 fn decode_canvas_tap(callback: fn(Float, Float) -> msg) -> decode.Decoder(msg) {
   use x <- decode.subfield(["detail", "x"], decode.float)
   use y <- decode.subfield(["detail", "y"], decode.float)
@@ -279,5 +282,25 @@ pub fn canvas_element(
     a.property("commands", encode_commands(output.commands)),
     a.property("hitAreas", encode_hit_areas(output.hit_areas)),
     e.on("canvas-tap", decode_canvas_tap(on_tap)),
+  ], [])
+}
+
+pub fn canvas_element_interactive(
+  output: CanvasOutput(msg),
+  on_tap: fn(Float, Float) -> msg,
+  on_hover: fn(Float, Float) -> msg,
+  on_leave: msg,
+  on_mouse_down: fn(Float, Float) -> msg,
+  on_mouse_up: msg,
+) -> Element(msg) {
+  ensure_registered()
+  element.element("saola-canvas", [
+    a.property("commands", encode_commands(output.commands)),
+    a.property("hitAreas", encode_hit_areas(output.hit_areas)),
+    e.on("canvas-tap", decode_canvas_tap(on_tap)),
+    e.on("canvas-hover", decode_canvas_tap(on_hover)),
+    e.on("canvas-leave", decode.success(on_leave)),
+    e.on("canvas-mousedown", decode_canvas_tap(on_mouse_down)),
+    e.on("canvas-mouseup", decode.success(on_mouse_up)),
   ], [])
 }

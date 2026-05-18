@@ -75,6 +75,9 @@ pub type Route {
   TimePickers
   Multiselects
   Timelines
+  CanvasStressTest
+  WidgetDashboard
+  HeatmapComparison
 }
 
 pub type Model {
@@ -178,6 +181,31 @@ pub type Model {
     tree_open_ids: List(String),
     time_picker_value: Option(TimeValue),
     multiselect_values: List(String),
+    // Canvas stress test
+    stress_offset: Int,
+    stress_zoom: Int,
+    stress_selected: Option(String),
+    // Widget dashboard
+    dash_search: String,
+    dash_page: Int,
+    dash_drawer_open: Bool,
+    dash_selected_id: Option(String),
+    // Heatmap comparison
+    heatmap_size: Int,
+    heatmap_cell_px: Int,
+    heatmap_scheme: String,
+    heatmap_seed: Int,
+    heatmap_anim_time: Float,
+    heatmap_last_ts: Float,
+    heatmap_painted: Dict(String, Bool),
+    heatmap_painting: Bool,
+    heatmap_ripple_count: Int,
+    // Option(#(row, col, ripple_counter))
+    heatmap_svg_ripple: Option(#(Int, Int, Int)),
+    heatmap_canvas_ripple: Option(#(Int, Int, Int)),
+    // Option(#(row, col, display_value, mouse_x, mouse_y))
+    heatmap_svg_hover: Option(#(Int, Int, Int, Float, Float)),
+    heatmap_canvas_hover: Option(#(Int, Int, Int, Float, Float)),
   )
 }
 
@@ -255,4 +283,27 @@ pub type Msg {
   TreeNodeToggled(String)
   TimePickerChanged(TimeValue)
   MultiselectChanged(List(String))
+  // Canvas stress test
+  StressOffsetChanged(Int)
+  StressZoomChanged(Int)
+  StressBarClicked(String)
+  // Widget dashboard
+  DashSearchChanged(String)
+  DashPageChanged(Int)
+  DashRowClicked(String)
+  DashDrawerClosed
+  // Heatmap comparison
+  HeatmapSizeChanged(Int)
+  HeatmapCellPxChanged(Int)
+  HeatmapSchemeChanged(String)
+  HeatmapRandomize
+  HeatmapSvgHovered(Float, Float)
+  HeatmapSvgHoverLeft
+  HeatmapCanvasHovered(Float, Float)
+  HeatmapCanvasHoverLeft
+  HeatmapSvgCellClicked(Int, Int)
+  HeatmapCanvasCellClicked(Int, Int)
+  HeatmapPaintStarted(Int, Int)
+  HeatmapPaintEnded
+  HeatmapAnimTick(Float)
 }

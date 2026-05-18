@@ -66,6 +66,9 @@ import saola/preview/tree_view_preview
 import saola/preview/time_picker_preview
 import saola/preview/multiselect_preview
 import saola/preview/timeline_preview
+import saola/preview/canvas_stress_test
+import saola/preview/heatmap_comparison
+import saola/preview/widget_dashboard
 
 pub fn view_alerts() -> Element(Msg) {
   alert.view_alerts()
@@ -330,4 +333,16 @@ pub fn view_multiselects(model: Model) -> Element(Msg) {
 
 pub fn view_timelines() -> Element(Msg) {
   timeline_preview.view_timelines()
+}
+
+pub fn view_heatmap_comparison(model: Model) -> Element(Msg) {
+  heatmap_comparison.view_heatmap_comparison(model)
+}
+
+pub fn view_canvas_stress_test(model: Model) -> Element(Msg) {
+  canvas_stress_test.view_canvas_stress_test(model)
+}
+
+pub fn view_widget_dashboard(model: Model) -> Element(Msg) {
+  widget_dashboard.view_widget_dashboard(model)
 }
