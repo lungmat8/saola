@@ -1,8 +1,8 @@
 import lustre/attribute as a
 import lustre/element.{type Element, text}
 import lustre/element/html as h
-import saola/progress
 import saola/preview/model.{type Msg}
+import saola/progress
 
 pub fn view_progresses() -> Element(Msg) {
   h.div([], [

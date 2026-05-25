@@ -42,7 +42,6 @@ pub fn van(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn variable(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -74,7 +73,6 @@ pub fn variable(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn vault(attributes: List(Attribute(a))) {
   svg.svg(
@@ -134,7 +132,6 @@ pub fn vault(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn vector_square(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -185,7 +182,6 @@ pub fn vector_square(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn vegan(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -208,7 +204,6 @@ pub fn vegan(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn venetian_mask(attributes: List(Attribute(a))) {
   svg.svg(
@@ -236,7 +231,6 @@ pub fn venetian_mask(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn venus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -261,7 +255,6 @@ pub fn venus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn venus_and_mars(attributes: List(Attribute(a))) {
   svg.svg(
@@ -290,7 +283,6 @@ pub fn venus_and_mars(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn vibrate(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -317,7 +309,6 @@ pub fn vibrate(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn vibrate_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -346,7 +337,6 @@ pub fn vibrate_off(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn video(attributes: List(Attribute(a))) {
   svg.svg(
@@ -379,7 +369,6 @@ pub fn video(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn video_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -407,7 +396,6 @@ pub fn video_off(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn videotape(attributes: List(Attribute(a))) {
   svg.svg(
@@ -446,7 +434,6 @@ pub fn videotape(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn view(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -477,7 +464,6 @@ pub fn view(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn voicemail(attributes: List(Attribute(a))) {
   svg.svg(
@@ -513,7 +499,6 @@ pub fn voicemail(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn volleyball(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -544,7 +529,6 @@ pub fn volleyball(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn volume(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -568,7 +552,6 @@ pub fn volume(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn volume_1(attributes: List(Attribute(a))) {
   svg.svg(
@@ -595,7 +578,6 @@ pub fn volume_1(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn volume_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -621,7 +603,6 @@ pub fn volume_2(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn volume_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -650,7 +631,6 @@ pub fn volume_off(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn volume_x(attributes: List(Attribute(a))) {
   svg.svg(
@@ -687,7 +667,6 @@ pub fn volume_x(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn vote(attributes: List(Attribute(a))) {
   svg.svg(

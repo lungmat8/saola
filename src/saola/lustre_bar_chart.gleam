@@ -226,7 +226,11 @@ pub fn bar_chart_canvas(
       canvas.SetFill("currentColor"),
       canvas.SetFont("12px sans-serif"),
       canvas.SetTextAlign("center"),
-      canvas.FillText("No data", layout.inner_width /. 2.0, layout.inner_height /. 2.0),
+      canvas.FillText(
+        "No data",
+        layout.inner_width /. 2.0,
+        layout.inner_height /. 2.0,
+      ),
     ]
     _ ->
       list.flatten([
@@ -266,7 +270,8 @@ fn canvas_grid(
   let path_cmds =
     chart.ticks(max_val)
     |> list.map(fn(tick) {
-      let y = layout.inner_height -. chart.scaled(tick, max_val, layout.inner_height)
+      let y =
+        layout.inner_height -. chart.scaled(tick, max_val, layout.inner_height)
       [canvas.MoveTo(0.0, y), canvas.LineTo(layout.inner_width, y)]
     })
     |> list.flatten
@@ -330,7 +335,8 @@ fn canvas_y_axis(
   let tick_cmds =
     chart.ticks(max_val)
     |> list.map(fn(tick) {
-      let y = layout.inner_height -. chart.scaled(tick, max_val, layout.inner_height)
+      let y =
+        layout.inner_height -. chart.scaled(tick, max_val, layout.inner_height)
       canvas.FillText(chart.f(tick), -8.0, y +. 4.0)
     })
   list.flatten([

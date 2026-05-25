@@ -11,16 +11,10 @@ pub type PopoverSide {
 }
 
 pub type PopoverAttrs {
-  PopoverAttrs(
-    side: PopoverSide,
-    class: String,
-  )
+  PopoverAttrs(side: PopoverSide, class: String)
 }
 
-pub const default_attrs = PopoverAttrs(
-  side: Bottom,
-  class: "",
-)
+pub const default_attrs = PopoverAttrs(side: Bottom, class: "")
 
 pub fn popover_full(
   open: Bool,
@@ -39,36 +33,33 @@ pub fn popover_full(
     "" -> a.none()
     c -> a.class(c)
   }
-  h.div(
-    [a.class("popover-wrapper"), extra_class],
-    [
-      trigger,
-      case open {
-        False -> h.text("")
-        True ->
-          h.div(
-            [
-              a.class("popover"),
-              side_attr,
-              a.attribute("data-popover", ""),
-              a.attribute("role", "dialog"),
-            ],
-            [
-              content,
-              h.button(
-                [
-                  a.type_("button"),
-                  a.class("popover-close"),
-                  a.attribute("aria-label", "Close"),
-                  e.on_click(on_close()),
-                ],
-                [h.text("×")],
-              ),
-            ],
-          )
-      },
-    ],
-  )
+  h.div([a.class("popover-wrapper"), extra_class], [
+    trigger,
+    case open {
+      False -> h.text("")
+      True ->
+        h.div(
+          [
+            a.class("popover"),
+            side_attr,
+            a.attribute("data-popover", ""),
+            a.attribute("role", "dialog"),
+          ],
+          [
+            content,
+            h.button(
+              [
+                a.type_("button"),
+                a.class("popover-close"),
+                a.attribute("aria-label", "Close"),
+                e.on_click(on_close()),
+              ],
+              [h.text("×")],
+            ),
+          ],
+        )
+    },
+  ])
 }
 
 pub fn popover_simple(

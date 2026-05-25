@@ -15,16 +15,10 @@ pub type ToggleGroupType {
 }
 
 pub type ToggleGroupAttrs {
-  ToggleGroupAttrs(
-    group_type: ToggleGroupType,
-    class: String,
-  )
+  ToggleGroupAttrs(group_type: ToggleGroupType, class: String)
 }
 
-pub const default_attrs = ToggleGroupAttrs(
-  group_type: SingleSelect,
-  class: "",
-)
+pub const default_attrs = ToggleGroupAttrs(group_type: SingleSelect, class: "")
 
 pub fn toggle_group_full(
   items: List(ToggleGroupItem),

@@ -108,7 +108,12 @@ pub fn radio_group_full(
     c -> a.class(c)
   }
   h.div(
-    [a.class("radio-group"), extra_class, a.role("radiogroup"), orientation_attr],
+    [
+      a.class("radio-group"),
+      extra_class,
+      a.role("radiogroup"),
+      orientation_attr,
+    ],
     list.map(options, fn(opt) {
       render_option(opt, value, attrs, on_change, group_id)
     }),

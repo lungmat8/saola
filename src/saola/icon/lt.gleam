@@ -29,7 +29,6 @@ pub fn table(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn table_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -53,7 +52,6 @@ pub fn table_2(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn table_cells_merge(attributes: List(Attribute(a))) {
   svg.svg(
@@ -84,7 +82,6 @@ pub fn table_cells_merge(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn table_cells_split(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -112,7 +109,6 @@ pub fn table_cells_split(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn table_columns_split(attributes: List(Attribute(a))) {
   svg.svg(
@@ -143,7 +139,6 @@ pub fn table_columns_split(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn table_of_contents(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -167,7 +162,6 @@ pub fn table_of_contents(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn table_properties(attributes: List(Attribute(a))) {
   svg.svg(
@@ -197,7 +191,6 @@ pub fn table_properties(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn table_rows_split(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -226,7 +219,6 @@ pub fn table_rows_split(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tablet(attributes: List(Attribute(a))) {
   svg.svg(
@@ -260,7 +252,6 @@ pub fn tablet(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn tablet_smartphone(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -289,7 +280,6 @@ pub fn tablet_smartphone(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tablets(attributes: List(Attribute(a))) {
   svg.svg(
@@ -321,7 +311,6 @@ pub fn tablets(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn tag(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -351,7 +340,6 @@ pub fn tag(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tags(attributes: List(Attribute(a))) {
   svg.svg(
@@ -389,7 +377,6 @@ pub fn tags(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn tally_1(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -406,7 +393,6 @@ pub fn tally_1(attributes: List(Attribute(a))) {
     [svg.path([a("d", "M4 4v16")])],
   )
 }
-
 
 pub fn tally_2(attributes: List(Attribute(a))) {
   svg.svg(
@@ -428,7 +414,6 @@ pub fn tally_2(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn tally_3(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -449,7 +434,6 @@ pub fn tally_3(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tally_4(attributes: List(Attribute(a))) {
   svg.svg(
@@ -473,7 +457,6 @@ pub fn tally_4(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn tally_5(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -496,7 +479,6 @@ pub fn tally_5(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tangent(attributes: List(Attribute(a))) {
   svg.svg(
@@ -527,7 +509,6 @@ pub fn tangent(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn target(attributes: List(Attribute(a))) {
   svg.svg(
@@ -561,7 +542,6 @@ pub fn target(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn telescope(attributes: List(Attribute(a))) {
   svg.svg(
@@ -602,7 +582,6 @@ pub fn telescope(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn tent(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -624,7 +603,6 @@ pub fn tent(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tent_tree(attributes: List(Attribute(a))) {
   svg.svg(
@@ -655,7 +633,6 @@ pub fn tent_tree(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn terminal(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -675,7 +652,6 @@ pub fn terminal(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn test_tube(attributes: List(Attribute(a))) {
   svg.svg(
@@ -699,7 +675,6 @@ pub fn test_tube(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn test_tube_diagonal(attributes: List(Attribute(a))) {
   svg.svg(
@@ -726,7 +701,6 @@ pub fn test_tube_diagonal(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn test_tubes(attributes: List(Attribute(a))) {
   svg.svg(
@@ -756,7 +730,6 @@ pub fn test_tubes(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn text_align_center(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -777,7 +750,6 @@ pub fn text_align_center(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn text_align_end(attributes: List(Attribute(a))) {
   svg.svg(
@@ -800,7 +772,6 @@ pub fn text_align_end(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn text_align_justify(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -821,7 +792,6 @@ pub fn text_align_justify(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn text_align_start(attributes: List(Attribute(a))) {
   svg.svg(
@@ -844,7 +814,6 @@ pub fn text_align_start(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn text_cursor(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -865,7 +834,6 @@ pub fn text_cursor(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn text_cursor_input(attributes: List(Attribute(a))) {
   svg.svg(
@@ -890,7 +858,6 @@ pub fn text_cursor_input(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn text_initial(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -914,7 +881,6 @@ pub fn text_initial(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn text_quote(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -936,7 +902,6 @@ pub fn text_quote(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn text_search(attributes: List(Attribute(a))) {
   svg.svg(
@@ -965,7 +930,6 @@ pub fn text_search(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn text_wrap(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -987,7 +951,6 @@ pub fn text_wrap(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn theater(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1016,7 +979,6 @@ pub fn theater(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn thermometer(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1033,7 +995,6 @@ pub fn thermometer(attributes: List(Attribute(a))) {
     [svg.path([a("d", "M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z")])],
   )
 }
-
 
 pub fn thermometer_snowflake(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1061,7 +1022,6 @@ pub fn thermometer_snowflake(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn thermometer_sun(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1085,7 +1045,6 @@ pub fn thermometer_sun(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn thumbs_down(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1112,7 +1071,6 @@ pub fn thumbs_down(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn thumbs_up(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1137,7 +1095,6 @@ pub fn thumbs_up(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn ticket(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1166,7 +1123,6 @@ pub fn ticket(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn ticket_check(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1192,7 +1148,6 @@ pub fn ticket_check(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn ticket_minus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1217,7 +1172,6 @@ pub fn ticket_minus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn ticket_percent(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1246,7 +1200,6 @@ pub fn ticket_percent(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn ticket_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1273,7 +1226,6 @@ pub fn ticket_plus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn ticket_slash(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1298,7 +1250,6 @@ pub fn ticket_slash(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn ticket_x(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1325,7 +1276,6 @@ pub fn ticket_x(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tickets(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1355,7 +1305,6 @@ pub fn tickets(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tickets_plane(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1387,7 +1336,6 @@ pub fn tickets_plane(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn timer(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1424,7 +1372,6 @@ pub fn timer(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn timer_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1448,7 +1395,6 @@ pub fn timer_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn timer_reset(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1470,7 +1416,6 @@ pub fn timer_reset(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn toggle_left(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1502,7 +1447,6 @@ pub fn toggle_left(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn toggle_right(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1533,7 +1477,6 @@ pub fn toggle_right(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn toilet(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1560,7 +1503,6 @@ pub fn toilet(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tool_case(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1599,7 +1541,6 @@ pub fn tool_case(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn toolbox(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1628,7 +1569,6 @@ pub fn toolbox(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn tornado(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1651,7 +1591,6 @@ pub fn tornado(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn torus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1683,7 +1622,6 @@ pub fn torus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn touchpad(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1711,7 +1649,6 @@ pub fn touchpad(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn touchpad_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1735,7 +1672,6 @@ pub fn touchpad_off(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn towel_rack(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1762,7 +1698,6 @@ pub fn towel_rack(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tower_control(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1794,7 +1729,6 @@ pub fn tower_control(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn toy_brick(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1821,7 +1755,6 @@ pub fn toy_brick(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tractor(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1863,7 +1796,6 @@ pub fn tractor(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn traffic_cone(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1893,7 +1825,6 @@ pub fn traffic_cone(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn train_front(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1919,7 +1850,6 @@ pub fn train_front(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn train_front_tunnel(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1948,7 +1878,6 @@ pub fn train_front_tunnel(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn train_track(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1973,7 +1902,6 @@ pub fn train_track(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tram_front(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2006,7 +1934,6 @@ pub fn tram_front(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn transgender(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2037,7 +1964,6 @@ pub fn transgender(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn trash(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2058,7 +1984,6 @@ pub fn trash(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn trash_2(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2082,7 +2007,6 @@ pub fn trash_2(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tree_deciduous(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2108,7 +2032,6 @@ pub fn tree_deciduous(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tree_palm(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2146,7 +2069,6 @@ pub fn tree_palm(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn tree_pine(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2171,7 +2093,6 @@ pub fn tree_pine(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn trees(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2202,7 +2123,6 @@ pub fn trees(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn trending_down(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2223,7 +2143,6 @@ pub fn trending_down(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn trending_up(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2243,7 +2162,6 @@ pub fn trending_up(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn trending_up_down(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2266,7 +2184,6 @@ pub fn trending_up_down(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn triangle(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2291,7 +2208,6 @@ pub fn triangle(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn triangle_alert(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2318,7 +2234,6 @@ pub fn triangle_alert(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn triangle_dashed(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2347,7 +2262,6 @@ pub fn triangle_dashed(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn triangle_right(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2371,7 +2285,6 @@ pub fn triangle_right(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn trophy(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2402,7 +2315,6 @@ pub fn trophy(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn truck(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2441,7 +2353,6 @@ pub fn truck(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn truck_electric(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2486,7 +2397,6 @@ pub fn truck_electric(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn turkish_lira(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2507,7 +2417,6 @@ pub fn turkish_lira(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn turntable(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2541,7 +2450,6 @@ pub fn turntable(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn turtle(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2569,7 +2477,6 @@ pub fn turtle(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn tv(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2596,7 +2503,6 @@ pub fn tv(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn tv_minimal(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2622,7 +2528,6 @@ pub fn tv_minimal(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn tv_minimal_play(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2656,7 +2561,6 @@ pub fn tv_minimal_play(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn type_(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2677,7 +2581,6 @@ pub fn type_(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn type_outline(attributes: List(Attribute(a))) {
   svg.svg(

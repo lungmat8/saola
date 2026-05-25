@@ -84,8 +84,14 @@ fn decode_edge_route() -> decode.Decoder(EdgeRoute) {
 
 fn decode_layout_result(value: Dynamic) -> LayoutResult {
   let decoder = {
-    use positions <- decode.field("positions", decode.list(decode_node_position()))
-    use edge_routes <- decode.field("edge_routes", decode.list(decode_edge_route()))
+    use positions <- decode.field(
+      "positions",
+      decode.list(decode_node_position()),
+    )
+    use edge_routes <- decode.field(
+      "edge_routes",
+      decode.list(decode_edge_route()),
+    )
     decode.success(LayoutResult(positions:, edge_routes:))
   }
   case decode.run(value, decoder) {

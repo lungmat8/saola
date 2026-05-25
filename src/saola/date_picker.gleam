@@ -8,11 +8,7 @@ import lustre/event as e
 import saola/calendar as cal
 
 pub type DatePickerAttrs {
-  DatePickerAttrs(
-    placeholder: String,
-    disabled: Bool,
-    class: String,
-  )
+  DatePickerAttrs(placeholder: String, disabled: Bool, class: String)
 }
 
 pub const default_attrs = DatePickerAttrs(
@@ -49,54 +45,46 @@ pub fn date_picker_full(
   }
   let #(prev_year, prev_month) = prev_month_nav(view_year, view_month)
   let #(next_year, next_month) = next_month_nav(view_year, view_month)
-  h.div(
-    [a.class("date-picker"), extra_class],
-    [
-      h.button(
-        [
-          a.type_("button"),
-          a.class(case selected {
-            None -> "date-picker-trigger date-picker-placeholder"
-            Some(_) -> "date-picker-trigger"
-          }),
-          case attrs.disabled {
-            True -> a.disabled(True)
-            False -> a.none()
-          },
-          a.attribute("aria-haspopup", "dialog"),
-          a.attribute("aria-expanded", case open {
-            True -> "true"
-            False -> "false"
-          }),
-          e.on_click(on_open_change(!open)),
-        ],
-        [
-          h.span([a.class("date-picker-icon")], [h.text("📅")]),
-          h.text(display_text),
-        ],
-      ),
-      case open {
-        False -> h.text("")
-        True ->
-          h.div(
-            [a.class("date-picker-popover"), a.role("dialog")],
-            [
-              cal.calendar_full(
-                selected,
-                view_year,
-                view_month,
-                fn(date) {
-                  on_select(date)
-                },
-                on_month_change(prev_year, prev_month),
-                on_month_change(next_year, next_month),
-                cal.default_attrs,
-              ),
-            ],
-          )
-      },
-    ],
-  )
+  h.div([a.class("date-picker"), extra_class], [
+    h.button(
+      [
+        a.type_("button"),
+        a.class(case selected {
+          None -> "date-picker-trigger date-picker-placeholder"
+          Some(_) -> "date-picker-trigger"
+        }),
+        case attrs.disabled {
+          True -> a.disabled(True)
+          False -> a.none()
+        },
+        a.attribute("aria-haspopup", "dialog"),
+        a.attribute("aria-expanded", case open {
+          True -> "true"
+          False -> "false"
+        }),
+        e.on_click(on_open_change(!open)),
+      ],
+      [
+        h.span([a.class("date-picker-icon")], [h.text("📅")]),
+        h.text(display_text),
+      ],
+    ),
+    case open {
+      False -> h.text("")
+      True ->
+        h.div([a.class("date-picker-popover"), a.role("dialog")], [
+          cal.calendar_full(
+            selected,
+            view_year,
+            view_month,
+            fn(date) { on_select(date) },
+            on_month_change(prev_year, prev_month),
+            on_month_change(next_year, next_month),
+            cal.default_attrs,
+          ),
+        ])
+    },
+  ])
 }
 
 pub fn date_picker_simple(

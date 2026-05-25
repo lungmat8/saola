@@ -1,8 +1,8 @@
 import lustre/attribute as a
 import lustre/element.{type Element, text}
 import lustre/element/html as h
-import saola/skeleton
 import saola/preview/model.{type Msg}
+import saola/skeleton
 
 pub fn view_skeletons() -> Element(Msg) {
   h.div([], [

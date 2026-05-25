@@ -8,7 +8,9 @@ pub fn view_radio_groups(model: Model) -> Element(Msg) {
   h.div([], [
     h.h1([a.class("page-title")], [text("Radio Group")]),
     h.p([a.class("page-description")], [
-      text("A set of checkable buttons where only one can be checked at a time."),
+      text(
+        "A set of checkable buttons where only one can be checked at a time.",
+      ),
     ]),
     h.div([a.class("grid gap-8")], [
       h.div([a.class("grid gap-4")], [
@@ -19,16 +21,15 @@ pub fn view_radio_groups(model: Model) -> Element(Msg) {
             radio_group.RadioOption("dark", "Dark"),
             radio_group.RadioOption("system", "System"),
           ],
-          value: model.toggle_bold |> fn(b) {
-            case b {
-              True -> "dark"
-              False -> "light"
-            }
-          },
+          value: model.toggle_bold
+            |> fn(b) {
+              case b {
+                True -> "dark"
+                False -> "light"
+              }
+            },
           name: "theme",
-          on_change: fn(v) {
-            ToggleBoldChanged(v == "dark")
-          },
+          on_change: fn(v) { ToggleBoldChanged(v == "dark") },
         ),
       ]),
       h.div([a.class("grid gap-4")], [

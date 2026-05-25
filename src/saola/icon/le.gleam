@@ -23,7 +23,6 @@ pub fn ear(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn ear_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -58,7 +57,6 @@ pub fn ear_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn earth(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -92,7 +90,6 @@ pub fn earth(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn earth_lock(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -125,7 +122,6 @@ pub fn earth_lock(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn eclipse(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -150,7 +146,6 @@ pub fn eclipse(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn egg(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -171,7 +166,6 @@ pub fn egg(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn egg_fried(attributes: List(Attribute(a))) {
   svg.svg(
@@ -202,7 +196,6 @@ pub fn egg_fried(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn egg_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -228,7 +221,6 @@ pub fn egg_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn ellipse(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -252,7 +244,6 @@ pub fn ellipse(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn ellipsis(attributes: List(Attribute(a))) {
   svg.svg(
@@ -287,7 +278,6 @@ pub fn ellipsis(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn ellipsis_vertical(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -321,7 +311,6 @@ pub fn ellipsis_vertical(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn equal(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -352,7 +341,6 @@ pub fn equal(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn equal_approximately(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -372,7 +360,6 @@ pub fn equal_approximately(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn equal_not(attributes: List(Attribute(a))) {
   svg.svg(
@@ -410,7 +397,6 @@ pub fn equal_not(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn eraser(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -435,7 +421,6 @@ pub fn eraser(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn ethernet_port(attributes: List(Attribute(a))) {
   svg.svg(
@@ -465,7 +450,6 @@ pub fn ethernet_port(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn euro(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -491,7 +475,6 @@ pub fn euro(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn ev_charger(attributes: List(Attribute(a))) {
   svg.svg(
@@ -521,7 +504,6 @@ pub fn ev_charger(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn expand(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -548,7 +530,6 @@ pub fn expand(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn external_link(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -571,7 +552,6 @@ pub fn external_link(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn eye(attributes: List(Attribute(a))) {
   svg.svg(
@@ -602,7 +582,6 @@ pub fn eye(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn eye_closed(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -625,7 +604,6 @@ pub fn eye_closed(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn eye_off(attributes: List(Attribute(a))) {
   svg.svg(

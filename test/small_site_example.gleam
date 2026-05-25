@@ -34,7 +34,9 @@ pub fn view(model: Model) -> Element(Msg) {
   h.main([a.class("min-h-screen bg-background text-foreground")], [
     h.section([a.class("mx-auto grid max-w-5xl gap-8 px-6 py-10")], [
       hero(),
-      alert.alert_default("All widgets below are Saola elements composed inside a normal Lustre view."),
+      alert.alert_default(
+        "All widgets below are Saola elements composed inside a normal Lustre view.",
+      ),
       metrics(),
       tabs.tabs_simple(
         tabs: [
@@ -59,7 +61,9 @@ fn hero() -> Element(Msg) {
       h.text("A small product page"),
     ]),
     h.p([a.class("max-w-2xl text-muted-foreground")], [
-      h.text("This page mixes Saola cards, badges, buttons, alerts, tabs, and tables."),
+      h.text(
+        "This page mixes Saola cards, badges, buttons, alerts, tabs, and tables.",
+      ),
     ]),
     h.div([a.class("flex gap-3")], [
       button.button_primary("Start trial", StartedTrial),
@@ -83,7 +87,11 @@ fn metrics() -> Element(Msg) {
   ])
 }
 
-fn metric_card(title: String, value: String, description: String) -> Element(Msg) {
+fn metric_card(
+  title: String,
+  value: String,
+  description: String,
+) -> Element(Msg) {
   card.card(card.CardAttrs(
     title: title,
     description: description,
@@ -95,7 +103,9 @@ fn metric_card(title: String, value: String, description: String) -> Element(Msg
 fn overview_panel() -> Element(Msg) {
   card.card_simple("Overview", [
     h.p([], [
-      h.text("Use Saola like small typed building blocks. Lustre owns app state and routing."),
+      h.text(
+        "Use Saola like small typed building blocks. Lustre owns app state and routing.",
+      ),
     ]),
   ])
 }

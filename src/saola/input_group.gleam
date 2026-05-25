@@ -23,20 +23,17 @@ pub fn input_group_full(
     True -> a.attribute("aria-invalid", "true")
     False -> a.none()
   }
-  h.div(
-    [a.role("group"), a.class("input-group"), extra_class, invalid_attr],
-    [
-      case prefix {
-        None -> h.text("")
-        Some(p) -> h.div([a.class("input-group-addon")], [p])
-      },
-      content,
-      case suffix {
-        None -> h.text("")
-        Some(s) -> h.div([a.class("input-group-addon")], [s])
-      },
-    ],
-  )
+  h.div([a.role("group"), a.class("input-group"), extra_class, invalid_attr], [
+    case prefix {
+      None -> h.text("")
+      Some(p) -> h.div([a.class("input-group-addon")], [p])
+    },
+    content,
+    case suffix {
+      None -> h.text("")
+      Some(s) -> h.div([a.class("input-group-addon")], [s])
+    },
+  ])
 }
 
 pub fn input_group_simple(

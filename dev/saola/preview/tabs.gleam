@@ -6,15 +6,27 @@ import saola/tabs
 
 pub fn view_tabs(model: Model) -> Element(Msg) {
   let demo_tabs = [
-    tabs.Tab("account", "Account", h.p([], [
-      text("Manage your account settings and preferences."),
-    ])),
-    tabs.Tab("password", "Password", h.p([], [
-      text("Change your password here. After saving, you'll be logged out."),
-    ])),
-    tabs.Tab("notifications", "Notifications", h.p([], [
-      text("Configure how you receive notifications."),
-    ])),
+    tabs.Tab(
+      "account",
+      "Account",
+      h.p([], [
+        text("Manage your account settings and preferences."),
+      ]),
+    ),
+    tabs.Tab(
+      "password",
+      "Password",
+      h.p([], [
+        text("Change your password here. After saving, you'll be logged out."),
+      ]),
+    ),
+    tabs.Tab(
+      "notifications",
+      "Notifications",
+      h.p([], [
+        text("Configure how you receive notifications."),
+      ]),
+    ),
   ]
   h.div([], [
     h.h1([a.class("page-title")], [text("Tabs")]),

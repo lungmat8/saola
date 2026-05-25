@@ -16,7 +16,11 @@ pub fn view_input_groups() -> Element(Msg) {
         h.h2([], [text("Prefix text")]),
         input_group.input_group_simple(
           Some(h.span([], [text("https://")])),
-          h.input([a.type_("text"), a.class("input input-group-control"), a.placeholder("example.com")]),
+          h.input([
+            a.type_("text"),
+            a.class("input input-group-control"),
+            a.placeholder("example.com"),
+          ]),
           None,
         ),
       ]),
@@ -24,7 +28,11 @@ pub fn view_input_groups() -> Element(Msg) {
         h.h2([], [text("Suffix text")]),
         input_group.input_group_simple(
           None,
-          h.input([a.type_("text"), a.class("input input-group-control"), a.placeholder("username")]),
+          h.input([
+            a.type_("text"),
+            a.class("input input-group-control"),
+            a.placeholder("username"),
+          ]),
           Some(h.span([], [text("@example.com")])),
         ),
       ]),
@@ -32,7 +40,11 @@ pub fn view_input_groups() -> Element(Msg) {
         h.h2([], [text("Prefix icon")]),
         input_group.input_group_simple(
           Some(h.span([a.attribute("aria-hidden", "true")], [text("$")])),
-          h.input([a.type_("number"), a.class("input input-group-control"), a.placeholder("0.00")]),
+          h.input([
+            a.type_("number"),
+            a.class("input input-group-control"),
+            a.placeholder("0.00"),
+          ]),
           Some(h.span([a.attribute("aria-hidden", "true")], [text("USD")])),
         ),
       ]),
@@ -40,7 +52,11 @@ pub fn view_input_groups() -> Element(Msg) {
         h.h2([], [text("Invalid state")]),
         input_group.input_group_full(
           Some(h.span([], [text("@")])),
-          h.input([a.type_("text"), a.class("input input-group-control"), a.value("bad value")]),
+          h.input([
+            a.type_("text"),
+            a.class("input input-group-control"),
+            a.value("bad value"),
+          ]),
           None,
           input_group.InputGroupAttrs(class: "", invalid: True),
         ),

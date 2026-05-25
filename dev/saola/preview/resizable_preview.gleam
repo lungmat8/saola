@@ -88,10 +88,7 @@ pub fn view_resizables(model: Model) -> Element(Msg) {
             ],
             [40.0, 60.0],
             fn(sizes) { ResizableSizesChanged(sizes) },
-            resizable.ResizableAttrs(
-              direction: resizable.Vertical,
-              class: "",
-            ),
+            resizable.ResizableAttrs(direction: resizable.Vertical, class: ""),
           ),
         ]),
       ]),

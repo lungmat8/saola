@@ -62,16 +62,13 @@ pub fn sidebar_group(
   label: Option(String),
   children: List(Element(msg)),
 ) -> Element(msg) {
-  h.nav(
-    [a.class("sidebar-group")],
-    [
-      case label {
-        None -> h.text("")
-        Some(l) -> h.div([a.class("sidebar-group-label")], [h.text(l)])
-      },
-      h.ul([a.class("sidebar-menu")], children),
-    ],
-  )
+  h.nav([a.class("sidebar-group")], [
+    case label {
+      None -> h.text("")
+      Some(l) -> h.div([a.class("sidebar-group-label")], [h.text(l)])
+    },
+    h.ul([a.class("sidebar-menu")], children),
+  ])
 }
 
 pub fn sidebar_menu_item(
@@ -89,29 +86,22 @@ pub fn sidebar_menu_item(
     "" -> a.none()
     c -> a.class(c)
   }
-  h.li(
-    [a.class("sidebar-menu-item"), extra_class],
-    [
-      h.a(
-        [a.href(href), a.class(btn_class)],
-        [
-          case icon {
-            None -> h.text("")
-            Some(i) -> h.span([a.class("sidebar-menu-icon")], [i])
-          },
-          h.span([a.class("sidebar-menu-label")], [h.text(label)]),
-          case attrs.badge {
-            "" -> h.text("")
-            b ->
-              h.span(
-                [a.class("sidebar-menu-badge"), a.attribute("aria-label", b)],
-                [h.text(b)],
-              )
-          },
-        ],
-      ),
-    ],
-  )
+  h.li([a.class("sidebar-menu-item"), extra_class], [
+    h.a([a.href(href), a.class(btn_class)], [
+      case icon {
+        None -> h.text("")
+        Some(i) -> h.span([a.class("sidebar-menu-icon")], [i])
+      },
+      h.span([a.class("sidebar-menu-label")], [h.text(label)]),
+      case attrs.badge {
+        "" -> h.text("")
+        b ->
+          h.span([a.class("sidebar-menu-badge"), a.attribute("aria-label", b)], [
+            h.text(b),
+          ])
+      },
+    ]),
+  ])
 }
 
 pub fn sidebar_trigger(on_click: msg) -> Element(msg) {
@@ -158,11 +148,7 @@ pub fn sidebar_full(
     c -> a.class(c)
   }
   let full_class =
-    "sidebar "
-    <> side_class
-    <> variant_class
-    <> collapsible_class
-    <> open_class
+    "sidebar " <> side_class <> variant_class <> collapsible_class <> open_class
   h.aside(
     [a.class(full_class), a.attribute("aria-label", "Sidebar"), extra_class],
     list.flatten([
@@ -183,9 +169,6 @@ pub fn sidebar_full(
   )
 }
 
-pub fn sidebar_simple(
-  open: Bool,
-  content: Element(msg),
-) -> Element(msg) {
+pub fn sidebar_simple(open: Bool, content: Element(msg)) -> Element(msg) {
   sidebar_full(open, None, content, None, default_attrs)
 }

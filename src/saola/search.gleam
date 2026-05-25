@@ -57,10 +57,13 @@ pub fn search_full(
       h.span([a.class("input-icon input-icon-left")], [h.text("🔍")]),
       h.input([
         a.type_("search"),
-        a.class("input has-icon-left" <> case on_clear {
-          None -> ""
-          Some(_) -> " has-icon-right"
-        }),
+        a.class(
+          "input has-icon-left"
+          <> case on_clear {
+            None -> ""
+            Some(_) -> " has-icon-right"
+          },
+        ),
         a.value(value),
         case attrs.placeholder {
           "" -> a.none()

@@ -25,7 +25,10 @@ pub fn view_paginations(model: Model) -> Element(Msg) {
           model.pagination_page,
           5,
           PaginationChanged,
-          pagination.PaginationAttrs(..pagination.default_attrs, show_prev_next: False),
+          pagination.PaginationAttrs(
+            ..pagination.default_attrs,
+            show_prev_next: False,
+          ),
         ),
       ]),
     ]),

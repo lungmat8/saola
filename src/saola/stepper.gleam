@@ -49,9 +49,9 @@ pub fn stepper_full(
   }
   let indexed = list.index_map(steps, fn(step, idx) { #(idx, step) })
   let total = list.length(steps)
-  h.ol([a.class(root_class), a.attribute("aria-label", "Progress")], list.map(
-    indexed,
-    fn(pair) {
+  h.ol(
+    [a.class(root_class), a.attribute("aria-label", "Progress")],
+    list.map(indexed, fn(pair) {
       let #(idx, step) = pair
       let status = case step.status {
         Active -> Active
@@ -88,13 +88,10 @@ pub fn stepper_full(
           [
             a.type_("button"),
             a.class("stepper-trigger"),
-            a.attribute(
-              "aria-current",
-              case status {
-                Active -> "step"
-                _ -> "false"
-              },
-            ),
+            a.attribute("aria-current", case status {
+              Active -> "step"
+              _ -> "false"
+            }),
             click_attr,
           ],
           [
@@ -103,8 +100,7 @@ pub fn stepper_full(
               h.span([a.class("stepper-label")], [h.text(step.label)]),
               case step.description {
                 "" -> element.none()
-                d ->
-                  h.span([a.class("stepper-description")], [h.text(d)])
+                d -> h.span([a.class("stepper-description")], [h.text(d)])
               },
             ]),
           ],
@@ -114,13 +110,10 @@ pub fn stepper_full(
           False -> h.div([a.class("stepper-separator")], [])
         },
       ])
-    },
-  ))
+    }),
+  )
 }
 
-pub fn stepper_simple(
-  steps: List(StepItem),
-  active_step: Int,
-) -> Element(msg) {
+pub fn stepper_simple(steps: List(StepItem), active_step: Int) -> Element(msg) {
   stepper_full(Horizontal, steps, active_step, None, default_attrs)
 }

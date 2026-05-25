@@ -22,7 +22,10 @@ pub fn theme_attr(theme: Theme) -> Attribute(msg) {
 /// Returns an Effect that registers a one-time OS dark-mode listener.
 /// Pass `is_system_active: True` when your app is in System theme mode.
 /// The listener persists for the page lifetime and fires `to_msg` on OS preference changes.
-pub fn theme_sub(is_system_active: Bool, to_msg: fn(Bool) -> msg) -> Effect(msg) {
+pub fn theme_sub(
+  is_system_active: Bool,
+  to_msg: fn(Bool) -> msg,
+) -> Effect(msg) {
   case is_system_active {
     False -> effect.none()
     True -> {

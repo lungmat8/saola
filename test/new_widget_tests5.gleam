@@ -55,11 +55,9 @@ pub fn carousel_loop_attr_test() {
 
 pub fn carousel_horizontal_default_test() {
   let html =
-    carousel.carousel_simple(
-      [h.div([], [h.text("S")])],
-      0,
-      fn(i, p, n) { #(i, p, n) },
-    )
+    carousel.carousel_simple([h.div([], [h.text("S")])], 0, fn(i, p, n) {
+      #(i, p, n)
+    })
     |> element.to_string
   assert string.contains(html, "orientation=\"horizontal\"")
 }
@@ -153,11 +151,7 @@ pub fn combobox_empty_results_shows_no_results_test() {
 
 pub fn nav_menu_renders_nav_test() {
   let html =
-    navigation_menu.navigation_menu_simple(
-      [],
-      None,
-      fn(id) { id },
-    )
+    navigation_menu.navigation_menu_simple([], None, fn(id) { id })
     |> element.to_string
   assert string.contains(html, "<nav")
   assert string.contains(html, "nav-menu")
@@ -167,11 +161,7 @@ pub fn nav_menu_link_renders_test() {
   let html =
     navigation_menu.navigation_menu_simple(
       [
-        navigation_menu.NavMenuLink(
-          label: "Home",
-          href: "/home",
-          active: False,
-        ),
+        navigation_menu.NavMenuLink(label: "Home", href: "/home", active: False),
       ],
       None,
       fn(id) { id },

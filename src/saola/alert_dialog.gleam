@@ -4,9 +4,7 @@ import lustre/element/html as h
 import lustre/event as e
 
 pub type AlertDialogAttrs {
-  AlertDialogAttrs(
-    class: String,
-  )
+  AlertDialogAttrs(class: String)
 }
 
 pub const default_attrs = AlertDialogAttrs(class: "")
@@ -37,45 +35,34 @@ pub fn alert_dialog_full(
           a.attribute("aria-describedby", "alert-dialog-desc"),
         ],
         [
-          h.div(
-            [a.class("dialog"), extra_class],
-            [
-              h.div(
-                [a.class("dialog-header")],
+          h.div([a.class("dialog"), extra_class], [
+            h.div([a.class("dialog-header")], [
+              h.h2([a.class("dialog-title"), a.id("alert-dialog-title")], [
+                h.text(title),
+              ]),
+              h.p([a.class("dialog-description"), a.id("alert-dialog-desc")], [
+                h.text(description),
+              ]),
+            ]),
+            h.div([a.class("dialog-footer")], [
+              h.button(
                 [
-                  h.h2(
-                    [a.class("dialog-title"), a.id("alert-dialog-title")],
-                    [h.text(title)],
-                  ),
-                  h.p(
-                    [a.class("dialog-description"), a.id("alert-dialog-desc")],
-                    [h.text(description)],
-                  ),
+                  a.type_("button"),
+                  a.class("btn btn-outline"),
+                  e.on_click(on_cancel),
                 ],
+                [h.text(cancel_label)],
               ),
-              h.div(
-                [a.class("dialog-footer")],
+              h.button(
                 [
-                  h.button(
-                    [
-                      a.type_("button"),
-                      a.class("btn btn-outline"),
-                      e.on_click(on_cancel),
-                    ],
-                    [h.text(cancel_label)],
-                  ),
-                  h.button(
-                    [
-                      a.type_("button"),
-                      a.class("btn btn-primary"),
-                      e.on_click(on_confirm),
-                    ],
-                    [h.text(confirm_label)],
-                  ),
+                  a.type_("button"),
+                  a.class("btn btn-primary"),
+                  e.on_click(on_confirm),
                 ],
+                [h.text(confirm_label)],
               ),
-            ],
-          ),
+            ]),
+          ]),
         ],
       )
     }

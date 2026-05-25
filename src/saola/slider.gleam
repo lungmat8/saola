@@ -59,10 +59,13 @@ pub fn slider_full(
   let pct = fill_pct(raw_value, min, max)
   h.input([
     a.type_("range"),
-    a.class(class_input <> case class {
-      "" -> ""
-      c -> " " <> c
-    }),
+    a.class(
+      class_input
+      <> case class {
+        "" -> ""
+        c -> " " <> c
+      },
+    ),
     a.min(int.to_string(min)),
     a.max(int.to_string(max)),
     a.step(int.to_string(step)),
@@ -87,9 +90,6 @@ pub fn slider_full(
   ])
 }
 
-pub fn slider_simple(
-  value: Int,
-  on_input: fn(String) -> msg,
-) -> Element(msg) {
+pub fn slider_simple(value: Int, on_input: fn(String) -> msg) -> Element(msg) {
   slider_full(SyncValue(value), on_input: on_input, attrs: default_attrs)
 }

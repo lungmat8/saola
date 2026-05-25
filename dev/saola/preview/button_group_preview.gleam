@@ -14,18 +14,30 @@ pub fn view_button_groups() -> Element(Msg) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Horizontal (default)")]),
         button_group.button_group_simple([
-          h.button([a.type_("button"), a.class("btn btn-outline")], [text("Left")]),
-          h.button([a.type_("button"), a.class("btn btn-outline")], [text("Center")]),
-          h.button([a.type_("button"), a.class("btn btn-outline")], [text("Right")]),
+          h.button([a.type_("button"), a.class("btn btn-outline")], [
+            text("Left"),
+          ]),
+          h.button([a.type_("button"), a.class("btn btn-outline")], [
+            text("Center"),
+          ]),
+          h.button([a.type_("button"), a.class("btn btn-outline")], [
+            text("Right"),
+          ]),
         ]),
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Vertical")]),
         button_group.button_group_full(
           [
-            h.button([a.type_("button"), a.class("btn btn-outline")], [text("Top")]),
-            h.button([a.type_("button"), a.class("btn btn-outline")], [text("Middle")]),
-            h.button([a.type_("button"), a.class("btn btn-outline")], [text("Bottom")]),
+            h.button([a.type_("button"), a.class("btn btn-outline")], [
+              text("Top"),
+            ]),
+            h.button([a.type_("button"), a.class("btn btn-outline")], [
+              text("Middle"),
+            ]),
+            h.button([a.type_("button"), a.class("btn btn-outline")], [
+              text("Bottom"),
+            ]),
           ],
           button_group.ButtonGroupAttrs(
             orientation: button_group.Vertical,
@@ -36,8 +48,12 @@ pub fn view_button_groups() -> Element(Msg) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("With primary button")]),
         button_group.button_group_simple([
-          h.button([a.type_("button"), a.class("btn btn-outline")], [text("Cancel")]),
-          h.button([a.type_("button"), a.class("btn btn-primary")], [text("Save")]),
+          h.button([a.type_("button"), a.class("btn btn-outline")], [
+            text("Cancel"),
+          ]),
+          h.button([a.type_("button"), a.class("btn btn-primary")], [
+            text("Save"),
+          ]),
         ]),
       ]),
     ]),

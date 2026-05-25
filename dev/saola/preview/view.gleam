@@ -10,65 +10,65 @@ import saola/preview/avatar as avatar_preview
 import saola/preview/badge
 import saola/preview/breadcrumb_preview
 import saola/preview/button
+import saola/preview/button_group_preview
+import saola/preview/calendar_preview
+import saola/preview/canvas_stress_test
 import saola/preview/card
+import saola/preview/carousel_preview
 import saola/preview/chart_examples
 import saola/preview/collapsible_preview
+import saola/preview/combobox_preview
+import saola/preview/command_preview
+import saola/preview/context_menu_preview
+import saola/preview/data_table_preview
+import saola/preview/date_picker_preview
 import saola/preview/dialog
+import saola/preview/drawer_preview
 import saola/preview/dropdown_menu
+import saola/preview/empty_preview
 import saola/preview/field as field_preview
 import saola/preview/form_example
+import saola/preview/form_validation_preview
+import saola/preview/heatmap_comparison
 import saola/preview/hover_card_preview
 import saola/preview/input
+import saola/preview/input_group_preview
 import saola/preview/input_otp_preview
+import saola/preview/item_preview
 import saola/preview/menubar_preview
 import saola/preview/model.{type Model, type Msg}
+import saola/preview/multiselect_preview
+import saola/preview/native_select_preview
+import saola/preview/navigation_bar_preview
+import saola/preview/navigation_menu_preview
 import saola/preview/pagination_preview
 import saola/preview/popover_preview
 import saola/preview/progress as progress_preview
 import saola/preview/radio_group_preview
+import saola/preview/rating_preview
+import saola/preview/resizable_preview
 import saola/preview/scroll_area_preview
+import saola/preview/search_preview
 import saola/preview/select as select_preview
 import saola/preview/separator as separator_preview
 import saola/preview/sheet_preview
+import saola/preview/sidebar_preview
 import saola/preview/site_example
 import saola/preview/skeleton as skeleton_preview
 import saola/preview/slider as slider_preview
+import saola/preview/spinner_preview
+import saola/preview/stepper_preview
 import saola/preview/switch as switch_preview
 import saola/preview/table
 import saola/preview/tabs
+import saola/preview/threat_intel
+import saola/preview/time_picker_preview
+import saola/preview/timeline_preview
 import saola/preview/toast
-import saola/preview/button_group_preview
-import saola/preview/calendar_preview
-import saola/preview/context_menu_preview
-import saola/preview/date_picker_preview
-import saola/preview/command_preview
-import saola/preview/data_table_preview
-import saola/preview/drawer_preview
-import saola/preview/resizable_preview
-import saola/preview/sidebar_preview
-import saola/preview/input_group_preview
-import saola/preview/native_select_preview
-import saola/preview/spinner_preview
 import saola/preview/toggle_group_preview
 import saola/preview/toggle_preview
 import saola/preview/tooltip as tooltip_preview
-import saola/preview/carousel_preview
-import saola/preview/combobox_preview
-import saola/preview/navigation_menu_preview
-import saola/preview/empty_preview
-import saola/preview/form_validation_preview
-import saola/preview/item_preview
-import saola/preview/search_preview
-import saola/preview/rating_preview
-import saola/preview/navigation_bar_preview
-import saola/preview/stepper_preview
 import saola/preview/tree_view_preview
-import saola/preview/time_picker_preview
-import saola/preview/multiselect_preview
-import saola/preview/timeline_preview
-import saola/preview/canvas_stress_test
-import saola/preview/heatmap_comparison
-import saola/preview/threat_intel
 import saola/preview/widget_dashboard
 
 pub fn view_alerts() -> Element(Msg) {
@@ -136,7 +136,10 @@ pub fn view_tooltips() -> Element(Msg) {
 }
 
 pub fn view_switches(model: Model) -> Element(Msg) {
-  switch_preview.view_switches(model.switch_notifications, model.switch_marketing)
+  switch_preview.view_switches(
+    model.switch_notifications,
+    model.switch_marketing,
+  )
 }
 
 pub fn view_sliders(model: Model) -> Element(Msg) {

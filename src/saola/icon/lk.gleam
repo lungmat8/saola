@@ -22,7 +22,6 @@ pub fn kanban(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn kayak(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -50,7 +49,6 @@ pub fn kayak(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn key(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -77,7 +75,6 @@ pub fn key(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn key_round(attributes: List(Attribute(a))) {
   svg.svg(
@@ -109,7 +106,6 @@ pub fn key_round(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn key_square(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -140,7 +136,6 @@ pub fn key_square(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn keyboard(attributes: List(Attribute(a))) {
   svg.svg(
@@ -175,7 +170,6 @@ pub fn keyboard(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn keyboard_music(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -208,7 +202,6 @@ pub fn keyboard_music(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn keyboard_off(attributes: List(Attribute(a))) {
   svg.svg(

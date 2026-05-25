@@ -34,9 +34,10 @@ pub fn spinner_large_has_lg_class_test() {
 
 pub fn spinner_custom_class_test() {
   let html =
-    spinner.spinner_full(
-      spinner.SpinnerAttrs(size: spinner.Medium, class: "my-class"),
-    )
+    spinner.spinner_full(spinner.SpinnerAttrs(
+      size: spinner.Medium,
+      class: "my-class",
+    ))
     |> element.to_string
   assert string.contains(html, "my-class")
 }

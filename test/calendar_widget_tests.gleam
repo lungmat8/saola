@@ -56,7 +56,14 @@ pub fn today_returns_date_test() {
 
 pub fn calendar_simple_renders_test() {
   let html =
-    cal.calendar_simple(None, 2026, calendar.May, on_select, on_prev(), on_next())
+    cal.calendar_simple(
+      None,
+      2026,
+      calendar.May,
+      on_select,
+      on_prev(),
+      on_next(),
+    )
     |> element.to_string()
   let assert True = string.contains(html, "calendar")
   let assert True = string.contains(html, "May 2026")
@@ -91,7 +98,14 @@ pub fn calendar_nav_buttons_test() {
 pub fn calendar_selected_date_test() {
   let selected = Some(Date(2026, January, 15))
   let html =
-    cal.calendar_simple(selected, 2026, January, on_select, on_prev(), on_next())
+    cal.calendar_simple(
+      selected,
+      2026,
+      January,
+      on_select,
+      on_prev(),
+      on_next(),
+    )
     |> element.to_string()
   let assert True = string.contains(html, "calendar-day-selected")
   let assert True = string.contains(html, "aria-selected")

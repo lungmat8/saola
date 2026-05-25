@@ -103,54 +103,45 @@ pub fn combobox_full(
   let panel = case open {
     False -> element.none()
     True ->
-      h.div(
-        [a.class("combobox-panel"), a.attribute("role", "listbox")],
-        [
-          h.div([a.class("combobox-search")], [
-            h.input([
-              a.type_("text"),
-              a.class("combobox-search-input"),
-              a.value(query),
-              a.placeholder(attrs.search_placeholder),
-              a.attribute("aria-autocomplete", "list"),
-              e.on_input(on_query_change),
-            ]),
+      h.div([a.class("combobox-panel"), a.attribute("role", "listbox")], [
+        h.div([a.class("combobox-search")], [
+          h.input([
+            a.type_("text"),
+            a.class("combobox-search-input"),
+            a.value(query),
+            a.placeholder(attrs.search_placeholder),
+            a.attribute("aria-autocomplete", "list"),
+            e.on_input(on_query_change),
           ]),
-          h.div(
-            [a.class("combobox-options")],
-            case options {
-              [] -> [
-                h.div([a.class("combobox-empty")], [h.text("No results.")]),
-              ]
-              _ ->
-                list.map(options, fn(o) { render_option(o, selected, on_select) })
-            },
-          ),
-        ],
-      )
+        ]),
+        h.div([a.class("combobox-options")], case options {
+          [] -> [
+            h.div([a.class("combobox-empty")], [h.text("No results.")]),
+          ]
+          _ ->
+            list.map(options, fn(o) { render_option(o, selected, on_select) })
+        }),
+      ])
   }
-  h.div(
-    [a.class("combobox-wrapper"), extra_class],
-    [
-      h.button(
-        [
-          a.type_("button"),
-          a.class("combobox-trigger"),
-          a.attribute("role", "combobox"),
-          a.attribute("aria-expanded", case open {
-            True -> "true"
-            False -> "false"
-          }),
-          e.on_click(on_open_change(!open)),
-        ],
-        [
-          h.span([a.class("combobox-value")], [h.text(label)]),
-          lc.chevron_down([a.class("combobox-chevron")]),
-        ],
-      ),
-      panel,
-    ],
-  )
+  h.div([a.class("combobox-wrapper"), extra_class], [
+    h.button(
+      [
+        a.type_("button"),
+        a.class("combobox-trigger"),
+        a.attribute("role", "combobox"),
+        a.attribute("aria-expanded", case open {
+          True -> "true"
+          False -> "false"
+        }),
+        e.on_click(on_open_change(!open)),
+      ],
+      [
+        h.span([a.class("combobox-value")], [h.text(label)]),
+        lc.chevron_down([a.class("combobox-chevron")]),
+      ],
+    ),
+    panel,
+  ])
 }
 
 pub fn combobox_simple(

@@ -24,13 +24,13 @@ pub const default_attrs = NativeSelectAttrs(
   class: "",
 )
 
-fn render_option(opt: NativeSelectOption, current_value: String) -> Element(msg) {
+fn render_option(
+  opt: NativeSelectOption,
+  current_value: String,
+) -> Element(msg) {
   case opt {
     NativeSelectOption(value, label) ->
-      h.option(
-        [a.value(value), a.selected(value == current_value)],
-        label,
-      )
+      h.option([a.value(value), a.selected(value == current_value)], label)
     NativeSelectOptGroup(group_label, options) ->
       h.optgroup(
         [a.attribute("label", group_label)],
@@ -54,27 +54,23 @@ pub fn native_select_full(
     "" -> a.none()
     c -> a.class(c)
   }
-  h.div(
-    [a.class("native-select-wrapper"), extra_class],
-    [
-      h.select(
-        [
-          a.class(size_class),
-          a.name(name),
-          case attrs.disabled {
-            True -> a.disabled(True)
-            False -> a.none()
-          },
-          e.on_input(on_change),
-        ],
-        list.map(options, fn(o) { render_option(o, value) }),
-      ),
-      h.span(
-        [a.class("native-select-icon"), a.attribute("aria-hidden", "true")],
-        [h.text("▾")],
-      ),
-    ],
-  )
+  h.div([a.class("native-select-wrapper"), extra_class], [
+    h.select(
+      [
+        a.class(size_class),
+        a.name(name),
+        case attrs.disabled {
+          True -> a.disabled(True)
+          False -> a.none()
+        },
+        e.on_input(on_change),
+      ],
+      list.map(options, fn(o) { render_option(o, value) }),
+    ),
+    h.span([a.class("native-select-icon"), a.attribute("aria-hidden", "true")], [
+      h.text("▾"),
+    ]),
+  ])
 }
 
 pub fn native_select_simple(

@@ -23,49 +23,46 @@ import saola/toast
 import gleam/time/calendar
 import saola/data_table
 import saola/preview/model.{
-  type Model, type Msg, AccordionToggled, Accordions, AddToast, AlertDialogCancelled,
-  AlertDialogConfirmed, AlertDialogOpened, AlertDialogs, Alerts, AspectRatios, Avatars,
-  Badges, Breadcrumbs, ButtonGroups, Buttons, CalendarDateSelected, CalendarMonthChanged,
-  Calendars, Cards, CarouselChanged, Carousels, CloseDialog, CollapsibleToggled, Collapsibles, Empties, Items,
-  ComboboxOpenChanged, ComboboxQueryChanged, ComboboxSelected, Comboboxes, CommandNavDown,
-  CommandNavUp, CommandQueryChanged, CommandSelected, Commands, ContextMenuClosed,
-  ContextMenuOpened, ContextMenus, D3Charts, DataTableFilterChanged, DataTablePageChanged,
-  DataTableSelectChanged, DataTableSortChanged, DataTables, DatePickerDateSelected,
-  DatePickerMonthChanged, DatePickerOpenChanged, DatePickers, Dialogs, DismissToast,
-  DrawerClosed, DrawerOpened, Drawers, DropdownMenus, ExampleForm, ExampleSite, Fields,
-  FormEmailChanged, FormMessageChanged, FormNameChanged, FormSubmitted, Forms, Home,
-  HoverCardClosed, HoverCardOpened, HoverCards, InputGroups, InputOtpChanged, InputOtps,
-  Inputs, MenubarClosed, MenubarOpened, Menubars, Model, MonacoEditor, NavMenuOpenChanged,
-  NavigationMenus, NativeSelectChanged, NativeSelects, OnRouteChange, OpenDialog, Paginations,
-  PaginationChanged, PopoverClosed, Popovers, Progresses, RadioGroups, ResizableSizesChanged,
-  Resizables, ScrollAreas, SelectChanged, Selects, Separators, SheetClosed, SheetOpened,
-  Sheets, SidebarCollapsedToggled, SidebarToggled, Sidebars, Skeletons, SliderChanged,
-  Sliders, Spinners, StartedTrial, Switches, SwitchToggled, TabChanged, Tables, Tabs,
-  FormValidation, SignupConfirmChanged, SignupEmailChanged, SignupNameChanged,
-  SignupPasswordChanged, SignupReset, SignupSubmitted, SystemOsDarkChanged,
-  ThemeToggled, Toasts,
-  ToggleBoldChanged, ToggleDropdown, ToggleGroupChanged, ToggleGroups,
-  ToggleItalicChanged, Toggles, Tooltips,
-  Searches, Ratings, NavigationBars, Steppers, TreeViews, TimePickers,
-  Multiselects, Timelines, CanvasStressTest, WidgetDashboard,
-  SearchQueryChanged, RatingChanged, StepperStepClicked, TreeNodeToggled,
-  TimePickerChanged, MultiselectChanged,
-  StressOffsetChanged, StressZoomChanged, StressBarClicked,
-  DashSearchChanged, DashPageChanged, DashRowClicked, DashDrawerClosed,
-  HeatmapComparison, HeatmapSizeChanged, HeatmapCellPxChanged,
-  HeatmapSchemeChanged, HeatmapRandomize,
-  HeatmapSvgHovered, HeatmapSvgHoverLeft,
-  HeatmapCanvasHovered, HeatmapCanvasHoverLeft,
-  HeatmapSvgCellClicked, HeatmapCanvasCellClicked,
-  HeatmapPaintStarted, HeatmapPaintEnded,
-  HeatmapAnimTick,
-  ThreatIntelNetwork,
-  ThreatIntelRouteEntered, ThreatEntitySelected, ThreatEntityDeselected,
-  ThreatNodeHovered, ThreatSeverityFilterChanged, ThreatSearchChanged,
-  ThreatSearchCleared, ThreatGraphPanned, ThreatGraphZoomed,
-  ThreatTableSortChanged, ThreatTablePageChanged, ThreatTableRowSelected,
-  ThreatTimelineEntityChanged, ThreatLayoutReceived, ThreatFiltersCleared,
-  ThreatMapCountryClicked,
+  type Model, type Msg, AccordionToggled, Accordions, AddToast,
+  AlertDialogCancelled, AlertDialogConfirmed, AlertDialogOpened, AlertDialogs,
+  Alerts, AspectRatios, Avatars, Badges, Breadcrumbs, ButtonGroups, Buttons,
+  CalendarDateSelected, CalendarMonthChanged, Calendars, CanvasStressTest, Cards,
+  CarouselChanged, Carousels, CloseDialog, CollapsibleToggled, Collapsibles,
+  ComboboxOpenChanged, ComboboxQueryChanged, ComboboxSelected, Comboboxes,
+  CommandNavDown, CommandNavUp, CommandQueryChanged, CommandSelected, Commands,
+  ContextMenuClosed, ContextMenuOpened, ContextMenus, D3Charts, DashDrawerClosed,
+  DashPageChanged, DashRowClicked, DashSearchChanged, DataTableFilterChanged,
+  DataTablePageChanged, DataTableSelectChanged, DataTableSortChanged, DataTables,
+  DatePickerDateSelected, DatePickerMonthChanged, DatePickerOpenChanged,
+  DatePickers, Dialogs, DismissToast, DrawerClosed, DrawerOpened, Drawers,
+  DropdownMenus, Empties, ExampleForm, ExampleSite, Fields, FormEmailChanged,
+  FormMessageChanged, FormNameChanged, FormSubmitted, FormValidation, Forms,
+  HeatmapAnimTick, HeatmapCanvasCellClicked, HeatmapCanvasHoverLeft,
+  HeatmapCanvasHovered, HeatmapCellPxChanged, HeatmapComparison,
+  HeatmapPaintEnded, HeatmapPaintStarted, HeatmapRandomize, HeatmapSchemeChanged,
+  HeatmapSizeChanged, HeatmapSvgCellClicked, HeatmapSvgHoverLeft,
+  HeatmapSvgHovered, Home, HoverCardClosed, HoverCardOpened, HoverCards,
+  InputGroups, InputOtpChanged, InputOtps, Inputs, Items, MenubarClosed,
+  MenubarOpened, Menubars, Model, MonacoEditor, MultiselectChanged, Multiselects,
+  NativeSelectChanged, NativeSelects, NavMenuOpenChanged, NavigationBars,
+  NavigationMenus, OnRouteChange, OpenDialog, PaginationChanged, Paginations,
+  PopoverClosed, Popovers, Progresses, RadioGroups, RatingChanged, Ratings,
+  ResizableSizesChanged, Resizables, ScrollAreas, SearchQueryChanged, Searches,
+  SelectChanged, Selects, Separators, SheetClosed, SheetOpened, Sheets,
+  SidebarCollapsedToggled, SidebarToggled, Sidebars, SignupConfirmChanged,
+  SignupEmailChanged, SignupNameChanged, SignupPasswordChanged, SignupReset,
+  SignupSubmitted, Skeletons, SliderChanged, Sliders, Spinners, StartedTrial,
+  StepperStepClicked, Steppers, StressBarClicked, StressOffsetChanged,
+  StressZoomChanged, SwitchToggled, Switches, SystemOsDarkChanged, TabChanged,
+  Tables, Tabs, ThemeToggled, ThreatEntityDeselected, ThreatEntitySelected,
+  ThreatFiltersCleared, ThreatGraphPanned, ThreatGraphZoomed, ThreatIntelNetwork,
+  ThreatIntelRouteEntered, ThreatLayoutReceived, ThreatMapCountryClicked,
+  ThreatNodeHovered, ThreatSearchChanged, ThreatSearchCleared,
+  ThreatSeverityFilterChanged, ThreatTablePageChanged, ThreatTableRowSelected,
+  ThreatTableSortChanged, ThreatTimelineEntityChanged, TimePickerChanged,
+  TimePickers, Timelines, Toasts, ToggleBoldChanged, ToggleDropdown,
+  ToggleGroupChanged, ToggleGroups, ToggleItalicChanged, Toggles, Tooltips,
+  TreeNodeToggled, TreeViews, WidgetDashboard,
 }
 import saola/preview/view as views
 
@@ -294,10 +291,7 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       effect.none(),
     )
     DismissToast(id) -> #(
-      Model(
-        ..model,
-        toasts: list.filter(model.toasts, fn(t) { t.id != id }),
-      ),
+      Model(..model, toasts: list.filter(model.toasts, fn(t) { t.id != id })),
       effect.none(),
     )
     FormNameChanged(name) -> #(Model(..model, form_name: name), effect.none())
@@ -320,10 +314,7 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
           Model(..model, switch_notifications: value),
           effect.none(),
         )
-        "marketing" -> #(
-          Model(..model, switch_marketing: value),
-          effect.none(),
-        )
+        "marketing" -> #(Model(..model, switch_marketing: value), effect.none())
         _ -> #(model, effect.none())
       }
     SliderChanged(id, value) -> {
@@ -380,15 +371,9 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
     )
     SheetOpened -> #(Model(..model, sheet_open: True), effect.none())
     SheetClosed -> #(Model(..model, sheet_open: False), effect.none())
-    MenubarOpened(menu) -> #(
-      Model(..model, menubar_open: menu),
-      effect.none(),
-    )
+    MenubarOpened(menu) -> #(Model(..model, menubar_open: menu), effect.none())
     MenubarClosed -> #(Model(..model, menubar_open: ""), effect.none())
-    ToggleBoldChanged(val) -> #(
-      Model(..model, toggle_bold: val),
-      effect.none(),
-    )
+    ToggleBoldChanged(val) -> #(Model(..model, toggle_bold: val), effect.none())
     ToggleItalicChanged(val) -> #(
       Model(..model, toggle_italic: val),
       effect.none(),
@@ -402,19 +387,11 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       effect.none(),
     )
     DatePickerDateSelected(date) -> #(
-      Model(
-        ..model,
-        date_picker_selected: Some(date),
-        date_picker_open: False,
-      ),
+      Model(..model, date_picker_selected: Some(date), date_picker_open: False),
       effect.none(),
     )
     DatePickerMonthChanged(year, month) -> #(
-      Model(
-        ..model,
-        date_picker_view_year: year,
-        date_picker_view_month: month,
-      ),
+      Model(..model, date_picker_view_year: year, date_picker_view_month: month),
       effect.none(),
     )
     DatePickerOpenChanged(open) -> #(
@@ -426,7 +403,12 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       effect.none(),
     )
     ContextMenuOpened(x, y) -> #(
-      Model(..model, context_menu_open: True, context_menu_x: x, context_menu_y: y),
+      Model(
+        ..model,
+        context_menu_open: True,
+        context_menu_x: x,
+        context_menu_y: y,
+      ),
       effect.none(),
     )
     ContextMenuClosed -> #(
@@ -448,17 +430,11 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       effect.none(),
     )
     CommandNavUp -> #(
-      Model(
-        ..model,
-        command_highlighted: model.command_highlighted - 1,
-      ),
+      Model(..model, command_highlighted: model.command_highlighted - 1),
       effect.none(),
     )
     CommandNavDown -> #(
-      Model(
-        ..model,
-        command_highlighted: model.command_highlighted + 1,
-      ),
+      Model(..model, command_highlighted: model.command_highlighted + 1),
       effect.none(),
     )
     CommandSelected(_) -> #(
@@ -532,10 +508,14 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
     )
     SignupNameChanged(v) -> #(Model(..model, signup_name: v), effect.none())
     SignupEmailChanged(v) -> #(Model(..model, signup_email: v), effect.none())
-    SignupPasswordChanged(v) ->
-      #(Model(..model, signup_password: v), effect.none())
-    SignupConfirmChanged(v) ->
-      #(Model(..model, signup_confirm: v), effect.none())
+    SignupPasswordChanged(v) -> #(
+      Model(..model, signup_password: v),
+      effect.none(),
+    )
+    SignupConfirmChanged(v) -> #(
+      Model(..model, signup_confirm: v),
+      effect.none(),
+    )
     SignupReset -> #(
       Model(
         ..model,
@@ -548,10 +528,7 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       ),
       effect.none(),
     )
-    SearchQueryChanged(q) -> #(
-      Model(..model, search_query: q),
-      effect.none(),
-    )
+    SearchQueryChanged(q) -> #(Model(..model, search_query: q), effect.none())
     RatingChanged(v) -> #(Model(..model, rating_value: v), effect.none())
     StepperStepClicked(s) -> #(Model(..model, stepper_step: s), effect.none())
     TreeNodeToggled(id) -> {
@@ -578,13 +555,10 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       effect.none(),
     )
     StressBarClicked(info) -> #(
-      Model(
-        ..model,
-        stress_selected: case info {
-          "" -> None
-          s -> Some(s)
-        },
-      ),
+      Model(..model, stress_selected: case info {
+        "" -> None
+        s -> Some(s)
+      }),
       effect.none(),
     )
     DashSearchChanged(q) -> #(
@@ -634,9 +608,17 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
     HeatmapSvgHovered(mx, my) -> {
       let cell_px = int.to_float(model.heatmap_cell_px)
       let col =
-        int.clamp(float.truncate(mx /. cell_px), min: 0, max: model.heatmap_size - 1)
+        int.clamp(
+          float.truncate(mx /. cell_px),
+          min: 0,
+          max: model.heatmap_size - 1,
+        )
       let row =
-        int.clamp(float.truncate(my /. cell_px), min: 0, max: model.heatmap_size - 1)
+        int.clamp(
+          float.truncate(my /. cell_px),
+          min: 0,
+          max: model.heatmap_size - 1,
+        )
       let dv = lustre_heatmap.cell_display_value(row, col, model.heatmap_seed)
       let painted = case model.heatmap_painting {
         True -> heatmap_add_painted(model.heatmap_painted, row, col)
@@ -658,9 +640,17 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
     HeatmapCanvasHovered(mx, my) -> {
       let cell_px = int.to_float(model.heatmap_cell_px)
       let col =
-        int.clamp(float.truncate(mx /. cell_px), min: 0, max: model.heatmap_size - 1)
+        int.clamp(
+          float.truncate(mx /. cell_px),
+          min: 0,
+          max: model.heatmap_size - 1,
+        )
       let row =
-        int.clamp(float.truncate(my /. cell_px), min: 0, max: model.heatmap_size - 1)
+        int.clamp(
+          float.truncate(my /. cell_px),
+          min: 0,
+          max: model.heatmap_size - 1,
+        )
       let dv = lustre_heatmap.cell_display_value(row, col, model.heatmap_seed)
       let painted = case model.heatmap_painting {
         True -> heatmap_add_painted(model.heatmap_painted, row, col)
@@ -684,7 +674,11 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       #(
         Model(
           ..model,
-          heatmap_painted: heatmap_toggle_painted(model.heatmap_painted, row, col),
+          heatmap_painted: heatmap_toggle_painted(
+            model.heatmap_painted,
+            row,
+            col,
+          ),
           heatmap_ripple_count: count,
           heatmap_svg_ripple: Some(#(row, col, count)),
           heatmap_canvas_ripple: Some(#(row, col, count)),
@@ -697,7 +691,11 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       #(
         Model(
           ..model,
-          heatmap_painted: heatmap_toggle_painted(model.heatmap_painted, row, col),
+          heatmap_painted: heatmap_toggle_painted(
+            model.heatmap_painted,
+            row,
+            col,
+          ),
           heatmap_ripple_count: count,
           heatmap_svg_ripple: Some(#(row, col, count)),
           heatmap_canvas_ripple: Some(#(row, col, count)),
@@ -727,10 +725,7 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
         HeatmapComparison -> effect.from(heatmap_anim_tick_effect)
         _ -> effect.none()
       }
-      #(
-        Model(..model, heatmap_anim_time: new_time, heatmap_last_ts: ts),
-        eff,
-      )
+      #(Model(..model, heatmap_anim_time: new_time, heatmap_last_ts: ts), eff)
     }
     ThreatIntelRouteEntered -> {
       let nodes =
@@ -816,10 +811,7 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
     )
     ThreatGraphPanned(dx, dy) -> {
       let #(px, py) = model.threat_graph_pan
-      #(
-        Model(..model, threat_graph_pan: #(px +. dx, py +. dy)),
-        effect.none(),
-      )
+      #(Model(..model, threat_graph_pan: #(px +. dx, py +. dy)), effect.none())
     }
     ThreatGraphZoomed(delta) -> {
       let new_zoom =
@@ -922,11 +914,7 @@ fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
       }
       case f.new(schema) |> f.add_values(values) |> f.run {
         Ok(_) -> #(
-          Model(
-            ..model,
-            signup_success: True,
-            signup_errors: dict.new(),
-          ),
+          Model(..model, signup_success: True, signup_errors: dict.new()),
           effect.none(),
         )
         Error(failed_form) -> {
@@ -997,17 +985,23 @@ fn view(model: Model) -> Element(Msg) {
   ])
 }
 
-fn sidebar(current_route: model.Route, current_theme: theme.Theme) -> Element(Msg) {
+fn sidebar(
+  current_route: model.Route,
+  current_theme: theme.Theme,
+) -> Element(Msg) {
   h.div([a.class("sidebar")], [
     h.h2([a.class("sidebar-title")], [element.text("UI Showcase")]),
     h.div([a.class("theme-toggle")], [
       h.button(
         [
           a.type_("button"),
-          a.class("nav-link" <> case current_theme {
-            theme.Light -> " active"
-            _ -> ""
-          }),
+          a.class(
+            "nav-link"
+            <> case current_theme {
+              theme.Light -> " active"
+              _ -> ""
+            },
+          ),
           e.on_click(ThemeToggled(theme.Light)),
         ],
         [element.text("Light")],
@@ -1015,10 +1009,13 @@ fn sidebar(current_route: model.Route, current_theme: theme.Theme) -> Element(Ms
       h.button(
         [
           a.type_("button"),
-          a.class("nav-link" <> case current_theme {
-            theme.Dark -> " active"
-            _ -> ""
-          }),
+          a.class(
+            "nav-link"
+            <> case current_theme {
+              theme.Dark -> " active"
+              _ -> ""
+            },
+          ),
           e.on_click(ThemeToggled(theme.Dark)),
         ],
         [element.text("Dark")],
@@ -1026,10 +1023,13 @@ fn sidebar(current_route: model.Route, current_theme: theme.Theme) -> Element(Ms
       h.button(
         [
           a.type_("button"),
-          a.class("nav-link" <> case current_theme {
-            theme.System -> " active"
-            _ -> ""
-          }),
+          a.class(
+            "nav-link"
+            <> case current_theme {
+              theme.System -> " active"
+              _ -> ""
+            },
+          ),
           e.on_click(ThemeToggled(theme.System)),
         ],
         [element.text("System")],
@@ -1079,7 +1079,11 @@ fn sidebar(current_route: model.Route, current_theme: theme.Theme) -> Element(Ms
     nav_link("/data-tables", "Data Table", current_route == DataTables),
     nav_link("/carousels", "Carousel", current_route == Carousels),
     nav_link("/comboboxes", "Combobox", current_route == Comboboxes),
-    nav_link("/navigation-menus", "Navigation Menu", current_route == NavigationMenus),
+    nav_link(
+      "/navigation-menus",
+      "Navigation Menu",
+      current_route == NavigationMenus,
+    ),
     nav_link("/empties", "Empty", current_route == Empties),
     nav_link("/items", "Item", current_route == Items),
     nav_link(
@@ -1089,7 +1093,11 @@ fn sidebar(current_route: model.Route, current_theme: theme.Theme) -> Element(Ms
     ),
     nav_link("/searches", "Search", current_route == Searches),
     nav_link("/ratings", "Rating", current_route == Ratings),
-    nav_link("/navigation-bars", "Navigation Bar", current_route == NavigationBars),
+    nav_link(
+      "/navigation-bars",
+      "Navigation Bar",
+      current_route == NavigationBars,
+    ),
     nav_link("/steppers", "Stepper", current_route == Steppers),
     nav_link("/tree-views", "Tree View", current_route == TreeViews),
     nav_link("/time-pickers", "Time Picker", current_route == TimePickers),
@@ -1115,7 +1123,11 @@ fn sidebar(current_route: model.Route, current_theme: theme.Theme) -> Element(Ms
       "Threat Intel Network",
       current_route == ThreatIntelNetwork,
     ),
-    nav_link("/dropdown-menus", "Dropdown Menus", current_route == DropdownMenus),
+    nav_link(
+      "/dropdown-menus",
+      "Dropdown Menus",
+      current_route == DropdownMenus,
+    ),
     nav_link("/tabs", "Tabs", current_route == Tabs),
     nav_link("/dialogs", "Dialogs", current_route == Dialogs),
     nav_link("/tables", "Tables", current_route == Tables),
@@ -1132,10 +1144,7 @@ fn nav_link(path: String, label: String, is_active: Bool) -> Element(Msg) {
     True -> " active"
     False -> ""
   }
-  h.a(
-    [a.href(path), a.class("nav-link" <> active_class)],
-    [element.text(label)],
-  )
+  h.a([a.href(path), a.class("nav-link" <> active_class)], [element.text(label)])
 }
 
 fn main_pane(model: Model) -> Element(Msg) {

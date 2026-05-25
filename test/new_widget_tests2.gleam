@@ -221,9 +221,7 @@ pub fn collapsible_closed_has_aria_hidden_test() {
 
 pub fn collapsible_open_test() {
   let html =
-    collapsible.collapsible_simple(True, "Hide", h.text("content"), fn() {
-      Nil
-    })
+    collapsible.collapsible_simple(True, "Hide", h.text("content"), fn() { Nil })
     |> element.to_string
   assert string.contains(html, "aria-expanded=\"true\"")
   assert string.contains(html, "aria-hidden=\"false\"")
@@ -233,9 +231,12 @@ pub fn collapsible_open_test() {
 
 pub fn popover_closed_renders_no_content_test() {
   let html =
-    popover.popover_simple(False, h.button([], [h.text("Trigger")]), h.text("pop"), fn() {
-      Nil
-    })
+    popover.popover_simple(
+      False,
+      h.button([], [h.text("Trigger")]),
+      h.text("pop"),
+      fn() { Nil },
+    )
     |> element.to_string
   assert string.contains(html, "popover-wrapper")
   assert !string.contains(html, "role=\"dialog\"")
@@ -243,9 +244,12 @@ pub fn popover_closed_renders_no_content_test() {
 
 pub fn popover_open_renders_content_test() {
   let html =
-    popover.popover_simple(True, h.button([], [h.text("Trigger")]), h.p([], [h.text("popover content")]), fn() {
-      Nil
-    })
+    popover.popover_simple(
+      True,
+      h.button([], [h.text("Trigger")]),
+      h.p([], [h.text("popover content")]),
+      fn() { Nil },
+    )
     |> element.to_string
   assert string.contains(html, "role=\"dialog\"")
   assert string.contains(html, "popover content")
@@ -262,7 +266,13 @@ pub fn alert_dialog_closed_renders_empty_test() {
 
 pub fn alert_dialog_open_renders_content_test() {
   let html =
-    alert_dialog.alert_dialog_simple(True, "Delete?", "Cannot be undone.", Nil, Nil)
+    alert_dialog.alert_dialog_simple(
+      True,
+      "Delete?",
+      "Cannot be undone.",
+      Nil,
+      Nil,
+    )
     |> element.to_string
   assert string.contains(html, "role=\"alertdialog\"")
   assert string.contains(html, "aria-modal=\"true\"")
@@ -274,7 +284,11 @@ pub fn alert_dialog_open_renders_content_test() {
 
 pub fn hover_card_closed_renders_no_card_test() {
   let html =
-    hover_card.hover_card_simple(False, h.span([], [h.text("trigger")]), h.text("card"))
+    hover_card.hover_card_simple(
+      False,
+      h.span([], [h.text("trigger")]),
+      h.text("card"),
+    )
     |> element.to_string
   assert string.contains(html, "hover-card-wrapper")
   assert !string.contains(html, "role=\"tooltip\"")
@@ -282,7 +296,11 @@ pub fn hover_card_closed_renders_no_card_test() {
 
 pub fn hover_card_open_renders_card_test() {
   let html =
-    hover_card.hover_card_simple(True, h.span([], [h.text("trigger")]), h.p([], [h.text("card content")]))
+    hover_card.hover_card_simple(
+      True,
+      h.span([], [h.text("trigger")]),
+      h.p([], [h.text("card content")]),
+    )
     |> element.to_string
   assert string.contains(html, "role=\"tooltip\"")
   assert string.contains(html, "card content")

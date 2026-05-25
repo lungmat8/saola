@@ -43,24 +43,34 @@ fn checkbox_examples() -> List(Element(Msg)) {
 
 fn input_examples() -> List(Element(Msg)) {
   [
-    input.input_text("Enter text...", fn(_) { model.OnRouteChange(model.Inputs) }),
-    input.input_email("you@example.com", fn(_) { model.OnRouteChange(model.Inputs) }),
+    input.input_text("Enter text...", fn(_) {
+      model.OnRouteChange(model.Inputs)
+    }),
+    input.input_email("you@example.com", fn(_) {
+      model.OnRouteChange(model.Inputs)
+    }),
     input.input_password("Password", fn(_) { model.OnRouteChange(model.Inputs) }),
     input.input_full(
       input.Number,
       option.None,
       on_input: option.None,
-      extra_attrs: input.InputExtraAttrs("qty", "quantity", "0", False, False, ""),
+      extra_attrs: input.InputExtraAttrs(
+        "qty",
+        "quantity",
+        "0",
+        False,
+        False,
+        "",
+      ),
     ),
   ]
 }
 
 fn textarea_examples() -> List(Element(Msg)) {
   [
-    textarea.textarea_simple(
-      "Write something...",
-      fn(_) { model.OnRouteChange(model.Inputs) },
-    ),
+    textarea.textarea_simple("Write something...", fn(_) {
+      model.OnRouteChange(model.Inputs)
+    }),
     textarea.textarea_full(
       option.None,
       on_input: option.None,

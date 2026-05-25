@@ -30,7 +30,15 @@ pub type TextareaExtraAttrs {
   )
 }
 
-pub const default_extra_attrs = TextareaExtraAttrs("", "", "", None, False, False, "")
+pub const default_extra_attrs = TextareaExtraAttrs(
+  "",
+  "",
+  "",
+  None,
+  False,
+  False,
+  "",
+)
 
 /// Fully customizable textarea.
 ///
@@ -43,8 +51,15 @@ pub fn textarea_full(
   on_input on_input: Option(fn(String) -> msg),
   extra_attrs extra_attrs: TextareaExtraAttrs,
 ) -> Element(msg) {
-  let TextareaExtraAttrs(id:, name:, placeholder:, rows:, disabled:, required:, class:) =
-    extra_attrs
+  let TextareaExtraAttrs(
+    id:,
+    name:,
+    placeholder:,
+    rows:,
+    disabled:,
+    required:,
+    class:,
+  ) = extra_attrs
   let content = case value {
     None -> ""
     Some(InitValue(v)) -> v

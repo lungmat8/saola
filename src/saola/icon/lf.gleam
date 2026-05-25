@@ -28,7 +28,6 @@ pub fn factory(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn fan(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -53,7 +52,6 @@ pub fn fan(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn fast_forward(attributes: List(Attribute(a))) {
   svg.svg(
@@ -85,7 +83,6 @@ pub fn fast_forward(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn feather(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -112,7 +109,6 @@ pub fn feather(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn fence(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -137,7 +133,6 @@ pub fn fence(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn ferris_wheel(attributes: List(Attribute(a))) {
   svg.svg(
@@ -170,7 +165,6 @@ pub fn ferris_wheel(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -195,7 +189,6 @@ pub fn file(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_archive(attributes: List(Attribute(a))) {
   svg.svg(
@@ -230,7 +223,6 @@ pub fn file_archive(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_axis_3d(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -257,7 +249,6 @@ pub fn file_axis_3d(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_badge(attributes: List(Attribute(a))) {
   svg.svg(
@@ -295,7 +286,6 @@ pub fn file_badge(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_box(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -328,7 +318,6 @@ pub fn file_box(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_braces(attributes: List(Attribute(a))) {
   svg.svg(
@@ -367,7 +356,6 @@ pub fn file_braces(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_braces_corner(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -405,7 +393,6 @@ pub fn file_braces_corner(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_chart_column(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -433,7 +420,6 @@ pub fn file_chart_column(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_chart_column_increasing(attributes: List(Attribute(a))) {
   svg.svg(
@@ -463,7 +449,6 @@ pub fn file_chart_column_increasing(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_chart_line(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -489,7 +474,6 @@ pub fn file_chart_line(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_chart_pie(attributes: List(Attribute(a))) {
   svg.svg(
@@ -523,7 +507,6 @@ pub fn file_chart_pie(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_check(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -550,7 +533,6 @@ pub fn file_check(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_check_corner(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -576,7 +558,6 @@ pub fn file_check_corner(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_clock(attributes: List(Attribute(a))) {
   svg.svg(
@@ -609,7 +590,6 @@ pub fn file_clock(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_code(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -637,7 +617,6 @@ pub fn file_code(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_code_corner(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -664,7 +643,6 @@ pub fn file_code_corner(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_cog(attributes: List(Attribute(a))) {
   svg.svg(
@@ -705,7 +683,6 @@ pub fn file_cog(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_diff(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -732,7 +709,6 @@ pub fn file_diff(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_digit(attributes: List(Attribute(a))) {
   svg.svg(
@@ -768,7 +744,6 @@ pub fn file_digit(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_down(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -796,7 +771,6 @@ pub fn file_down(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_exclamation_point(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -822,7 +796,6 @@ pub fn file_exclamation_point(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_headphone(attributes: List(Attribute(a))) {
   svg.svg(
@@ -855,7 +828,6 @@ pub fn file_headphone(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_heart(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -886,7 +858,6 @@ pub fn file_heart(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_image(attributes: List(Attribute(a))) {
   svg.svg(
@@ -921,7 +892,6 @@ pub fn file_image(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_input(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -948,7 +918,6 @@ pub fn file_input(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_key(attributes: List(Attribute(a))) {
   svg.svg(
@@ -981,7 +950,6 @@ pub fn file_key(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_lock(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1016,7 +984,6 @@ pub fn file_lock(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_minus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1043,7 +1010,6 @@ pub fn file_minus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_minus_corner(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1069,7 +1035,6 @@ pub fn file_minus_corner(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_music(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1102,7 +1067,6 @@ pub fn file_music(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_output(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1129,7 +1093,6 @@ pub fn file_output(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_pen(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1161,7 +1124,6 @@ pub fn file_pen(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_pen_line(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1195,7 +1157,6 @@ pub fn file_pen_line(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_play(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1227,7 +1188,6 @@ pub fn file_play(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1254,7 +1214,6 @@ pub fn file_plus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_plus_corner(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1283,7 +1242,6 @@ pub fn file_plus_corner(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_question_mark(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1309,7 +1267,6 @@ pub fn file_question_mark(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_scan(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1339,7 +1296,6 @@ pub fn file_scan(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_search(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1372,7 +1328,6 @@ pub fn file_search(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_search_corner(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1404,7 +1359,6 @@ pub fn file_search_corner(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_signal(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1432,7 +1386,6 @@ pub fn file_signal(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_sliders(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1463,7 +1416,6 @@ pub fn file_sliders(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_spreadsheet(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1492,7 +1444,6 @@ pub fn file_spreadsheet(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_stack(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1524,7 +1475,6 @@ pub fn file_stack(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_symlink(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1550,7 +1500,6 @@ pub fn file_symlink(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_terminal(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1579,7 +1528,6 @@ pub fn file_terminal(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_text(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1607,7 +1555,6 @@ pub fn file_text(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_type(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1639,7 +1586,6 @@ pub fn file_type(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_type_corner(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1670,7 +1616,6 @@ pub fn file_type_corner(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_up(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1697,7 +1642,6 @@ pub fn file_up(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_user(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1729,7 +1673,6 @@ pub fn file_user(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn file_video_camera(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1769,7 +1712,6 @@ pub fn file_video_camera(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_volume(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1802,7 +1744,6 @@ pub fn file_volume(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_x(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1830,7 +1771,6 @@ pub fn file_x(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn file_x_corner(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1857,7 +1797,6 @@ pub fn file_x_corner(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn files(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1888,7 +1827,6 @@ pub fn files(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn film(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1922,7 +1860,6 @@ pub fn film(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn fingerprint_pattern(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1950,7 +1887,6 @@ pub fn fingerprint_pattern(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn fire_extinguisher(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1976,7 +1912,6 @@ pub fn fire_extinguisher(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn fish(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2022,7 +1957,6 @@ pub fn fish(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn fish_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2059,7 +1993,6 @@ pub fn fish_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn fish_symbol(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2076,7 +2009,6 @@ pub fn fish_symbol(attributes: List(Attribute(a))) {
     [svg.path([a("d", "M2 16s9-15 20-4C11 23 2 8 2 8")])],
   )
 }
-
 
 pub fn fishing_hook(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2108,7 +2040,6 @@ pub fn fishing_hook(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn fishing_rod(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2136,7 +2067,6 @@ pub fn fishing_rod(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn flag(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2160,7 +2090,6 @@ pub fn flag(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn flag_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2186,7 +2115,6 @@ pub fn flag_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn flag_triangle_left(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2210,7 +2138,6 @@ pub fn flag_triangle_left(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn flag_triangle_right(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2236,7 +2163,6 @@ pub fn flag_triangle_right(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn flame(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2260,7 +2186,6 @@ pub fn flame(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn flame_kindling(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2288,7 +2213,6 @@ pub fn flame_kindling(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn flashlight(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2314,7 +2238,6 @@ pub fn flashlight(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn flashlight_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2349,7 +2272,6 @@ pub fn flashlight_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn flask_conical(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2375,7 +2297,6 @@ pub fn flask_conical(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn flask_conical_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2403,7 +2324,6 @@ pub fn flask_conical_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn flask_round(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2424,7 +2344,6 @@ pub fn flask_round(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn flip_horizontal_2(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2450,7 +2369,6 @@ pub fn flip_horizontal_2(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn flip_vertical_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2474,7 +2392,6 @@ pub fn flip_vertical_2(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn flower(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2513,7 +2430,6 @@ pub fn flower(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn flower_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2546,7 +2462,6 @@ pub fn flower_2(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn focus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2574,7 +2489,6 @@ pub fn focus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn fold_horizontal(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2600,7 +2514,6 @@ pub fn fold_horizontal(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn fold_vertical(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2628,7 +2541,6 @@ pub fn fold_vertical(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2652,7 +2564,6 @@ pub fn folder(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_archive(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2685,7 +2596,6 @@ pub fn folder_archive(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_check(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2710,7 +2620,6 @@ pub fn folder_check(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_clock(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2742,7 +2651,6 @@ pub fn folder_clock(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_closed(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2767,7 +2675,6 @@ pub fn folder_closed(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_code(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2794,7 +2701,6 @@ pub fn folder_code(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_cog(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2833,7 +2739,6 @@ pub fn folder_cog(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_dot(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2863,7 +2768,6 @@ pub fn folder_dot(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_down(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2889,7 +2793,6 @@ pub fn folder_down(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_git(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2921,7 +2824,6 @@ pub fn folder_git(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_git_2(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2958,7 +2860,6 @@ pub fn folder_git_2(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_heart(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2989,7 +2890,6 @@ pub fn folder_heart(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_input(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3015,7 +2915,6 @@ pub fn folder_input(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_kanban(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3043,7 +2942,6 @@ pub fn folder_kanban(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_key(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3075,7 +2973,6 @@ pub fn folder_key(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_lock(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3109,7 +3006,6 @@ pub fn folder_lock(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_minus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3135,7 +3031,6 @@ pub fn folder_minus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_open(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3159,7 +3054,6 @@ pub fn folder_open(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_open_dot(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3190,7 +3084,6 @@ pub fn folder_open_dot(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_output(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3216,7 +3109,6 @@ pub fn folder_output(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_pen(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3248,7 +3140,6 @@ pub fn folder_pen(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3274,7 +3165,6 @@ pub fn folder_plus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_root(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3306,7 +3196,6 @@ pub fn folder_root(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_search(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3336,7 +3225,6 @@ pub fn folder_search(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_search_2(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3368,7 +3256,6 @@ pub fn folder_search_2(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_symlink(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3393,7 +3280,6 @@ pub fn folder_symlink(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_sync(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3422,7 +3308,6 @@ pub fn folder_sync(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folder_tree(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3456,7 +3341,6 @@ pub fn folder_tree(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_up(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3483,7 +3367,6 @@ pub fn folder_up(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn folder_x(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3509,7 +3392,6 @@ pub fn folder_x(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn folders(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3540,7 +3422,6 @@ pub fn folders(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn footprints(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3573,7 +3454,6 @@ pub fn footprints(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn forklift(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3613,7 +3493,6 @@ pub fn forklift(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn form(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3648,7 +3527,6 @@ pub fn form(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn forward(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3668,7 +3546,6 @@ pub fn forward(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn frame(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3712,7 +3589,6 @@ pub fn frame(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn frown(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3749,7 +3625,6 @@ pub fn frown(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn fuel(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3776,7 +3651,6 @@ pub fn fuel(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn fullscreen(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3807,7 +3681,6 @@ pub fn fullscreen(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn funnel(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3831,7 +3704,6 @@ pub fn funnel(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn funnel_plus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3858,7 +3730,6 @@ pub fn funnel_plus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn funnel_x(attributes: List(Attribute(a))) {
   svg.svg(

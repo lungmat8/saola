@@ -14,9 +14,15 @@ pub fn view_input_otps(model: Model) -> Element(Msg) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("6-digit OTP")]),
         input_otp.input_otp_simple(model.input_otp_value, InputOtpChanged),
-        h.p([a.style("font-size", "0.875rem"), a.style("color", "var(--color-muted-foreground, #6c757d)")], [
-          text("Value: " <> model.input_otp_value),
-        ]),
+        h.p(
+          [
+            a.style("font-size", "0.875rem"),
+            a.style("color", "var(--color-muted-foreground, #6c757d)"),
+          ],
+          [
+            text("Value: " <> model.input_otp_value),
+          ],
+        ),
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("4-digit PIN")]),

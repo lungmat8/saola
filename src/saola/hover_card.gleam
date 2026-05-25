@@ -10,16 +10,10 @@ pub type HoverCardSide {
 }
 
 pub type HoverCardAttrs {
-  HoverCardAttrs(
-    side: HoverCardSide,
-    class: String,
-  )
+  HoverCardAttrs(side: HoverCardSide, class: String)
 }
 
-pub const default_attrs = HoverCardAttrs(
-  side: Bottom,
-  class: "",
-)
+pub const default_attrs = HoverCardAttrs(side: Bottom, class: "")
 
 /// Render a hover card — trigger + floating content visible on hover.
 /// Since Lustre manages state externally, `open` controls visibility.
@@ -40,24 +34,21 @@ pub fn hover_card_full(
     "" -> a.none()
     c -> a.class(c)
   }
-  h.div(
-    [a.class("hover-card-wrapper"), extra_class],
-    [
-      trigger,
-      case open {
-        False -> h.text("")
-        True ->
-          h.div(
-            [
-              a.class("hover-card"),
-              side_attr,
-              a.role("tooltip"),
-            ],
-            [content],
-          )
-      },
-    ],
-  )
+  h.div([a.class("hover-card-wrapper"), extra_class], [
+    trigger,
+    case open {
+      False -> h.text("")
+      True ->
+        h.div(
+          [
+            a.class("hover-card"),
+            side_attr,
+            a.role("tooltip"),
+          ],
+          [content],
+        )
+    },
+  ])
 }
 
 pub fn hover_card_simple(

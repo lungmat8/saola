@@ -7,51 +7,36 @@ import saola/tree_view
 
 pub fn view_tree_views(model: Model) -> Element(Msg) {
   let items = [
-    tree_view.TreeItem(
-      id: "src",
-      label: "src",
-      icon: None,
-      children: [
+    tree_view.TreeItem(id: "src", label: "src", icon: None, children: [
+      tree_view.TreeItem(id: "src-saola", label: "saola", icon: None, children: [
         tree_view.TreeItem(
-          id: "src-saola",
-          label: "saola",
-          icon: None,
-          children: [
-            tree_view.TreeItem(
-              id: "button-gleam",
-              label: "button.gleam",
-              icon: None,
-              children: [],
-            ),
-            tree_view.TreeItem(
-              id: "input-gleam",
-              label: "input.gleam",
-              icon: None,
-              children: [],
-            ),
-          ],
-        ),
-        tree_view.TreeItem(
-          id: "main-gleam",
-          label: "main.gleam",
+          id: "button-gleam",
+          label: "button.gleam",
           icon: None,
           children: [],
         ),
-      ],
-    ),
-    tree_view.TreeItem(
-      id: "test",
-      label: "test",
-      icon: None,
-      children: [
         tree_view.TreeItem(
-          id: "widget-tests",
-          label: "widget_tests.gleam",
+          id: "input-gleam",
+          label: "input.gleam",
           icon: None,
           children: [],
         ),
-      ],
-    ),
+      ]),
+      tree_view.TreeItem(
+        id: "main-gleam",
+        label: "main.gleam",
+        icon: None,
+        children: [],
+      ),
+    ]),
+    tree_view.TreeItem(id: "test", label: "test", icon: None, children: [
+      tree_view.TreeItem(
+        id: "widget-tests",
+        label: "widget_tests.gleam",
+        icon: None,
+        children: [],
+      ),
+    ]),
     tree_view.TreeItem(
       id: "gleam-toml",
       label: "gleam.toml",
@@ -71,7 +56,11 @@ pub fn view_tree_views(model: Model) -> Element(Msg) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("File tree")]),
         h.div([a.class("max-w-xs border rounded-md p-2")], [
-          tree_view.tree_view_simple(items, model.tree_open_ids, TreeNodeToggled),
+          tree_view.tree_view_simple(
+            items,
+            model.tree_open_ids,
+            TreeNodeToggled,
+          ),
         ]),
       ]),
       h.div([a.class("grid gap-4")], [

@@ -43,11 +43,7 @@ pub type DataTableColumn(row, msg) {
 }
 
 pub type DataTableAttrs {
-  DataTableAttrs(
-    show_filter: Bool,
-    show_pagination: Bool,
-    class: String,
-  )
+  DataTableAttrs(show_filter: Bool, show_pagination: Bool, class: String)
 }
 
 pub const default_attrs = DataTableAttrs(
@@ -61,13 +57,10 @@ pub const default_attrs = DataTableAttrs(
 pub fn toggle_sort(state: DataTableState, key: String) -> DataTableState {
   case state.sort_by {
     Some(k) if k == key ->
-      DataTableState(
-        ..state,
-        sort_dir: case state.sort_dir {
-          Asc -> Desc
-          Desc -> Asc
-        },
-      )
+      DataTableState(..state, sort_dir: case state.sort_dir {
+        Asc -> Desc
+        Desc -> Asc
+      })
     _ -> DataTableState(..state, sort_by: Some(key), sort_dir: Asc)
   }
 }
@@ -140,15 +133,12 @@ fn render_header_row(
   h.tr(
     [],
     list.map(columns, fn(col) {
-      h.th(
-        [a.class("data-table-th")],
-        [
-          case col.sort_key {
-            None -> h.text(col.header)
-            Some(key) -> render_sort_btn(col.header, key, state, on_sort)
-          },
-        ],
-      )
+      h.th([a.class("data-table-th")], [
+        case col.sort_key {
+          None -> h.text(col.header)
+          Some(key) -> render_sort_btn(col.header, key, state, on_sort)
+        },
+      ])
     }),
   )
 }
@@ -171,7 +161,9 @@ fn render_data_row(
   }
   h.tr(
     [a.class(row_class), e.on_click(on_select(new_selected))],
-    list.map(columns, fn(col) { h.td([a.class("data-table-td")], [col.cell(row)]) }),
+    list.map(columns, fn(col) {
+      h.td([a.class("data-table-td")], [col.cell(row)])
+    }),
   )
 }
 
@@ -179,18 +171,15 @@ fn render_toolbar(
   filter: String,
   on_filter: fn(String) -> msg,
 ) -> Element(msg) {
-  h.div(
-    [a.class("data-table-toolbar")],
-    [
-      h.input([
-        a.type_("text"),
-        a.class("input data-table-filter"),
-        a.placeholder("Filter..."),
-        a.value(filter),
-        e.on_input(on_filter),
-      ]),
-    ],
-  )
+  h.div([a.class("data-table-toolbar")], [
+    h.input([
+      a.type_("text"),
+      a.class("input data-table-filter"),
+      a.placeholder("Filter..."),
+      a.value(filter),
+      e.on_input(on_filter),
+    ]),
+  ])
 }
 
 fn render_footer(
@@ -208,13 +197,10 @@ fn render_footer(
     <> int.to_string(end_row)
     <> " of "
     <> int.to_string(total_rows)
-  h.div(
-    [a.class("data-table-footer")],
-    [
-      h.span([a.class("data-table-row-count")], [h.text(count_text)]),
-      pagination.pagination_simple(state.page, pages, on_page),
-    ],
-  )
+  h.div([a.class("data-table-footer")], [
+    h.span([a.class("data-table-row-count")], [h.text(count_text)]),
+    pagination.pagination_simple(state.page, pages, on_page),
+  ])
 }
 
 // ── Public API ────────────────────────────────────────────────────────────────
@@ -242,78 +228,62 @@ pub fn data_table_full(
       |> list.drop({ state.page - 1 } * state.page_size)
       |> list.take(state.page_size)
   }
-  h.div(
-    [a.class("data-table-root"), extra_class],
-    [
-      case attrs.show_filter {
-        False -> h.text("")
-        True -> render_toolbar(state.filter, on_filter)
-      },
-      h.div(
-        [a.class("data-table-container")],
-        [
-          h.table(
-            [a.class("table data-table")],
-            [
-              h.thead([], [render_header_row(columns, state, on_sort)]),
-              h.tbody(
-                [],
-                list.map(paged_rows, fn(row) {
-                  render_data_row(row, row_id(row), columns, state.selected, on_select)
-                }),
-              ),
-            ],
-          ),
-        ],
-      ),
-      case attrs.show_pagination {
-        False -> h.text("")
-        True -> render_footer(total, state, on_page)
-      },
-    ],
-  )
+  h.div([a.class("data-table-root"), extra_class], [
+    case attrs.show_filter {
+      False -> h.text("")
+      True -> render_toolbar(state.filter, on_filter)
+    },
+    h.div([a.class("data-table-container")], [
+      h.table([a.class("table data-table")], [
+        h.thead([], [render_header_row(columns, state, on_sort)]),
+        h.tbody(
+          [],
+          list.map(paged_rows, fn(row) {
+            render_data_row(
+              row,
+              row_id(row),
+              columns,
+              state.selected,
+              on_select,
+            )
+          }),
+        ),
+      ]),
+    ]),
+    case attrs.show_pagination {
+      False -> h.text("")
+      True -> render_footer(total, state, on_page)
+    },
+  ])
 }
 
 pub fn data_table_simple(
   columns: List(DataTableColumn(row, msg)),
   rows: List(row),
 ) -> Element(msg) {
-  h.div(
-    [a.class("data-table-root")],
-    [
-      h.div(
-        [a.class("data-table-container")],
-        [
-          h.table(
-            [a.class("table data-table")],
-            [
-              h.thead(
-                [],
-                [
-                  h.tr(
-                    [],
-                    list.map(columns, fn(col) {
-                      h.th([a.class("data-table-th")], [h.text(col.header)])
-                    }),
-                  ),
-                ],
-              ),
-              h.tbody(
-                [],
-                list.map(rows, fn(row) {
-                  h.tr(
-                    [a.class("data-table-row")],
-                    list.map(columns, fn(col) {
-                      h.td([a.class("data-table-td")], [col.cell(row)])
-                    }),
-                  )
-                }),
-              ),
-            ],
+  h.div([a.class("data-table-root")], [
+    h.div([a.class("data-table-container")], [
+      h.table([a.class("table data-table")], [
+        h.thead([], [
+          h.tr(
+            [],
+            list.map(columns, fn(col) {
+              h.th([a.class("data-table-th")], [h.text(col.header)])
+            }),
           ),
-        ],
-      ),
-    ],
-  )
+        ]),
+        h.tbody(
+          [],
+          list.map(rows, fn(row) {
+            h.tr(
+              [a.class("data-table-row")],
+              list.map(columns, fn(col) {
+                h.td([a.class("data-table-td")], [col.cell(row)])
+              }),
+            )
+          }),
+        ),
+      ]),
+    ]),
+  ])
 }
-

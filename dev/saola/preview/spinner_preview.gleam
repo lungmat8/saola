@@ -14,9 +14,18 @@ pub fn view_spinners() -> Element(Msg) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Sizes")]),
         h.div([a.class("flex items-center gap-4")], [
-          spinner.spinner_full(spinner.SpinnerAttrs(size: spinner.Small, class: "")),
-          spinner.spinner_full(spinner.SpinnerAttrs(size: spinner.Medium, class: "")),
-          spinner.spinner_full(spinner.SpinnerAttrs(size: spinner.Large, class: "")),
+          spinner.spinner_full(spinner.SpinnerAttrs(
+            size: spinner.Small,
+            class: "",
+          )),
+          spinner.spinner_full(spinner.SpinnerAttrs(
+            size: spinner.Medium,
+            class: "",
+          )),
+          spinner.spinner_full(spinner.SpinnerAttrs(
+            size: spinner.Large,
+            class: "",
+          )),
         ]),
       ]),
       h.div([a.class("grid gap-4")], [

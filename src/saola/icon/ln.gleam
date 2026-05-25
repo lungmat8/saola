@@ -18,7 +18,6 @@ pub fn navigation(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn navigation_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -35,7 +34,6 @@ pub fn navigation_2(attributes: List(Attribute(a))) {
     [svg.polygon([a("points", "12 2 19 21 12 17 5 21 12 2")])],
   )
 }
-
 
 pub fn navigation_2_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -63,7 +61,6 @@ pub fn navigation_2_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn navigation_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -89,7 +86,6 @@ pub fn navigation_off(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn network(attributes: List(Attribute(a))) {
   svg.svg(
@@ -132,7 +128,6 @@ pub fn network(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn newspaper(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -166,7 +161,6 @@ pub fn newspaper(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn nfc(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -188,7 +182,6 @@ pub fn nfc(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn non_binary(attributes: List(Attribute(a))) {
   svg.svg(
@@ -215,7 +208,6 @@ pub fn non_binary(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn notebook(attributes: List(Attribute(a))) {
   svg.svg(
@@ -247,7 +239,6 @@ pub fn notebook(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn notebook_pen(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -278,7 +269,6 @@ pub fn notebook_pen(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn notebook_tabs(attributes: List(Attribute(a))) {
   svg.svg(
@@ -313,7 +303,6 @@ pub fn notebook_tabs(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn notebook_text(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -346,7 +335,6 @@ pub fn notebook_text(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn notepad_text(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -377,7 +365,6 @@ pub fn notepad_text(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn notepad_text_dashed(attributes: List(Attribute(a))) {
   svg.svg(
@@ -410,7 +397,6 @@ pub fn notepad_text_dashed(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn nut(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -441,7 +427,6 @@ pub fn nut(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn nut_off(attributes: List(Attribute(a))) {
   svg.svg(

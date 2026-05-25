@@ -54,7 +54,10 @@ pub fn table_simple(
     c -> h.caption([], [h.text(c)])
   }
   let header_row =
-    h.tr([], headers |> list.map(fn(h_) { h.th([a.scope("col")], [h.text(h_)]) }))
+    h.tr(
+      [],
+      headers |> list.map(fn(h_) { h.th([a.scope("col")], [h.text(h_)]) }),
+    )
   let extra_class = case class {
     "" -> a.none()
     c -> a.class(c)
@@ -69,10 +72,7 @@ pub fn table_simple(
 }
 
 /// Render a simple string-only table.
-pub fn table(
-  headers: List(String),
-  rows: List(List(String)),
-) -> Element(msg) {
+pub fn table(headers: List(String), rows: List(List(String))) -> Element(msg) {
   table_simple(
     headers: headers,
     rows: rows |> list.map(fn(cells) { TableRow(cells |> list.map(TextCell)) }),

@@ -26,7 +26,6 @@ pub fn wallet(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn wallet_cards(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -59,7 +58,6 @@ pub fn wallet_cards(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn wallet_minimal(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -84,7 +82,6 @@ pub fn wallet_minimal(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn wallpaper(attributes: List(Attribute(a))) {
   svg.svg(
@@ -119,7 +116,6 @@ pub fn wallpaper(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn wand(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -146,7 +142,6 @@ pub fn wand(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn wand_sparkles(attributes: List(Attribute(a))) {
   svg.svg(
@@ -179,7 +174,6 @@ pub fn wand_sparkles(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn warehouse(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -206,7 +200,6 @@ pub fn warehouse(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn washing_machine(attributes: List(Attribute(a))) {
   svg.svg(
@@ -240,7 +233,6 @@ pub fn washing_machine(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn watch(attributes: List(Attribute(a))) {
   svg.svg(
@@ -278,7 +270,6 @@ pub fn watch(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn waves(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -315,7 +306,6 @@ pub fn waves(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn waves_arrow_down(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -347,7 +337,6 @@ pub fn waves_arrow_down(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn waves_arrow_up(attributes: List(Attribute(a))) {
   svg.svg(
@@ -381,7 +370,6 @@ pub fn waves_arrow_up(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn waves_ladder(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -409,7 +397,6 @@ pub fn waves_ladder(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn waypoints(attributes: List(Attribute(a))) {
   svg.svg(
@@ -452,7 +439,6 @@ pub fn waypoints(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn webcam(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -482,7 +468,6 @@ pub fn webcam(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn webhook(attributes: List(Attribute(a))) {
   svg.svg(
@@ -514,7 +499,6 @@ pub fn webhook(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn webhook_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -541,7 +525,6 @@ pub fn webhook_off(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn weight(attributes: List(Attribute(a))) {
   svg.svg(
@@ -572,7 +555,6 @@ pub fn weight(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn weight_tilde(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -602,7 +584,6 @@ pub fn weight_tilde(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn wheat(attributes: List(Attribute(a))) {
   svg.svg(
@@ -659,7 +640,6 @@ pub fn wheat(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn wheat_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -724,7 +704,6 @@ pub fn wheat_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn whole_word(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -756,7 +735,6 @@ pub fn whole_word(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn wifi(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -778,7 +756,6 @@ pub fn wifi(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn wifi_cog(attributes: List(Attribute(a))) {
   svg.svg(
@@ -814,7 +791,6 @@ pub fn wifi_cog(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn wifi_high(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -836,7 +812,6 @@ pub fn wifi_high(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn wifi_low(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -856,7 +831,6 @@ pub fn wifi_low(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn wifi_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -882,7 +856,6 @@ pub fn wifi_off(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn wifi_pen(attributes: List(Attribute(a))) {
   svg.svg(
@@ -911,7 +884,6 @@ pub fn wifi_pen(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn wifi_sync(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -937,7 +909,6 @@ pub fn wifi_sync(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn wifi_zero(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -954,7 +925,6 @@ pub fn wifi_zero(attributes: List(Attribute(a))) {
     [svg.path([a("d", "M12 20h.01")])],
   )
 }
-
 
 pub fn wind(attributes: List(Attribute(a))) {
   svg.svg(
@@ -977,7 +947,6 @@ pub fn wind(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn wind_arrow_down(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -999,7 +968,6 @@ pub fn wind_arrow_down(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn wine(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1027,7 +995,6 @@ pub fn wine(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn wine_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1062,7 +1029,6 @@ pub fn wine_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn workflow(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1096,7 +1062,6 @@ pub fn workflow(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn worm(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1122,7 +1087,6 @@ pub fn worm(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn wrench(attributes: List(Attribute(a))) {
   svg.svg(

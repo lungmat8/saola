@@ -43,48 +43,37 @@ pub fn drawer_full(
         Bottom | Top -> True
         Left | Right -> False
       }
-      h.div(
-        [a.class("drawer-root")],
-        [
-          h.div(
-            [a.class("drawer-backdrop"), e.on_click(on_close())],
-            [],
-          ),
-          h.div(
-            [
-              a.class(full_class),
-              a.role("dialog"),
-              a.attribute("aria-modal", "true"),
-              a.attribute("aria-labelledby", "drawer-title"),
-            ],
-            [
-              case show_handle {
-                True -> h.div([a.class("drawer-handle")], [])
-                False -> h.text("")
-              },
-              h.div(
-                [a.class("drawer-header")],
-                [
-                  h.h2(
-                    [a.class("drawer-title"), a.id("drawer-title")],
-                    [h.text(title)],
-                  ),
-                  case description {
-                    None -> h.text("")
-                    Some(d) ->
-                      h.p([a.class("drawer-description")], [h.text(d)])
-                  },
-                ],
-              ),
-              h.div([a.class("drawer-content")], [content]),
-              case footer {
+      h.div([a.class("drawer-root")], [
+        h.div([a.class("drawer-backdrop"), e.on_click(on_close())], []),
+        h.div(
+          [
+            a.class(full_class),
+            a.role("dialog"),
+            a.attribute("aria-modal", "true"),
+            a.attribute("aria-labelledby", "drawer-title"),
+          ],
+          [
+            case show_handle {
+              True -> h.div([a.class("drawer-handle")], [])
+              False -> h.text("")
+            },
+            h.div([a.class("drawer-header")], [
+              h.h2([a.class("drawer-title"), a.id("drawer-title")], [
+                h.text(title),
+              ]),
+              case description {
                 None -> h.text("")
-                Some(f) -> h.div([a.class("drawer-footer")], [f])
+                Some(d) -> h.p([a.class("drawer-description")], [h.text(d)])
               },
-            ],
-          ),
-        ],
-      )
+            ]),
+            h.div([a.class("drawer-content")], [content]),
+            case footer {
+              None -> h.text("")
+              Some(f) -> h.div([a.class("drawer-footer")], [f])
+            },
+          ],
+        ),
+      ])
     }
   }
 }

@@ -63,7 +63,10 @@ pub fn field(attrs: FieldAttrs, input: Element(msg)) -> Element(msg) {
             case required {
               True ->
                 h.span(
-                  [a.class("field-required"), a.attribute("aria-hidden", "true")],
+                  [
+                    a.class("field-required"),
+                    a.attribute("aria-hidden", "true"),
+                  ],
                   [h.text(" *")],
                 )
               False -> element.none()

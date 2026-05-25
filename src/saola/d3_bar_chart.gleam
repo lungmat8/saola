@@ -34,17 +34,21 @@ pub fn bar_chart(
 ) -> Element(msg) {
   ensure_registered()
   let BarChartAttrs(id:, title:, height:, class:, aria_label:) = attrs
-  element.element("saola-d3-bar-chart", [
-    case id {
-      "" -> a.none()
-      value -> a.id(value)
-    },
-    a.class("saola-d3-bar-chart " <> class),
-    a.property("series", encode_points(data)),
-    a.attribute("chart-title", title),
-    a.attribute("height", height |> int.to_string),
-    a.aria_label(aria_label),
-  ], [])
+  element.element(
+    "saola-d3-bar-chart",
+    [
+      case id {
+        "" -> a.none()
+        value -> a.id(value)
+      },
+      a.class("saola-d3-bar-chart " <> class),
+      a.property("series", encode_points(data)),
+      a.attribute("chart-title", title),
+      a.attribute("height", height |> int.to_string),
+      a.aria_label(aria_label),
+    ],
+    [],
+  )
 }
 
 pub fn bar_chart_simple(data: List(ChartPoint)) -> Element(msg) {

@@ -25,7 +25,8 @@ pub fn input_text_type_renders_test() {
 }
 
 pub fn input_email_type_renders_test() {
-  let html = input.input_email("you@example.com", fn(_) { Nil }) |> element.to_string
+  let html =
+    input.input_email("you@example.com", fn(_) { Nil }) |> element.to_string
   assert string.contains(html, "type=\"email\"")
   assert string.contains(html, "placeholder=\"you@example.com\"")
 }
@@ -74,7 +75,12 @@ pub fn input_disabled_renders_test() {
 
 pub fn input_no_id_omitted_test() {
   let html =
-    input.input_full(input.Text, None, on_input: None, extra_attrs: input.default_extra_attrs)
+    input.input_full(
+      input.Text,
+      None,
+      on_input: None,
+      extra_attrs: input.default_extra_attrs,
+    )
     |> element.to_string
   assert !string.contains(html, "id=")
   assert !string.contains(html, "name=")
@@ -108,7 +114,8 @@ pub fn textarea_renders_test() {
 }
 
 pub fn textarea_simple_renders_test() {
-  let html = textarea.textarea_simple("Write here", fn(_) { Nil }) |> element.to_string
+  let html =
+    textarea.textarea_simple("Write here", fn(_) { Nil }) |> element.to_string
   assert string.contains(html, "<textarea")
   assert string.contains(html, "placeholder=\"Write here\"")
 }
@@ -145,7 +152,10 @@ pub fn checkbox_full_with_help_renders_test() {
 pub fn select_simple_renders_test() {
   let html =
     select.select_simple(
-      [select.SelectOption("a", "Option A"), select.SelectOption("b", "Option B")],
+      [
+        select.SelectOption("a", "Option A"),
+        select.SelectOption("b", "Option B"),
+      ],
       fn(_) { Nil },
     )
     |> element.to_string
@@ -194,7 +204,8 @@ pub fn select_with_name_and_required_renders_test() {
 // --- switch ---
 
 pub fn switch_simple_renders_test() {
-  let html = switch.switch_simple("Dark mode", True, fn(_) { Nil }) |> element.to_string
+  let html =
+    switch.switch_simple("Dark mode", True, fn(_) { Nil }) |> element.to_string
   assert string.contains(html, "type=\"checkbox\"")
   assert string.contains(html, "role=\"switch\"")
   assert string.contains(html, "Dark mode")

@@ -159,10 +159,12 @@ pub fn time_picker_full(
     }
   }
 
-  h.div(
-    [a.class(root_class)],
-    [hour_select, colon1, minute_select, ..second_section],
-  )
+  h.div([a.class(root_class)], [
+    hour_select,
+    colon1,
+    minute_select,
+    ..second_section
+  ])
 }
 
 pub fn time_picker_simple(

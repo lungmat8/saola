@@ -25,7 +25,6 @@ pub fn zap(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn zap_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -54,7 +53,6 @@ pub fn zap_off(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn zodiac_aquarius(attributes: List(Attribute(a))) {
   svg.svg(
@@ -86,7 +84,6 @@ pub fn zodiac_aquarius(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn zodiac_aries(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -106,7 +103,6 @@ pub fn zodiac_aries(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn zodiac_cancer(attributes: List(Attribute(a))) {
   svg.svg(
@@ -138,7 +134,6 @@ pub fn zodiac_cancer(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn zodiac_capricorn(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -164,7 +159,6 @@ pub fn zodiac_capricorn(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn zodiac_gemini(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -186,7 +180,6 @@ pub fn zodiac_gemini(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn zodiac_leo(attributes: List(Attribute(a))) {
   svg.svg(
@@ -217,7 +210,6 @@ pub fn zodiac_leo(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn zodiac_libra(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -243,7 +235,6 @@ pub fn zodiac_libra(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn zodiac_ophiuchus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -266,7 +257,6 @@ pub fn zodiac_ophiuchus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn zodiac_pisces(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -288,7 +278,6 @@ pub fn zodiac_pisces(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn zodiac_sagittarius(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -309,7 +298,6 @@ pub fn zodiac_sagittarius(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn zodiac_scorpio(attributes: List(Attribute(a))) {
   svg.svg(
@@ -335,7 +323,6 @@ pub fn zodiac_scorpio(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn zodiac_taurus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -360,7 +347,6 @@ pub fn zodiac_taurus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn zodiac_virgo(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -382,7 +368,6 @@ pub fn zodiac_virgo(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn zoom_in(attributes: List(Attribute(a))) {
   svg.svg(
@@ -424,7 +409,6 @@ pub fn zoom_in(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn zoom_out(attributes: List(Attribute(a))) {
   svg.svg(

@@ -31,7 +31,9 @@ pub fn view_steppers(model: Model) -> Element(Msg) {
   h.div([], [
     h.h1([a.class("page-title")], [text("Stepper")]),
     h.p([a.class("page-description")], [
-      text("A multi-step progress indicator with horizontal and vertical modes."),
+      text(
+        "A multi-step progress indicator with horizontal and vertical modes.",
+      ),
     ]),
     h.div([a.class("grid gap-8")], [
       h.div([a.class("grid gap-4")], [

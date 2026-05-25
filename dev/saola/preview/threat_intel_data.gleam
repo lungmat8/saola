@@ -89,16 +89,16 @@ pub fn events_for(entity_id: String) -> List(ThreatEvent) {
 fn country_configs() -> List(#(String, String, Float, Float, Int)) {
   [
     #("Russia", "ru", 55.75, 37.62, 60),
-    #("China", "cn", 39.90, 116.40, 60),
+    #("China", "cn", 39.9, 116.4, 60),
     #("Iran", "ir", 35.69, 51.42, 45),
     #("North Korea", "kp", 39.02, 125.75, 40),
     #("United States", "us", 37.09, -95.71, 35),
     #("Ukraine", "ua", 50.45, 30.52, 30),
-    #("Germany", "de", 52.52, 13.40, 25),
+    #("Germany", "de", 52.52, 13.4, 25),
     #("India", "in", 28.61, 77.21, 25),
     #("Brazil", "br", -15.78, -47.93, 25),
     #("Vietnam", "vn", 21.03, 105.85, 25),
-    #("Romania", "ro", 44.43, 26.10, 25),
+    #("Romania", "ro", 44.43, 26.1, 25),
     #("Nigeria", "ng", 9.07, 7.49, 25),
     #("Pakistan", "pk", 33.72, 73.06, 25),
     #("Turkey", "tr", 39.92, 32.86, 25),
@@ -113,7 +113,14 @@ fn generate_actors() -> List(ThreatActor) {
       let #(country, prefix, base_lat, base_lng, count) = cfg
       let new_actors =
         list.map(range(0, count - 1), fn(local_i) {
-          gen_actor(country, prefix, base_lat, base_lng, local_i, global_start + local_i)
+          gen_actor(
+            country,
+            prefix,
+            base_lat,
+            base_lng,
+            local_i,
+            global_start + local_i,
+          )
         })
       #(list.append(prev, new_actors), global_start + count)
     })
@@ -137,16 +144,14 @@ fn gen_actor(
     }
   // "Unknown" actors scatter pseudo-randomly across the globe
   let scatter = country == "Unknown"
-  let lat =
-    case scatter {
-      True -> int.to_float(local_i * 37 % 180 - 90)
-      False -> base_lat +. int.to_float(local_i % 11 - 5) *. 0.55
-    }
-  let lng =
-    case scatter {
-      True -> int.to_float(local_i * 73 % 360 - 180)
-      False -> base_lng +. int.to_float(local_i / 11 % 11 - 5) *. 0.70
-    }
+  let lat = case scatter {
+    True -> int.to_float(local_i * 37 % 180 - 90)
+    False -> base_lat +. int.to_float(local_i % 11 - 5) *. 0.55
+  }
+  let lng = case scatter {
+    True -> int.to_float(local_i * 73 % 360 - 180)
+    False -> base_lng +. int.to_float(local_i / 11 % 11 - 5) *. 0.7
+  }
   ThreatActor(
     id: id,
     name: gen_name(global_i),
@@ -167,14 +172,14 @@ fn gen_actor(
 fn gen_name(i: Int) -> String {
   let adjs = [
     "Phantom", "Shadow", "Silent", "Dark", "Crimson", "Iron", "Storm", "Ghost",
-    "Viper", "Ember", "Frost", "Acid", "Neon", "Void", "Steel", "Night",
-    "Toxic", "Cyber", "Rogue", "Null",
+    "Viper", "Ember", "Frost", "Acid", "Neon", "Void", "Steel", "Night", "Toxic",
+    "Cyber", "Rogue", "Null",
   ]
   let nouns = [
-    "Bear", "Dragon", "Cobra", "Wolf", "Eagle", "Tiger", "Fox", "Hawk",
-    "Lynx", "Crow", "Spider", "Mantis", "Hornet", "Raven", "Jackal", "Wasp",
-    "Kraken", "Hydra", "Phoenix", "Basilisk",
-    "Chimera", "Medusa", "Sphinx", "Cyclops", "Minotaur",
+    "Bear", "Dragon", "Cobra", "Wolf", "Eagle", "Tiger", "Fox", "Hawk", "Lynx",
+    "Crow", "Spider", "Mantis", "Hornet", "Raven", "Jackal", "Wasp", "Kraken",
+    "Hydra", "Phoenix", "Basilisk", "Chimera", "Medusa", "Sphinx", "Cyclops",
+    "Minotaur",
   ]
   let adj = at(adjs, i % 20, "Agent")
   let noun = at(nouns, i / 20 % 25, "Zero")
@@ -203,11 +208,10 @@ fn gen_severity(country: String, i: Int) -> Severity {
 
 fn date_at(i: Int) -> String {
   let pool = [
-    "2025-01-03", "2025-01-11", "2025-01-19", "2025-01-28",
-    "2025-02-05", "2025-02-14", "2025-02-21", "2025-03-02",
-    "2025-03-10", "2025-03-18", "2025-03-26", "2025-04-04",
-    "2025-04-12", "2025-04-20", "2025-04-29", "2025-05-07",
-    "2025-05-15", "2025-05-23", "2025-05-31", "2025-06-08",
+    "2025-01-03", "2025-01-11", "2025-01-19", "2025-01-28", "2025-02-05",
+    "2025-02-14", "2025-02-21", "2025-03-02", "2025-03-10", "2025-03-18",
+    "2025-03-26", "2025-04-04", "2025-04-12", "2025-04-20", "2025-04-29",
+    "2025-05-07", "2025-05-15", "2025-05-23", "2025-05-31", "2025-06-08",
   ]
   at(pool, i % 20, "2025-01-01")
 }
@@ -309,15 +313,17 @@ fn gen_event(seed: Int, offset: Int) -> ThreatEvent {
     "Gained initial foothold via compromised third-party vendor remote-access credentials.",
   ]
   let times = [
-    "2025-01-03 02:14", "2025-01-11 08:47", "2025-01-19 14:22", "2025-01-28 21:05",
-    "2025-02-05 04:38", "2025-02-14 11:11", "2025-02-21 17:44", "2025-03-02 00:17",
-    "2025-03-10 06:50", "2025-03-18 13:23", "2025-03-26 19:56", "2025-04-04 03:29",
-    "2025-04-12 09:02", "2025-04-20 15:35", "2025-04-29 22:08", "2025-05-07 05:41",
-    "2025-05-15 12:14", "2025-05-23 18:47", "2025-05-31 01:20", "2025-06-08 07:53",
+    "2025-01-03 02:14", "2025-01-11 08:47", "2025-01-19 14:22",
+    "2025-01-28 21:05", "2025-02-05 04:38", "2025-02-14 11:11",
+    "2025-02-21 17:44", "2025-03-02 00:17", "2025-03-10 06:50",
+    "2025-03-18 13:23", "2025-03-26 19:56", "2025-04-04 03:29",
+    "2025-04-12 09:02", "2025-04-20 15:35", "2025-04-29 22:08",
+    "2025-05-07 05:41", "2025-05-15 12:14", "2025-05-23 18:47",
+    "2025-05-31 01:20", "2025-06-08 07:53",
   ]
   let variants = [
-    timeline.Error, timeline.Default, timeline.Warning,
-    timeline.Default, timeline.Error,
+    timeline.Error, timeline.Default, timeline.Warning, timeline.Default,
+    timeline.Error,
   ]
   let title = at(titles, h % 20, "Activity Detected")
   let desc = at(descs, h / 20 % 20, "Suspicious activity observed.")

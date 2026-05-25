@@ -6,23 +6,16 @@ import saola/preview/model.{type Model, type Msg, CarouselChanged}
 
 pub fn view_carousels(model: Model) -> Element(Msg) {
   let slides = [
-    h.div(
-      [a.class("carousel-slide-demo")],
-      [h.span([], [text("Slide 1")])],
-    ),
-    h.div(
-      [a.class("carousel-slide-demo")],
-      [h.span([], [text("Slide 2")])],
-    ),
-    h.div(
-      [a.class("carousel-slide-demo")],
-      [h.span([], [text("Slide 3")])],
-    ),
+    h.div([a.class("carousel-slide-demo")], [h.span([], [text("Slide 1")])]),
+    h.div([a.class("carousel-slide-demo")], [h.span([], [text("Slide 2")])]),
+    h.div([a.class("carousel-slide-demo")], [h.span([], [text("Slide 3")])]),
   ]
   h.div([], [
     h.h1([a.class("page-title")], [text("Carousel")]),
     h.p([a.class("page-description")], [
-      text("Scroll-snap carousel wrapping a web component. Swipe or scroll to navigate."),
+      text(
+        "Scroll-snap carousel wrapping a web component. Swipe or scroll to navigate.",
+      ),
     ]),
     h.div([a.class("grid gap-8")], [
       h.div([a.class("grid gap-4")], [

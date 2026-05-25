@@ -105,15 +105,12 @@ pub fn view_data_tables(model: Model) -> Element(Msg) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Simple read-only")]),
-        data_table.data_table_simple(
-          simple_columns(),
-          [
-            Person("1", "Alice Chen", "alice@example.com", "Engineer", "Active"),
-            Person("2", "Bob Smith", "bob@example.com", "Designer", "Active"),
-            Person("3", "Carol White", "carol@example.com", "Manager", "Inactive"),
-            Person("4", "Dan Brown", "dan@example.com", "Engineer", "Active"),
-          ],
-        ),
+        data_table.data_table_simple(simple_columns(), [
+          Person("1", "Alice Chen", "alice@example.com", "Engineer", "Active"),
+          Person("2", "Bob Smith", "bob@example.com", "Designer", "Active"),
+          Person("3", "Carol White", "carol@example.com", "Manager", "Inactive"),
+          Person("4", "Dan Brown", "dan@example.com", "Engineer", "Active"),
+        ]),
       ]),
     ]),
   ])

@@ -55,7 +55,8 @@ pub fn view_canvas_stress_test(model: Model) -> Element(Msg) {
   let all_data = gen_data()
   let total = list.length(all_data)
   let max_offset = total - model.stress_zoom
-  let offset = int.clamp(model.stress_offset, min: 0, max: int.max(0, max_offset))
+  let offset =
+    int.clamp(model.stress_offset, min: 0, max: int.max(0, max_offset))
   let viewport = all_data |> list.drop(offset) |> list.take(model.stress_zoom)
 
   let chart_title =

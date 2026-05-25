@@ -118,7 +118,10 @@ pub fn input_text(
     Text,
     None,
     on_input: Some(on_input),
-    extra_attrs: InputExtraAttrs(..default_extra_attrs, placeholder: placeholder),
+    extra_attrs: InputExtraAttrs(
+      ..default_extra_attrs,
+      placeholder: placeholder,
+    ),
   )
 }
 
@@ -130,7 +133,10 @@ pub fn input_email(
     Email,
     None,
     on_input: Some(on_input),
-    extra_attrs: InputExtraAttrs(..default_extra_attrs, placeholder: placeholder),
+    extra_attrs: InputExtraAttrs(
+      ..default_extra_attrs,
+      placeholder: placeholder,
+    ),
   )
 }
 
@@ -142,6 +148,9 @@ pub fn input_password(
     Password,
     None,
     on_input: Some(on_input),
-    extra_attrs: InputExtraAttrs(..default_extra_attrs, placeholder: placeholder),
+    extra_attrs: InputExtraAttrs(
+      ..default_extra_attrs,
+      placeholder: placeholder,
+    ),
   )
 }

@@ -25,7 +25,6 @@ pub fn octagon(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn octagon_alert(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -52,7 +51,6 @@ pub fn octagon_alert(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn octagon_minus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -77,7 +75,6 @@ pub fn octagon_minus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn octagon_pause(attributes: List(Attribute(a))) {
   svg.svg(
@@ -105,7 +102,6 @@ pub fn octagon_pause(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn octagon_x(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -132,7 +128,6 @@ pub fn octagon_x(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn omega(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -157,7 +152,6 @@ pub fn omega(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn option(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -177,7 +171,6 @@ pub fn option(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn orbit(attributes: List(Attribute(a))) {
   svg.svg(
@@ -213,7 +206,6 @@ pub fn orbit(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn origami(attributes: List(Attribute(a))) {
   svg.svg(

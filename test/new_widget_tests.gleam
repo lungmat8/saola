@@ -131,10 +131,7 @@ pub fn progress_with_label_renders_test() {
   let html =
     progress.progress_full(
       75,
-      progress.ProgressAttrs(
-        ..progress.default_attrs,
-        label: "Loading 75%",
-      ),
+      progress.ProgressAttrs(..progress.default_attrs, label: "Loading 75%"),
     )
     |> element.to_string
   assert string.contains(html, "aria-label=\"Loading 75%\"")
@@ -144,7 +141,10 @@ pub fn progress_success_variant_renders_test() {
   let html =
     progress.progress_full(
       60,
-      progress.ProgressAttrs(..progress.default_attrs, variant: progress.Success),
+      progress.ProgressAttrs(
+        ..progress.default_attrs,
+        variant: progress.Success,
+      ),
     )
     |> element.to_string
   assert string.contains(html, "progress-bar-success")
@@ -167,7 +167,13 @@ pub fn progress_custom_range_renders_test() {
   let html =
     progress.progress_full(
       3,
-      progress.ProgressAttrs(min: 0, max: 5, variant: progress.Default, label: "", class: ""),
+      progress.ProgressAttrs(
+        min: 0,
+        max: 5,
+        variant: progress.Default,
+        label: "",
+        class: "",
+      ),
     )
     |> element.to_string
   assert string.contains(html, "aria-valuemin=\"0\"")
@@ -211,7 +217,9 @@ pub fn avatar_initials_renders_test() {
 }
 
 pub fn avatar_image_renders_test() {
-  let html = avatar.avatar_image("https://example.com/photo.jpg", "Jane") |> element.to_string
+  let html =
+    avatar.avatar_image("https://example.com/photo.jpg", "Jane")
+    |> element.to_string
   assert string.contains(html, "class=\"avatar")
   assert string.contains(html, "src=\"https://example.com/photo.jpg\"")
   assert string.contains(html, "alt=\"Jane\"")
@@ -219,9 +227,15 @@ pub fn avatar_image_renders_test() {
 }
 
 pub fn avatar_sizes_render_test() {
-  let sm = avatar.avatar_full(avatar.Initials("AB"), avatar.Small, "") |> element.to_string
-  let md = avatar.avatar_full(avatar.Initials("AB"), avatar.Medium, "") |> element.to_string
-  let lg = avatar.avatar_full(avatar.Initials("AB"), avatar.Large, "") |> element.to_string
+  let sm =
+    avatar.avatar_full(avatar.Initials("AB"), avatar.Small, "")
+    |> element.to_string
+  let md =
+    avatar.avatar_full(avatar.Initials("AB"), avatar.Medium, "")
+    |> element.to_string
+  let lg =
+    avatar.avatar_full(avatar.Initials("AB"), avatar.Large, "")
+    |> element.to_string
   assert string.contains(sm, "avatar-sm")
   assert string.contains(md, "avatar-md")
   assert string.contains(lg, "avatar-lg")

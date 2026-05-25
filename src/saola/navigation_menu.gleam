@@ -68,10 +68,9 @@ fn render_item(
       let panel = case is_open {
         False -> element.none()
         True ->
-          h.div(
-            [a.class("nav-menu-content"), a.attribute("role", "menu")],
-            [render_content(content)],
-          )
+          h.div([a.class("nav-menu-content"), a.attribute("role", "menu")], [
+            render_content(content),
+          ])
       }
       h.li([a.class("nav-menu-item")], [
         h.button(
@@ -106,15 +105,12 @@ pub fn navigation_menu_full(
     "" -> a.none()
     c -> a.class(c)
   }
-  h.nav(
-    [a.class("nav-menu"), a.attribute("aria-label", "Main"), extra_class],
-    [
-      h.ul(
-        [a.class("nav-menu-list")],
-        list.map(items, fn(i) { render_item(i, open_id, on_open_change) }),
-      ),
-    ],
-  )
+  h.nav([a.class("nav-menu"), a.attribute("aria-label", "Main"), extra_class], [
+    h.ul(
+      [a.class("nav-menu-list")],
+      list.map(items, fn(i) { render_item(i, open_id, on_open_change) }),
+    ),
+  ])
 }
 
 pub fn navigation_menu_simple(

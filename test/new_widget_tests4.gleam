@@ -133,12 +133,7 @@ pub fn sidebar_full_with_header_footer_test() {
 
 pub fn command_simple_renders_input_test() {
   let html =
-    command.command_simple(
-      "",
-      [],
-      fn(q) { q },
-      fn(_idx) { "" },
-    )
+    command.command_simple("", [], fn(q) { q }, fn(_idx) { "" })
     |> element.to_string
   assert string.contains(html, "<input")
   assert string.contains(html, "command-input")
@@ -466,11 +461,7 @@ pub fn data_table_toggle_sort_new_key_resets_test() {
 }
 
 pub fn data_table_set_filter_resets_page_test() {
-  let state =
-    data_table.DataTableState(
-      ..data_table.default_state,
-      page: 3,
-    )
+  let state = data_table.DataTableState(..data_table.default_state, page: 3)
   let state2 = data_table.set_filter(state, "alice")
   assert state2.filter == "alice"
   assert state2.page == 1

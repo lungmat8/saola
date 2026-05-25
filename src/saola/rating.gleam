@@ -40,7 +40,11 @@ pub fn rating_full(
           a.role("img"),
           a.attribute(
             "aria-label",
-            attrs.aria_label <> ": " <> int.to_string(value) <> " out of " <> int.to_string(attrs.max),
+            attrs.aria_label
+              <> ": "
+              <> int.to_string(value)
+              <> " out of "
+              <> int.to_string(attrs.max),
           ),
         ],
         list.map(stars, fn(n) {

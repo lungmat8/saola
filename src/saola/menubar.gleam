@@ -43,58 +43,58 @@ pub fn menubar_full(
           )
         MenubarItem(label, sub_items) -> {
           let is_open = open_menu == label
-          h.div(
-            [a.class("menubar-menu")],
-            [
-              h.button(
-                [
-                  a.type_("button"),
-                  a.class("menubar-trigger"),
-                  a.attribute("aria-haspopup", "menu"),
-                  a.attribute("aria-expanded", case is_open {
-                    True -> "true"
-                    False -> "false"
+          h.div([a.class("menubar-menu")], [
+            h.button(
+              [
+                a.type_("button"),
+                a.class("menubar-trigger"),
+                a.attribute("aria-haspopup", "menu"),
+                a.attribute("aria-expanded", case is_open {
+                  True -> "true"
+                  False -> "false"
+                }),
+                e.on_click(case is_open {
+                  True -> on_close()
+                  False -> on_open(label)
+                }),
+              ],
+              [h.text(label)],
+            ),
+            case is_open {
+              False -> h.text("")
+              True ->
+                h.div(
+                  [a.class("dropdown-menu"), a.role("menu")],
+                  list.map(sub_items, fn(sub) {
+                    case sub {
+                      MenubarSeparator ->
+                        h.div(
+                          [a.class("dropdown-separator"), a.role("separator")],
+                          [],
+                        )
+                      MenubarSubItemDisabled(l) ->
+                        h.div(
+                          [
+                            a.class("dropdown-item"),
+                            a.attribute("aria-disabled", "true"),
+                          ],
+                          [h.text(l)],
+                        )
+                      MenubarSubItem(l, click_msg) ->
+                        h.button(
+                          [
+                            a.type_("button"),
+                            a.class("dropdown-item"),
+                            a.role("menuitem"),
+                            e.on_click(click_msg),
+                          ],
+                          [h.text(l)],
+                        )
+                    }
                   }),
-                  e.on_click(case is_open {
-                    True -> on_close()
-                    False -> on_open(label)
-                  }),
-                ],
-                [h.text(label)],
-              ),
-              case is_open {
-                False -> h.text("")
-                True ->
-                  h.div(
-                    [a.class("dropdown-menu"), a.role("menu")],
-                    list.map(sub_items, fn(sub) {
-                      case sub {
-                        MenubarSeparator ->
-                          h.div([a.class("dropdown-separator"), a.role("separator")], [])
-                        MenubarSubItemDisabled(l) ->
-                          h.div(
-                            [
-                              a.class("dropdown-item"),
-                              a.attribute("aria-disabled", "true"),
-                            ],
-                            [h.text(l)],
-                          )
-                        MenubarSubItem(l, click_msg) ->
-                          h.button(
-                            [
-                              a.type_("button"),
-                              a.class("dropdown-item"),
-                              a.role("menuitem"),
-                              e.on_click(click_msg),
-                            ],
-                            [h.text(l)],
-                          )
-                      }
-                    }),
-                  )
-              },
-            ],
-          )
+                )
+            },
+          ])
         }
       }
     }),

@@ -27,7 +27,6 @@ pub fn ice_cream_bowl(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn ice_cream_cone(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -48,7 +47,6 @@ pub fn ice_cream_cone(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn id_card(attributes: List(Attribute(a))) {
   svg.svg(
@@ -83,7 +81,6 @@ pub fn id_card(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn id_card_lanyard(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -115,7 +112,6 @@ pub fn id_card_lanyard(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn image(attributes: List(Attribute(a))) {
   svg.svg(
@@ -149,7 +145,6 @@ pub fn image(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn image_down(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -180,7 +175,6 @@ pub fn image_down(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn image_minus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -214,7 +208,6 @@ pub fn image_minus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn image_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -260,7 +253,6 @@ pub fn image_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn image_play(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -294,7 +286,6 @@ pub fn image_play(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn image_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -323,7 +314,6 @@ pub fn image_plus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn image_up(attributes: List(Attribute(a))) {
   svg.svg(
@@ -355,7 +345,6 @@ pub fn image_up(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn image_upscale(attributes: List(Attribute(a))) {
   svg.svg(
@@ -390,7 +379,6 @@ pub fn image_upscale(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn images(attributes: List(Attribute(a))) {
   svg.svg(
@@ -429,7 +417,6 @@ pub fn images(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn import_(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -456,7 +443,6 @@ pub fn import_(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn inbox(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -482,7 +468,6 @@ pub fn inbox(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn indian_rupee(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -506,7 +491,6 @@ pub fn indian_rupee(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn infinity(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -527,7 +511,6 @@ pub fn infinity(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn info(attributes: List(Attribute(a))) {
   svg.svg(
@@ -553,7 +536,6 @@ pub fn info(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn inspection_panel(attributes: List(Attribute(a))) {
   svg.svg(
@@ -583,7 +565,6 @@ pub fn inspection_panel(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn italic(attributes: List(Attribute(a))) {
   svg.svg(
@@ -621,7 +602,6 @@ pub fn italic(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn iteration_ccw(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -641,7 +621,6 @@ pub fn iteration_ccw(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn iteration_cw(attributes: List(Attribute(a))) {
   svg.svg(

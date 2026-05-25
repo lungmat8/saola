@@ -10,8 +10,10 @@ import saola/preview/model.{
 }
 
 pub fn view_calendars(model: Model) -> Element(Msg) {
-  let #(prev_y, prev_m) = cal.prev_month(model.calendar_view_year, model.calendar_view_month)
-  let #(next_y, next_m) = cal.next_month(model.calendar_view_year, model.calendar_view_month)
+  let #(prev_y, prev_m) =
+    cal.prev_month(model.calendar_view_year, model.calendar_view_month)
+  let #(next_y, next_m) =
+    cal.next_month(model.calendar_view_year, model.calendar_view_month)
   h.div([], [
     h.h1([a.class("page-title")], [text("Calendar")]),
     h.p([a.class("page-description")], [
@@ -29,7 +31,10 @@ pub fn view_calendars(model: Model) -> Element(Msg) {
           CalendarMonthChanged(next_y, next_m),
         ),
         h.p(
-          [a.style("font-size", "0.875rem"), a.style("color", "var(--color-muted-foreground, #6c757d)")],
+          [
+            a.style("font-size", "0.875rem"),
+            a.style("color", "var(--color-muted-foreground, #6c757d)"),
+          ],
           [
             text(case model.calendar_selected {
               None -> "No date selected"

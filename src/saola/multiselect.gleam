@@ -26,10 +26,11 @@ pub fn default_attrs() -> MultiselectAttrs {
   )
 }
 
-fn decode_change(
-  callback: fn(List(String)) -> msg,
-) -> decode.Decoder(msg) {
-  use values <- decode.subfield(["detail", "values"], decode.list(decode.string))
+fn decode_change(callback: fn(List(String)) -> msg) -> decode.Decoder(msg) {
+  use values <- decode.subfield(
+    ["detail", "values"],
+    decode.list(decode.string),
+  )
   decode.success(callback(values))
 }
 

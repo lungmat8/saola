@@ -12,9 +12,10 @@ import saola/canvas_command as canvas
 import saola/lustre_heatmap
 import saola/preview/model.{
   type Model, type Msg, HeatmapCanvasCellClicked, HeatmapCanvasHoverLeft,
-  HeatmapCanvasHovered, HeatmapCellPxChanged, HeatmapPaintEnded, HeatmapPaintStarted,
-  HeatmapRandomize, HeatmapSchemeChanged, HeatmapSizeChanged, HeatmapSvgCellClicked,
-  HeatmapSvgHoverLeft, HeatmapSvgHovered,
+  HeatmapCanvasHovered, HeatmapCellPxChanged, HeatmapPaintEnded,
+  HeatmapPaintStarted, HeatmapRandomize, HeatmapSchemeChanged,
+  HeatmapSizeChanged, HeatmapSvgCellClicked, HeatmapSvgHoverLeft,
+  HeatmapSvgHovered,
 }
 
 // ---------------------------------------------------------------------------
@@ -29,7 +30,8 @@ pub fn view_heatmap_comparison(model: Model) -> Element(Msg) {
   let seed_a = model.heatmap_seed + float.truncate(phase)
   let seed_b = seed_a + 1
   let lerp_t = phase -. int.to_float(float.truncate(phase))
-  let data = lustre_heatmap.generate_lerp_data(size, size, seed_a, seed_b, lerp_t)
+  let data =
+    lustre_heatmap.generate_lerp_data(size, size, seed_a, seed_b, lerp_t)
   let attrs =
     lustre_heatmap.HeatmapAttrs(
       rows: size,
@@ -42,7 +44,11 @@ pub fn view_heatmap_comparison(model: Model) -> Element(Msg) {
   let px = size * cell_px
   let dim_px = int.to_string(px) <> "px"
   let canvas_style =
-    "width:" <> dim_px <> "; height:" <> dim_px <> "; display:block; cursor:crosshair;"
+    "width:"
+    <> dim_px
+    <> "; height:"
+    <> dim_px
+    <> "; display:block; cursor:crosshair;"
   let cell_px_f = int.to_float(cell_px)
   let max_idx = size - 1
 
@@ -82,9 +88,16 @@ pub fn view_heatmap_comparison(model: Model) -> Element(Msg) {
     h.div([a.class("flex flex-wrap gap-6 items-end rounded-lg border p-4")], [
       // Grid size
       h.div([a.class("grid gap-1")], [
-        h.p([a.class("text-xs font-medium text-muted-foreground uppercase tracking-wide")], [
-          text("Grid"),
-        ]),
+        h.p(
+          [
+            a.class(
+              "text-xs font-medium text-muted-foreground uppercase tracking-wide",
+            ),
+          ],
+          [
+            text("Grid"),
+          ],
+        ),
         h.div([a.class("flex gap-1")], [
           size_btn(40, size),
           size_btn(80, size),
@@ -105,9 +118,16 @@ pub fn view_heatmap_comparison(model: Model) -> Element(Msg) {
       ]),
       // Color scheme
       h.div([a.class("grid gap-1")], [
-        h.p([a.class("text-xs font-medium text-muted-foreground uppercase tracking-wide")], [
-          text("Scheme"),
-        ]),
+        h.p(
+          [
+            a.class(
+              "text-xs font-medium text-muted-foreground uppercase tracking-wide",
+            ),
+          ],
+          [
+            text("Scheme"),
+          ],
+        ),
         h.div([a.class("flex gap-1")], [
           scheme_btn("blues", scheme),
           scheme_btn("reds", scheme),
@@ -120,46 +140,69 @@ pub fn view_heatmap_comparison(model: Model) -> Element(Msg) {
       button.button_outline("Randomize", HeatmapRandomize),
     ]),
     // ---- Stats bar ----------------------------------------------------------
-    h.div([a.class("flex flex-wrap gap-4 items-center text-sm text-muted-foreground")], [
-      stat_pill(int.to_string(cell_count) <> " cells"),
-      stat_pill("SVG: " <> int.to_string(cell_count) <> " DOM nodes"),
-      stat_pill("Canvas: " <> int.to_string(cell_count * 2) <> " commands → 1 draw pass"),
-      stat_pill(dim_px <> " × " <> dim_px),
-    ]),
+    h.div(
+      [
+        a.class(
+          "flex flex-wrap gap-4 items-center text-sm text-muted-foreground",
+        ),
+      ],
+      [
+        stat_pill(int.to_string(cell_count) <> " cells"),
+        stat_pill("SVG: " <> int.to_string(cell_count) <> " DOM nodes"),
+        stat_pill(
+          "Canvas: "
+          <> int.to_string(cell_count * 2)
+          <> " commands → 1 draw pass",
+        ),
+        stat_pill(dim_px <> " × " <> dim_px),
+      ],
+    ),
     // ---- Side-by-side panels ------------------------------------------------
     h.div([a.class("grid gap-6 grid-cols-2")], [
-      renderer_panel("SVG", "One <rect> per cell — Lustre diffs the full child list on every update", [
-        h.div([a.attribute("style", "position:relative; overflow:auto;")], [
-          lustre_heatmap.heatmap_svg_interactive(
-            data,
-            attrs,
-            model.heatmap_painted,
-            on_svg_click,
-            HeatmapSvgHovered,
-            HeatmapSvgHoverLeft,
-            on_paint_start,
-            HeatmapPaintEnded,
-          ),
-          hover_tooltip(model.heatmap_svg_hover),
-          ripple_overlay(model.heatmap_svg_ripple, cell_px),
-        ]),
-      ]),
-      renderer_panel("Canvas", "CanvasCommand list — one JSON property update, single rAF paint", [
-        h.div([a.attribute("style", "position:relative; overflow:auto;")], [
-          h.div([a.attribute("style", canvas_style)], [
-            canvas.canvas_element_interactive(
-              lustre_heatmap.heatmap_canvas(data, attrs, model.heatmap_painted),
-              on_canvas_click,
-              HeatmapCanvasHovered,
-              HeatmapCanvasHoverLeft,
+      renderer_panel(
+        "SVG",
+        "One <rect> per cell — Lustre diffs the full child list on every update",
+        [
+          h.div([a.attribute("style", "position:relative; overflow:auto;")], [
+            lustre_heatmap.heatmap_svg_interactive(
+              data,
+              attrs,
+              model.heatmap_painted,
+              on_svg_click,
+              HeatmapSvgHovered,
+              HeatmapSvgHoverLeft,
               on_paint_start,
               HeatmapPaintEnded,
             ),
+            hover_tooltip(model.heatmap_svg_hover),
+            ripple_overlay(model.heatmap_svg_ripple, cell_px),
           ]),
-          hover_tooltip(model.heatmap_canvas_hover),
-          ripple_overlay(model.heatmap_canvas_ripple, cell_px),
-        ]),
-      ]),
+        ],
+      ),
+      renderer_panel(
+        "Canvas",
+        "CanvasCommand list — one JSON property update, single rAF paint",
+        [
+          h.div([a.attribute("style", "position:relative; overflow:auto;")], [
+            h.div([a.attribute("style", canvas_style)], [
+              canvas.canvas_element_interactive(
+                lustre_heatmap.heatmap_canvas(
+                  data,
+                  attrs,
+                  model.heatmap_painted,
+                ),
+                on_canvas_click,
+                HeatmapCanvasHovered,
+                HeatmapCanvasHoverLeft,
+                on_paint_start,
+                HeatmapPaintEnded,
+              ),
+            ]),
+            hover_tooltip(model.heatmap_canvas_hover),
+            ripple_overlay(model.heatmap_canvas_ripple, cell_px),
+          ]),
+        ],
+      ),
     ]),
     // ---- Info panel ---------------------------------------------------------
     info_panel(model),
@@ -304,10 +347,11 @@ fn info_panel(model: Model) -> Element(Msg) {
   let painted_count = dict.size(model.heatmap_painted)
 
   let last_click_content = case model.heatmap_svg_ripple {
-    None -> [h.p([a.class("text-muted-foreground text-xs italic")], [text("—")])]
+    None -> [
+      h.p([a.class("text-muted-foreground text-xs italic")], [text("—")]),
+    ]
     Some(#(row, col, _)) -> {
-      let dv =
-        lustre_heatmap.cell_display_value(row, col, model.heatmap_seed)
+      let dv = lustre_heatmap.cell_display_value(row, col, model.heatmap_seed)
       [
         info_row("Row", int.to_string(row)),
         info_row("Col", int.to_string(col)),
@@ -321,7 +365,9 @@ fn info_panel(model: Model) -> Element(Msg) {
     None -> model.heatmap_canvas_hover
   }
   let hover_content = case hover {
-    None -> [h.p([a.class("text-muted-foreground text-xs italic")], [text("—")])]
+    None -> [
+      h.p([a.class("text-muted-foreground text-xs italic")], [text("—")]),
+    ]
     Some(#(row, col, dv, _, _)) -> [
       info_row("Row", int.to_string(row)),
       info_row("Col", int.to_string(col)),
@@ -332,34 +378,62 @@ fn info_panel(model: Model) -> Element(Msg) {
   let paint_status = case model.heatmap_painting {
     True ->
       h.span(
-        [a.class("inline-block rounded-full bg-amber-400 text-black text-xs font-medium px-2 py-0.5")],
+        [
+          a.class(
+            "inline-block rounded-full bg-amber-400 text-black text-xs font-medium px-2 py-0.5",
+          ),
+        ],
         [text("Painting")],
       )
     False ->
       h.span(
-        [a.class("inline-block rounded-full border text-muted-foreground text-xs px-2 py-0.5")],
+        [
+          a.class(
+            "inline-block rounded-full border text-muted-foreground text-xs px-2 py-0.5",
+          ),
+        ],
         [text("Idle")],
       )
   }
 
   h.div(
-    [a.class("rounded-lg border p-4 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 text-sm")],
+    [
+      a.class(
+        "rounded-lg border p-4 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 text-sm",
+      ),
+    ],
     [
       info_col("Last Click", last_click_content),
       h.div([a.class("grid gap-1 content-start")], [
-        h.p([a.class("text-xs font-medium text-muted-foreground uppercase tracking-wide")], [
-          text("Painted"),
-        ]),
+        h.p(
+          [
+            a.class(
+              "text-xs font-medium text-muted-foreground uppercase tracking-wide",
+            ),
+          ],
+          [
+            text("Painted"),
+          ],
+        ),
         info_row(int.to_string(painted_count) <> " cells", ""),
         paint_status,
       ]),
       info_col("Hover", hover_content),
       h.div([a.class("grid gap-1 content-start")], [
-        h.p([a.class("text-xs font-medium text-muted-foreground uppercase tracking-wide")], [
-          text("Grid"),
-        ]),
+        h.p(
+          [
+            a.class(
+              "text-xs font-medium text-muted-foreground uppercase tracking-wide",
+            ),
+          ],
+          [
+            text("Grid"),
+          ],
+        ),
         info_row(
-          int.to_string(model.heatmap_size) <> "×" <> int.to_string(model.heatmap_size),
+          int.to_string(model.heatmap_size)
+            <> "×"
+            <> int.to_string(model.heatmap_size),
           int.to_string(model.heatmap_size * model.heatmap_size) <> " cells",
         ),
         info_row("Cell", int.to_string(model.heatmap_cell_px) <> " px"),
@@ -369,22 +443,22 @@ fn info_panel(model: Model) -> Element(Msg) {
 }
 
 fn info_col(label: String, children: List(Element(Msg))) -> Element(Msg) {
-  h.div(
-    [a.class("grid gap-1 content-start")],
-    [
-      h.p(
-        [a.class("text-xs font-medium text-muted-foreground uppercase tracking-wide")],
-        [text(label)],
-      ),
-      ..children
-    ],
-  )
+  h.div([a.class("grid gap-1 content-start")], [
+    h.p(
+      [
+        a.class(
+          "text-xs font-medium text-muted-foreground uppercase tracking-wide",
+        ),
+      ],
+      [text(label)],
+    ),
+    ..children
+  ])
 }
 
 fn info_row(label: String, value: String) -> Element(Msg) {
   case value {
-    "" ->
-      h.p([a.class("font-medium tabular-nums")], [text(label)])
+    "" -> h.p([a.class("font-medium tabular-nums")], [text(label)])
     _ ->
       h.p([a.class("flex justify-between gap-4")], [
         h.span([a.class("text-muted-foreground")], [text(label)]),

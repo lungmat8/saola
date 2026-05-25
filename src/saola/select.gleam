@@ -40,8 +40,7 @@ pub const default_extra_attrs = SelectExtraAttrs(
 
 fn render_option(opt: SelectOption) -> Element(msg) {
   case opt {
-    SelectOption(value:, label:) ->
-      h.option([a.value(value)], label)
+    SelectOption(value:, label:) -> h.option([a.value(value)], label)
     SelectOptionDisabled(value:, label:) ->
       h.option([a.value(value), a.disabled(True)], label)
   }
@@ -58,10 +57,13 @@ pub fn select_full(
     extra_attrs
   h.select(
     [
-      a.class(class_select <> case class {
-        "" -> ""
-        c -> " " <> c
-      }),
+      a.class(
+        class_select
+        <> case class {
+          "" -> ""
+          c -> " " <> c
+        },
+      ),
       case id {
         "" -> a.none()
         v -> a.id(v)
@@ -96,5 +98,10 @@ pub fn select_simple(
   options: List(SelectOption),
   on_change: fn(String) -> msg,
 ) -> Element(msg) {
-  select_full(options, InitValue(""), on_change: on_change, extra_attrs: default_extra_attrs)
+  select_full(
+    options,
+    InitValue(""),
+    on_change: on_change,
+    extra_attrs: default_extra_attrs,
+  )
 }

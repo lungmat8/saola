@@ -28,7 +28,6 @@ pub fn gallery_horizontal(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn gallery_horizontal_end(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -55,7 +54,6 @@ pub fn gallery_horizontal_end(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn gallery_thumbnails(attributes: List(Attribute(a))) {
   svg.svg(
@@ -86,7 +84,6 @@ pub fn gallery_thumbnails(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn gallery_vertical(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -114,7 +111,6 @@ pub fn gallery_vertical(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn gallery_vertical_end(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -141,7 +137,6 @@ pub fn gallery_vertical_end(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn gamepad(attributes: List(Attribute(a))) {
   svg.svg(
@@ -192,7 +187,6 @@ pub fn gamepad(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn gamepad_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -241,7 +235,6 @@ pub fn gamepad_2(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn gamepad_directional(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -284,7 +277,6 @@ pub fn gamepad_directional(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn gauge(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -304,7 +296,6 @@ pub fn gauge(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn gavel(attributes: List(Attribute(a))) {
   svg.svg(
@@ -330,7 +321,6 @@ pub fn gavel(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn gem(attributes: List(Attribute(a))) {
   svg.svg(
@@ -358,7 +348,6 @@ pub fn gem(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn georgian_lari(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -380,7 +369,6 @@ pub fn georgian_lari(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn ghost(attributes: List(Attribute(a))) {
   svg.svg(
@@ -407,7 +395,6 @@ pub fn ghost(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn gift(attributes: List(Attribute(a))) {
   svg.svg(
@@ -442,7 +429,6 @@ pub fn gift(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn git_branch(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -471,7 +457,6 @@ pub fn git_branch(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn git_branch_minus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -503,7 +488,6 @@ pub fn git_branch_minus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn git_branch_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -527,7 +511,6 @@ pub fn git_branch_plus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn git_commit_horizontal(attributes: List(Attribute(a))) {
   svg.svg(
@@ -564,7 +547,6 @@ pub fn git_commit_horizontal(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn git_commit_vertical(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -589,7 +571,6 @@ pub fn git_commit_vertical(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn git_compare(attributes: List(Attribute(a))) {
   svg.svg(
@@ -620,7 +601,6 @@ pub fn git_compare(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn git_compare_arrows(attributes: List(Attribute(a))) {
   svg.svg(
@@ -653,7 +633,6 @@ pub fn git_compare_arrows(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn git_fork(attributes: List(Attribute(a))) {
   svg.svg(
@@ -689,7 +668,6 @@ pub fn git_fork(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn git_graph(attributes: List(Attribute(a))) {
   svg.svg(
@@ -727,7 +705,6 @@ pub fn git_graph(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn git_merge(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -757,7 +734,6 @@ pub fn git_merge(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn git_merge_conflict(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -784,7 +760,6 @@ pub fn git_merge_conflict(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn git_pull_request(attributes: List(Attribute(a))) {
   svg.svg(
@@ -821,7 +796,6 @@ pub fn git_pull_request(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn git_pull_request_arrow(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -852,7 +826,6 @@ pub fn git_pull_request_arrow(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn git_pull_request_closed(attributes: List(Attribute(a))) {
   svg.svg(
@@ -886,7 +859,6 @@ pub fn git_pull_request_closed(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn git_pull_request_create(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -913,7 +885,6 @@ pub fn git_pull_request_create(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn git_pull_request_create_arrow(attributes: List(Attribute(a))) {
   svg.svg(
@@ -942,7 +913,6 @@ pub fn git_pull_request_create_arrow(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn git_pull_request_draft(attributes: List(Attribute(a))) {
   svg.svg(
@@ -980,7 +950,6 @@ pub fn git_pull_request_draft(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn glass_water(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1005,7 +974,6 @@ pub fn glass_water(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn glasses(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1038,7 +1006,6 @@ pub fn glasses(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn globe(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1065,7 +1032,6 @@ pub fn globe(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn globe_lock(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1100,7 +1066,6 @@ pub fn globe_lock(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn globe_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1134,7 +1099,6 @@ pub fn globe_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn globe_x(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1161,7 +1125,6 @@ pub fn globe_x(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn goal(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1182,7 +1145,6 @@ pub fn goal(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn gpu(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1215,7 +1177,6 @@ pub fn gpu(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn graduation_cap(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1241,7 +1202,6 @@ pub fn graduation_cap(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn grape(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1302,7 +1262,6 @@ pub fn grape(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn grid_2x2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1330,7 +1289,6 @@ pub fn grid_2x2(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn grid_2x2_check(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1355,7 +1313,6 @@ pub fn grid_2x2_check(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn grid_2x2_plus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1383,7 +1340,6 @@ pub fn grid_2x2_plus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn grid_2x2_x(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1409,7 +1365,6 @@ pub fn grid_2x2_x(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn grid_3x2(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1439,7 +1394,6 @@ pub fn grid_3x2(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn grid_3x3(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1468,7 +1422,6 @@ pub fn grid_3x3(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn grip(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1533,7 +1486,6 @@ pub fn grip(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn grip_horizontal(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1581,7 +1533,6 @@ pub fn grip_horizontal(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn grip_vertical(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1631,7 +1582,6 @@ pub fn grip_vertical(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn group(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1667,7 +1617,6 @@ pub fn group(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn guitar(attributes: List(Attribute(a))) {
   svg.svg(

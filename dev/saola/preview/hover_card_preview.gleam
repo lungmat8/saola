@@ -4,7 +4,9 @@ import lustre/element.{type Element, text}
 import lustre/element/html as h
 import lustre/event as e
 import saola/hover_card
-import saola/preview/model.{type Model, type Msg, HoverCardClosed, HoverCardOpened}
+import saola/preview/model.{
+  type Model, type Msg, HoverCardClosed, HoverCardOpened,
+}
 
 pub fn view_hover_cards(model: Model) -> Element(Msg) {
   h.div([], [

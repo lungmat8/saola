@@ -23,9 +23,7 @@ pub const default_attrs = CarouselAttrs(
   class: "",
 )
 
-fn decode_change(
-  callback: fn(Int, Bool, Bool) -> msg,
-) -> decode.Decoder(msg) {
+fn decode_change(callback: fn(Int, Bool, Bool) -> msg) -> decode.Decoder(msg) {
   use idx <- decode.subfield(["detail", "index"], decode.int)
   use can_prev <- decode.subfield(["detail", "canScrollPrev"], decode.bool)
   use can_next <- decode.subfield(["detail", "canScrollNext"], decode.bool)
@@ -60,9 +58,7 @@ pub fn carousel_full(
     False -> a.none()
   }
   let slide_wrappers =
-    list.map(slides, fn(s) {
-      h.div([a.attribute("data-slot", "slide")], [s])
-    })
+    list.map(slides, fn(s) { h.div([a.attribute("data-slot", "slide")], [s]) })
   element.element(
     "saola-carousel",
     [

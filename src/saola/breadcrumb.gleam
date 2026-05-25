@@ -10,16 +10,10 @@ pub type BreadcrumbItem(msg) {
 }
 
 pub type BreadcrumbAttrs {
-  BreadcrumbAttrs(
-    separator: String,
-    class: String,
-  )
+  BreadcrumbAttrs(separator: String, class: String)
 }
 
-pub const default_attrs = BreadcrumbAttrs(
-  separator: "/",
-  class: "",
-)
+pub const default_attrs = BreadcrumbAttrs(separator: "/", class: "")
 
 pub fn breadcrumb_full(
   items: List(BreadcrumbItem(msg)),
@@ -30,44 +24,41 @@ pub fn breadcrumb_full(
     c -> a.class(c)
   }
   let item_count = list.length(items)
-  h.nav(
-    [a.attribute("aria-label", "Breadcrumb"), extra_class],
-    [
-      h.ol(
-        [a.class("breadcrumb")],
-        list.index_map(items, fn(item, idx) {
-          let is_last = idx == item_count - 1
-          let content = case item {
-            BreadcrumbLink(label, href) ->
-              h.a([a.href(href), a.class("breadcrumb-link")], [h.text(label)])
-            BreadcrumbPage(label) ->
+  h.nav([a.attribute("aria-label", "Breadcrumb"), extra_class], [
+    h.ol(
+      [a.class("breadcrumb")],
+      list.index_map(items, fn(item, idx) {
+        let is_last = idx == item_count - 1
+        let content = case item {
+          BreadcrumbLink(label, href) ->
+            h.a([a.href(href), a.class("breadcrumb-link")], [h.text(label)])
+          BreadcrumbPage(label) ->
+            h.span(
+              [
+                a.class("breadcrumb-page"),
+                a.attribute("aria-current", "page"),
+              ],
+              [h.text(label)],
+            )
+          BreadcrumbCustom(el) -> el
+        }
+        case is_last {
+          True -> h.li([a.class("breadcrumb-item")], [content])
+          False ->
+            h.li([a.class("breadcrumb-item")], [
+              content,
               h.span(
                 [
-                  a.class("breadcrumb-page"),
-                  a.attribute("aria-current", "page"),
+                  a.class("breadcrumb-separator"),
+                  a.attribute("aria-hidden", "true"),
                 ],
-                [h.text(label)],
-              )
-            BreadcrumbCustom(el) -> el
-          }
-          case is_last {
-            True -> h.li([a.class("breadcrumb-item")], [content])
-            False ->
-              h.li(
-                [a.class("breadcrumb-item")],
-                [
-                  content,
-                  h.span(
-                    [a.class("breadcrumb-separator"), a.attribute("aria-hidden", "true")],
-                    [h.text(attrs.separator)],
-                  ),
-                ],
-              )
-          }
-        }),
-      ),
-    ],
-  )
+                [h.text(attrs.separator)],
+              ),
+            ])
+        }
+      }),
+    ),
+  ])
 }
 
 pub fn breadcrumb_simple(items: List(BreadcrumbItem(msg))) -> Element(msg) {

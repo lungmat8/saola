@@ -21,7 +21,6 @@ pub fn x(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn x_line_top(attributes: List(Attribute(a))) {
   svg.svg(
     [

@@ -35,7 +35,6 @@ pub fn ham(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hamburger(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -65,7 +64,6 @@ pub fn hamburger(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hammer(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -91,7 +89,6 @@ pub fn hammer(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn hand(attributes: List(Attribute(a))) {
   svg.svg(
@@ -119,7 +116,6 @@ pub fn hand(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn hand_coins(attributes: List(Attribute(a))) {
   svg.svg(
@@ -159,7 +155,6 @@ pub fn hand_coins(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hand_fist(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -186,7 +181,6 @@ pub fn hand_fist(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn hand_grab(attributes: List(Attribute(a))) {
   svg.svg(
@@ -215,7 +209,6 @@ pub fn hand_grab(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn hand_heart(attributes: List(Attribute(a))) {
   svg.svg(
@@ -251,7 +244,6 @@ pub fn hand_heart(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hand_helping(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -280,7 +272,6 @@ pub fn hand_helping(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hand_metal(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -307,7 +298,6 @@ pub fn hand_metal(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn hand_platter(attributes: List(Attribute(a))) {
   svg.svg(
@@ -338,7 +328,6 @@ pub fn hand_platter(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn handbag(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -363,7 +352,6 @@ pub fn handbag(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn handshake(attributes: List(Attribute(a))) {
   svg.svg(
@@ -393,7 +381,6 @@ pub fn handshake(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hard_drive(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -420,7 +407,6 @@ pub fn hard_drive(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn hard_drive_download(attributes: List(Attribute(a))) {
   svg.svg(
@@ -451,7 +437,6 @@ pub fn hard_drive_download(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hard_drive_upload(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -481,7 +466,6 @@ pub fn hard_drive_upload(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hard_hat(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -509,7 +493,6 @@ pub fn hard_hat(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn hash(attributes: List(Attribute(a))) {
   svg.svg(
@@ -553,7 +536,6 @@ pub fn hash(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hat_glasses(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -590,7 +572,6 @@ pub fn hat_glasses(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn haze(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -616,7 +597,6 @@ pub fn haze(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn hd(attributes: List(Attribute(a))) {
   svg.svg(
@@ -652,7 +632,6 @@ pub fn hd(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hdmi_port(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -678,7 +657,6 @@ pub fn hdmi_port(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn heading(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -699,7 +677,6 @@ pub fn heading(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn heading_1(attributes: List(Attribute(a))) {
   svg.svg(
@@ -723,7 +700,6 @@ pub fn heading_1(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn heading_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -745,7 +721,6 @@ pub fn heading_2(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn heading_3(attributes: List(Attribute(a))) {
   svg.svg(
@@ -770,7 +745,6 @@ pub fn heading_3(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn heading_4(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -793,7 +767,6 @@ pub fn heading_4(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn heading_5(attributes: List(Attribute(a))) {
   svg.svg(
@@ -823,7 +796,6 @@ pub fn heading_5(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn heading_6(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -850,7 +822,6 @@ pub fn heading_6(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn headphone_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -882,7 +853,6 @@ pub fn headphone_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn headphones(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -906,7 +876,6 @@ pub fn headphones(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn headset(attributes: List(Attribute(a))) {
   svg.svg(
@@ -933,7 +902,6 @@ pub fn headset(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn heart(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -957,7 +925,6 @@ pub fn heart(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn heart_crack(attributes: List(Attribute(a))) {
   svg.svg(
@@ -989,7 +956,6 @@ pub fn heart_crack(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn heart_handshake(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1013,7 +979,6 @@ pub fn heart_handshake(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn heart_minus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1039,7 +1004,6 @@ pub fn heart_minus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn heart_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1072,7 +1036,6 @@ pub fn heart_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn heart_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1099,7 +1062,6 @@ pub fn heart_plus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn heart_pulse(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1124,7 +1086,6 @@ pub fn heart_pulse(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn heater(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1159,7 +1120,6 @@ pub fn heater(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn helicopter(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1191,7 +1151,6 @@ pub fn helicopter(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hexagon(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1216,7 +1175,6 @@ pub fn hexagon(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn highlighter(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1238,7 +1196,6 @@ pub fn highlighter(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn history(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1262,7 +1219,6 @@ pub fn history(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn hop(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1325,7 +1281,6 @@ pub fn hop(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hop_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1384,7 +1339,6 @@ pub fn hop_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hospital(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1412,7 +1366,6 @@ pub fn hospital(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn hotel(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1448,7 +1401,6 @@ pub fn hotel(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn hourglass(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1481,7 +1433,6 @@ pub fn hourglass(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn house(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1506,7 +1457,6 @@ pub fn house(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn house_heart(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1537,7 +1487,6 @@ pub fn house_heart(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn house_plug(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1571,7 +1520,6 @@ pub fn house_plug(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn house_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1598,7 +1546,6 @@ pub fn house_plus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn house_wifi(attributes: List(Attribute(a))) {
   svg.svg(

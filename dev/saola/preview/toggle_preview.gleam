@@ -1,7 +1,9 @@
 import lustre/attribute as a
 import lustre/element.{type Element, text}
 import lustre/element/html as h
-import saola/preview/model.{type Model, type Msg, ToggleBoldChanged, ToggleItalicChanged}
+import saola/preview/model.{
+  type Model, type Msg, ToggleBoldChanged, ToggleItalicChanged,
+}
 import saola/toggle
 
 pub fn view_toggles(model: Model) -> Element(Msg) {

@@ -41,7 +41,6 @@ pub fn dam(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn database(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -67,7 +66,6 @@ pub fn database(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn database_backup(attributes: List(Attribute(a))) {
   svg.svg(
@@ -103,7 +101,6 @@ pub fn database_backup(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn database_search(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -137,7 +134,6 @@ pub fn database_search(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn database_zap(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -166,7 +162,6 @@ pub fn database_zap(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn decimals_arrow_left(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -194,7 +189,6 @@ pub fn decimals_arrow_left(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn decimals_arrow_right(attributes: List(Attribute(a))) {
   svg.svg(
@@ -231,7 +225,6 @@ pub fn decimals_arrow_right(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn delete(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -257,7 +250,6 @@ pub fn delete(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn dessert(attributes: List(Attribute(a))) {
   svg.svg(
@@ -288,7 +280,6 @@ pub fn dessert(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn diameter(attributes: List(Attribute(a))) {
   svg.svg(
@@ -321,7 +312,6 @@ pub fn diameter(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn diamond(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -345,7 +335,6 @@ pub fn diamond(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn diamond_minus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -371,7 +360,6 @@ pub fn diamond_minus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn diamond_percent(attributes: List(Attribute(a))) {
   svg.svg(
@@ -400,7 +388,6 @@ pub fn diamond_percent(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn diamond_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -426,7 +413,6 @@ pub fn diamond_plus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn dice_1(attributes: List(Attribute(a))) {
   svg.svg(
@@ -455,7 +441,6 @@ pub fn dice_1(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn dice_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -483,7 +468,6 @@ pub fn dice_2(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn dice_3(attributes: List(Attribute(a))) {
   svg.svg(
@@ -514,7 +498,6 @@ pub fn dice_3(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn dice_4(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -544,7 +527,6 @@ pub fn dice_4(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn dice_5(attributes: List(Attribute(a))) {
   svg.svg(
@@ -577,7 +559,6 @@ pub fn dice_5(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn dice_6(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -609,7 +590,6 @@ pub fn dice_6(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn dices(attributes: List(Attribute(a))) {
   svg.svg(
@@ -647,7 +627,6 @@ pub fn dices(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn diff(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -668,7 +647,6 @@ pub fn diff(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn disc(attributes: List(Attribute(a))) {
   svg.svg(
@@ -698,7 +676,6 @@ pub fn disc(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn disc_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -727,7 +704,6 @@ pub fn disc_2(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn disc_3(attributes: List(Attribute(a))) {
   svg.svg(
@@ -759,7 +735,6 @@ pub fn disc_3(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn disc_album(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -790,7 +765,6 @@ pub fn disc_album(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn divide(attributes: List(Attribute(a))) {
   svg.svg(
@@ -826,7 +800,6 @@ pub fn divide(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn dna(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -856,7 +829,6 @@ pub fn dna(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn dna_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -885,7 +857,6 @@ pub fn dna_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn dock(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -912,7 +883,6 @@ pub fn dock(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn dog(attributes: List(Attribute(a))) {
   svg.svg(
@@ -947,7 +917,6 @@ pub fn dog(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn dollar_sign(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -974,7 +943,6 @@ pub fn dollar_sign(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn donut(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1005,7 +973,6 @@ pub fn donut(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn door_closed(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1026,7 +993,6 @@ pub fn door_closed(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn door_closed_locked(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1057,7 +1023,6 @@ pub fn door_closed_locked(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn door_open(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1086,7 +1051,6 @@ pub fn door_open(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn dot(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1110,7 +1074,6 @@ pub fn dot(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn download(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1131,7 +1094,6 @@ pub fn download(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn drafting_compass(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1159,7 +1121,6 @@ pub fn drafting_compass(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn drama(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1193,7 +1154,6 @@ pub fn drama(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn drill(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1229,7 +1189,6 @@ pub fn drill(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn drone(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1263,7 +1222,6 @@ pub fn drone(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn droplet(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1287,7 +1245,6 @@ pub fn droplet(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn droplet_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1320,7 +1277,6 @@ pub fn droplet_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn droplets(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1350,7 +1306,6 @@ pub fn droplets(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn drum(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1382,7 +1337,6 @@ pub fn drum(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn drumstick(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1412,7 +1366,6 @@ pub fn drumstick(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn dumbbell(attributes: List(Attribute(a))) {
   svg.svg(

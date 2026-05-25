@@ -22,10 +22,12 @@ pub fn view_popovers(model: Model) -> Element(Msg) {
               a.class("btn btn-outline"),
               e.on_click(PopoverClosed),
             ],
-            [text(case model.popover_open {
-              True -> "Close popover"
-              False -> "Open popover"
-            })],
+            [
+              text(case model.popover_open {
+                True -> "Close popover"
+                False -> "Open popover"
+              }),
+            ],
           ),
           h.div([a.style("padding", "0.25rem")], [
             h.p([a.style("font-weight", "600")], [text("Popover title")]),

@@ -20,7 +20,9 @@ pub fn view_collapsibles(model: Model) -> Element(Msg) {
             False -> "Show details ▼"
           },
           h.div([a.style("padding", "0.5rem 0")], [
-            h.p([], [text("This content is revealed when the trigger is clicked.")]),
+            h.p([], [
+              text("This content is revealed when the trigger is clicked."),
+            ]),
             h.p([], [text("It can contain any element.")]),
           ]),
           fn() { CollapsibleToggled },

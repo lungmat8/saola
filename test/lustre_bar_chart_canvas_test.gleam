@@ -91,7 +91,11 @@ pub fn bar_count_matches_data_test() {
 }
 
 pub fn hit_area_count_matches_data_test() {
-  let data = [ChartPoint("A", 10.0), ChartPoint("B", 20.0), ChartPoint("C", 30.0)]
+  let data = [
+    ChartPoint("A", 10.0),
+    ChartPoint("B", 20.0),
+    ChartPoint("C", 30.0),
+  ]
   let output =
     bar_chart_canvas(data, default_bar_chart_attrs, option.Some(fn(p) { p }))
   assert list.length(output.hit_areas) == 3
@@ -150,8 +154,7 @@ pub fn x_axis_labels_present_test() {
 
 pub fn title_command_present_when_set_test() {
   let data = [ChartPoint("X", 5.0)]
-  let attrs =
-    BarChartAttrs(..default_bar_chart_attrs, title: "Revenue")
+  let attrs = BarChartAttrs(..default_bar_chart_attrs, title: "Revenue")
   let output = bar_chart_canvas(data, attrs, option.None)
   let has_title =
     list.any(output.commands, fn(cmd) {

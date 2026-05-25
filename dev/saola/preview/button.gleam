@@ -10,7 +10,11 @@ import saola/preview/model.{type Msg, Home, OnRouteChange}
 pub fn view_buttons() -> Element(Msg) {
   let attrs_disabled = button.ButtonExtraAttrs(True, None, button.default_aria)
   let attrs_aria_label =
-    button.ButtonExtraAttrs(False, None, button.ButtonAria("Save changes", None))
+    button.ButtonExtraAttrs(
+      False,
+      None,
+      button.ButtonAria("Save changes", None),
+    )
   let attrs_aria_expanded =
     button.ButtonExtraAttrs(
       False,

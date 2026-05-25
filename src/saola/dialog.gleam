@@ -44,8 +44,14 @@ pub fn dialog_full(
   is_open is_open: Bool,
   attrs attrs: DialogAttrs(msg),
 ) -> Element(msg) {
-  let DialogAttrs(title:, description:, content:, footer:, show_close_button:, on_close:) =
-    attrs
+  let DialogAttrs(
+    title:,
+    description:,
+    content:,
+    footer:,
+    show_close_button:,
+    on_close:,
+  ) = attrs
   let title_id =
     typeid.new(prefix: "dlg")
     |> result.map(typeid.to_string)

@@ -52,19 +52,15 @@ fn render_item(item: ContextMenuItem(msg)) -> Element(msg) {
         [h.text(label)],
       )
     ContextMenuDisabled(label) ->
-      h.div(
-        [a.class("context-menu-item context-menu-item-disabled")],
-        [h.text(label)],
-      )
+      h.div([a.class("context-menu-item context-menu-item-disabled")], [
+        h.text(label),
+      ])
     ContextMenuSeparator -> h.div([a.class("context-menu-separator")], [])
     ContextMenuGroup(group_label, group_items) ->
-      h.div(
-        [],
-        [
-          h.div([a.class("context-menu-group-label")], [h.text(group_label)]),
-          ..list.map(group_items, render_item)
-        ],
-      )
+      h.div([], [
+        h.div([a.class("context-menu-group-label")], [h.text(group_label)]),
+        ..list.map(group_items, render_item)
+      ])
   }
 }
 
@@ -93,23 +89,20 @@ pub fn context_menu_full(
       case open {
         False -> h.text("")
         True ->
-          h.div(
-            [],
-            [
-              h.div(
-                [a.class("context-menu-backdrop"), e.on_click(on_close())],
-                [],
-              ),
-              h.div(
-                [
-                  a.class("context-menu-popup"),
-                  a.style("left", int.to_string(x) <> "px"),
-                  a.style("top", int.to_string(y) <> "px"),
-                ],
-                list.map(items, render_item),
-              ),
-            ],
-          )
+          h.div([], [
+            h.div(
+              [a.class("context-menu-backdrop"), e.on_click(on_close())],
+              [],
+            ),
+            h.div(
+              [
+                a.class("context-menu-popup"),
+                a.style("left", int.to_string(x) <> "px"),
+                a.style("top", int.to_string(y) <> "px"),
+              ],
+              list.map(items, render_item),
+            ),
+          ])
       },
     ],
   )

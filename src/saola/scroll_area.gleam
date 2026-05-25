@@ -3,11 +3,7 @@ import lustre/element.{type Element}
 import lustre/element/html as h
 
 pub type ScrollAreaAttrs {
-  ScrollAreaAttrs(
-    height: String,
-    width: String,
-    class: String,
-  )
+  ScrollAreaAttrs(height: String, width: String, class: String)
 }
 
 pub const default_attrs = ScrollAreaAttrs(

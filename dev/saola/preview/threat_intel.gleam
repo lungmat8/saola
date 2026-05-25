@@ -12,31 +12,27 @@ import saola/empty
 import saola/entity_graph_3d
 import saola/entity_graph_canvas as egc
 import saola/multiselect
-import saola/progress
-import saola/search
-import saola/timeline
-import saola/world_map
 import saola/preview/model.{
-  type Model, type Msg, ThreatEntitySelected,
-  ThreatFiltersCleared,
+  type Model, type Msg, ThreatEntitySelected, ThreatFiltersCleared,
   ThreatMapCountryClicked, ThreatSearchChanged, ThreatSearchCleared,
   ThreatSeverityFilterChanged, ThreatTablePageChanged, ThreatTableRowSelected,
   ThreatTableSortChanged,
 }
 import saola/preview/threat_intel_data.{type ThreatActor}
+import saola/progress
+import saola/search
+import saola/timeline
+import saola/world_map
 
 // ---------------------------------------------------------------------------
 // Public entry point
 // ---------------------------------------------------------------------------
 
 pub fn view_threat_intel_network(model: Model) -> Element(Msg) {
-  h.div(
-    [a.class("threat-intel-root")],
-    [
-      map_column(model),
-      data_column(model),
-    ],
-  )
+  h.div([a.class("threat-intel-root")], [
+    map_column(model),
+    data_column(model),
+  ])
 }
 
 // ---------------------------------------------------------------------------
@@ -49,77 +45,78 @@ fn map_column(model: Model) -> Element(Msg) {
     [] -> []
     filter ->
       list.filter_map(actors, fn(actor) {
-        case list.contains(filter, threat_intel_data.severity_label(actor.severity)) {
+        case
+          list.contains(
+            filter,
+            threat_intel_data.severity_label(actor.severity),
+          )
+        {
           False -> Ok(actor.id)
           True -> Error(Nil)
         }
       })
   }
-  let markers = list.map(actors, fn(actor) {
-    world_map.WorldMapMarker(
-      id: actor.id,
-      label: actor.name,
-      lat: actor.lat,
-      lng: actor.lng,
-      severity: threat_intel_data.severity_label(actor.severity),
-      connections: actor.connections,
-      selected: list.contains(model.threat_selected_ids, actor.id),
-      dimmed: list.contains(severity_dimmed_ids, actor.id)
-        || case model.threat_map_country_filter {
+  let markers =
+    list.map(actors, fn(actor) {
+      world_map.WorldMapMarker(
+        id: actor.id,
+        label: actor.name,
+        lat: actor.lat,
+        lng: actor.lng,
+        severity: threat_intel_data.severity_label(actor.severity),
+        connections: actor.connections,
+        selected: list.contains(model.threat_selected_ids, actor.id),
+        dimmed: list.contains(severity_dimmed_ids, actor.id)
+          || case model.threat_map_country_filter {
           None -> False
           Some(c) -> actor.country != c
         },
-    )
-  })
+      )
+    })
   let arcs = compute_arcs(model.threat_selected_ids)
-  h.div(
-    [a.class("threat-intel-map-col")],
-    [
-      map_overlay_header(model),
-      world_map.world_map_element(
-        markers,
-        arcs,
-        world_map.default_world_map_attrs,
-        fn(id) { ThreatEntitySelected(id) },
-        fn(country) { ThreatMapCountryClicked(country) },
-      ),
-    ],
-  )
+  h.div([a.class("threat-intel-map-col")], [
+    map_overlay_header(model),
+    world_map.world_map_element(
+      markers,
+      arcs,
+      world_map.default_world_map_attrs,
+      fn(id) { ThreatEntitySelected(id) },
+      fn(country) { ThreatMapCountryClicked(country) },
+    ),
+  ])
 }
 
 fn map_overlay_header(model: Model) -> Element(Msg) {
-  h.div(
-    [a.class("threat-intel-map-overlay")],
-    [
-      h.span([a.class("threat-intel-map-title")], [h.text("Threat Actor Network")]),
-      case model.threat_map_country_filter {
-        None -> element.none()
-        Some(c) ->
-          h.button(
-            [a.type_("button"), a.class("btn btn-sm"), e.on_click(ThreatFiltersCleared)],
-            [h.text("📍 " <> c <> "  ✕")],
-          )
-      },
-      case model.threat_graph_hovered {
-        None -> element.none()
-        Some(id) ->
-          case threat_intel_data.find_actor(id) {
-            None -> element.none()
-            Some(actor) ->
-              h.div(
-                [a.class("threat-intel-hover-label")],
-                [
-                  h.text(actor.name <> " · "),
-                  badge.badge(
-                    threat_intel_data.severity_label(actor.severity),
-                    severity_badge_variant(actor.severity),
-                  ),
-                ],
-              )
-          }
-      },
-    ],
-  )
+  h.div([a.class("threat-intel-map-overlay")], [
+    h.span([a.class("threat-intel-map-title")], [h.text("Threat Actor Network")]),
+    case model.threat_map_country_filter {
+      None -> element.none()
+      Some(c) ->
+        h.button(
+          [
+            a.type_("button"),
+            a.class("btn btn-sm"),
+            e.on_click(ThreatFiltersCleared),
+          ],
+          [h.text("📍 " <> c <> "  ✕")],
+        )
+    },
+    case model.threat_graph_hovered {
+      None -> element.none()
+      Some(id) ->
+        case threat_intel_data.find_actor(id) {
+          None -> element.none()
+          Some(actor) ->
+            h.div([a.class("threat-intel-hover-label")], [
+              h.text(actor.name <> " · "),
+              badge.badge(
+                threat_intel_data.severity_label(actor.severity),
+                severity_badge_variant(actor.severity),
+              ),
+            ])
+        }
+    },
+  ])
 }
 
 fn compute_arcs(selected_ids: List(String)) -> List(world_map.WorldMapArc) {
@@ -159,15 +156,12 @@ fn compute_arcs(selected_ids: List(String)) -> List(world_map.WorldMapArc) {
 // ---------------------------------------------------------------------------
 
 fn data_column(model: Model) -> Element(Msg) {
-  h.div(
-    [a.class("threat-intel-data-col")],
-    [
-      controls_panel(model),
-      graph_panel(model),
-      table_panel(model),
-      timeline_panel(model),
-    ],
-  )
+  h.div([a.class("threat-intel-data-col")], [
+    controls_panel(model),
+    graph_panel(model),
+    table_panel(model),
+    timeline_panel(model),
+  ])
 }
 
 // ---------------------------------------------------------------------------
@@ -176,74 +170,84 @@ fn data_column(model: Model) -> Element(Msg) {
 
 fn controls_panel(model: Model) -> Element(Msg) {
   let actors = threat_intel_data.all_actors()
-  h.div(
-    [a.class("threat-intel-controls")],
-    [
-      search.search_full(
-        search.Small,
-        model.threat_search,
-        ThreatSearchChanged,
-        Some(ThreatSearchCleared),
-        search.SearchAttrs(
-          placeholder: "Search actors…",
-          disabled: False,
-          name: "",
-          class: "threat-intel-search",
-        ),
+  h.div([a.class("threat-intel-controls")], [
+    search.search_full(
+      search.Small,
+      model.threat_search,
+      ThreatSearchChanged,
+      Some(ThreatSearchCleared),
+      search.SearchAttrs(
+        placeholder: "Search actors…",
+        disabled: False,
+        name: "",
+        class: "threat-intel-search",
       ),
-      multiselect.multiselect_full(
-        threat_intel_data.all_severity_options(),
-        model.threat_severity_filter,
-        ThreatSeverityFilterChanged,
-        multiselect.default_attrs(),
+    ),
+    multiselect.multiselect_full(
+      threat_intel_data.all_severity_options(),
+      model.threat_severity_filter,
+      ThreatSeverityFilterChanged,
+      multiselect.default_attrs(),
+    ),
+    h.div([a.class("threat-intel-metrics")], [
+      metric_pill(
+        "Critical",
+        count_by_severity(actors, "critical"),
+        badge.Destructive,
       ),
-      h.div(
-        [a.class("threat-intel-metrics")],
-        [
-          metric_pill("Critical", count_by_severity(actors, "critical"), badge.Destructive),
-          metric_pill("High", count_by_severity(actors, "high"), badge.Default),
-          metric_pill("Medium", count_by_severity(actors, "medium"), badge.Secondary),
-          metric_pill("Low", count_by_severity(actors, "low"), badge.Outline),
-        ],
+      metric_pill("High", count_by_severity(actors, "high"), badge.Default),
+      metric_pill(
+        "Medium",
+        count_by_severity(actors, "medium"),
+        badge.Secondary,
       ),
-      case model.threat_severity_filter != []
-        || model.threat_search != ""
-        || model.threat_selected_ids != []
-        || model.threat_map_country_filter != None
-      {
-        False -> element.none()
-        True ->
-          h.button(
-            [a.type_("button"), a.class("btn btn-ghost btn-sm"), e.on_click(ThreatFiltersCleared)],
-            [h.text("✕ Clear filters")],
-          )
-      },
-    ],
-  )
+      metric_pill("Low", count_by_severity(actors, "low"), badge.Outline),
+    ]),
+    case
+      model.threat_severity_filter != []
+      || model.threat_search != ""
+      || model.threat_selected_ids != []
+      || model.threat_map_country_filter != None
+    {
+      False -> element.none()
+      True ->
+        h.button(
+          [
+            a.type_("button"),
+            a.class("btn btn-ghost btn-sm"),
+            e.on_click(ThreatFiltersCleared),
+          ],
+          [h.text("✕ Clear filters")],
+        )
+    },
+  ])
 }
 
-fn metric_pill(label: String, count: Int, variant: badge.BadgeVariant) -> Element(Msg) {
-  h.div(
-    [a.class("threat-metric-pill")],
-    [
-      badge.badge(label, variant),
-      h.span([a.class("threat-metric-count")], [h.text(int.to_string(count))]),
-      progress.progress_full(
-        count,
-        progress.ProgressAttrs(
-          min: 0,
-          max: 30,
-          variant: progress.Default,
-          label: label,
-          class: "threat-metric-bar",
-        ),
+fn metric_pill(
+  label: String,
+  count: Int,
+  variant: badge.BadgeVariant,
+) -> Element(Msg) {
+  h.div([a.class("threat-metric-pill")], [
+    badge.badge(label, variant),
+    h.span([a.class("threat-metric-count")], [h.text(int.to_string(count))]),
+    progress.progress_full(
+      count,
+      progress.ProgressAttrs(
+        min: 0,
+        max: 30,
+        variant: progress.Default,
+        label: label,
+        class: "threat-metric-bar",
       ),
-    ],
-  )
+    ),
+  ])
 }
 
 fn count_by_severity(actors: List(ThreatActor), sev: String) -> Int {
-  list.count(actors, fn(actor) { threat_intel_data.severity_label(actor.severity) == sev })
+  list.count(actors, fn(actor) {
+    threat_intel_data.severity_label(actor.severity) == sev
+  })
 }
 
 // ---------------------------------------------------------------------------
@@ -253,38 +257,48 @@ fn count_by_severity(actors: List(ThreatActor), sev: String) -> Int {
 fn graph_panel(model: Model) -> Element(Msg) {
   let nodes = list.map(threat_intel_data.all_actors(), actor_to_node)
   let edges = list.map(threat_intel_data.all_edges(), edge_to_graph_edge)
-  let dimmed =
-    case model.threat_severity_filter {
-      [] -> []
-      filter ->
-        list.filter_map(threat_intel_data.all_actors(), fn(actor) {
-          case list.contains(filter, threat_intel_data.severity_label(actor.severity)) {
-            True -> Error(Nil)
-            False -> Ok(actor.id)
-          }
-        })
-    }
-  h.div(
-    [a.class("threat-intel-graph-panel")],
-    [
-      h.p([a.class("threat-intel-panel-title")], [h.text("Relationship Graph")]),
-      entity_graph_3d.entity_graph_3d(
-        nodes,
-        edges,
-        model.threat_selected_ids,
-        dimmed,
-        Some(ThreatEntitySelected),
-      ),
-    ],
-  )
+  let dimmed = case model.threat_severity_filter {
+    [] -> []
+    filter ->
+      list.filter_map(threat_intel_data.all_actors(), fn(actor) {
+        case
+          list.contains(
+            filter,
+            threat_intel_data.severity_label(actor.severity),
+          )
+        {
+          True -> Error(Nil)
+          False -> Ok(actor.id)
+        }
+      })
+  }
+  h.div([a.class("threat-intel-graph-panel")], [
+    h.p([a.class("threat-intel-panel-title")], [h.text("Relationship Graph")]),
+    entity_graph_3d.entity_graph_3d(
+      nodes,
+      edges,
+      model.threat_selected_ids,
+      dimmed,
+      Some(ThreatEntitySelected),
+    ),
+  ])
 }
 
 fn actor_to_node(actor: ThreatActor) -> egc.GraphNode {
-  egc.GraphNode(id: actor.id, label: actor.name, group: threat_intel_data.severity_label(actor.severity))
+  egc.GraphNode(
+    id: actor.id,
+    label: actor.name,
+    group: threat_intel_data.severity_label(actor.severity),
+  )
 }
 
 fn edge_to_graph_edge(te: threat_intel_data.ThreatEdge) -> egc.GraphEdge {
-  egc.GraphEdge(id: te.id, source: te.source, target: te.target, label: te.label)
+  egc.GraphEdge(
+    id: te.id,
+    source: te.source,
+    target: te.target,
+    label: te.label,
+  )
 }
 
 // ---------------------------------------------------------------------------
@@ -293,35 +307,36 @@ fn edge_to_graph_edge(te: threat_intel_data.ThreatEdge) -> egc.GraphEdge {
 
 fn table_panel(model: Model) -> Element(Msg) {
   let rows = sorted_filtered_actors(model)
-  h.div(
-    [a.class("threat-intel-table-section")],
-    [
-      h.p([a.class("threat-intel-panel-title")], [h.text("Threat Actors")]),
-      case rows {
-        [] ->
-          empty.empty_full(
-            media: None,
-            media_variant: empty.Default,
-            title: "No actors match",
-            description: [h.text("Adjust the filters or search query.")],
-            content: [],
-            attrs: empty.default_attrs,
-          )
-        _ ->
-          data_table.data_table_full(
-            actor_columns(),
-            rows,
-            model.threat_table_state,
-            ThreatTableSortChanged,
-            fn(_q) { ThreatFiltersCleared },
-            ThreatTablePageChanged,
-            ThreatTableRowSelected,
-            fn(actor: ThreatActor) { actor.id },
-            data_table.DataTableAttrs(show_filter: False, show_pagination: True, class: ""),
-          )
-      },
-    ],
-  )
+  h.div([a.class("threat-intel-table-section")], [
+    h.p([a.class("threat-intel-panel-title")], [h.text("Threat Actors")]),
+    case rows {
+      [] ->
+        empty.empty_full(
+          media: None,
+          media_variant: empty.Default,
+          title: "No actors match",
+          description: [h.text("Adjust the filters or search query.")],
+          content: [],
+          attrs: empty.default_attrs,
+        )
+      _ ->
+        data_table.data_table_full(
+          actor_columns(),
+          rows,
+          model.threat_table_state,
+          ThreatTableSortChanged,
+          fn(_q) { ThreatFiltersCleared },
+          ThreatTablePageChanged,
+          ThreatTableRowSelected,
+          fn(actor: ThreatActor) { actor.id },
+          data_table.DataTableAttrs(
+            show_filter: False,
+            show_pagination: True,
+            class: "",
+          ),
+        )
+    },
+  ])
 }
 
 fn actor_columns() -> List(data_table.DataTableColumn(ThreatActor, Msg)) {
@@ -404,47 +419,45 @@ fn sorted_filtered_actors(model: Model) -> List(ThreatActor) {
 // ---------------------------------------------------------------------------
 
 fn timeline_panel(model: Model) -> Element(Msg) {
-  h.div(
-    [a.class("threat-intel-timeline-section")],
-    [
-      h.p([a.class("threat-intel-panel-title")], [
-        h.text(case model.threat_timeline_entity {
-          None -> "Timeline — select an actor"
-          Some(id) ->
-            case threat_intel_data.find_actor(id) {
-              None -> "Timeline"
-              Some(actor) -> "Timeline — " <> actor.name
-            }
-        }),
-      ]),
-      case model.threat_timeline_entity {
-        None ->
-          h.div(
-            [a.class("threat-intel-timeline-empty")],
-            [h.text("Click an actor on the map or in the table.")],
-          )
-        Some(entity_id) ->
-          timeline.timeline_simple(
-            list.map(threat_intel_data.events_for(entity_id), fn(ev) {
-              timeline.TimelineItem(
-                time: ev.time,
-                title: ev.title,
-                description: ev.description,
-                icon: None,
-                variant: ev.variant,
-              )
-            }),
-          )
-      },
-    ],
-  )
+  h.div([a.class("threat-intel-timeline-section")], [
+    h.p([a.class("threat-intel-panel-title")], [
+      h.text(case model.threat_timeline_entity {
+        None -> "Timeline — select an actor"
+        Some(id) ->
+          case threat_intel_data.find_actor(id) {
+            None -> "Timeline"
+            Some(actor) -> "Timeline — " <> actor.name
+          }
+      }),
+    ]),
+    case model.threat_timeline_entity {
+      None ->
+        h.div([a.class("threat-intel-timeline-empty")], [
+          h.text("Click an actor on the map or in the table."),
+        ])
+      Some(entity_id) ->
+        timeline.timeline_simple(
+          list.map(threat_intel_data.events_for(entity_id), fn(ev) {
+            timeline.TimelineItem(
+              time: ev.time,
+              title: ev.title,
+              description: ev.description,
+              icon: None,
+              variant: ev.variant,
+            )
+          }),
+        )
+    },
+  ])
 }
 
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
-fn severity_badge_variant(sev: threat_intel_data.Severity) -> badge.BadgeVariant {
+fn severity_badge_variant(
+  sev: threat_intel_data.Severity,
+) -> badge.BadgeVariant {
   case sev {
     threat_intel_data.Critical -> badge.Destructive
     threat_intel_data.High -> badge.Default

@@ -8,18 +8,10 @@ import lustre/element/html as h
 import lustre/event as e
 
 pub type InputOtpAttrs {
-  InputOtpAttrs(
-    length: Int,
-    disabled: Bool,
-    class: String,
-  )
+  InputOtpAttrs(length: Int, disabled: Bool, class: String)
 }
 
-pub const default_attrs = InputOtpAttrs(
-  length: 6,
-  disabled: False,
-  class: "",
-)
+pub const default_attrs = InputOtpAttrs(length: 6, disabled: False, class: "")
 
 fn slot_indices(length: Int) -> List(Int) {
   case length <= 0 {

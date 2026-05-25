@@ -32,7 +32,8 @@ pub fn edge_route_fields_test() {
 }
 
 pub fn edge_route_with_points_test() {
-  let r = EdgeRoute(source_id: "x", target_id: "y", points: [#(0.1, 0.2), #(0.9, 0.8)])
+  let r =
+    EdgeRoute(source_id: "x", target_id: "y", points: [#(0.1, 0.2), #(0.9, 0.8)])
   assert r.points == [#(0.1, 0.2), #(0.9, 0.8)]
 }
 

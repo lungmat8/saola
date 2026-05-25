@@ -95,7 +95,11 @@ pub fn time_picker_with_seconds_renders_second_select_test() {
       None,
       time_picker.TwentyFourHour,
       fn(_) { Nil },
-      time_picker.TimePickerAttrs(show_seconds: True, disabled: False, class: ""),
+      time_picker.TimePickerAttrs(
+        show_seconds: True,
+        disabled: False,
+        class: "",
+      ),
     )
     |> element.to_string
   assert string.contains(html, "aria-label=\"Second\"")
@@ -240,7 +244,13 @@ pub fn tree_view_open_node_has_open_class_test() {
 
 pub fn timeline_simple_renders_ol_test() {
   let items = [
-    timeline.TimelineItem("Now", "Event", "Something happened", None, timeline.Default),
+    timeline.TimelineItem(
+      "Now",
+      "Event",
+      "Something happened",
+      None,
+      timeline.Default,
+    ),
   ]
   let html = timeline.timeline_simple(items) |> element.to_string
   assert string.contains(html, "timeline")

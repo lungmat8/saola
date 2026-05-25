@@ -39,8 +39,14 @@ pub fn update(model: Model, msg: Msg) {
   case msg {
     NameChanged(name) -> #(Model(..model, name: name), effect.none())
     EmailChanged(email) -> #(Model(..model, email: email), effect.none())
-    MessageChanged(message) -> #(Model(..model, message: message), effect.none())
-    Submitted(values) -> #(Model(..model, submitted_values: values), effect.none())
+    MessageChanged(message) -> #(
+      Model(..model, message: message),
+      effect.none(),
+    )
+    Submitted(values) -> #(
+      Model(..model, submitted_values: values),
+      effect.none(),
+    )
   }
 }
 
@@ -124,25 +130,28 @@ pub fn view(model: Model) -> Element(Msg) {
   ))
 }
 
-fn field(id: String, title: String, children: List(Element(Msg))) -> Element(Msg) {
-  h.div([a.class("grid gap-2")], [
-    label.label_for(title, id),
-    ..children
-  ])
+fn field(
+  id: String,
+  title: String,
+  children: List(Element(Msg)),
+) -> Element(Msg) {
+  h.div([a.class("grid gap-2")], [label.label_for(title, id), ..children])
 }
 
 fn submitted_summary(values: List(#(String, String))) -> Element(Msg) {
   case values {
-    [] -> h.p([a.class("text-muted-foreground text-sm")], [
-      h.text("Submit the form to see posted values."),
-    ])
-    _ -> h.ul(
-      [a.class("text-sm")],
-      values
-      |> list.map(fn(pair) {
-        let #(name, value) = pair
-        h.li([], [h.text(name <> ": " <> value)])
-      }),
-    )
+    [] ->
+      h.p([a.class("text-muted-foreground text-sm")], [
+        h.text("Submit the form to see posted values."),
+      ])
+    _ ->
+      h.ul(
+        [a.class("text-sm")],
+        values
+          |> list.map(fn(pair) {
+            let #(name, value) = pair
+            h.li([], [h.text(name <> ": " <> value)])
+          }),
+      )
   }
 }

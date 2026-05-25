@@ -10,12 +10,12 @@ import saola/badge
 import saola/canvas_command as canvas
 import saola/drawer
 import saola/lustre_bar_chart
-import saola/progress
-import saola/search
 import saola/preview/model.{
   type Model, type Msg, DashDrawerClosed, DashPageChanged, DashRowClicked,
   DashSearchChanged,
 }
+import saola/progress
+import saola/search
 
 // ---------------------------------------------------------------------------
 // Data
@@ -60,7 +60,10 @@ fn all_employees() -> List(Employee) {
   ]
 }
 
-fn filter_employees(employees: List(Employee), query: String) -> List(Employee) {
+fn filter_employees(
+  employees: List(Employee),
+  query: String,
+) -> List(Employee) {
   case string.trim(query) {
     "" -> employees
     q -> {
@@ -93,8 +96,7 @@ pub fn view_widget_dashboard(model: Model) -> Element(Msg) {
 
   let selected_employee = case model.dash_selected_id {
     None -> None
-    Some(id) ->
-      list.find(all, fn(emp) { emp.id == id }) |> result_to_option
+    Some(id) -> list.find(all, fn(emp) { emp.id == id }) |> result_to_option
   }
 
   h.div([a.class("grid gap-6")], [
@@ -246,9 +248,7 @@ fn pagination_controls(page: Int, max_page: Int) -> Element(Msg) {
       [text("← Prev")],
     ),
     h.span([a.class("text-muted-foreground")], [
-      text(
-        "Page " <> int.to_string(page) <> " of " <> int.to_string(max_page),
-      ),
+      text("Page " <> int.to_string(page) <> " of " <> int.to_string(max_page)),
     ]),
     h.button(
       [
@@ -264,10 +264,7 @@ fn pagination_controls(page: Int, max_page: Int) -> Element(Msg) {
 
 fn score_chart(employees: List(Employee), no_op: Msg) -> Element(Msg) {
   let buckets = [
-    #(
-      "< 60",
-      list.filter(employees, fn(emp) { emp.score < 60 }) |> list.length,
-    ),
+    #("< 60", list.filter(employees, fn(emp) { emp.score < 60 }) |> list.length),
     #(
       "60–74",
       list.filter(employees, fn(emp) { emp.score >= 60 && emp.score < 75 })
@@ -278,10 +275,7 @@ fn score_chart(employees: List(Employee), no_op: Msg) -> Element(Msg) {
       list.filter(employees, fn(emp) { emp.score >= 75 && emp.score < 90 })
         |> list.length,
     ),
-    #(
-      "90+",
-      list.filter(employees, fn(emp) { emp.score >= 90 }) |> list.length,
-    ),
+    #("90+", list.filter(employees, fn(emp) { emp.score >= 90 }) |> list.length),
   ]
   let chart_data =
     list.map(buckets, fn(b) {

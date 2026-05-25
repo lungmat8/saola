@@ -6,7 +6,12 @@ import lustre/event as e
 
 pub type Tab(msg) {
   Tab(id: String, label: String, content: Element(msg))
-  TabWithIcon(id: String, icon: Element(msg), label: String, content: Element(msg))
+  TabWithIcon(
+    id: String,
+    icon: Element(msg),
+    label: String,
+    content: Element(msg),
+  )
 }
 
 pub type TabsExtraAttrs {

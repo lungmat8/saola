@@ -51,7 +51,12 @@ pub fn alert_destructive_renders_test() {
 
 pub fn alert_full_with_title_renders_test() {
   let html =
-    alert.alert_full(alert.Default, title: "Heads up!", description: "A change was made.", icon: None)
+    alert.alert_full(
+      alert.Default,
+      title: "Heads up!",
+      description: "A change was made.",
+      icon: None,
+    )
     |> element.to_string
   assert string.contains(html, "Heads up!")
   assert string.contains(html, "A change was made.")
@@ -141,8 +146,7 @@ pub fn button_small_renders_test() {
 // --- card ---
 
 pub fn card_simple_renders_test() {
-  let html =
-    card.card_simple("Settings", []) |> element.to_string
+  let html = card.card_simple("Settings", []) |> element.to_string
   assert string.contains(html, "class=\"card\"")
   assert string.contains(html, "Settings")
 }

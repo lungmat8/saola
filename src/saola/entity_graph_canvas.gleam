@@ -52,7 +52,15 @@ pub fn entity_graph_canvas(
   attrs: EntityGraphCanvasAttrs,
   on_node_tap: Option(fn(String) -> msg),
 ) -> canvas.CanvasOutput(msg) {
-  let EntityGraphCanvasAttrs(width:, height:, pan:, zoom:, selected_ids:, dimmed_ids:, node_radius:) = attrs
+  let EntityGraphCanvasAttrs(
+    width:,
+    height:,
+    pan:,
+    zoom:,
+    selected_ids:,
+    dimmed_ids:,
+    node_radius:,
+  ) = attrs
   let pos_map = build_position_map(positions)
   let #(px, py) = pan
   let commands =
@@ -61,16 +69,36 @@ pub fn entity_graph_canvas(
         canvas.Save,
         canvas.Translate(px +. width /. 2.0, py +. height /. 2.0),
         canvas.Scale(zoom, zoom),
-        canvas.Translate(float.negate(width /. 2.0), float.negate(height /. 2.0)),
+        canvas.Translate(
+          float.negate(width /. 2.0),
+          float.negate(height /. 2.0),
+        ),
       ],
       edge_commands(edges, pos_map, width, height, dimmed_ids, node_radius),
-      node_commands(nodes, pos_map, width, height, selected_ids, dimmed_ids, node_radius),
+      node_commands(
+        nodes,
+        pos_map,
+        width,
+        height,
+        selected_ids,
+        dimmed_ids,
+        node_radius,
+      ),
       [canvas.Restore],
     ])
   let hit_areas = case on_node_tap {
     None -> []
     Some(handler) ->
-      node_hit_areas(nodes, pos_map, pan, zoom, width, height, node_radius, handler)
+      node_hit_areas(
+        nodes,
+        pos_map,
+        pan,
+        zoom,
+        width,
+        height,
+        node_radius,
+        handler,
+      )
   }
   canvas.CanvasOutput(commands:, hit_areas:)
 }
@@ -82,13 +110,17 @@ pub fn entity_graph_element(
   on_zoom: fn(Float) -> msg,
 ) -> Element(msg) {
   ensure_canvas_registered()
-  element.element("saola-canvas", [
-    a.property("commands", canvas.encode_commands(output.commands)),
-    a.property("hitAreas", canvas.encode_hit_areas(output.hit_areas)),
-    e.on("canvas-tap", decode_xy("x", "y", on_tap)),
-    e.on("canvas-drag", decode_xy("dx", "dy", on_drag)),
-    e.on("canvas-wheel", decode_delta(on_zoom)),
-  ], [])
+  element.element(
+    "saola-canvas",
+    [
+      a.property("commands", canvas.encode_commands(output.commands)),
+      a.property("hitAreas", canvas.encode_hit_areas(output.hit_areas)),
+      e.on("canvas-tap", decode_xy("x", "y", on_tap)),
+      e.on("canvas-drag", decode_xy("dx", "dy", on_drag)),
+      e.on("canvas-wheel", decode_delta(on_zoom)),
+    ],
+    [],
+  )
 }
 
 @external(javascript, "./canvas_ffi.mjs", "ensure_registered")
@@ -109,14 +141,19 @@ fn decode_delta(callback: fn(Float) -> msg) -> decode.Decoder(msg) {
   decode.success(callback(delta))
 }
 
-fn build_position_map(positions: List(NodePosition)) -> Dict(String, #(Float, Float)) {
+fn build_position_map(
+  positions: List(NodePosition),
+) -> Dict(String, #(Float, Float)) {
   positions
   |> list.map(fn(p) { #(p.id, #(p.x, p.y)) })
   |> dict.from_list
 }
 
 fn scale_position(nx: Float, ny: Float, w: Float, h: Float) -> #(Float, Float) {
-  #(padding +. nx *. { w -. 2.0 *. padding }, padding +. ny *. { h -. 2.0 *. padding })
+  #(
+    padding +. nx *. { w -. 2.0 *. padding },
+    padding +. ny *. { h -. 2.0 *. padding },
+  )
 }
 
 fn group_color(group: String) -> String {
@@ -137,7 +174,10 @@ fn node_commands(
   dimmed_ids: List(String),
   nr: Float,
 ) -> List(canvas.CanvasCommand) {
-  let normal = list.filter(nodes, fn(n) { !list.contains(selected_ids, n.id) && !list.contains(dimmed_ids, n.id) })
+  let normal =
+    list.filter(nodes, fn(n) {
+      !list.contains(selected_ids, n.id) && !list.contains(dimmed_ids, n.id)
+    })
   let dimmed = list.filter(nodes, fn(n) { list.contains(dimmed_ids, n.id) })
   let selected = list.filter(nodes, fn(n) { list.contains(selected_ids, n.id) })
 
@@ -146,7 +186,11 @@ fn node_commands(
       Error(_) -> []
       Ok(#(nx, ny)) -> {
         let #(cx, cy) = scale_position(nx, ny, w, h)
-        [canvas.BeginPath, canvas.Arc(cx, cy, nr, 0.0, two_pi, False), canvas.Fill]
+        [
+          canvas.BeginPath,
+          canvas.Arc(cx, cy, nr, 0.0, two_pi, False),
+          canvas.Fill,
+        ]
       }
     }
   }
@@ -159,14 +203,23 @@ fn node_commands(
         let group_nodes = list.filter(ns, fn(n) { n.group == g })
         case group_nodes {
           [] -> []
-          _ -> list.flatten([[canvas.SetFill(group_color(g))], list.flat_map(group_nodes, draw_circle)])
+          _ ->
+            list.flatten([
+              [canvas.SetFill(group_color(g))],
+              list.flat_map(group_nodes, draw_circle),
+            ])
         }
       })
     // Nodes whose group is not a known severity level use the default color
-    let other_nodes = list.filter(ns, fn(n) { !list.contains(known_groups, n.group) })
+    let other_nodes =
+      list.filter(ns, fn(n) { !list.contains(known_groups, n.group) })
     let default_colored = case other_nodes {
       [] -> []
-      _ -> list.flatten([[canvas.SetFill(group_color(""))], list.flat_map(other_nodes, draw_circle)])
+      _ ->
+        list.flatten([
+          [canvas.SetFill(group_color(""))],
+          list.flat_map(other_nodes, draw_circle),
+        ])
     }
     list.append(by_group, default_colored)
   }
@@ -193,7 +246,11 @@ fn node_commands(
         Error(_) -> []
         Ok(#(nx, ny)) -> {
           let #(cx, cy) = scale_position(nx, ny, w, h)
-          [canvas.BeginPath, canvas.Arc(cx, cy, nr +. 3.0, 0.0, two_pi, False), canvas.Stroke]
+          [
+            canvas.BeginPath,
+            canvas.Arc(cx, cy, nr +. 3.0, 0.0, two_pi, False),
+            canvas.Stroke,
+          ]
         }
       }
     })
@@ -227,11 +284,13 @@ fn edge_commands(
   let edge_color = "hsl(215 30% 58%)"
   let normal_edges =
     list.filter(edges, fn(edge) {
-      !list.contains(dimmed_ids, edge.source) || !list.contains(dimmed_ids, edge.target)
+      !list.contains(dimmed_ids, edge.source)
+      || !list.contains(dimmed_ids, edge.target)
     })
   let dimmed_edges =
     list.filter(edges, fn(edge) {
-      list.contains(dimmed_ids, edge.source) && list.contains(dimmed_ids, edge.target)
+      list.contains(dimmed_ids, edge.source)
+      && list.contains(dimmed_ids, edge.target)
     })
 
   let draw_edges = fn(es: List(GraphEdge)) {
@@ -248,15 +307,30 @@ fn edge_commands(
   }
 
   list.flatten([
-    [canvas.SetStroke(edge_color), canvas.SetFill(edge_color), canvas.SetLineWidth(1.0)],
+    [
+      canvas.SetStroke(edge_color),
+      canvas.SetFill(edge_color),
+      canvas.SetLineWidth(1.0),
+    ],
     draw_edges(normal_edges),
-    [canvas.Save, canvas.SetAlpha(0.15), canvas.SetStroke(edge_color), canvas.SetFill(edge_color)],
+    [
+      canvas.Save,
+      canvas.SetAlpha(0.15),
+      canvas.SetStroke(edge_color),
+      canvas.SetFill(edge_color),
+    ],
     draw_edges(dimmed_edges),
     [canvas.Restore],
   ])
 }
 
-fn draw_edge(sx: Float, sy: Float, tx: Float, ty: Float, nr: Float) -> List(canvas.CanvasCommand) {
+fn draw_edge(
+  sx: Float,
+  sy: Float,
+  tx: Float,
+  ty: Float,
+  nr: Float,
+) -> List(canvas.CanvasCommand) {
   let dx = tx -. sx
   let dy = ty -. sy
   let len = float.square_root(dx *. dx +. dy *. dy) |> result.unwrap(1.0)

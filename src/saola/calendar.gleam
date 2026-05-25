@@ -12,11 +12,7 @@ import lustre/element/html as h
 import lustre/event as e
 
 pub type CalendarAttrs {
-  CalendarAttrs(
-    today: Option(Date),
-    show_outside_days: Bool,
-    class: String,
-  )
+  CalendarAttrs(today: Option(Date), show_outside_days: Bool, class: String)
 }
 
 pub const default_attrs = CalendarAttrs(
@@ -211,49 +207,47 @@ pub fn calendar_full(
   }
   let day_headers =
     ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
-    |> list.map(fn(d) {
-      h.div([a.class("calendar-day-header")], [h.text(d)])
-    })
+    |> list.map(fn(d) { h.div([a.class("calendar-day-header")], [h.text(d)]) })
   let cells =
     cell_indices(42)
     |> list.map(fn(idx) {
-      let #(date, is_current) = cell_date(idx, view_year, view_month, first_dow, dim)
-      render_day_cell(date, is_current, selected, attrs.today, attrs.show_outside_days, on_select)
+      let #(date, is_current) =
+        cell_date(idx, view_year, view_month, first_dow, dim)
+      render_day_cell(
+        date,
+        is_current,
+        selected,
+        attrs.today,
+        attrs.show_outside_days,
+        on_select,
+      )
     })
-  h.div(
-    [a.class("calendar"), extra_class],
-    [
-      h.div(
-        [a.class("calendar-header")],
+  h.div([a.class("calendar"), extra_class], [
+    h.div([a.class("calendar-header")], [
+      h.button(
         [
-          h.button(
-            [
-              a.type_("button"),
-              a.class("calendar-nav-btn"),
-              a.attribute("aria-label", "Previous month"),
-              e.on_click(on_prev_month),
-            ],
-            [h.text("‹")],
-          ),
-          h.div([a.class("calendar-title")], [
-            h.text(
-              month_to_string(view_month) <> " " <> int.to_string(view_year),
-            ),
-          ]),
-          h.button(
-            [
-              a.type_("button"),
-              a.class("calendar-nav-btn"),
-              a.attribute("aria-label", "Next month"),
-              e.on_click(on_next_month),
-            ],
-            [h.text("›")],
-          ),
+          a.type_("button"),
+          a.class("calendar-nav-btn"),
+          a.attribute("aria-label", "Previous month"),
+          e.on_click(on_prev_month),
         ],
+        [h.text("‹")],
       ),
-      h.div([a.class("calendar-grid")], list.append(day_headers, cells)),
-    ],
-  )
+      h.div([a.class("calendar-title")], [
+        h.text(month_to_string(view_month) <> " " <> int.to_string(view_year)),
+      ]),
+      h.button(
+        [
+          a.type_("button"),
+          a.class("calendar-nav-btn"),
+          a.attribute("aria-label", "Next month"),
+          e.on_click(on_next_month),
+        ],
+        [h.text("›")],
+      ),
+    ]),
+    h.div([a.class("calendar-grid")], list.append(day_headers, cells)),
+  ])
 }
 
 pub fn calendar_simple(
@@ -274,4 +268,3 @@ pub fn calendar_simple(
     default_attrs,
   )
 }
-

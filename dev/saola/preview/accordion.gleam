@@ -26,7 +26,9 @@ fn multi_open_example(model: Model) -> Element(Msg) {
           "what",
           "What is Saola?",
           h.p([], [
-            text("Saola is a typed, stateless UI widget library for Lustre applications."),
+            text(
+              "Saola is a typed, stateless UI widget library for Lustre applications.",
+            ),
           ]),
         ),
         accordion.AccordionItem(

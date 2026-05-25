@@ -20,7 +20,10 @@ pub fn view_time_pickers(model: Model) -> Element(Msg) {
     h.div([a.class("grid gap-8")], [
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("24-hour (simple)")]),
-        time_picker.time_picker_simple(model.time_picker_value, TimePickerChanged),
+        time_picker.time_picker_simple(
+          model.time_picker_value,
+          TimePickerChanged,
+        ),
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("12-hour format")]),

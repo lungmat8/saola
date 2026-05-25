@@ -11,11 +11,7 @@ pub fn view_commands(model: Model) -> Element(Msg) {
   let items = [
     command.CommandGroup("Suggestions", [
       command.CommandAction("calendar", "Calendar", CommandSelected("calendar")),
-      command.CommandAction(
-        "search",
-        "Search Emoji",
-        CommandSelected("search"),
-      ),
+      command.CommandAction("search", "Search Emoji", CommandSelected("search")),
       command.CommandAction(
         "calculator",
         "Calculator",

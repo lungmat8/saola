@@ -3,7 +3,8 @@ import lustre/element.{type Element, text}
 import lustre/element/html as h
 import saola/combobox
 import saola/preview/model.{
-  type Model, type Msg, ComboboxOpenChanged, ComboboxQueryChanged, ComboboxSelected,
+  type Model, type Msg, ComboboxOpenChanged, ComboboxQueryChanged,
+  ComboboxSelected,
 }
 
 pub fn view_comboboxes(model: Model) -> Element(Msg) {

@@ -49,7 +49,6 @@ pub fn qr_code(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn quote(attributes: List(Attribute(a))) {
   svg.svg(
     [

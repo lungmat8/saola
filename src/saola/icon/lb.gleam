@@ -28,7 +28,6 @@ pub fn baby(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn backpack(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -57,7 +56,6 @@ pub fn backpack(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn badge(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -81,7 +79,6 @@ pub fn badge(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn badge_alert(attributes: List(Attribute(a))) {
   svg.svg(
@@ -119,7 +116,6 @@ pub fn badge_alert(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn badge_cent(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -146,7 +142,6 @@ pub fn badge_cent(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn badge_check(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -171,7 +166,6 @@ pub fn badge_check(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn badge_dollar_sign(attributes: List(Attribute(a))) {
   svg.svg(
@@ -199,7 +193,6 @@ pub fn badge_dollar_sign(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn badge_euro(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -225,7 +218,6 @@ pub fn badge_euro(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn badge_indian_rupee(attributes: List(Attribute(a))) {
   svg.svg(
@@ -253,7 +245,6 @@ pub fn badge_indian_rupee(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn badge_info(attributes: List(Attribute(a))) {
   svg.svg(
@@ -291,7 +282,6 @@ pub fn badge_info(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn badge_japanese_yen(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -319,7 +309,6 @@ pub fn badge_japanese_yen(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn badge_minus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -351,7 +340,6 @@ pub fn badge_minus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn badge_percent(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -378,7 +366,6 @@ pub fn badge_percent(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn badge_plus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -416,7 +403,6 @@ pub fn badge_plus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn badge_pound_sterling(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -443,7 +429,6 @@ pub fn badge_pound_sterling(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn badge_question_mark(attributes: List(Attribute(a))) {
   svg.svg(
@@ -476,7 +461,6 @@ pub fn badge_question_mark(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn badge_russian_ruble(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -502,7 +486,6 @@ pub fn badge_russian_ruble(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn badge_swiss_franc(attributes: List(Attribute(a))) {
   svg.svg(
@@ -531,7 +514,6 @@ pub fn badge_swiss_franc(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn badge_turkish_lira(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -557,7 +539,6 @@ pub fn badge_turkish_lira(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn badge_x(attributes: List(Attribute(a))) {
   svg.svg(
@@ -594,7 +575,6 @@ pub fn badge_x(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn baggage_claim(attributes: List(Attribute(a))) {
   svg.svg(
@@ -633,7 +613,6 @@ pub fn baggage_claim(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn balloon(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -654,7 +633,6 @@ pub fn balloon(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn ban(attributes: List(Attribute(a))) {
   svg.svg(
@@ -680,7 +658,6 @@ pub fn ban(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn banana(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -705,7 +682,6 @@ pub fn banana(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bandage(attributes: List(Attribute(a))) {
   svg.svg(
@@ -738,7 +714,6 @@ pub fn bandage(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn banknote(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -770,7 +745,6 @@ pub fn banknote(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn banknote_arrow_down(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -800,7 +774,6 @@ pub fn banknote_arrow_down(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn banknote_arrow_up(attributes: List(Attribute(a))) {
   svg.svg(
@@ -832,7 +805,6 @@ pub fn banknote_arrow_up(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn banknote_x(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -863,7 +835,6 @@ pub fn banknote_x(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn barcode(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -886,7 +857,6 @@ pub fn barcode(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn barrel(attributes: List(Attribute(a))) {
   svg.svg(
@@ -916,7 +886,6 @@ pub fn barrel(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn baseline(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -937,7 +906,6 @@ pub fn baseline(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bath(attributes: List(Attribute(a))) {
   svg.svg(
@@ -967,7 +935,6 @@ pub fn bath(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn battery(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -994,7 +961,6 @@ pub fn battery(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn battery_charging(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1020,7 +986,6 @@ pub fn battery_charging(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn battery_full(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1051,7 +1016,6 @@ pub fn battery_full(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn battery_low(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1078,7 +1042,6 @@ pub fn battery_low(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn battery_medium(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1108,7 +1071,6 @@ pub fn battery_medium(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn battery_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1136,7 +1098,6 @@ pub fn battery_plus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn battery_warning(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1160,7 +1121,6 @@ pub fn battery_warning(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn beaker(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1181,7 +1141,6 @@ pub fn beaker(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bean(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1207,7 +1166,6 @@ pub fn bean(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bean_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1248,7 +1206,6 @@ pub fn bean_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bed(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1270,7 +1227,6 @@ pub fn bed(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bed_double(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1294,7 +1250,6 @@ pub fn bed_double(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bed_single(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1315,7 +1270,6 @@ pub fn bed_single(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn beef(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1352,7 +1306,6 @@ pub fn beef(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn beef_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1387,7 +1340,6 @@ pub fn beef_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn beer(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1415,7 +1367,6 @@ pub fn beer(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn beer_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1453,7 +1404,6 @@ pub fn beer_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bell(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1478,7 +1428,6 @@ pub fn bell(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bell_dot(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1509,7 +1458,6 @@ pub fn bell_dot(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bell_electric(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1549,7 +1497,6 @@ pub fn bell_electric(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bell_minus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1575,7 +1522,6 @@ pub fn bell_minus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bell_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1606,7 +1552,6 @@ pub fn bell_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bell_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1634,7 +1579,6 @@ pub fn bell_plus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bell_ring(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1661,7 +1605,6 @@ pub fn bell_ring(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn between_horizontal_end(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1696,7 +1639,6 @@ pub fn between_horizontal_end(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn between_horizontal_start(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1729,7 +1671,6 @@ pub fn between_horizontal_start(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn between_vertical_end(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1764,7 +1705,6 @@ pub fn between_vertical_end(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn between_vertical_start(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1798,7 +1738,6 @@ pub fn between_vertical_start(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn biceps_flexed(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1824,7 +1763,6 @@ pub fn biceps_flexed(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bike(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1859,7 +1797,6 @@ pub fn bike(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn binary(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1897,7 +1834,6 @@ pub fn binary(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn binoculars(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1931,7 +1867,6 @@ pub fn binoculars(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn biohazard(attributes: List(Attribute(a))) {
   svg.svg(
@@ -1971,7 +1906,6 @@ pub fn biohazard(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bird(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -1997,7 +1931,6 @@ pub fn bird(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn birdhouse(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2027,7 +1960,6 @@ pub fn birdhouse(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bitcoin(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2051,7 +1983,6 @@ pub fn bitcoin(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn blend(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2081,7 +2012,6 @@ pub fn blend(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn blinds(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2110,7 +2040,6 @@ pub fn blinds(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn blocks(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2143,7 +2072,6 @@ pub fn blocks(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bluetooth(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2160,7 +2088,6 @@ pub fn bluetooth(attributes: List(Attribute(a))) {
     [svg.path([a("d", "m7 7 10 10-5 5V2l5 5L7 17")])],
   )
 }
-
 
 pub fn bluetooth_connected(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2193,7 +2120,6 @@ pub fn bluetooth_connected(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bluetooth_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2215,7 +2141,6 @@ pub fn bluetooth_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bluetooth_searching(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2236,7 +2161,6 @@ pub fn bluetooth_searching(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bold(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2261,7 +2185,6 @@ pub fn bold(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bolt(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2291,7 +2214,6 @@ pub fn bolt(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bomb(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2323,7 +2245,6 @@ pub fn bomb(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bone(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2348,7 +2269,6 @@ pub fn bone(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2372,7 +2292,6 @@ pub fn book(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_a(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2400,7 +2319,6 @@ pub fn book_a(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_alert(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2426,7 +2344,6 @@ pub fn book_alert(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_audio(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2455,7 +2372,6 @@ pub fn book_audio(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_check(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2480,7 +2396,6 @@ pub fn book_check(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_copy(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2509,7 +2424,6 @@ pub fn book_copy(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_dashed(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2540,7 +2454,6 @@ pub fn book_dashed(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_down(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2566,7 +2479,6 @@ pub fn book_down(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_headphones(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2603,7 +2515,6 @@ pub fn book_headphones(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_heart(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2633,7 +2544,6 @@ pub fn book_heart(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_image(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2665,7 +2575,6 @@ pub fn book_image(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_key(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2695,7 +2604,6 @@ pub fn book_key(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_lock(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2724,7 +2632,6 @@ pub fn book_lock(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_marked(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2749,7 +2656,6 @@ pub fn book_marked(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_minus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2776,7 +2682,6 @@ pub fn book_minus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_open(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2801,7 +2706,6 @@ pub fn book_open(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_open_check(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2828,7 +2732,6 @@ pub fn book_open_check(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_open_text(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2859,7 +2762,6 @@ pub fn book_open_text(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2885,7 +2787,6 @@ pub fn book_plus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_search(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2915,7 +2816,6 @@ pub fn book_search(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_text(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2941,7 +2841,6 @@ pub fn book_text(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_type(attributes: List(Attribute(a))) {
   svg.svg(
@@ -2970,7 +2869,6 @@ pub fn book_type(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_up(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -2997,7 +2895,6 @@ pub fn book_up(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_up_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3022,7 +2919,6 @@ pub fn book_up_2(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn book_user(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3054,7 +2950,6 @@ pub fn book_user(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn book_x(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3081,7 +2976,6 @@ pub fn book_x(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bookmark(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3105,7 +2999,6 @@ pub fn bookmark(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bookmark_check(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3132,7 +3025,6 @@ pub fn bookmark_check(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bookmark_minus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3157,7 +3049,6 @@ pub fn bookmark_minus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bookmark_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3185,7 +3076,6 @@ pub fn bookmark_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bookmark_plus(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3212,7 +3102,6 @@ pub fn bookmark_plus(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bookmark_x(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3238,7 +3127,6 @@ pub fn bookmark_x(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn boom_box(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3279,7 +3167,6 @@ pub fn boom_box(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bot(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3310,7 +3197,6 @@ pub fn bot(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bot_message_square(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3340,7 +3226,6 @@ pub fn bot_message_square(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bot_off(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3368,7 +3253,6 @@ pub fn bot_off(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bottle_wine(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3393,7 +3277,6 @@ pub fn bottle_wine(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bow_arrow(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3430,7 +3313,6 @@ pub fn bow_arrow(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn box(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3456,7 +3338,6 @@ pub fn box(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn boxes(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3503,7 +3384,6 @@ pub fn boxes(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn braces(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3534,7 +3414,6 @@ pub fn braces(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn brackets(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3554,7 +3433,6 @@ pub fn brackets(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn brain(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3587,7 +3465,6 @@ pub fn brain(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn brain_circuit(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3641,7 +3518,6 @@ pub fn brain_circuit(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn brain_cog(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3689,7 +3565,6 @@ pub fn brain_cog(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn brick_wall(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3721,7 +3596,6 @@ pub fn brick_wall(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn brick_wall_fire(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3757,7 +3631,6 @@ pub fn brick_wall_fire(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn brick_wall_shield(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3795,7 +3668,6 @@ pub fn brick_wall_shield(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn briefcase(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3821,7 +3693,6 @@ pub fn briefcase(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn briefcase_business(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3850,7 +3721,6 @@ pub fn briefcase_business(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn briefcase_conveyor_belt(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3883,7 +3753,6 @@ pub fn briefcase_conveyor_belt(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn briefcase_medical(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3913,7 +3782,6 @@ pub fn briefcase_medical(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bring_to_front(attributes: List(Attribute(a))) {
   svg.svg(
@@ -3946,7 +3814,6 @@ pub fn bring_to_front(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn brush(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -3974,7 +3841,6 @@ pub fn brush(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn brush_cleaning(attributes: List(Attribute(a))) {
   svg.svg(
@@ -4004,7 +3870,6 @@ pub fn brush_cleaning(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bubbles(attributes: List(Attribute(a))) {
   svg.svg(
@@ -4040,7 +3905,6 @@ pub fn bubbles(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn bug(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -4071,7 +3935,6 @@ pub fn bug(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bug_off(attributes: List(Attribute(a))) {
   svg.svg(
@@ -4104,7 +3967,6 @@ pub fn bug_off(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bug_play(attributes: List(Attribute(a))) {
   svg.svg(
@@ -4139,7 +4001,6 @@ pub fn bug_play(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn building(attributes: List(Attribute(a))) {
   svg.svg(
@@ -4176,7 +4037,6 @@ pub fn building(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn building_2(attributes: List(Attribute(a))) {
   svg.svg(
     [
@@ -4204,7 +4064,6 @@ pub fn building_2(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bus(attributes: List(Attribute(a))) {
   svg.svg(
@@ -4243,7 +4102,6 @@ pub fn bus(attributes: List(Attribute(a))) {
     ],
   )
 }
-
 
 pub fn bus_front(attributes: List(Attribute(a))) {
   svg.svg(

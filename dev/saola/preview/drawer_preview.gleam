@@ -16,7 +16,11 @@ pub fn view_drawers(model: Model) -> Element(Msg) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Bottom drawer (default)")]),
         h.button(
-          [a.type_("button"), a.class("btn btn-outline"), e.on_click(DrawerOpened)],
+          [
+            a.type_("button"),
+            a.class("btn btn-outline"),
+            e.on_click(DrawerOpened),
+          ],
           [text("Open drawer")],
         ),
         drawer.drawer_simple(
@@ -36,12 +40,20 @@ pub fn view_drawers(model: Model) -> Element(Msg) {
           "Edit Profile",
           Some("Make changes to your profile here."),
           h.div([], [
-            h.p([a.class("text-sm text-muted")], [text("Profile form goes here.")]),
+            h.p([a.class("text-sm text-muted")], [
+              text("Profile form goes here."),
+            ]),
           ]),
-          Some(h.div([a.class("flex gap-2")], [
-            h.button([a.type_("button"), a.class("btn btn-outline")], [text("Cancel")]),
-            h.button([a.type_("button"), a.class("btn btn-primary")], [text("Save")]),
-          ])),
+          Some(
+            h.div([a.class("flex gap-2")], [
+              h.button([a.type_("button"), a.class("btn btn-outline")], [
+                text("Cancel"),
+              ]),
+              h.button([a.type_("button"), a.class("btn btn-primary")], [
+                text("Save"),
+              ]),
+            ]),
+          ),
           fn() { DrawerClosed },
           drawer.default_attrs,
         ),

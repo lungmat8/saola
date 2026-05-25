@@ -37,8 +37,7 @@ pub fn switch_full(
   let SwitchExtraAttrs(id:, name:, disabled:, class:) = extra_attrs
   let input_id =
     case id {
-      "" ->
-        typeid.new(prefix: "sw") |> result.map(typeid.to_string)
+      "" -> typeid.new(prefix: "sw") |> result.map(typeid.to_string)
       v -> Ok(v)
     }
     |> result.unwrap("switch-fallback")

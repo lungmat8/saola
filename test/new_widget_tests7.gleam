@@ -115,4 +115,3 @@ pub fn get_system_dark_returns_bool_test() {
   // In test env (Node.js, no window), the FFI guard returns False.
   let _dark = theme.get_system_dark()
 }
-

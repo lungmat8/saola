@@ -150,7 +150,8 @@ pub fn dialog_with_close_button_renders_test() {
 // --- toast ---
 
 pub fn toast_new_creates_struct_test() {
-  let t = toast.new_toast_simple("Saved!", "Your file was saved.", toast.Default)
+  let t =
+    toast.new_toast_simple("Saved!", "Your file was saved.", toast.Default)
   assert t.title == "Saved!"
   assert t.description == "Your file was saved."
   assert t.variant == toast.Default
@@ -230,10 +231,7 @@ pub fn table_with_caption_renders_test() {
 
 pub fn table_helper_renders_test() {
   let html =
-    table.table(
-      ["A", "B"],
-      [["row1a", "row1b"], ["row2a", "row2b"]],
-    )
+    table.table(["A", "B"], [["row1a", "row1b"], ["row2a", "row2b"]])
     |> element.to_string
   assert string.contains(html, "row1a")
   assert string.contains(html, "row2b")

@@ -118,23 +118,58 @@ pub const default_extra_attrs = ButtonExtraAttrs(False, None, default_aria)
 // --- Convenience shortcuts ---
 
 pub fn button_primary(label: String, click_message: msg) -> Element(msg) {
-  button_full(Primary, label, Large, None, Some(click_message), default_extra_attrs)
+  button_full(
+    Primary,
+    label,
+    Large,
+    None,
+    Some(click_message),
+    default_extra_attrs,
+  )
 }
 
 pub fn button_secondary(label: String, click_message: msg) -> Element(msg) {
-  button_full(Secondary, label, Large, None, Some(click_message), default_extra_attrs)
+  button_full(
+    Secondary,
+    label,
+    Large,
+    None,
+    Some(click_message),
+    default_extra_attrs,
+  )
 }
 
 pub fn button_outline(label: String, click_message: msg) -> Element(msg) {
-  button_full(Outline, label, Large, None, Some(click_message), default_extra_attrs)
+  button_full(
+    Outline,
+    label,
+    Large,
+    None,
+    Some(click_message),
+    default_extra_attrs,
+  )
 }
 
 pub fn button_ghost(label: String, click_message: msg) -> Element(msg) {
-  button_full(Ghost, label, Large, None, Some(click_message), default_extra_attrs)
+  button_full(
+    Ghost,
+    label,
+    Large,
+    None,
+    Some(click_message),
+    default_extra_attrs,
+  )
 }
 
 pub fn button_destructive(label: String, click_message: msg) -> Element(msg) {
-  button_full(Destructive, label, Large, None, Some(click_message), default_extra_attrs)
+  button_full(
+    Destructive,
+    label,
+    Large,
+    None,
+    Some(click_message),
+    default_extra_attrs,
+  )
 }
 
 /// Submit button (type="submit"). Use inside a <form>.
@@ -151,5 +186,12 @@ pub fn button_submit(label: String) -> Element(msg) {
 
 /// Small icon-only close button (×).
 pub fn button_close(click_message: msg) -> Element(msg) {
-  button_full(Outline, "", Small, Some(lx.x([])), Some(click_message), default_extra_attrs)
+  button_full(
+    Outline,
+    "",
+    Small,
+    Some(lx.x([])),
+    Some(click_message),
+    default_extra_attrs,
+  )
 }

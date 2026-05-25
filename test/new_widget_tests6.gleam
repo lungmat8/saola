@@ -20,24 +20,14 @@ pub fn empty_simple_basic_test() {
 
 pub fn empty_simple_with_icon_test() {
   let html =
-    empty.empty_simple(
-      Some(h.span([], [h.text("icon")])),
-      "T",
-      "D",
-      None,
-    )
+    empty.empty_simple(Some(h.span([], [h.text("icon")])), "T", "D", None)
     |> element.to_string
   assert string.contains(html, "empty-media empty-media-icon")
 }
 
 pub fn empty_simple_with_action_test() {
   let html =
-    empty.empty_simple(
-      None,
-      "T",
-      "D",
-      Some(h.button([], [h.text("Go")])),
-    )
+    empty.empty_simple(None, "T", "D", Some(h.button([], [h.text("Go")])))
     |> element.to_string
   assert string.contains(html, "empty-content")
   assert string.contains(html, "Go")

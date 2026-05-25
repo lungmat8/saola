@@ -59,7 +59,9 @@ pub fn node_arc_count_matches_nodes_test() {
 
 pub fn node_labels_as_fill_text_test() {
   let attrs =
-    EntityGraphCanvasAttrs(..default_entity_graph_canvas_attrs, selected_ids: ["a"])
+    EntityGraphCanvasAttrs(..default_entity_graph_canvas_attrs, selected_ids: [
+      "a",
+    ])
   let output =
     entity_graph_canvas(
       sample_nodes(),

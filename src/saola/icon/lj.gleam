@@ -22,7 +22,6 @@ pub fn japanese_yen(attributes: List(Attribute(a))) {
   )
 }
 
-
 pub fn joystick(attributes: List(Attribute(a))) {
   svg.svg(
     [

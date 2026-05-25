@@ -36,14 +36,18 @@ pub fn world_map_element(
   on_country_click: fn(String) -> msg,
 ) -> Element(msg) {
   ensure_registered()
-  element.element("saola-world-map", [
-    a.property("markers", json.array(markers, encode_marker)),
-    a.property("arcs", json.array(arcs, encode_arc)),
-    a.property("mapWidth", json.float(attrs.width)),
-    a.property("mapHeight", json.float(attrs.height)),
-    e.on("marker-click", decode_id(on_marker_click)),
-    e.on("country-click", decode_country(on_country_click)),
-  ], [])
+  element.element(
+    "saola-world-map",
+    [
+      a.property("markers", json.array(markers, encode_marker)),
+      a.property("arcs", json.array(arcs, encode_arc)),
+      a.property("mapWidth", json.float(attrs.width)),
+      a.property("mapHeight", json.float(attrs.height)),
+      e.on("marker-click", decode_id(on_marker_click)),
+      e.on("country-click", decode_country(on_country_click)),
+    ],
+    [],
+  )
 }
 
 fn encode_marker(m: WorldMapMarker) -> json.Json {

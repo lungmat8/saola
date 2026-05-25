@@ -65,9 +65,11 @@ pub fn view_sidebars(model: Model) -> Element(Msg) {
           [
             sidebar.sidebar_full(
               True,
-              Some(sidebar.sidebar_header([
-                h.div([a.class("font-semibold text-sm")], [text("Acme Inc.")]),
-              ])),
+              Some(
+                sidebar.sidebar_header([
+                  h.div([a.class("font-semibold text-sm")], [text("Acme Inc.")]),
+                ]),
+              ),
               sidebar.sidebar_content([
                 sidebar.sidebar_group(Some("Projects"), [
                   sidebar.sidebar_menu_item(
@@ -109,9 +111,11 @@ pub fn view_sidebars(model: Model) -> Element(Msg) {
                   ),
                 ]),
               ]),
-              Some(sidebar.sidebar_footer([
-                h.div([a.class("text-xs text-muted")], [text("v1.0.0")]),
-              ])),
+              Some(
+                sidebar.sidebar_footer([
+                  h.div([a.class("text-xs text-muted")], [text("v1.0.0")]),
+                ]),
+              ),
               sidebar.default_attrs,
             ),
             h.div([a.class("flex-1 p-4 text-sm text-muted")], [

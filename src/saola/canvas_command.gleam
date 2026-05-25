@@ -66,11 +66,7 @@ pub type CanvasOutput(msg) {
 // Hit testing — runs in Gleam on every canvas-tap event
 // ---------------------------------------------------------------------------
 
-pub fn hit_test(
-  areas: List(HitArea(msg)),
-  x: Float,
-  y: Float,
-) -> Option(msg) {
+pub fn hit_test(areas: List(HitArea(msg)), x: Float, y: Float) -> Option(msg) {
   case
     list.find_map(areas, fn(area) {
       case area {
@@ -107,22 +103,40 @@ pub fn encode_commands(commands: List(CanvasCommand)) -> json.Json {
 fn encode_command(cmd: CanvasCommand) -> json.Json {
   case cmd {
     SetFill(color) ->
-      json.object([#("type", json.string("SetFill")), #("color", json.string(color))])
+      json.object([
+        #("type", json.string("SetFill")),
+        #("color", json.string(color)),
+      ])
     SetStroke(color) ->
-      json.object([#("type", json.string("SetStroke")), #("color", json.string(color))])
+      json.object([
+        #("type", json.string("SetStroke")),
+        #("color", json.string(color)),
+      ])
     SetLineWidth(width) ->
-      json.object([#("type", json.string("SetLineWidth")), #("width", json.float(width))])
+      json.object([
+        #("type", json.string("SetLineWidth")),
+        #("width", json.float(width)),
+      ])
     SetFont(font) ->
-      json.object([#("type", json.string("SetFont")), #("font", json.string(font))])
+      json.object([
+        #("type", json.string("SetFont")),
+        #("font", json.string(font)),
+      ])
     SetAlpha(alpha) ->
-      json.object([#("type", json.string("SetAlpha")), #("alpha", json.float(alpha))])
+      json.object([
+        #("type", json.string("SetAlpha")),
+        #("alpha", json.float(alpha)),
+      ])
     SetLineDash(segments) ->
       json.object([
         #("type", json.string("SetLineDash")),
         #("segments", json.array(segments, json.float)),
       ])
     SetTextAlign(align) ->
-      json.object([#("type", json.string("SetTextAlign")), #("align", json.string(align))])
+      json.object([
+        #("type", json.string("SetTextAlign")),
+        #("align", json.string(align)),
+      ])
     SetTextBaseline(baseline) ->
       json.object([
         #("type", json.string("SetTextBaseline")),
@@ -143,7 +157,10 @@ fn encode_command(cmd: CanvasCommand) -> json.Json {
         #("y", json.float(y)),
       ])
     Rotate(angle) ->
-      json.object([#("type", json.string("Rotate")), #("angle", json.float(angle))])
+      json.object([
+        #("type", json.string("Rotate")),
+        #("angle", json.float(angle)),
+      ])
     BeginPath -> json.object([#("type", json.string("BeginPath"))])
     MoveTo(x, y) ->
       json.object([
@@ -278,11 +295,15 @@ pub fn canvas_element(
   on_tap: fn(Float, Float) -> msg,
 ) -> Element(msg) {
   ensure_registered()
-  element.element("saola-canvas", [
-    a.property("commands", encode_commands(output.commands)),
-    a.property("hitAreas", encode_hit_areas(output.hit_areas)),
-    e.on("canvas-tap", decode_canvas_tap(on_tap)),
-  ], [])
+  element.element(
+    "saola-canvas",
+    [
+      a.property("commands", encode_commands(output.commands)),
+      a.property("hitAreas", encode_hit_areas(output.hit_areas)),
+      e.on("canvas-tap", decode_canvas_tap(on_tap)),
+    ],
+    [],
+  )
 }
 
 pub fn canvas_element_interactive(
@@ -294,13 +315,17 @@ pub fn canvas_element_interactive(
   on_mouse_up: msg,
 ) -> Element(msg) {
   ensure_registered()
-  element.element("saola-canvas", [
-    a.property("commands", encode_commands(output.commands)),
-    a.property("hitAreas", encode_hit_areas(output.hit_areas)),
-    e.on("canvas-tap", decode_canvas_tap(on_tap)),
-    e.on("canvas-hover", decode_canvas_tap(on_hover)),
-    e.on("canvas-leave", decode.success(on_leave)),
-    e.on("canvas-mousedown", decode_canvas_tap(on_mouse_down)),
-    e.on("canvas-mouseup", decode.success(on_mouse_up)),
-  ], [])
+  element.element(
+    "saola-canvas",
+    [
+      a.property("commands", encode_commands(output.commands)),
+      a.property("hitAreas", encode_hit_areas(output.hit_areas)),
+      e.on("canvas-tap", decode_canvas_tap(on_tap)),
+      e.on("canvas-hover", decode_canvas_tap(on_hover)),
+      e.on("canvas-leave", decode.success(on_leave)),
+      e.on("canvas-mousedown", decode_canvas_tap(on_mouse_down)),
+      e.on("canvas-mouseup", decode.success(on_mouse_up)),
+    ],
+    [],
+  )
 }
