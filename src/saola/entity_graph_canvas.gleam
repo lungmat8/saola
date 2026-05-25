@@ -152,22 +152,31 @@ fn node_commands(
   }
 
   // Draw a group of nodes, setting fill color per severity group
+  let known_groups = ["critical", "high", "medium", "low"]
   let draw_by_severity = fn(ns: List(GraphNode)) {
-    list.flat_map(["critical", "high", "medium", "low"], fn(g) {
-      let group_nodes = list.filter(ns, fn(n) { n.group == g })
-      case group_nodes {
-        [] -> []
-        _ -> list.flatten([[canvas.SetFill(group_color(g))], list.flat_map(group_nodes, draw_circle)])
-      }
-    })
+    let by_group =
+      list.flat_map(known_groups, fn(g) {
+        let group_nodes = list.filter(ns, fn(n) { n.group == g })
+        case group_nodes {
+          [] -> []
+          _ -> list.flatten([[canvas.SetFill(group_color(g))], list.flat_map(group_nodes, draw_circle)])
+        }
+      })
+    // Nodes whose group is not a known severity level use the default color
+    let other_nodes = list.filter(ns, fn(n) { !list.contains(known_groups, n.group) })
+    let default_colored = case other_nodes {
+      [] -> []
+      _ -> list.flatten([[canvas.SetFill(group_color(""))], list.flat_map(other_nodes, draw_circle)])
+    }
+    list.append(by_group, default_colored)
   }
 
   let font_size = float.round(nr *. 1.6)
   let font = int.to_string(font_size) <> "px sans-serif"
 
   // Labels only for selected nodes — too cluttered otherwise
-  let draw_selected_labels =
-    list.flat_map(selected, fn(node) {
+  let draw_labels = fn(ns: List(GraphNode)) {
+    list.flat_map(ns, fn(node) {
       case dict.get(pos_map, node.id) {
         Error(_) -> []
         Ok(#(nx, ny)) -> {
@@ -176,6 +185,7 @@ fn node_commands(
         }
       }
     })
+  }
 
   let draw_selected_rings =
     list.flat_map(selected, fn(node) {
@@ -202,7 +212,7 @@ fn node_commands(
       canvas.SetTextAlign("center"),
       canvas.SetTextBaseline("middle"),
     ],
-    draw_selected_labels,
+    draw_labels(selected),
   ])
 }
 

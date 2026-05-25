@@ -107,5 +107,4 @@ pub fn encode_commands_preserves_count_test() {
   ]
   // If encode_commands panics, the test fails. Correctness verified in browser.
   let _ = canvas_command.encode_commands(cmds)
-  assert True
 }
