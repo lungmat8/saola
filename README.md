@@ -157,7 +157,7 @@ Requires [Just](https://just.systems/) and [Bun](https://bun.sh/).
 
 ## Contributing
 
-1. Clone the repo (includes `dev/basecoat` submodule — run `git submodule update --init`).
+1. Clone the repo (includes `external/basecoat` submodule — run `git submodule update --init`).
 2. Run `gleam test` to verify all tests pass.
 3. The live preview app lives in `dev/saola/preview/`; add a showcase page for any new widget.
 4. Follow the rules in `CLAUDE.md` for widget API conventions.
@@ -165,9 +165,12 @@ Requires [Just](https://just.systems/) and [Bun](https://bun.sh/).
 To update the bundled Basecoat CSS after pulling submodule changes:
 
 ```sh
-cd dev/basecoat && bun run build
-cp dev/basecoat/packages/css/dist/basecoat.cdn.css assets/basecoat.css
+cd external/basecoat && bun run build
+cp external/basecoat/packages/css/dist/basecoat.cdn.css assets/basecoat.css
 ```
+
+The `basecoat` submodule used to be placed under "dev", but "dev" is one of the directories that Gleam will scan for source code
+to build, so `basecoat` deep directory tree will waste Gleam attempt.
 
 ## Licence
 
