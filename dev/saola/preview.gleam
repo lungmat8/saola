@@ -185,6 +185,7 @@ fn init(_args) -> #(Model, Effect(Message)) {
       modem.init(on_url_change),
       whatnext,
       theme.theme_sub(True, SystemOsDarkChanged),
+      theme.apply_to_html(theme.Light, theme.get_system_dark()),
     ]),
   )
 }
@@ -501,10 +502,13 @@ fn update(model: Model, msg: Message) -> #(Model, Effect(Message)) {
       Model(..model, nav_menu_open: id),
       effect.none(),
     )
-    ThemeToggled(t) -> #(Model(..model, theme: t), effect.none())
+    ThemeToggled(t) -> #(
+      Model(..model, theme: t),
+      theme.apply_to_html(t, model.system_os_dark),
+    )
     SystemOsDarkChanged(is_dark) -> #(
       Model(..model, system_os_dark: is_dark),
-      effect.none(),
+      theme.apply_to_html(model.theme, is_dark),
     )
     SignupNameChanged(v) -> #(Model(..model, signup_name: v), effect.none())
     SignupEmailChanged(v) -> #(Model(..model, signup_email: v), effect.none())
@@ -974,15 +978,7 @@ fn result_unwrap(r: Result(a, e), default: a) -> a {
 }
 
 fn view(model: Model) -> Element(Message) {
-  let theme_class = case model.theme {
-    theme.System ->
-      case model.system_os_dark {
-        True -> a.class("dark")
-        False -> a.none()
-      }
-    _ -> theme.theme_attr(model.theme)
-  }
-  h.div([a.class("app-container"), theme_class], [
+  h.div([a.class("app-container")], [
     sidebar(model.route, model.theme),
     main_pane(model),
   ])

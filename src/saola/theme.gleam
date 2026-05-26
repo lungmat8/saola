@@ -37,9 +37,23 @@ pub fn theme_sub(
   }
 }
 
+/// Applies the theme by toggling the `dark` class on `<html>`.
+pub fn apply_to_html(theme: Theme, system_os_dark: Bool) -> Effect(msg) {
+  let is_dark = case theme {
+    Dark -> True
+    Light -> False
+    System -> system_os_dark
+  }
+  use _dispatch <- effect.from
+  do_set_html_theme(is_dark)
+}
+
 /// Returns the current OS dark-mode preference. Safe to call at init time.
 @external(javascript, "./theme_ffi.mjs", "getCurrentDarkMode")
 pub fn get_system_dark() -> Bool
 
 @external(javascript, "./theme_ffi.mjs", "mediaQuerySub")
 fn do_media_query_sub(query: String, callback: fn(Bool) -> Nil) -> Nil
+
+@external(javascript, "./theme_ffi.mjs", "setHtmlTheme")
+fn do_set_html_theme(is_dark: Bool) -> Nil

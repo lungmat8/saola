@@ -10,3 +10,11 @@ export function getCurrentDarkMode() {
   if (typeof window === 'undefined') return false
   return window.matchMedia('(prefers-color-scheme: dark)').matches
 }
+
+export function setHtmlTheme(isDark) {
+  if (isDark) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+}
