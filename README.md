@@ -6,34 +6,6 @@ Built on top of [Basecoat CSS](https://basecoatui.com/) (a pure-HTML port of sha
 > **Widget vs Component** — Lustre uses the word "component" for elements with their own runtime instance.
 > Saola elements are called *widgets* to avoid confusion: they are plain view functions, no runtime state.
 
-## Getting started
-
-Add the package:
-
-```sh
-gleam add saola
-```
-
-Import the CSS (add to your HTML shell):
-
-```html
-<link rel="stylesheet" href="https://unpkg.com/basecoat-css@latest/dist/basecoat.css" />
-```
-
-Use a widget inside any Lustre `view` function:
-
-```gleam
-import saola/button
-import saola/badge
-
-fn view(model: Model) -> Element(Msg) {
-  h.div([], [
-    badge.badge_secondary("New"),
-    button.button_primary("Get started", UserClickedStart),
-  ])
-}
-```
-
 ## Widgets
 
 | Module | Shortcuts | Full API |
@@ -189,6 +161,13 @@ Requires [Just](https://just.systems/) and [Bun](https://bun.sh/).
 2. Run `gleam test` to verify all tests pass.
 3. The live preview app lives in `dev/saola/preview/`; add a showcase page for any new widget.
 4. Follow the rules in `CLAUDE.md` for widget API conventions.
+
+To update the bundled Basecoat CSS after pulling submodule changes:
+
+```sh
+cd dev/basecoat && bun run build
+cp dev/basecoat/packages/css/dist/basecoat.cdn.css assets/basecoat.css
+```
 
 ## Licence
 

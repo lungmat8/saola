@@ -1,4 +1,4 @@
-import formal/form as f
+import formal/form as formlib
 import gleam/dict
 import gleam/float
 import gleam/int
@@ -900,19 +900,22 @@ fn update(model: Model, msg: Message) -> #(Model, Effect(Message)) {
         #("confirm", model.signup_confirm),
       ]
       let schema = {
-        use _name <- f.field("name", f.parse_string |> f.check_not_empty)
-        use _email <- f.field("email", f.parse_email)
-        use password <- f.field(
+        use _name <- formlib.field(
+          "name",
+          formlib.parse_string |> formlib.check_not_empty,
+        )
+        use _email <- formlib.field("email", formlib.parse_email)
+        use password <- formlib.field(
           "password",
-          f.parse_string |> f.check_string_length_more_than(7),
+          formlib.parse_string |> formlib.check_string_length_more_than(7),
         )
-        use _confirm <- f.field(
+        use _confirm <- formlib.field(
           "confirm",
-          f.parse_string |> f.check_confirms(password),
+          formlib.parse_string |> formlib.check_confirms(password),
         )
-        f.success(Nil)
+        formlib.success(Nil)
       }
-      case f.new(schema) |> f.add_values(values) |> f.run {
+      case formlib.new(schema) |> formlib.add_values(values) |> formlib.run {
         Ok(_) -> #(
           Model(..model, signup_success: True, signup_errors: dict.new()),
           effect.none(),
@@ -923,7 +926,7 @@ fn update(model: Model, msg: Message) -> #(Model, Effect(Message)) {
               ["name", "email", "password", "confirm"],
               dict.new(),
               fn(acc, name) {
-                case f.field_error_messages(failed_form, name) {
+                case formlib.field_error_messages(failed_form, name) {
                   [] -> acc
                   [msg, ..] -> dict.insert(acc, name, msg)
                 }
