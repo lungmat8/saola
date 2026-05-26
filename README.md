@@ -66,7 +66,7 @@ Built on top of [Basecoat CSS](https://basecoatui.com/) (a pure-HTML port of sha
 | `saola/navigation_menu` | `navigation_menu_simple` | `navigation_menu_full` |
 | `saola/spinner` | `spinner_simple` | `spinner_full` |
 | `saola/stepper` | `stepper_simple` | `stepper_full` |
-| `saola/theme` | `theme_attr` | `apply_to_html`, `watch_system_dark`, `get_system_dark` |
+| `saola/theme` | — | `apply_to_html`, `watch_system_dark`, `get_system_dark` |
 | `saola/time_picker` | `time_picker_simple` | `time_picker_full` |
 | `saola/timeline` | `timeline_simple` | `timeline_full` |
 | `saola/toggle_group` | `toggle_group_simple` | `toggle_group_full` |
@@ -89,7 +89,7 @@ These wrappers ship as custom elements (`<script>` required separately):
 
 ### Apps with a theme toggle (recommended)
 
-Use `apply_to_html` as an effect when the theme changes, and `watch_system_dark` to track OS preference changes:
+Use `apply_to_html` as a Lustre `Effect` when the theme changes, because it needs to update the `<html>` class outside the area where the Lustre app mounts. Pair it with `watch_system_dark` to track OS preference changes:
 
 ```gleam
 import saola/theme
@@ -123,17 +123,7 @@ Add this script to `<head>` to avoid flash-of-wrong-theme on load:
 
 ### Static theme (no toggle)
 
-If the theme is fixed at startup and never changes at runtime, `theme_attr` on the root element is enough:
-
-```gleam
-fn view(model: Model) -> Element(Msg) {
-  h.html([theme.theme_attr(model.theme)], [
-    // ...
-  ])
-}
-```
-
-> **Do not combine `theme_attr` with the inline script when using a theme toggle.** `theme_attr(Light)` emits `a.none()`, so Lustre will not remove the `dark` class the script already added — the page stays dark. Use `apply_to_html` instead when the theme can change at runtime.
+If the theme is fixed at startup and never changes at runtime, `apply_to_html` is still the preferred way to sync the root theme class.
 
 ## Form Fields and Validation
 

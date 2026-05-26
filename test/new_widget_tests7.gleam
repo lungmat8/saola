@@ -4,23 +4,6 @@ import lustre/element/html as h
 import saola/field
 import saola/theme
 
-// --- theme ---
-
-pub fn theme_light_has_no_class_test() {
-  let html = h.div([theme.theme_attr(theme.Light)], []) |> element.to_string
-  assert !string.contains(html, "class=")
-}
-
-pub fn theme_dark_has_dark_class_test() {
-  let html = h.div([theme.theme_attr(theme.Dark)], []) |> element.to_string
-  assert string.contains(html, "class=\"dark\"")
-}
-
-pub fn theme_system_has_no_class_test() {
-  let html = h.div([theme.theme_attr(theme.System)], []) |> element.to_string
-  assert !string.contains(html, "class=\"dark\"")
-}
-
 // --- field required ---
 
 pub fn field_required_renders_label_and_asterisk_test() {
