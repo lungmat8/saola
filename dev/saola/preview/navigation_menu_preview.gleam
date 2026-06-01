@@ -3,6 +3,7 @@ import lustre/attribute as a
 import lustre/element.{type Element, text}
 import lustre/element/html as h
 import saola/navigation_menu
+import saola/preview/event_helper
 import saola/preview/model.{type Message, type Model, NavMenuOpenChanged}
 
 pub fn view_navigation_menus(model: Model) -> Element(Message) {
@@ -27,7 +28,7 @@ pub fn view_navigation_menus(model: Model) -> Element(Message) {
       ]),
     ),
   ]
-  h.div([], [
+  h.div([event_helper.on_click_outside(".nav-menu", NavMenuOpenChanged(None))], [
     h.h1([a.class("page-title")], [text("Navigation Menu")]),
     h.p([a.class("page-description")], [
       text(

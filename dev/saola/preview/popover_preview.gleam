@@ -3,10 +3,13 @@ import lustre/element.{type Element, text}
 import lustre/element/html as h
 import lustre/event as e
 import saola/popover
-import saola/preview/model.{type Message, type Model, PopoverClosed}
+import saola/preview/event_helper
+import saola/preview/model.{
+  type Message, type Model, PopoverClosed, PopoverOpened,
+}
 
 pub fn view_popovers(model: Model) -> Element(Message) {
-  h.div([], [
+  h.div([event_helper.on_click_outside(".popover-wrapper", PopoverClosed)], [
     h.h1([a.class("page-title")], [text("Popover")]),
     h.p([a.class("page-description")], [
       text("A floating panel anchored to a trigger element."),
@@ -20,7 +23,10 @@ pub fn view_popovers(model: Model) -> Element(Message) {
             [
               a.type_("button"),
               a.class("btn btn-outline"),
-              e.on_click(PopoverClosed),
+              e.on_click(case model.popover_open {
+                True -> PopoverClosed
+                False -> PopoverOpened
+              }),
             ],
             [
               text(case model.popover_open {

@@ -145,6 +145,10 @@ pub type Model {
     date_picker_open: Bool,
     date_picker_view_year: Int,
     date_picker_view_month: Month,
+    date_picker_2_selected: Option(Date),
+    date_picker_2_open: Bool,
+    date_picker_2_view_year: Int,
+    date_picker_2_view_month: Month,
     // Native select preview state
     native_select_value: String,
     // Context menu preview state
@@ -254,6 +258,7 @@ pub type Message {
   ToggleGroupChanged(List(String))
   PaginationChanged(Int)
   CollapsibleToggled
+  PopoverOpened
   PopoverClosed
   AlertDialogOpened
   AlertDialogConfirmed
@@ -272,6 +277,9 @@ pub type Message {
   DatePickerDateSelected(Date)
   DatePickerMonthChanged(Int, Month)
   DatePickerOpenChanged(Bool)
+  DatePicker2DateSelected(Date)
+  DatePicker2MonthChanged(Int, Month)
+  DatePicker2OpenChanged(Bool)
   NativeSelectChanged(String)
   ContextMenuOpened(Int, Int)
   ContextMenuClosed

@@ -33,6 +33,7 @@ import saola/preview/model.{
   ContextMenuClosed, ContextMenuOpened, ContextMenus, D3Charts, DashDrawerClosed,
   DashPageChanged, DashRowClicked, DashSearchChanged, DataTableFilterChanged,
   DataTablePageChanged, DataTableSelectChanged, DataTableSortChanged, DataTables,
+  DatePicker2DateSelected, DatePicker2MonthChanged, DatePicker2OpenChanged,
   DatePickerDateSelected, DatePickerMonthChanged, DatePickerOpenChanged,
   DatePickers, Dialogs, DismissToast, DrawerClosed, DrawerOpened, Drawers,
   DropdownMenus, Empties, ExampleForm, ExampleSite, Fields, FormEmailChanged,
@@ -46,17 +47,17 @@ import saola/preview/model.{
   MenubarClosed, MenubarOpened, Menubars, Model, MonacoEditor,
   MultiselectChanged, Multiselects, NativeSelectChanged, NativeSelects,
   NavMenuOpenChanged, NavigationBars, NavigationMenus, OnRouteChange, OpenDialog,
-  PaginationChanged, Paginations, PopoverClosed, Popovers, Progresses,
-  RadioGroups, RatingChanged, Ratings, ResizableSizesChanged, Resizables,
-  ScrollAreas, SearchQueryChanged, Searches, SelectChanged, Selects, Separators,
-  SheetClosed, SheetOpened, Sheets, SidebarCollapsedToggled, SidebarToggled,
-  Sidebars, SignupConfirmChanged, SignupEmailChanged, SignupNameChanged,
-  SignupPasswordChanged, SignupReset, SignupSubmitted, Skeletons, SliderChanged,
-  Sliders, Spinners, StartedTrial, StepperStepClicked, Steppers,
-  StressBarClicked, StressOffsetChanged, StressZoomChanged, SwitchToggled,
-  Switches, SystemOsDarkChanged, TabChanged, Tables, Tabs, ThemeToggled,
-  ThreatEntityDeselected, ThreatEntitySelected, ThreatFiltersCleared,
-  ThreatGraphPanned, ThreatGraphZoomed, ThreatIntelNetwork,
+  PaginationChanged, Paginations, PopoverClosed, PopoverOpened, Popovers,
+  Progresses, RadioGroups, RatingChanged, Ratings, ResizableSizesChanged,
+  Resizables, ScrollAreas, SearchQueryChanged, Searches, SelectChanged, Selects,
+  Separators, SheetClosed, SheetOpened, Sheets, SidebarCollapsedToggled,
+  SidebarToggled, Sidebars, SignupConfirmChanged, SignupEmailChanged,
+  SignupNameChanged, SignupPasswordChanged, SignupReset, SignupSubmitted,
+  Skeletons, SliderChanged, Sliders, Spinners, StartedTrial, StepperStepClicked,
+  Steppers, StressBarClicked, StressOffsetChanged, StressZoomChanged,
+  SwitchToggled, Switches, SystemOsDarkChanged, TabChanged, Tables, Tabs,
+  ThemeToggled, ThreatEntityDeselected, ThreatEntitySelected,
+  ThreatFiltersCleared, ThreatGraphPanned, ThreatGraphZoomed, ThreatIntelNetwork,
   ThreatIntelRouteEntered, ThreatLayoutReceived, ThreatMapCountryClicked,
   ThreatNodeHovered, ThreatSearchChanged, ThreatSearchCleared,
   ThreatSeverityFilterChanged, ThreatTablePageChanged, ThreatTableRowSelected,
@@ -118,6 +119,10 @@ fn init(_args) -> #(Model, Effect(Message)) {
       date_picker_open: False,
       date_picker_view_year: 2026,
       date_picker_view_month: calendar.May,
+      date_picker_2_selected: None,
+      date_picker_2_open: False,
+      date_picker_2_view_year: 2026,
+      date_picker_2_view_month: calendar.May,
       native_select_value: "apple",
       context_menu_open: False,
       context_menu_x: 0,
@@ -285,7 +290,15 @@ fn update(model: Model, msg: Message) -> #(Model, Effect(Message)) {
       }
       #(Model(..model, open_dropdown: new_open), effect.none())
     }
-    UserClickedOutside -> #(Model(..model, open_dropdown: None), effect.none())
+    UserClickedOutside -> #(
+      Model(
+        ..model,
+        open_dropdown: None,
+        date_picker_open: False,
+        date_picker_2_open: False,
+      ),
+      effect.none(),
+    )
     TabChanged(id) -> #(Model(..model, active_tab: id), effect.none())
     OpenDialog -> #(Model(..model, is_dialog_open: True), effect.none())
     CloseDialog -> #(Model(..model, is_dialog_open: False), effect.none())
@@ -353,6 +366,7 @@ fn update(model: Model, msg: Message) -> #(Model, Effect(Message)) {
       Model(..model, collapsible_open: !model.collapsible_open),
       effect.none(),
     )
+    PopoverOpened -> #(Model(..model, popover_open: True), effect.none())
     PopoverClosed -> #(Model(..model, popover_open: False), effect.none())
     AlertDialogOpened -> #(
       Model(..model, alert_dialog_open: True),
@@ -399,6 +413,26 @@ fn update(model: Model, msg: Message) -> #(Model, Effect(Message)) {
     )
     DatePickerOpenChanged(open) -> #(
       Model(..model, date_picker_open: open),
+      effect.none(),
+    )
+    DatePicker2DateSelected(date) -> #(
+      Model(
+        ..model,
+        date_picker_2_selected: Some(date),
+        date_picker_2_open: False,
+      ),
+      effect.none(),
+    )
+    DatePicker2MonthChanged(year, month) -> #(
+      Model(
+        ..model,
+        date_picker_2_view_year: year,
+        date_picker_2_view_month: month,
+      ),
+      effect.none(),
+    )
+    DatePicker2OpenChanged(open) -> #(
+      Model(..model, date_picker_2_open: open),
       effect.none(),
     )
     NativeSelectChanged(val) -> #(
