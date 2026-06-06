@@ -3,13 +3,13 @@ export function request_animation_frame(cb) {
 }
 
 // Off-screen canvas for measure_text — reused across calls
-let _mc = null
+let mc = null
 
 export function measure_text(font, text) {
   if (typeof document === 'undefined') return 0.0
-  if (!_mc) _mc = document.createElement('canvas').getContext('2d')
-  _mc.font = font
-  return _mc.measureText(text).width
+  if (!mc) mc = document.createElement('canvas').getContext('2d')
+  mc.font = font
+  return mc.measureText(text).width
 }
 
 let defined = false

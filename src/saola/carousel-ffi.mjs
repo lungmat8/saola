@@ -1,9 +1,9 @@
-let _defined = false
+let defined = false
 
 export function ensure_registered() {
   if (typeof document === 'undefined') return
-  if (_defined) return
-  _defined = true
+  if (defined) return
+  defined = true
 
   const template = document.createElement('template')
 template.innerHTML = `

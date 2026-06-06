@@ -1,8 +1,8 @@
-const _registered = {}
+const registered = {}
 
 export function watchMediaQuery(query, callback) {
-  if (_registered[query]) return
-  _registered[query] = true
+  if (registered[query]) return
+  registered[query] = true
   window.matchMedia(query).addEventListener('change', e => callback(e.matches))
 }
 

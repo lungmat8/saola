@@ -1,13 +1,13 @@
-let _defined = false
+let defined = false
 
 export function ensure_registered() {
   if (typeof document === 'undefined') return
-  if (_defined) return
-  _defined = true
-  _define()
+  if (defined) return
+  defined = true
+  define()
 }
 
-function _define() {
+function define() {
   class SaolaResizablePanels extends HTMLElement {
   static observedAttributes = ['direction']
 
