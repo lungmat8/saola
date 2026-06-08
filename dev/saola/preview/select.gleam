@@ -31,7 +31,7 @@ pub fn view(fruit: String, timezone: String) -> Element(Message) {
         h.label([a.class("label")], [
           text("Favourite fruit: " <> fruit),
         ]),
-        select.select_full(
+        select.select(
           fruit_options,
           select.SyncValue(fruit),
           on_change: fn(v) { SelectChanged("fruit", v) },
@@ -43,7 +43,7 @@ pub fn view(fruit: String, timezone: String) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-2")], [
         h.label([a.class("label")], [text("Timezone")]),
-        select.select_full(
+        select.select(
           timezone_options,
           select.SyncValue(timezone),
           on_change: fn(v) { SelectChanged("timezone", v) },
@@ -55,7 +55,7 @@ pub fn view(fruit: String, timezone: String) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-2")], [
         h.label([a.class("label")], [text("Disabled")]),
-        select.select_full(
+        select.select(
           fruit_options,
           select.InitValue("banana"),
           on_change: fn(v) { SelectChanged("disabled", v) },

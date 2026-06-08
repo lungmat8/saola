@@ -8,7 +8,7 @@ pub type SpinnerSize {
   Large
 }
 
-pub fn spinner_full(size: SpinnerSize, class: String) -> Element(msg) {
+pub fn spinner(size: SpinnerSize, class: String) -> Element(msg) {
   let size_class = case size {
     Small -> "spinner spinner-sm"
     Medium -> "spinner spinner-md"
@@ -29,5 +29,5 @@ pub fn spinner_full(size: SpinnerSize, class: String) -> Element(msg) {
 }
 
 pub fn spinner_simple() -> Element(msg) {
-  spinner_full(Medium, "")
+  spinner(Medium, "")
 }

@@ -15,7 +15,7 @@ pub fn view(model: Model) -> Element(Message) {
     h.div([a.class("mt-4")], [
       button.button_primary("Open Dialog", OpenDialog),
     ]),
-    dialog.dialog_full(
+    dialog.dialog(
       is_open: model.is_dialog_open,
       attrs: dialog.DialogAttrs(
         title: "Are you sure?",
@@ -23,7 +23,7 @@ pub fn view(model: Model) -> Element(Message) {
         content: [],
         footer: option.Some(
           h.div([a.class("flex gap-2")], [
-            button.button_full(
+            button.button(
               button.Secondary,
               "Cancel",
               button.Large,
@@ -31,7 +31,7 @@ pub fn view(model: Model) -> Element(Message) {
               option.Some(CloseDialog),
               button.default_extra_attrs,
             ),
-            button.button_full(
+            button.button(
               button.Primary,
               "Continue",
               button.Large,

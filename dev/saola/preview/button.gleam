@@ -34,7 +34,7 @@ pub fn view() -> Element(Message) {
       button.button_outline("Outline", OnRouteChange(Home)),
       button.button_ghost("Ghost", OnRouteChange(Home)),
       button.button_destructive("Destructive", OnRouteChange(Home)),
-      button.button_full(
+      button.button(
         button.Link,
         "Link",
         button.Large,
@@ -45,7 +45,7 @@ pub fn view() -> Element(Message) {
     ]),
     h.h2([a.class("mt-4")], [text("With icon")]),
     h.div([a.class("button-grid")], [
-      button.button_full(
+      button.button(
         button.Outline,
         "Check",
         button.Large,
@@ -53,7 +53,7 @@ pub fn view() -> Element(Message) {
         Some(OnRouteChange(Home)),
         button.default_extra_attrs,
       ),
-      button.button_full(
+      button.button(
         button.Secondary,
         "Menu",
         button.Large,
@@ -65,7 +65,7 @@ pub fn view() -> Element(Message) {
     ]),
     h.h2([a.class("mt-4")], [text("Sizes")]),
     h.div([a.class("button-grid")], [
-      button.button_full(
+      button.button(
         button.Primary,
         "Large",
         button.Large,
@@ -73,7 +73,7 @@ pub fn view() -> Element(Message) {
         None,
         button.default_extra_attrs,
       ),
-      button.button_full(
+      button.button(
         button.Primary,
         "Small",
         button.Small,
@@ -84,7 +84,7 @@ pub fn view() -> Element(Message) {
     ]),
     h.h2([a.class("mt-4")], [text("Disabled")]),
     h.div([a.class("button-grid")], [
-      button.button_full(
+      button.button(
         button.Primary,
         "Disabled Primary",
         button.Large,
@@ -92,7 +92,7 @@ pub fn view() -> Element(Message) {
         None,
         attrs_disabled,
       ),
-      button.button_full(
+      button.button(
         button.Secondary,
         "Disabled Secondary",
         button.Large,
@@ -100,7 +100,7 @@ pub fn view() -> Element(Message) {
         None,
         attrs_disabled,
       ),
-      button.button_full(
+      button.button(
         button.Outline,
         "Disabled Icon",
         button.Large,
@@ -112,7 +112,7 @@ pub fn view() -> Element(Message) {
     h.h2([a.class("mt-4")], [text("Form types")]),
     h.div([a.class("button-grid")], [
       button.button_submit("Submit"),
-      button.button_full(
+      button.button(
         button.Primary,
         "Reset",
         button.Large,
@@ -123,7 +123,7 @@ pub fn view() -> Element(Message) {
     ]),
     h.h2([a.class("mt-4")], [text("Accessibility (ARIA)")]),
     h.div([a.class("button-grid")], [
-      button.button_full(
+      button.button(
         button.Primary,
         "Save",
         button.Large,

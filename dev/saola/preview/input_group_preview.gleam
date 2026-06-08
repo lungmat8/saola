@@ -50,7 +50,7 @@ pub fn view() -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Invalid state")]),
-        input_group.input_group_full(
+        input_group.input_group(
           Some(h.span([], [text("@")])),
           h.input([
             a.type_("text"),

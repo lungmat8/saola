@@ -27,7 +27,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("12-hour format")]),
-        time_picker.time_picker_full(
+        time_picker.time_picker(
           model.time_picker_value,
           time_picker.TwelveHour,
           TimePickerChanged,
@@ -36,7 +36,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("With seconds")]),
-        time_picker.time_picker_full(
+        time_picker.time_picker(
           model.time_picker_value,
           time_picker.TwentyFourHour,
           TimePickerChanged,
@@ -49,7 +49,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Disabled")]),
-        time_picker.time_picker_full(
+        time_picker.time_picker(
           None,
           time_picker.TwentyFourHour,
           TimePickerChanged,

@@ -21,7 +21,7 @@ pub fn view() -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Custom separator")]),
-        breadcrumb.breadcrumb_full(
+        breadcrumb.breadcrumb(
           [
             breadcrumb.BreadcrumbLink("Docs", "/docs"),
             breadcrumb.BreadcrumbLink("API", "/docs/api"),

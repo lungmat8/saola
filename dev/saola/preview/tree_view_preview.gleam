@@ -66,7 +66,7 @@ pub fn view(model: Model) -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("With select callback")]),
         h.div([a.class("max-w-xs border rounded-md p-2")], [
-          tree_view.tree_view_full(
+          tree_view.tree_view(
             items,
             model.tree_open_ids,
             TreeNodeToggled,

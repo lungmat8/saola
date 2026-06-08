@@ -24,7 +24,7 @@ All widgets follow a consistent pattern: **stateless functions** producing typed
 
 Every widget is a pure function:
 ```gleam
-widget_full(variant, size, content, attrs, on_click) -> Element(msg)
+widget(variant, size, content, attrs, on_click) -> Element(msg)
 ```
 
 - No internal mutable state
@@ -35,10 +35,10 @@ widget_full(variant, size, content, attrs, on_click) -> Element(msg)
 ### 2. Full + Shortcut Pattern
 
 Each widget module exposes:
-- `widget_full(...)` — All configuration options available
+- `widget(...)` — All configuration options available
 - Shortcut functions (`widget_primary`, `widget_simple`, etc.) — Common cases with sensible defaults
 
-Shortcuts delegate to `*_full` using `const default_*` records or `fn default_*() -> T` functions.
+Shortcuts delegate to the widget's main function using `const default_*` records or `fn default_*() -> T` functions.
 
 ### 3. CSS + Basecoat Design Tokens
 

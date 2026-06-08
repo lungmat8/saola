@@ -61,8 +61,8 @@ fn view(model: Model) -> Element(Msg) {
 ```
 
 Every widget follows the pattern:
-- `widget_full(...)` — all options available
-- Shortcut helpers like `widget_primary`, `widget_simple` delegate to `_full` with defaults
+- `widget(...)` — all options available
+- Shortcut helpers like `widget_primary`, `widget_simple` delegate to the widget's main function with defaults
 
 ---
 
@@ -189,7 +189,7 @@ field.field(
     hint: "We'll never share your email.",
     error: "",          // "" = no error shown
   ),
-  input.input_full(
+  input.input(
     input.Email,
     Some(input.SyncValue(model.email)),
     on_input: Some(EmailChanged),
@@ -236,7 +236,7 @@ Pass icons to any widget `icon` slot:
 import lucide/info
 import saola/alert
 
-alert.alert_full(
+alert.alert(
   alert.Default,
   title: "Heads up",
   description: "You can add components to your app.",
@@ -250,7 +250,7 @@ Or in button:
 import lucide/arrow_right
 import saola/button
 
-button.button_full(
+button.button(
   button.Primary, "Continue", button.Default,
   icon: Some(arrow_right.arrow_right([], [])),
   on_click: Some(UserContinued),

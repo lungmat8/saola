@@ -20,21 +20,21 @@ pub fn spinner_simple_renders_test() {
 
 pub fn spinner_small_has_sm_class_test() {
   let html =
-    spinner.spinner_full(spinner.Small, "")
+    spinner.spinner(spinner.Small, "")
     |> element.to_string
   assert string.contains(html, "spinner-sm")
 }
 
 pub fn spinner_large_has_lg_class_test() {
   let html =
-    spinner.spinner_full(spinner.Large, "")
+    spinner.spinner(spinner.Large, "")
     |> element.to_string
   assert string.contains(html, "spinner-lg")
 }
 
 pub fn spinner_custom_class_test() {
   let html =
-    spinner.spinner_full(spinner.Medium, "my-class")
+    spinner.spinner(spinner.Medium, "my-class")
     |> element.to_string
   assert string.contains(html, "my-class")
 }
@@ -93,7 +93,7 @@ pub fn native_select_optgroup_renders_test() {
 
 pub fn native_select_disabled_test() {
   let html =
-    native_select.native_select_full(
+    native_select.native_select(
       [native_select.NativeSelectOption("a", "A")],
       "a",
       "n",
@@ -110,7 +110,7 @@ pub fn native_select_disabled_test() {
 
 pub fn native_select_small_class_test() {
   let html =
-    native_select.native_select_full(
+    native_select.native_select(
       [native_select.NativeSelectOption("a", "A")],
       "a",
       "n",
@@ -164,7 +164,7 @@ pub fn button_group_renders_children_test() {
 
 pub fn button_group_vertical_class_test() {
   let html =
-    button_group.button_group_full(
+    button_group.button_group(
       [h.button([], [h.text("X")])],
       button_group.ButtonGroupAttrs(
         orientation: button_group.Vertical,
@@ -225,7 +225,7 @@ pub fn input_group_no_addons_test() {
 
 pub fn input_group_invalid_has_aria_invalid_test() {
   let html =
-    input_group.input_group_full(
+    input_group.input_group(
       None,
       h.input([]),
       None,
@@ -424,7 +424,7 @@ pub fn drawer_open_renders_content_test() {
 
 pub fn drawer_bottom_has_handle_test() {
   let html =
-    drawer.drawer_full(
+    drawer.drawer(
       True,
       "Bottom",
       None,
@@ -439,7 +439,7 @@ pub fn drawer_bottom_has_handle_test() {
 
 pub fn drawer_left_no_handle_test() {
   let html =
-    drawer.drawer_full(
+    drawer.drawer(
       True,
       "Left",
       None,
@@ -454,7 +454,7 @@ pub fn drawer_left_no_handle_test() {
 
 pub fn drawer_top_has_handle_test() {
   let html =
-    drawer.drawer_full(
+    drawer.drawer(
       True,
       "Top",
       None,
@@ -476,7 +476,7 @@ pub fn drawer_side_class_bottom_test() {
 
 pub fn drawer_description_renders_test() {
   let html =
-    drawer.drawer_full(
+    drawer.drawer(
       True,
       "Title",
       Some("A helpful description"),
@@ -492,7 +492,7 @@ pub fn drawer_description_renders_test() {
 
 pub fn drawer_no_description_when_none_test() {
   let html =
-    drawer.drawer_full(
+    drawer.drawer(
       True,
       "Title",
       None,
@@ -507,7 +507,7 @@ pub fn drawer_no_description_when_none_test() {
 
 pub fn drawer_footer_renders_test() {
   let html =
-    drawer.drawer_full(
+    drawer.drawer(
       True,
       "Title",
       None,

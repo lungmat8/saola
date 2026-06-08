@@ -51,7 +51,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("With today highlighted")]),
-        cal.calendar_full(
+        cal.calendar(
           model.calendar_selected,
           model.calendar_view_year,
           model.calendar_view_month,

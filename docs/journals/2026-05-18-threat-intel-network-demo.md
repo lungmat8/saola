@@ -66,14 +66,14 @@ let filtered_rows = case state.threat_search_term {
   })
 }
 
-data_table_full(
+data_table(
   columns: [...],
   rows: filtered_rows,
   show_filter: False,  // hide the table's own filter input
   // ...
 )
 ```
-`data_table_full` does not filter internally. It paginates whatever rows are passed. Severity + search filtering runs in the model before passing rows. The table's `show_filter: False` hides the widget's built-in filter to avoid duplication.
+`data_table` does not filter internally. It paginates whatever rows are passed. Severity + search filtering runs in the model before passing rows. The table's `show_filter: False` hides the widget's built-in filter to avoid duplication.
 
 **Cross-cutting sync in a single handler**
 ```gleam

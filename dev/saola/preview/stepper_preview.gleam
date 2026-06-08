@@ -38,7 +38,7 @@ pub fn view(model: Model) -> Element(Message) {
     h.div([a.class("grid gap-8")], [
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Horizontal")]),
-        stepper.stepper_full(
+        stepper.stepper(
           stepper.Horizontal,
           steps,
           model.stepper_step,
@@ -48,7 +48,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Vertical")]),
-        stepper.stepper_full(
+        stepper.stepper(
           stepper.Vertical,
           steps,
           model.stepper_step,

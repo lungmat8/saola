@@ -21,7 +21,7 @@ pub type MenubarAttrs {
 
 pub const default_attrs = MenubarAttrs(class: "")
 
-pub fn menubar_full(
+pub fn menubar(
   items: List(MenubarItem(msg)),
   open_menu: String,
   on_open: fn(String) -> msg,
@@ -107,5 +107,5 @@ pub fn menubar_simple(
   on_open: fn(String) -> msg,
   on_close: fn() -> msg,
 ) -> Element(msg) {
-  menubar_full(items, open_menu, on_open, on_close, default_attrs)
+  menubar(items, open_menu, on_open, on_close, default_attrs)
 }

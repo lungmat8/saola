@@ -14,9 +14,9 @@ pub fn view() -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Sizes")]),
         h.div([a.class("flex items-center gap-4")], [
-          spinner.spinner_full(spinner.Small, ""),
-          spinner.spinner_full(spinner.Medium, ""),
-          spinner.spinner_full(spinner.Large, ""),
+          spinner.spinner(spinner.Small, ""),
+          spinner.spinner(spinner.Medium, ""),
+          spinner.spinner(spinner.Large, ""),
         ]),
       ]),
       h.div([a.class("grid gap-4")], [

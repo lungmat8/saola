@@ -35,7 +35,7 @@ pub fn empty_simple_with_action_test() {
 
 pub fn empty_omits_header_when_all_empty_test() {
   let html =
-    empty.empty_full(
+    empty.empty(
       media: None,
       media_variant: empty.Default,
       title: "",
@@ -50,7 +50,7 @@ pub fn empty_omits_header_when_all_empty_test() {
 
 pub fn empty_full_default_media_class_test() {
   let html =
-    empty.empty_full(
+    empty.empty(
       media: Some(h.span([], [h.text("i")])),
       media_variant: empty.Default,
       title: "",
@@ -65,7 +65,7 @@ pub fn empty_full_default_media_class_test() {
 
 pub fn empty_extra_class_concat_test() {
   let html =
-    empty.empty_full(
+    empty.empty(
       media: None,
       media_variant: empty.Default,
       title: "T",
@@ -79,7 +79,7 @@ pub fn empty_extra_class_concat_test() {
 
 pub fn empty_omits_content_when_empty_test() {
   let html =
-    empty.empty_full(
+    empty.empty(
       media: None,
       media_variant: empty.Default,
       title: "T",
@@ -93,7 +93,7 @@ pub fn empty_omits_content_when_empty_test() {
 
 pub fn empty_renders_content_when_present_test() {
   let html =
-    empty.empty_full(
+    empty.empty(
       media: None,
       media_variant: empty.Default,
       title: "",
@@ -110,7 +110,7 @@ pub fn empty_renders_content_when_present_test() {
 
 pub fn item_full_default_classes_test() {
   let html =
-    item.item_full(
+    item.item(
       variant: item.Default,
       size: item.Large,
       media: None,
@@ -128,7 +128,7 @@ pub fn item_full_default_classes_test() {
 
 pub fn item_full_outline_small_test() {
   let html =
-    item.item_full(
+    item.item(
       variant: item.Outline,
       size: item.Small,
       media: None,
@@ -145,7 +145,7 @@ pub fn item_full_outline_small_test() {
 
 pub fn item_full_muted_test() {
   let html =
-    item.item_full(
+    item.item(
       variant: item.Muted,
       size: item.Large,
       media: None,
@@ -176,7 +176,7 @@ pub fn item_simple_no_action_omits_actions_test() {
 
 pub fn item_omits_content_when_empty_test() {
   let html =
-    item.item_full(
+    item.item(
       variant: item.Default,
       size: item.Large,
       media: Some(h.span([], [h.text("m")])),
@@ -193,7 +193,7 @@ pub fn item_omits_content_when_empty_test() {
 
 pub fn item_media_image_class_test() {
   let html =
-    item.item_full(
+    item.item(
       variant: item.Default,
       size: item.Large,
       media: Some(h.img([])),
@@ -239,7 +239,7 @@ pub fn item_separator_renders_hr_test() {
 
 pub fn item_extra_class_concat_test() {
   let html =
-    item.item_full(
+    item.item(
       variant: item.Default,
       size: item.Large,
       media: None,

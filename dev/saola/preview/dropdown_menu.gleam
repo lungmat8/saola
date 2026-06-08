@@ -140,7 +140,7 @@ pub fn view(model: Model) -> Element(Message) {
 
     h.h2([a.class("mt-4")], [text("Custom Trigger with Icon")]),
     h.div([a.class("grid gap-4")], [
-      dd.dropdown_menu_full(
+      dd.dropdown_menu(
         items: mixed_items,
         trigger_attrs: trigger_with_icon_only,
         is_open: is_dropdown_open(model, "custom-icon"),
@@ -151,7 +151,7 @@ pub fn view(model: Model) -> Element(Message) {
 
     h.h2([a.class("mt-4")], [text("Custom Configuration")]),
     h.div([a.class("grid gap-4")], [
-      dd.dropdown_menu_full(
+      dd.dropdown_menu(
         items: mixed_items,
         trigger_attrs: custom_trigger_with_icon,
         is_open: is_dropdown_open(model, "custom-config"),

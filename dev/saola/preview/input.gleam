@@ -10,25 +10,25 @@ import saola/textarea
 fn checkbox_examples() -> List(Element(Message)) {
   [
     checkbox.checkbox_basic("Basic Checkbox"),
-    checkbox.checkbox_full(
+    checkbox.checkbox(
       "Checkbox with help text",
       checkbox.default_check_status,
       checkbox.default_extra_attrs,
       "This is a help text for the checkbox.",
     ),
-    checkbox.checkbox_full(
+    checkbox.checkbox(
       "Checkbox with composed attributes",
       checkbox.default_check_status,
       checkbox.ExtraAttrs(checkbox.default_form_attr, "", "custom-class"),
       "This checkbox uses composed attributes from default constants.",
     ),
-    checkbox.checkbox_full(
+    checkbox.checkbox(
       "Checkbox with InitChecked(True)",
       checkbox.InitChecked(True),
       checkbox.default_extra_attrs,
       "This checkbox is initially checked using InitChecked(True).",
     ),
-    checkbox.checkbox_full(
+    checkbox.checkbox(
       "Checkbox with InitValue",
       checkbox.default_check_status,
       checkbox.ExtraAttrs(
@@ -50,7 +50,7 @@ fn input_examples() -> List(Element(Message)) {
       model.OnRouteChange(model.Inputs)
     }),
     input.input_password("Password", fn(_) { model.OnRouteChange(model.Inputs) }),
-    input.input_full(
+    input.input(
       input.Number,
       option.None,
       on_input: option.None,
@@ -71,7 +71,7 @@ fn textarea_examples() -> List(Element(Message)) {
     textarea.textarea_simple("Write something...", fn(_) {
       model.OnRouteChange(model.Inputs)
     }),
-    textarea.textarea_full(
+    textarea.textarea(
       option.None,
       on_input: option.None,
       extra_attrs: textarea.TextareaExtraAttrs(

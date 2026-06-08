@@ -52,10 +52,10 @@ fn type_string(t: InputType) -> String {
 ///
 /// Example:
 /// ```gleam
-/// input_full(Text, None, on_input: Some(UserTyped), extra_attrs: default_extra_attrs)
-/// input_full(Email, Some(SyncValue(model.email)), on_input: Some(EmailChanged), extra_attrs: default_extra_attrs)
+/// input(Text, None, on_input: Some(UserTyped), extra_attrs: default_extra_attrs)
+/// input(Email, Some(SyncValue(model.email)), on_input: Some(EmailChanged), extra_attrs: default_extra_attrs)
 /// ```
-pub fn input_full(
+pub fn input(
   type_: InputType,
   value: Option(InputValue),
   on_input on_input: Option(fn(String) -> msg),
@@ -114,7 +114,7 @@ pub fn input_text(
   placeholder: String,
   on_input: fn(String) -> msg,
 ) -> Element(msg) {
-  input_full(
+  input(
     Text,
     None,
     on_input: Some(on_input),
@@ -129,7 +129,7 @@ pub fn input_email(
   placeholder: String,
   on_input: fn(String) -> msg,
 ) -> Element(msg) {
-  input_full(
+  input(
     Email,
     None,
     on_input: Some(on_input),
@@ -144,7 +144,7 @@ pub fn input_password(
   placeholder: String,
   on_input: fn(String) -> msg,
 ) -> Element(msg) {
-  input_full(
+  input(
     Password,
     None,
     on_input: Some(on_input),

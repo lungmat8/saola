@@ -27,7 +27,7 @@ Initial public release.
 
 - **Theme system** (`saola/theme`) — `Light`, `Dark`, `System` variants; `watch_system_dark` for reactive OS dark-mode listener; `get_system_dark()` for init-time state; dark mode via `.dark` class on root element
 - **Form field** (`saola/field`) — label, description, hint, error, required indicator, ARIA attributes
-- **Two-tier API** — every widget exposes `_full()` for complete control + shortcut functions for common cases
+- **Two-tier API** — every widget exposes the widget name itself for complete control + shortcut functions for common cases
 - **Typed variants** — all visual variants are Gleam ADTs (`ButtonVariant`, `BadgeVariant`, etc.) — no magic strings
 - **Stateless by design** — widgets are pure functions; all state lives in the consumer's Lustre `Model`
 

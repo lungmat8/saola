@@ -42,7 +42,7 @@ fn signup_form(model: Model) -> Element(Message) {
         required: True,
         error: err("name"),
       ),
-      input.input_full(
+      input.input(
         input.Text,
         Some(input.SyncValue(model.signup_name)),
         on_input: Some(SignupNameChanged),
@@ -60,7 +60,7 @@ fn signup_form(model: Model) -> Element(Message) {
         required: True,
         error: err("email"),
       ),
-      input.input_full(
+      input.input(
         input.Email,
         Some(input.SyncValue(model.signup_email)),
         on_input: Some(SignupEmailChanged),
@@ -79,7 +79,7 @@ fn signup_form(model: Model) -> Element(Message) {
         hint: "At least 8 characters.",
         error: err("password"),
       ),
-      input.input_full(
+      input.input(
         input.Password,
         Some(input.SyncValue(model.signup_password)),
         on_input: Some(SignupPasswordChanged),
@@ -97,7 +97,7 @@ fn signup_form(model: Model) -> Element(Message) {
         required: True,
         error: err("confirm"),
       ),
-      input.input_full(
+      input.input(
         input.Password,
         Some(input.SyncValue(model.signup_confirm)),
         on_input: Some(SignupConfirmChanged),
@@ -109,7 +109,7 @@ fn signup_form(model: Model) -> Element(Message) {
       ),
     ),
     h.div([a.class("flex gap-2 pt-2")], [
-      button.button_full(
+      button.button(
         button.Primary,
         "Create account",
         button.Large,

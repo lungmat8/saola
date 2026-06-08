@@ -205,7 +205,7 @@ fn render_footer(
 
 // ── Public API ────────────────────────────────────────────────────────────────
 
-pub fn data_table_full(
+pub fn data_table(
   columns: List(DataTableColumn(row, msg)),
   rows: List(row),
   state: DataTableState,

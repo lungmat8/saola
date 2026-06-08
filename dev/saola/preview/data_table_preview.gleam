@@ -91,7 +91,7 @@ pub fn view(model: Model) -> Element(Message) {
     h.div([a.class("grid gap-8")], [
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Full-featured table")]),
-        data_table.data_table_full(
+        data_table.data_table(
           full_columns(),
           sample_rows(),
           model.data_table_state,

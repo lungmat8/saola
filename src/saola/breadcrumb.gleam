@@ -15,7 +15,7 @@ pub type BreadcrumbAttrs {
 
 pub const default_attrs = BreadcrumbAttrs(separator: "/", class: "")
 
-pub fn breadcrumb_full(
+pub fn breadcrumb(
   items: List(BreadcrumbItem(msg)),
   attrs: BreadcrumbAttrs,
 ) -> Element(msg) {
@@ -62,5 +62,5 @@ pub fn breadcrumb_full(
 }
 
 pub fn breadcrumb_simple(items: List(BreadcrumbItem(msg))) -> Element(msg) {
-  breadcrumb_full(items, default_attrs)
+  breadcrumb(items, default_attrs)
 }

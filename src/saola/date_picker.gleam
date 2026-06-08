@@ -25,7 +25,7 @@ fn format_date(date: Date) -> String {
   <> int.to_string(date.year)
 }
 
-pub fn date_picker_full(
+pub fn date_picker(
   selected: Option(Date),
   open: Bool,
   view_year: Int,
@@ -73,7 +73,7 @@ pub fn date_picker_full(
       False -> h.text("")
       True ->
         h.div([a.class("date-picker-popover"), a.role("dialog")], [
-          cal.calendar_full(
+          cal.calendar(
             selected,
             view_year,
             view_month,
@@ -96,7 +96,7 @@ pub fn date_picker_simple(
   on_month_change: fn(Int, Month) -> msg,
   on_open_change: fn(Bool) -> msg,
 ) -> Element(msg) {
-  date_picker_full(
+  date_picker(
     selected,
     open,
     view_year,

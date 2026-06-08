@@ -21,7 +21,7 @@ pub const default_attrs = RatingAttrs(max: 5, class: "", aria_label: "Rating")
 ///
 /// - `value`: current rating (0–max)
 /// - `on_change`: `None` in read-only mode; `Some(fn)` makes stars interactive
-pub fn rating_full(
+pub fn rating(
   value: Int,
   mode: RatingMode,
   on_change: Option(fn(Int) -> msg),
@@ -93,14 +93,14 @@ pub fn rating_full(
 }
 
 pub fn rating_readonly(value: Int) -> Element(msg) {
-  rating_full(value, ReadOnly, None, default_attrs)
+  rating(value, ReadOnly, None, default_attrs)
 }
 
 pub fn rating_interactive(
   value: Int,
   on_change: fn(Int) -> msg,
 ) -> Element(msg) {
-  rating_full(value, Interactive, Some(on_change), default_attrs)
+  rating(value, Interactive, Some(on_change), default_attrs)
 }
 
 fn range(from: Int, to: Int) -> List(Int) {

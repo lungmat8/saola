@@ -114,7 +114,7 @@ pub fn calendar_selected_date_test() {
 pub fn calendar_today_highlight_test() {
   let today = Date(2026, January, 10)
   let html =
-    cal.calendar_full(
+    cal.calendar(
       None,
       2026,
       January,
@@ -129,7 +129,7 @@ pub fn calendar_today_highlight_test() {
 
 pub fn calendar_outside_days_hidden_test() {
   let html =
-    cal.calendar_full(
+    cal.calendar(
       None,
       2026,
       January,
@@ -166,7 +166,7 @@ pub fn calendar_aria_label_on_day_test() {
 
 pub fn calendar_custom_class_test() {
   let html =
-    cal.calendar_full(
+    cal.calendar(
       None,
       2026,
       January,
@@ -306,7 +306,7 @@ pub fn date_picker_aria_expanded_true_when_open_test() {
 
 pub fn date_picker_custom_placeholder_test() {
   let html =
-    date_picker.date_picker_full(
+    date_picker.date_picker(
       None,
       False,
       2026,
@@ -325,7 +325,7 @@ pub fn date_picker_custom_placeholder_test() {
 
 pub fn date_picker_disabled_test() {
   let html =
-    date_picker.date_picker_full(
+    date_picker.date_picker(
       None,
       False,
       2026,

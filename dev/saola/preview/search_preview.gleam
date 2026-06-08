@@ -31,7 +31,7 @@ pub fn view(model: Model) -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Small size")]),
         h.div([a.class("max-w-sm")], [
-          search.search_full(
+          search.search(
             search.Small,
             model.search_query,
             SearchQueryChanged,
@@ -43,7 +43,7 @@ pub fn view(model: Model) -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Disabled")]),
         h.div([a.class("max-w-sm")], [
-          search.search_full(
+          search.search(
             search.Large,
             "",
             SearchQueryChanged,

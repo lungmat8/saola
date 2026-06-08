@@ -21,7 +21,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Without prev/next")]),
-        pagination.pagination_full(
+        pagination.pagination(
           model.pagination_page,
           5,
           PaginationChanged,

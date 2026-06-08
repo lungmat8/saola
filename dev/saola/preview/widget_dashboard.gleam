@@ -133,7 +133,7 @@ pub fn view(model: Model) -> Element(Message) {
         text("Match ratio"),
         text(int.to_string(matched * 100 / int.max(total, 1)) <> "%"),
       ]),
-      progress.progress_full(
+      progress.progress(
         matched * 100 / int.max(total, 1),
         progress.ProgressAttrs(..progress.default_attrs, label: "Match ratio"),
       ),
@@ -153,7 +153,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
     ]),
     // ---- Row detail drawer -------------------------------------------------
-    drawer.drawer_full(
+    drawer.drawer(
       model.dash_drawer_open,
       case selected_employee {
         None -> "Employee Details"
@@ -310,7 +310,7 @@ fn employee_detail(emp: Employee) -> Element(Message) {
       h.div([a.class("flex gap-3 items-center")], [
         h.span([a.class("text-3xl font-bold")], [text(int.to_string(emp.score))]),
         h.div([a.class("flex-1")], [
-          progress.progress_full(
+          progress.progress(
             emp.score,
             progress.ProgressAttrs(
               ..progress.default_attrs,

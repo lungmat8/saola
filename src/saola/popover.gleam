@@ -10,7 +10,7 @@ pub type PopoverSide {
   Right
 }
 
-pub fn popover_full(
+pub fn popover(
   open: Bool,
   trigger: Element(msg),
   content: Element(msg),
@@ -63,5 +63,5 @@ pub fn popover_simple(
   content: Element(msg),
   on_close: fn() -> msg,
 ) -> Element(msg) {
-  popover_full(open, trigger, content, on_close, Bottom, "")
+  popover(open, trigger, content, on_close, Bottom, "")
 }

@@ -24,17 +24,17 @@
 ////   rp.element(
 ////     [rp.direction(rp.Horizontal), rp.on_resize(UserResized)],
 ////     [
-////       rp.panel(50.0, h.div([], [h.text("Left")])),
-////       rp.panel(50.0, h.div([], [h.text("Right")])),
+////       rp.panel_simple(50.0, h.div([], [h.text("Left")])),
+////       rp.panel_simple(50.0, h.div([], [h.text("Right")])),
 ////     ],
 ////   )
 //// }
 //// ```
 ////
-//// Use `panel_full` when you need a custom minimum size:
+//// Use `panel` when you need a custom minimum size:
 ////
 //// ```gleam
-//// rp.panel_full(33.0, 15.0, h.div([], [h.text("Left")]))
+//// rp.panel(33.0, 15.0, h.div([], [h.text("Left")]))
 //// ```
 
 import gleam/dynamic
@@ -67,16 +67,12 @@ pub type Panel(m) {
 }
 
 /// Convenience constructor with a default minimum size of 10.0%.
-pub fn panel(size: Float, content: Element(m)) -> Panel(m) {
+pub fn panel_simple(size: Float, content: Element(m)) -> Panel(m) {
   Panel(size: size, min_size: 10.0, content: content)
 }
 
 /// Full constructor — explicit minimum size.
-pub fn panel_full(
-  size: Float,
-  min_size: Float,
-  content: Element(m),
-) -> Panel(m) {
+pub fn panel(size: Float, min_size: Float, content: Element(m)) -> Panel(m) {
   Panel(size: size, min_size: min_size, content: content)
 }
 

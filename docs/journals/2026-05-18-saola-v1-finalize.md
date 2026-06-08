@@ -29,7 +29,7 @@ Created `test/new_widget_tests8.gleam` with 23 test cases:
 
 ```gleam
 pub fn rating_widget_test() {
-  rating_full(4, [], default_attributes)
+  rating(4, [], default_attributes)
   |> element.to_string
   |> should.contain("rating")
 }
@@ -60,7 +60,7 @@ Deleted `src/saola/form.gleam` — the `field_attrs_from_result` helper pattern 
 
 1. **Option A**: Skip tests, add docs only, publish as-is
    - Rejected: Zero coverage for 12.5% of API surface
-   
+
 2. **Option B**: Write tests, defer documentation to v1.0.1
    - Rejected: Can't publish to Hex without widget table — consumers won't discover these
 

@@ -28,7 +28,7 @@ pub type DialogAttrs(msg) {
 ///
 /// Example:
 /// ```gleam
-/// dialog_full(
+/// dialog(
 ///   is_open: model.dialog_open,
 ///   attrs: DialogAttrs(
 ///     title: "Are you sure?",
@@ -40,7 +40,7 @@ pub type DialogAttrs(msg) {
 ///   ),
 /// )
 /// ```
-pub fn dialog_full(
+pub fn dialog(
   is_open is_open: Bool,
   attrs attrs: DialogAttrs(msg),
 ) -> Element(msg) {
@@ -102,7 +102,7 @@ pub fn dialog_simple(
   content content: List(Element(msg)),
   on_close on_close: msg,
 ) -> Element(msg) {
-  dialog_full(
+  dialog(
     is_open: is_open,
     attrs: DialogAttrs(
       title: title,

@@ -16,10 +16,10 @@ pub type AlertVariant {
 ///
 /// Example:
 /// ```gleam
-/// alert_full(Default, title: "Heads up!", description: "You can change this.", icon: None)
-/// alert_full(Destructive, title: "Error", description: "Something went wrong.", icon: Some(lt.triangle_alert([])))
+/// alert(Default, title: "Heads up!", description: "You can change this.", icon: None)
+/// alert(Destructive, title: "Error", description: "Something went wrong.", icon: Some(lt.triangle_alert([])))
 /// ```
-pub fn alert_full(
+pub fn alert(
   variant: AlertVariant,
   title title: String,
   description description: String,
@@ -45,9 +45,9 @@ pub fn alert_full(
 }
 
 pub fn alert_default(description: String) -> Element(msg) {
-  alert_full(Default, title: "", description: description, icon: None)
+  alert(Default, title: "", description: description, icon: None)
 }
 
 pub fn alert_destructive(title: String, description: String) -> Element(msg) {
-  alert_full(Destructive, title: title, description: description, icon: None)
+  alert(Destructive, title: title, description: description, icon: None)
 }

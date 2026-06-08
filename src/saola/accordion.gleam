@@ -61,7 +61,7 @@ fn render_item(
 ///   on_toggle: ToggleSection,
 /// )
 /// ```
-pub fn accordion_full(
+pub fn accordion(
   items items: List(AccordionItem(msg)),
   open_ids open_ids: List(String),
   on_toggle on_toggle: fn(String) -> msg,
@@ -85,7 +85,7 @@ pub fn accordion_simple(
   open_ids open_ids: List(String),
   on_toggle on_toggle: fn(String) -> msg,
 ) -> Element(msg) {
-  accordion_full(
+  accordion(
     items: items,
     open_ids: open_ids,
     on_toggle: on_toggle,

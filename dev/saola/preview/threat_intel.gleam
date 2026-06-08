@@ -173,7 +173,7 @@ fn data_column(model: Model) -> Element(Message) {
 fn controls_panel(model: Model) -> Element(Message) {
   let actors = threat_intel_data.all_actors()
   h.div([a.class("threat-intel-controls")], [
-    search.search_full(
+    search.search(
       search.Small,
       model.threat_search,
       ThreatSearchChanged,
@@ -240,7 +240,7 @@ fn metric_pill(
   h.div([a.class("threat-metric-pill")], [
     badge.badge(label, variant),
     h.span([a.class("threat-metric-count")], [h.text(int.to_string(count))]),
-    progress.progress_full(
+    progress.progress(
       count,
       progress.ProgressAttrs(
         min: 0,
@@ -320,7 +320,7 @@ fn table_panel(model: Model) -> Element(Message) {
     h.p([a.class("threat-intel-panel-title")], [h.text("Threat Actors")]),
     case rows {
       [] ->
-        empty.empty_full(
+        empty.empty(
           media: None,
           media_variant: empty.Default,
           title: "No actors match",
@@ -329,7 +329,7 @@ fn table_panel(model: Model) -> Element(Message) {
           class: "",
         )
       _ ->
-        data_table.data_table_full(
+        data_table.data_table(
           actor_columns(),
           rows,
           model.threat_table_state,

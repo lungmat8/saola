@@ -89,7 +89,7 @@ fn render_option(
 ///   on_change: ThemeChanged,
 /// )
 /// ```
-pub fn radio_group_full(
+pub fn radio_group(
   options: List(RadioOption),
   value: String,
   on_change: fn(String) -> msg,
@@ -126,7 +126,7 @@ pub fn radio_group_simple(
   name name: String,
   on_change on_change: fn(String) -> msg,
 ) -> Element(msg) {
-  radio_group_full(
+  radio_group(
     options,
     value,
     on_change,

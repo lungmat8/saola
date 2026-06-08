@@ -35,7 +35,7 @@ pub fn view() -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Custom (empty_full)")]),
-        empty.empty_full(
+        empty.empty(
           media: Some(ls.search_x([])),
           media_variant: empty.Icon,
           title: "No results",
@@ -46,7 +46,7 @@ pub fn view() -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Bare (no header)")]),
-        empty.empty_full(
+        empty.empty(
           media: None,
           media_variant: empty.Default,
           title: "",

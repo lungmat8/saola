@@ -44,9 +44,9 @@ pub const default_extra_attrs = TextareaExtraAttrs(
 ///
 /// Example:
 /// ```gleam
-/// textarea_full(None, on_input: Some(UserTyped), extra_attrs: default_extra_attrs)
+/// textarea(None, on_input: Some(UserTyped), extra_attrs: default_extra_attrs)
 /// ```
-pub fn textarea_full(
+pub fn textarea(
   value: Option(TextareaValue),
   on_input on_input: Option(fn(String) -> msg),
   extra_attrs extra_attrs: TextareaExtraAttrs,
@@ -117,7 +117,7 @@ pub fn textarea_simple(
   placeholder: String,
   on_input: fn(String) -> msg,
 ) -> Element(msg) {
-  textarea_full(
+  textarea(
     None,
     on_input: Some(on_input),
     extra_attrs: TextareaExtraAttrs("", "", placeholder, None, False, False, ""),

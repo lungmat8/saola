@@ -9,7 +9,7 @@ pub type InputGroupAttrs {
 
 pub const default_attrs = InputGroupAttrs(class: "", invalid: False)
 
-pub fn input_group_full(
+pub fn input_group(
   prefix: Option(Element(msg)),
   content: Element(msg),
   suffix: Option(Element(msg)),
@@ -41,5 +41,5 @@ pub fn input_group_simple(
   content: Element(msg),
   suffix: Option(Element(msg)),
 ) -> Element(msg) {
-  input_group_full(prefix, content, suffix, default_attrs)
+  input_group(prefix, content, suffix, default_attrs)
 }

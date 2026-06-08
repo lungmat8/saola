@@ -28,7 +28,7 @@ fn pages_list(from: Int, to: Int) -> List(Int) {
   }
 }
 
-pub fn pagination_full(
+pub fn pagination(
   current_page: Int,
   total_pages: Int,
   on_change: fn(Int) -> msg,
@@ -111,5 +111,5 @@ pub fn pagination_simple(
   total_pages: Int,
   on_change: fn(Int) -> msg,
 ) -> Element(msg) {
-  pagination_full(current_page, total_pages, on_change, default_attrs)
+  pagination(current_page, total_pages, on_change, default_attrs)
 }

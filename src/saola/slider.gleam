@@ -45,7 +45,7 @@ fn fill_pct(value: Int, min: Int, max: Int) -> String {
 }
 
 /// Fully customizable range slider.
-pub fn slider_full(
+pub fn slider(
   value: SliderValue,
   on_input on_input: fn(String) -> msg,
   attrs attrs: SliderAttrs,
@@ -91,5 +91,5 @@ pub fn slider_full(
 }
 
 pub fn slider_simple(value: Int, on_input: fn(String) -> msg) -> Element(msg) {
-  slider_full(SyncValue(value), on_input: on_input, attrs: default_attrs)
+  slider(SyncValue(value), on_input: on_input, attrs: default_attrs)
 }

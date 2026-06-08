@@ -28,7 +28,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Custom max (10 stars)")]),
-        rating.rating_full(
+        rating.rating(
           model.rating_value,
           rating.Interactive,
           Some(RatingChanged),

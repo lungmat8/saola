@@ -14,15 +14,15 @@ pub fn view() -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Initials")]),
         h.div([a.class("flex gap-4 items-center")], [
-          avatar.avatar_full(avatar.Initials("JD"), avatar.Small, ""),
-          avatar.avatar_full(avatar.Initials("AB"), avatar.Medium, ""),
-          avatar.avatar_full(avatar.Initials("XY"), avatar.Large, ""),
+          avatar.avatar(avatar.Initials("JD"), avatar.Small, ""),
+          avatar.avatar(avatar.Initials("AB"), avatar.Medium, ""),
+          avatar.avatar(avatar.Initials("XY"), avatar.Large, ""),
         ]),
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Image")]),
         h.div([a.class("flex gap-4 items-center")], [
-          avatar.avatar_full(
+          avatar.avatar(
             avatar.ImageSrc(
               "https://api.dicebear.com/7.x/avataaars/svg?seed=saola",
               "Saola avatar",
@@ -30,7 +30,7 @@ pub fn view() -> Element(Message) {
             avatar.Small,
             "",
           ),
-          avatar.avatar_full(
+          avatar.avatar(
             avatar.ImageSrc(
               "https://api.dicebear.com/7.x/avataaars/svg?seed=lustre",
               "Lustre avatar",
@@ -38,7 +38,7 @@ pub fn view() -> Element(Message) {
             avatar.Medium,
             "",
           ),
-          avatar.avatar_full(
+          avatar.avatar(
             avatar.ImageSrc(
               "https://api.dicebear.com/7.x/avataaars/svg?seed=gleam",
               "Gleam avatar",

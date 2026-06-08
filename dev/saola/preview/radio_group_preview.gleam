@@ -34,7 +34,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Horizontal")]),
-        radio_group.radio_group_full(
+        radio_group.radio_group(
           [
             radio_group.RadioOption("xs", "XS"),
             radio_group.RadioOption("sm", "SM"),

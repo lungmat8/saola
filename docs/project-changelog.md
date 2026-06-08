@@ -366,7 +366,7 @@ Resolved three Hex.pm publishing blockers: added root `README.md`, added root `C
 **New Widgets**
 - **Empty** (`src/saola/empty.gleam`) — Empty-state panel for "no results", onboarding, error placeholders
   - Two media variants: Default, Icon (with rounded bg-muted wrapper)
-  - Flat API: `empty_full(media, media_variant, title, description, content, attrs)`, `empty_simple(icon, title, description_text, action)`
+  - Flat API: `empty(media, media_variant, title, description, content, attrs)`, `empty_simple(icon, title, description_text, action)`
   - Renders centered dashed-border container with optional header (media + title + description) and content area
   - Omits header/content sections when all sub-fields are empty
   - Pure-Gleam, no JS, stateless
@@ -374,7 +374,7 @@ Resolved three Hex.pm publishing blockers: added root `README.md`, added root `C
 - **Item** (`src/saola/item.gleam`) — Row-layout primitive for lists (settings rows, navigation, gallery)
   - 3 variants: Default, Outline, Muted; 2 sizes: Large (lg), Small (sm)
   - 3 media variants: Default, Icon (with border bg-muted), Image (with object-fit cover)
-  - Flat API: `item_full(variant, size, media, media_variant, title, description, actions, attrs)`
+  - Flat API: `item(variant, size, media, media_variant, title, description, actions, attrs)`
   - Shortcut functions: `item_simple(title, description, action)`, `item_link(href, title, description, action, attrs)` (emits `<a>` root)
   - Group support: `item_group(children)` with `role="list"`, `item_separator()` with `role="separator"`
   - Pure-Gleam, no JS, stateless
@@ -432,27 +432,27 @@ Resolved three Hex.pm publishing blockers: added root `README.md`, added root `C
   - Orientation support: Horizontal (default) or Vertical
   - Loop mode for infinite scrolling
   - Slide change detection via `slide-change` CustomEvent
-  - Full API: `carousel_full`, `carousel_simple`
+  - Full API: `carousel`, `carousel_simple`
   - Responsive scroll-snap viewport
 
 - **Combobox** (`src/saola/combobox.gleam`) — Searchable select with filterable option list
   - Case-insensitive substring filtering via `combobox_filter` helper
   - Query/value/open state managed by consumer
   - Check icon for selected option
-  - Full API: `combobox_full`, `combobox_simple`
+  - Full API: `combobox`, `combobox_simple`
   - Keyboard accessible: role="combobox", role="listbox"
 
 - **Navigation Menu** (`src/saola/navigation_menu.gleam`) — Click-driven top navigation with dropdowns
   - Link items with active state styling
   - Dropdown support with click-to-open/close
   - Two dropdown content modes: NavMenuSimple (list of links) or NavMenuRich (custom Element)
-  - Full API: `navigation_menu_full`, `navigation_menu_simple`
+  - Full API: `navigation_menu`, `navigation_menu_simple`
 
 ### Modified
 
 **Toast Enhancement** (`src/saola/toast.gleam`) — BREAKING CHANGE: Now generic over `msg`
   - Added variants: `Success`, `Warning`, `Info` (previous: Default, Destructive)
-  - Added optional action buttons via `ToastAction(label, on_click)` 
+  - Added optional action buttons via `ToastAction(label, on_click)`
   - Type signature changed from `Toast` → `Toast(msg)` (requires migration in consumers)
   - New convenience function `new_toast_simple` (no action)
   - CSS variants for new toast types (`toast-success`, `toast-warning`, `toast-info`)
@@ -504,7 +504,7 @@ For existing toast consumers:
   - Variant support: Default or Minimal
   - Collapsible state with toggle trigger
   - Sub-components: `sidebar_header`, `sidebar_footer`, `sidebar_content`, `sidebar_group`, `sidebar_menu_item`
-  - Full API: `sidebar_full`, `sidebar_simple`
+  - Full API: `sidebar`, `sidebar_simple`
   - Accessible with proper ARIA labels and keyboard navigation
 
 - **Command** (`src/saola/command.gleam`) — Command palette with search and keyboard navigation
@@ -514,13 +514,13 @@ For existing toast consumers:
   - Keyboard shortcuts display
   - Disabled item state
   - Helper functions: `command_nav_up`, `command_nav_down`, `command_get_value_at`, `command_item_count`
-  - Full API: `command_full`
+  - Full API: `command`
 
 - **Resizable** (`src/saola/resizable.gleam`) — Drag-to-resize panels for flexible layouts
   - Backed by `assets/saola-resizable-panels.mjs` web component
   - Horizontal (default) and vertical direction support
   - Smooth dragging with resize handles
-  - Full API: `resizable_full`, `resizable_simple`
+  - Full API: `resizable`, `resizable_simple`
 
 - **Data Table** (`src/saola/data_table.gleam`) — Generic typed column data table with sorting, filtering, pagination
   - Strongly-typed columns via `DataTableColumn(row, msg)` type
@@ -529,7 +529,7 @@ For existing toast consumers:
   - Row pagination with jump-to-page capability
   - Row selection with multi-select checkboxes
   - Helpers: `toggle_sort`, `set_filter`, `set_page`, `toggle_row`, `total_pages`
-  - Full API: `data_table_full`, `data_table_simple`
+  - Full API: `data_table`, `data_table_simple`
 
 ### Tests
 

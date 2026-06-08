@@ -2,7 +2,7 @@ import lustre/attribute as a
 import lustre/element.{type Element}
 import lustre/element/html as h
 
-pub fn scroll_area_full(
+pub fn scroll_area(
   content: Element(msg),
   height: String,
   width: String,
@@ -36,5 +36,5 @@ pub fn scroll_area_simple(
   content: Element(msg),
   height: String,
 ) -> Element(msg) {
-  scroll_area_full(content, height, "100%", "")
+  scroll_area(content, height, "100%", "")
 }

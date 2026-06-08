@@ -72,14 +72,14 @@ fn base_input(status: CheckStatus, form_attr: FormAttr) {
 }
 
 /// Fully customizable checkbox.
-/// 
+///
 /// Example:
-/// 
+///
 /// ```gleam
 /// let attr = FormAttr("tnc", InitValue("yes"))
-/// checkbox_full("Accept terms and conditions", default_check_status, attr, "")
+/// checkbox("Accept terms and conditions", default_check_status, attr, "")
 /// ```
-pub fn checkbox_full(
+pub fn checkbox(
   label: String,
   status: CheckStatus,
   extra_attrs: ExtraAttrs,
@@ -144,5 +144,5 @@ pub fn checkbox_full(
 /// checkbox_basic("Accept terms and conditions")
 /// ```
 pub fn checkbox_basic(label: String) {
-  checkbox_full(label, default_check_status, default_extra_attrs, "")
+  checkbox(label, default_check_status, default_extra_attrs, "")
 }

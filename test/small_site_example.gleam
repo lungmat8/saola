@@ -39,7 +39,7 @@ pub fn view(model: Model) -> Element(Msg) {
       ),
       metrics(),
       tabs.tabs_simple(
-        tabs: [
+        items: [
           tabs.Tab("overview", "Overview", overview_panel()),
           tabs.Tab("plans", "Plans", plans_panel()),
           tabs.Tab("team", "Team", team_panel()),
@@ -67,7 +67,7 @@ fn hero() -> Element(Msg) {
     ]),
     h.div([a.class("flex gap-3")], [
       button.button_primary("Start trial", StartedTrial),
-      button.button_full(
+      button.button(
         button.Secondary,
         "Read docs",
         button.Large,

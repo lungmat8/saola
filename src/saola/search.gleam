@@ -23,7 +23,7 @@ pub const default_attrs = SearchAttrs(
 /// Search input with optional clear button.
 ///
 /// - `on_clear`: when `Some(msg)`, an X button appears and dispatches `msg` on click.
-pub fn search_full(
+pub fn search(
   size: SearchSize,
   value: String,
   on_input: fn(String) -> msg,
@@ -88,7 +88,7 @@ pub fn search_simple(
   value: String,
   on_input: fn(String) -> msg,
 ) -> Element(msg) {
-  search_full(Large, value, on_input, None, default_attrs)
+  search(Large, value, on_input, None, default_attrs)
 }
 
 pub fn search_clearable(
@@ -96,5 +96,5 @@ pub fn search_clearable(
   on_input: fn(String) -> msg,
   on_clear: msg,
 ) -> Element(msg) {
-  search_full(Large, value, on_input, Some(on_clear), default_attrs)
+  search(Large, value, on_input, Some(on_clear), default_attrs)
 }

@@ -23,7 +23,7 @@ pub fn view(model: Model) -> Element(Message) {
               rp.on_resize(ResizableSplitSizesChanged),
             ],
             [
-              rp.panel_full(
+              rp.panel(
                 s1,
                 20.0,
                 h.div(
@@ -31,7 +31,7 @@ pub fn view(model: Model) -> Element(Message) {
                   [text("Panel 1")],
                 ),
               ),
-              rp.panel_full(
+              rp.panel(
                 s2,
                 20.0,
                 h.div(
@@ -53,7 +53,7 @@ pub fn view(model: Model) -> Element(Message) {
               rp.on_resize(fn(sizes) { ResizableSplitSizesChanged(sizes) }),
             ],
             [
-              rp.panel_full(
+              rp.panel(
                 33.0,
                 15.0,
                 h.div(
@@ -61,7 +61,7 @@ pub fn view(model: Model) -> Element(Message) {
                   [text("Left")],
                 ),
               ),
-              rp.panel_full(
+              rp.panel(
                 34.0,
                 15.0,
                 h.div(
@@ -69,7 +69,7 @@ pub fn view(model: Model) -> Element(Message) {
                   [text("Center")],
                 ),
               ),
-              rp.panel_full(
+              rp.panel(
                 33.0,
                 15.0,
                 h.div(
@@ -91,7 +91,7 @@ pub fn view(model: Model) -> Element(Message) {
               rp.on_resize(fn(sizes) { ResizableSplitSizesChanged(sizes) }),
             ],
             [
-              rp.panel_full(
+              rp.panel(
                 40.0,
                 20.0,
                 h.div(
@@ -99,7 +99,7 @@ pub fn view(model: Model) -> Element(Message) {
                   [text("Top")],
                 ),
               ),
-              rp.panel_full(
+              rp.panel(
                 60.0,
                 20.0,
                 h.div(

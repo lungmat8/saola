@@ -50,7 +50,7 @@ pub fn radio_group_selected_is_checked_test() {
 
 pub fn radio_group_horizontal_has_data_orientation_test() {
   let html =
-    radio_group.radio_group_full(
+    radio_group.radio_group(
       [radio_group.RadioOption("a", "A")],
       "a",
       fn(v) { v },
@@ -95,7 +95,7 @@ pub fn toggle_pressed_has_aria_pressed_true_test() {
 
 pub fn toggle_disabled_test() {
   let html =
-    toggle.toggle_full(
+    toggle.toggle(
       False,
       "X",
       fn(v) { v },
@@ -320,7 +320,7 @@ pub fn input_otp_renders_slots_test() {
 
 pub fn input_otp_custom_length_test() {
   let html =
-    input_otp.input_otp_full(
+    input_otp.input_otp(
       "",
       fn(v) { v },
       input_otp.InputOtpAttrs(..input_otp.default_attrs, length: 4),
@@ -352,7 +352,7 @@ pub fn sheet_open_renders_content_test() {
 
 pub fn sheet_side_class_test() {
   let html =
-    sheet.sheet_full(
+    sheet.sheet(
       True,
       "Left",
       h.text(""),

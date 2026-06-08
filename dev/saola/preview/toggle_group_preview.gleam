@@ -25,7 +25,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Multi select")]),
-        toggle_group.toggle_group_full(
+        toggle_group.toggle_group(
           [
             toggle_group.ToggleGroupItem("bold", "B"),
             toggle_group.ToggleGroupItem("italic", "I"),

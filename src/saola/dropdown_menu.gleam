@@ -98,7 +98,7 @@ fn render_item_group(
 ///    ToggleDropdown
 /// }
 ///
-/// dropdown_menu_full(
+/// dropdown_menu(
 ///   items: [Item("Save"), Separator, Item("Delete")],
 ///   trigger_attrs: default_trigger_attrs,
 ///   is_open: model.dropdown_open,
@@ -106,7 +106,7 @@ fn render_item_group(
 ///   minor_attrs: default_minor_attrs,
 /// )
 /// ```
-pub fn dropdown_menu_full(
+pub fn dropdown_menu(
   items items: List(DropdownMenuItem(a)),
   trigger_attrs trigger_attrs: TriggerAttrs(a),
   is_open is_open: Bool,
@@ -197,7 +197,7 @@ pub fn dropdown_simple(
   is_open is_open: Bool,
   trigger_click trigger_click: a,
 ) -> Element(a) {
-  dropdown_menu_full(
+  dropdown_menu(
     items: items,
     trigger_attrs: default_trigger_attrs,
     is_open: is_open,
@@ -223,7 +223,7 @@ pub fn dropdown_with_trigger(
   is_open is_open: Bool,
   trigger_click trigger_click: a,
 ) -> Element(a) {
-  dropdown_menu_full(
+  dropdown_menu(
     items: items,
     trigger_attrs: TriggerAttrs(trigger_label, None, ""),
     is_open: is_open,

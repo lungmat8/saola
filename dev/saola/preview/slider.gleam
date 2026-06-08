@@ -22,7 +22,7 @@ pub fn view(volume: Int, brightness: Int) -> Element(Message) {
         h.label([a.class("label")], [
           text("Brightness: " <> int.to_string(brightness) <> "%"),
         ]),
-        slider.slider_full(
+        slider.slider(
           slider.SyncValue(brightness),
           on_input: fn(v) { SliderChanged("brightness", v) },
           attrs: slider.SliderAttrs(
@@ -36,7 +36,7 @@ pub fn view(volume: Int, brightness: Int) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-2")], [
         h.label([a.class("label")], [text("Disabled slider")]),
-        slider.slider_full(
+        slider.slider(
           slider.SyncValue(40),
           on_input: fn(v) { SliderChanged("disabled", v) },
           attrs: slider.SliderAttrs(..slider.default_attrs, disabled: True),

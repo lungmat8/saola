@@ -39,7 +39,7 @@ fn render_option(
   }
 }
 
-pub fn native_select_full(
+pub fn native_select(
   options: List(NativeSelectOption),
   value: String,
   name: String,
@@ -79,5 +79,5 @@ pub fn native_select_simple(
   name: String,
   on_change: fn(String) -> msg,
 ) -> Element(msg) {
-  native_select_full(options, value, name, on_change, default_attrs)
+  native_select(options, value, name, on_change, default_attrs)
 }

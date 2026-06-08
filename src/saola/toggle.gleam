@@ -30,7 +30,7 @@ pub const default_attrs = ToggleAttrs(
   class: "",
 )
 
-pub fn toggle_full(
+pub fn toggle(
   pressed: Bool,
   label: String,
   on_change: fn(Bool) -> msg,
@@ -71,5 +71,5 @@ pub fn toggle_simple(
   label: String,
   on_change: fn(Bool) -> msg,
 ) -> Element(msg) {
-  toggle_full(pressed, label, on_change, default_attrs)
+  toggle(pressed, label, on_change, default_attrs)
 }

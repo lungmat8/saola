@@ -30,7 +30,7 @@ pub fn view(name: String, email: String) -> Element(Message) {
           required: False,
           hint: "",
         ),
-        input.input_full(
+        input.input(
           input.Email,
           option.Some(input.SyncValue(email)),
           on_input: option.Some(fn(v) { FormEmailChanged(v) }),
@@ -50,7 +50,7 @@ pub fn view(name: String, email: String) -> Element(Message) {
           required: False,
           hint: "",
         ),
-        input.input_full(
+        input.input(
           input.Text,
           option.Some(input.SyncValue(name)),
           on_input: option.Some(FormNameChanged),

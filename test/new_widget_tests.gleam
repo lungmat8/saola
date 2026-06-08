@@ -129,7 +129,7 @@ pub fn progress_full_renders_test() {
 
 pub fn progress_with_label_renders_test() {
   let html =
-    progress.progress_full(
+    progress.progress(
       75,
       progress.ProgressAttrs(..progress.default_attrs, label: "Loading 75%"),
     )
@@ -139,7 +139,7 @@ pub fn progress_with_label_renders_test() {
 
 pub fn progress_success_variant_renders_test() {
   let html =
-    progress.progress_full(
+    progress.progress(
       60,
       progress.ProgressAttrs(
         ..progress.default_attrs,
@@ -152,7 +152,7 @@ pub fn progress_success_variant_renders_test() {
 
 pub fn progress_destructive_variant_renders_test() {
   let html =
-    progress.progress_full(
+    progress.progress(
       20,
       progress.ProgressAttrs(
         ..progress.default_attrs,
@@ -165,7 +165,7 @@ pub fn progress_destructive_variant_renders_test() {
 
 pub fn progress_custom_range_renders_test() {
   let html =
-    progress.progress_full(
+    progress.progress(
       3,
       progress.ProgressAttrs(
         min: 0,
@@ -228,13 +228,13 @@ pub fn avatar_image_renders_test() {
 
 pub fn avatar_sizes_render_test() {
   let sm =
-    avatar.avatar_full(avatar.Initials("AB"), avatar.Small, "")
+    avatar.avatar(avatar.Initials("AB"), avatar.Small, "")
     |> element.to_string
   let md =
-    avatar.avatar_full(avatar.Initials("AB"), avatar.Medium, "")
+    avatar.avatar(avatar.Initials("AB"), avatar.Medium, "")
     |> element.to_string
   let lg =
-    avatar.avatar_full(avatar.Initials("AB"), avatar.Large, "")
+    avatar.avatar(avatar.Initials("AB"), avatar.Large, "")
     |> element.to_string
   assert string.contains(sm, "avatar-sm")
   assert string.contains(md, "avatar-md")
@@ -243,7 +243,7 @@ pub fn avatar_sizes_render_test() {
 
 pub fn avatar_extra_class_renders_test() {
   let html =
-    avatar.avatar_full(avatar.Initials("XY"), avatar.Medium, "ring-2")
+    avatar.avatar(avatar.Initials("XY"), avatar.Medium, "ring-2")
     |> element.to_string
   assert string.contains(html, "ring-2")
 }

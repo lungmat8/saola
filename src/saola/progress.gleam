@@ -44,9 +44,9 @@ fn fill_pct(value: Int, min: Int, max: Int) -> String {
 /// Example:
 /// ```gleam
 /// progress_simple(65)
-/// progress_full(3, ProgressAttrs(min: 0, max: 5, variant: Success, label: "Step 3 of 5", class: ""))
+/// progress(3, ProgressAttrs(min: 0, max: 5, variant: Success, label: "Step 3 of 5", class: ""))
 /// ```
-pub fn progress_full(value: Int, attrs: ProgressAttrs) -> Element(msg) {
+pub fn progress(value: Int, attrs: ProgressAttrs) -> Element(msg) {
   let ProgressAttrs(min:, max:, variant:, label:, class:) = attrs
   let pct = fill_pct(value, min, max)
   let bar_class = case variant {
@@ -79,5 +79,5 @@ pub fn progress_full(value: Int, attrs: ProgressAttrs) -> Element(msg) {
 
 /// Simple progress bar, 0–100 range.
 pub fn progress_simple(value: Int) -> Element(msg) {
-  progress_full(value, default_attrs)
+  progress(value, default_attrs)
 }

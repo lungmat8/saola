@@ -17,7 +17,7 @@ pub type DrawerAttrs {
 
 pub const default_attrs = DrawerAttrs(side: Bottom, class: "")
 
-pub fn drawer_full(
+pub fn drawer(
   open: Bool,
   title: String,
   description: Option(String),
@@ -84,5 +84,5 @@ pub fn drawer_simple(
   content: Element(msg),
   on_close: fn() -> msg,
 ) -> Element(msg) {
-  drawer_full(open, title, None, content, None, on_close, default_attrs)
+  drawer(open, title, None, content, None, on_close, default_attrs)
 }

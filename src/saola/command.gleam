@@ -149,7 +149,7 @@ fn decode_keydown(
   }
 }
 
-pub fn command_full(
+pub fn command(
   query: String,
   items: List(CommandItem(msg)),
   highlighted: Int,
@@ -217,7 +217,7 @@ pub fn command_simple(
   on_query_change: fn(String) -> msg,
   on_select_at: fn(Int) -> msg,
 ) -> Element(msg) {
-  command_full(
+  command(
     query,
     items,
     -1,

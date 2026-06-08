@@ -37,7 +37,7 @@ fn char_at(chars: List(String), idx: Int) -> String {
 /// Render an OTP input group.
 /// `value` is the current string (up to `attrs.length` chars).
 /// `on_change` fires with the new string when any slot changes.
-pub fn input_otp_full(
+pub fn input_otp(
   value: String,
   on_change: fn(String) -> msg,
   attrs: InputOtpAttrs,
@@ -86,5 +86,5 @@ pub fn input_otp_simple(
   value: String,
   on_change: fn(String) -> msg,
 ) -> Element(msg) {
-  input_otp_full(value, on_change, default_attrs)
+  input_otp(value, on_change, default_attrs)
 }

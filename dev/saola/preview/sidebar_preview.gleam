@@ -63,7 +63,7 @@ pub fn view(model: Model) -> Element(Message) {
             a.style("height", "320px"),
           ],
           [
-            sidebar.sidebar_full(
+            sidebar.sidebar(
               True,
               Some(
                 sidebar.sidebar_header([

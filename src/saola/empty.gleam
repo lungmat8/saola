@@ -8,7 +8,7 @@ pub type EmptyMediaVariant {
   Icon
 }
 
-pub fn empty_full(
+pub fn empty(
   media media: Option(Element(msg)),
   media_variant media_variant: EmptyMediaVariant,
   title title: String,
@@ -63,7 +63,7 @@ pub fn empty_simple(
     None -> []
     Some(act) -> [act]
   }
-  empty_full(
+  empty(
     media: icon,
     media_variant: Icon,
     title: title,

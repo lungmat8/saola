@@ -28,7 +28,7 @@ pub const default_extra_attrs = SwitchExtraAttrs(
 )
 
 /// Fully customizable switch (toggle).
-pub fn switch_full(
+pub fn switch(
   label: String,
   status: SwitchStatus,
   on_change on_change: fn(Bool) -> msg,
@@ -74,7 +74,7 @@ pub fn switch_simple(
   checked: Bool,
   on_change: fn(Bool) -> msg,
 ) -> Element(msg) {
-  switch_full(
+  switch(
     label,
     SyncChecked(checked),
     on_change: on_change,

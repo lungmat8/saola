@@ -45,7 +45,7 @@ pub fn view(model: Model) -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Vertical")]),
         h.div([a.style("width", "400px; height: 250px")], [
-          carousel.carousel_full(
+          carousel.carousel(
             slides,
             0,
             False,

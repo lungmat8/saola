@@ -31,7 +31,7 @@ pub fn view() -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("With actions")]),
         h.div([a.class("border rounded-lg overflow-hidden")], [
-          nav_bar.nav_bar_full(
+          nav_bar.nav_bar(
             nav_bar.Default,
             Some(h.span([a.class("font-bold text-lg")], [text("Saola")])),
             [
@@ -49,7 +49,7 @@ pub fn view() -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("No logo")]),
         h.div([a.class("border rounded-lg overflow-hidden")], [
-          nav_bar.nav_bar_full(
+          nav_bar.nav_bar(
             nav_bar.Default,
             None,
             [

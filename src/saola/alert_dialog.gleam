@@ -9,7 +9,7 @@ pub type AlertDialogAttrs {
 
 pub const default_attrs = AlertDialogAttrs(class: "")
 
-pub fn alert_dialog_full(
+pub fn alert_dialog(
   open: Bool,
   title: String,
   description: String,
@@ -76,7 +76,7 @@ pub fn alert_dialog_simple(
   on_confirm: msg,
   on_cancel: msg,
 ) -> Element(msg) {
-  alert_dialog_full(
+  alert_dialog(
     open,
     title,
     description,

@@ -13,7 +13,7 @@ import saola/textarea
 
 pub fn input_text_type_renders_test() {
   let html =
-    input.input_full(
+    input.input(
       input.Text,
       None,
       on_input: None,
@@ -38,7 +38,7 @@ pub fn input_password_type_renders_test() {
 
 pub fn input_with_id_and_name_renders_test() {
   let html =
-    input.input_full(
+    input.input(
       input.Text,
       None,
       on_input: None,
@@ -60,7 +60,7 @@ pub fn input_with_id_and_name_renders_test() {
 
 pub fn input_disabled_renders_test() {
   let html =
-    input.input_full(
+    input.input(
       input.Text,
       None,
       on_input: None,
@@ -75,7 +75,7 @@ pub fn input_disabled_renders_test() {
 
 pub fn input_no_id_omitted_test() {
   let html =
-    input.input_full(
+    input.input(
       input.Text,
       None,
       on_input: None,
@@ -90,7 +90,7 @@ pub fn input_no_id_omitted_test() {
 
 pub fn textarea_renders_test() {
   let html =
-    textarea.textarea_full(
+    textarea.textarea(
       Some(textarea.SyncValue("Hello")),
       on_input: None,
       extra_attrs: textarea.TextareaExtraAttrs(
@@ -130,7 +130,7 @@ pub fn checkbox_basic_renders_test() {
 
 pub fn checkbox_full_with_help_renders_test() {
   let html =
-    checkbox.checkbox_full(
+    checkbox.checkbox(
       "Subscribe",
       checkbox.InitChecked(True),
       checkbox.ExtraAttrs(
@@ -182,7 +182,7 @@ pub fn select_disabled_option_renders_test() {
 
 pub fn select_with_name_and_required_renders_test() {
   let html =
-    select.select_full(
+    select.select(
       [select.SelectOption("red", "Red")],
       select.SyncValue("red"),
       on_change: fn(_) { Nil },
@@ -213,7 +213,7 @@ pub fn switch_simple_renders_test() {
 
 pub fn switch_full_with_name_renders_test() {
   let html =
-    switch.switch_full(
+    switch.switch(
       "Notifications",
       switch.InitChecked(False),
       on_change: fn(_) { Nil },
@@ -231,7 +231,7 @@ pub fn switch_full_with_name_renders_test() {
 
 pub fn switch_disabled_renders_test() {
   let html =
-    switch.switch_full(
+    switch.switch(
       "Feature",
       switch.SyncChecked(False),
       on_change: fn(_) { Nil },
@@ -259,7 +259,7 @@ pub fn slider_simple_renders_test() {
 
 pub fn slider_custom_range_renders_test() {
   let html =
-    slider.slider_full(
+    slider.slider(
       slider.SyncValue(30),
       on_input: fn(_) { Nil },
       attrs: slider.SliderAttrs(

@@ -25,7 +25,7 @@ pub fn view(model: Model) -> Element(Message) {
           toast.Default,
         )),
       ),
-      button.button_full(
+      button.button(
         button.Secondary,
         "Destructive",
         button.Large,
@@ -39,7 +39,7 @@ pub fn view(model: Model) -> Element(Message) {
         ),
         button.default_extra_attrs,
       ),
-      button.button_full(
+      button.button(
         button.Secondary,
         "Success",
         button.Large,
@@ -53,7 +53,7 @@ pub fn view(model: Model) -> Element(Message) {
         ),
         button.default_extra_attrs,
       ),
-      button.button_full(
+      button.button(
         button.Secondary,
         "Warning",
         button.Large,
@@ -67,7 +67,7 @@ pub fn view(model: Model) -> Element(Message) {
         ),
         button.default_extra_attrs,
       ),
-      button.button_full(
+      button.button(
         button.Secondary,
         "Info",
         button.Large,
@@ -81,7 +81,7 @@ pub fn view(model: Model) -> Element(Message) {
         ),
         button.default_extra_attrs,
       ),
-      button.button_full(
+      button.button(
         button.Secondary,
         "With Action",
         button.Large,

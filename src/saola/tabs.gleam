@@ -92,7 +92,7 @@ fn render_panel(tab: Tab(msg), is_active: Bool) -> Element(msg) {
 /// ## Examples
 ///
 /// ```gleam
-/// tabs_full(
+/// tabs(
 ///   tabs: [
 ///     Tab(id: "account", label: "Account", content: html.p([], [element.text("Account settings")])),
 ///     TabWithIcon(id: "security", icon: lock_icon, label: "Security", content: html.p([], [element.text("Security settings")])),
@@ -102,7 +102,7 @@ fn render_panel(tab: Tab(msg), is_active: Bool) -> Element(msg) {
 ///   class: "my-tabs",
 /// )
 /// ```
-pub fn tabs_full(
+pub fn tabs(
   tabs tabs: List(Tab(msg)),
   active_id active_id: String,
   on_tab_change on_tab_change: fn(String) -> msg,
@@ -141,12 +141,12 @@ pub fn tabs_full(
 /// )
 /// ```
 pub fn tabs_simple(
-  tabs tabs: List(Tab(msg)),
+  items items: List(Tab(msg)),
   active_id active_id: String,
   on_tab_change on_tab_change: fn(String) -> msg,
 ) -> Element(msg) {
-  tabs_full(
-    tabs: tabs,
+  tabs(
+    tabs: items,
     active_id: active_id,
     on_tab_change: on_tab_change,
     class: "",

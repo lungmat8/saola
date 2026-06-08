@@ -30,7 +30,7 @@ pub const default_attrs = TimelineAttrs(class: "")
 /// Vertical timeline of events.
 ///
 /// - `items`: list of timeline entries, rendered top-to-bottom
-pub fn timeline_full(
+pub fn timeline(
   items: List(TimelineItem(msg)),
   attrs: TimelineAttrs,
 ) -> Element(msg) {
@@ -42,7 +42,7 @@ pub fn timeline_full(
 }
 
 pub fn timeline_simple(items: List(TimelineItem(msg))) -> Element(msg) {
-  timeline_full(items, default_attrs)
+  timeline(items, default_attrs)
 }
 
 fn render_item(item: TimelineItem(msg)) -> Element(msg) {

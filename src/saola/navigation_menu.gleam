@@ -95,7 +95,7 @@ fn render_item(
   }
 }
 
-pub fn navigation_menu_full(
+pub fn navigation_menu(
   items: List(NavMenuItem(msg)),
   open_id: Option(String),
   on_open_change: fn(Option(String)) -> msg,
@@ -118,5 +118,5 @@ pub fn navigation_menu_simple(
   open_id: Option(String),
   on_open_change: fn(Option(String)) -> msg,
 ) -> Element(msg) {
-  navigation_menu_full(items, open_id, on_open_change, default_attrs)
+  navigation_menu(items, open_id, on_open_change, default_attrs)
 }

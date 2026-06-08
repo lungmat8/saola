@@ -118,7 +118,7 @@ pub fn sidebar_trigger(on_click: msg) -> Element(msg) {
 
 // ── Main widget ───────────────────────────────────────────────────────────────
 
-pub fn sidebar_full(
+pub fn sidebar(
   open: Bool,
   header: Option(Element(msg)),
   content: Element(msg),
@@ -170,5 +170,5 @@ pub fn sidebar_full(
 }
 
 pub fn sidebar_simple(open: Bool, content: Element(msg)) -> Element(msg) {
-  sidebar_full(open, None, content, None, default_attrs)
+  sidebar(open, None, content, None, default_attrs)
 }

@@ -16,7 +16,7 @@ pub type NavBarAttrs {
 pub const default_attrs = NavBarAttrs(class: "")
 
 /// A horizontal navigation bar with logo, links, and trailing actions.
-pub fn nav_bar_full(
+pub fn nav_bar(
   variant: NavBarVariant,
   logo: Option(Element(msg)),
   links: List(Element(msg)),
@@ -53,7 +53,7 @@ pub fn nav_bar_simple(
   logo: Option(Element(msg)),
   links: List(Element(msg)),
 ) -> Element(msg) {
-  nav_bar_full(Default, logo, links, [], default_attrs)
+  nav_bar(Default, logo, links, [], default_attrs)
 }
 
 /// A single navigation link for use inside `nav_bar_full`.

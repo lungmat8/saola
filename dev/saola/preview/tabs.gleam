@@ -35,7 +35,7 @@ pub fn view(model: Model) -> Element(Message) {
     ]),
     h.div([a.class("mt-4")], [
       tabs.tabs_simple(
-        tabs: demo_tabs,
+        items: demo_tabs,
         active_id: model.active_tab,
         on_tab_change: TabChanged,
       ),

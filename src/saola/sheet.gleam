@@ -16,7 +16,7 @@ pub type SheetAttrs {
 
 pub const default_attrs = SheetAttrs(side: Right, class: "")
 
-pub fn sheet_full(
+pub fn sheet(
   open: Bool,
   title: String,
   content: Element(msg),
@@ -78,5 +78,5 @@ pub fn sheet_simple(
   content: Element(msg),
   on_close: fn() -> msg,
 ) -> Element(msg) {
-  sheet_full(open, title, content, on_close, default_attrs)
+  sheet(open, title, content, on_close, default_attrs)
 }

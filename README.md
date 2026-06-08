@@ -11,67 +11,67 @@ Built on top of [Basecoat CSS](https://basecoatui.com/) (a pure-HTML port of sha
 
 | Module | Shortcuts | Full API |
 |--------|-----------|----------|
-| `saola/accordion` | `accordion_simple` | `accordion_full` |
-| `saola/alert` | `alert_default`, `alert_destructive` | `alert_full` |
-| `saola/alert_dialog` | `alert_dialog_simple` | `alert_dialog_full` |
+| `saola/accordion` | `accordion_simple` | `accordion` |
+| `saola/alert` | `alert_default`, `alert_destructive` | `alert` |
+| `saola/alert_dialog` | `alert_dialog_simple` | `alert_dialog` |
 | `saola/aspect_ratio` | `aspect_ratio` | — |
-| `saola/avatar` | `avatar_initials`, `avatar_image` | `avatar_full` |
+| `saola/avatar` | `avatar_initials`, `avatar_image` | `avatar` |
 | `saola/badge` | `badge_default`, `badge_secondary`, `badge_outline`, `badge_destructive` | — |
-| `saola/breadcrumb` | `breadcrumb_simple` | `breadcrumb_full` |
-| `saola/button` | `button_primary`, `button_secondary`, `button_outline`, `button_ghost`, `button_destructive`, `button_submit` | `button_full` |
+| `saola/breadcrumb` | `breadcrumb_simple` | `breadcrumb` |
+| `saola/button` | `button_primary`, `button_secondary`, `button_outline`, `button_ghost`, `button_destructive`, `button_submit` | `button` |
 | `saola/card` | `card_simple` | `card` |
-| `saola/checkbox` | `checkbox_simple` | `checkbox_full` |
-| `saola/collapsible` | `collapsible_simple` | `collapsible_full` |
-| `saola/command` | — | `command_full`, `command_nav_up`, `command_nav_down`, `command_get_value_at`, `command_item_count` |
-| `saola/data_table` | `data_table_simple` | `data_table_full` |
-| `saola/dialog` | — | `dialog_full` |
+| `saola/checkbox` | `checkbox_simple` | `checkbox` |
+| `saola/collapsible` | `collapsible_simple` | `collapsible` |
+| `saola/command` | — | `command`, `command_nav_up`, `command_nav_down`, `command_get_value_at`, `command_item_count` |
+| `saola/data_table` | `data_table_simple` | `data_table` |
+| `saola/dialog` | — | `dialog` |
 | `saola/field` | `field_simple` | `field` |
-| `saola/hover_card` | `hover_card_simple` | `hover_card_full` |
-| `saola/input` | — | `input_full` |
-| `saola/input_otp` | `input_otp_simple` | `input_otp_full` |
+| `saola/hover_card` | `hover_card_simple` | `hover_card` |
+| `saola/input` | — | `input` |
+| `saola/input_otp` | `input_otp_simple` | `input_otp` |
 | `saola/label` | `label_for` | — |
-| `saola/menubar` | `menubar_simple` | `menubar_full` |
-| `saola/multiselect` | `multiselect_simple` | `multiselect_full` |
-| `saola/pagination` | `pagination_simple` | `pagination_full` |
-| `saola/popover` | `popover_simple` | `popover_full` |
-| `saola/progress` | `progress_simple` | `progress_full` |
-| `saola/radio_group` | `radio_group_simple` | `radio_group_full` |
-| `saola/rating` | `rating_readonly`, `rating_interactive` | `rating_full` |
-| `saola/resizable` | `resizable_simple` | `resizable_full` |
-| `saola/scroll_area` | `scroll_area_simple` | `scroll_area_full` |
-| `saola/search` | `search_simple`, `search_clearable` | `search_full` |
-| `saola/select` | `select_simple` | `select_full` |
+| `saola/menubar` | `menubar_simple` | `menubar` |
+| `saola/multiselect` | `multiselect_simple` | `multiselect` |
+| `saola/pagination` | `pagination_simple` | `pagination` |
+| `saola/popover` | `popover_simple` | `popover` |
+| `saola/progress` | `progress_simple` | `progress` |
+| `saola/radio_group` | `radio_group_simple` | `radio_group` |
+| `saola/rating` | `rating_readonly`, `rating_interactive` | `rating` |
+| `saola/resizable` | `resizable_simple` | `resizable` |
+| `saola/scroll_area` | `scroll_area_simple` | `scroll_area` |
+| `saola/search` | `search_simple`, `search_clearable` | `search` |
+| `saola/select` | `select_simple` | `select` |
 | `saola/separator` | `separator`, `separator_vertical` | — |
-| `saola/sheet` | `sheet_simple` | `sheet_full` |
-| `saola/sidebar` | `sidebar_simple` | `sidebar_full` |
+| `saola/sheet` | `sheet_simple` | `sheet` |
+| `saola/sidebar` | `sidebar_simple` | `sidebar` |
 | `saola/skeleton` | `skeleton_text`, `skeleton_circle` | `skeleton` |
-| `saola/slider` | `slider_simple` | `slider_full` |
-| `saola/switch` | `switch_simple` | `switch_full` |
+| `saola/slider` | `slider_simple` | `slider` |
+| `saola/switch` | `switch_simple` | `switch` |
 | `saola/table` | `table_simple` | — |
 | `saola/tabs` | `tabs_simple` | — |
-| `saola/textarea` | — | `textarea_full` |
+| `saola/textarea` | — | `textarea` |
 | `saola/toast` | `new_toast` (factory) | `toaster` (container) |
-| `saola/toggle` | `toggle_simple` | `toggle_full` |
-| `saola/button_group` | `button_group_simple` | `button_group_full` |
-| `saola/calendar` | — | `calendar_full` |
-| `saola/carousel` | `carousel_simple` | `carousel_full` |
-| `saola/context_menu` | — | `context_menu_full` |
-| `saola/date_picker` | — | `date_picker_full` |
-| `saola/drawer` | `drawer_simple` | `drawer_full` |
-| `saola/empty` | `empty_simple` | `empty_full` |
-| `saola/input_group` | `input_group_simple` | `input_group_full` |
-| `saola/item` | `item_simple`, `item_link` | `item_full` |
-| `saola/native_select` | `native_select_simple` | `native_select_full` |
-| `saola/navigation_bar` | `nav_bar_simple`, `nav_bar_link` | `nav_bar_full` |
-| `saola/navigation_menu` | `navigation_menu_simple` | `navigation_menu_full` |
-| `saola/spinner` | `spinner_simple` | `spinner_full` |
-| `saola/stepper` | `stepper_simple` | `stepper_full` |
+| `saola/toggle` | `toggle_simple` | `toggle` |
+| `saola/button_group` | `button_group_simple` | `button_group` |
+| `saola/calendar` | — | `calendar` |
+| `saola/carousel` | `carousel_simple` | `carousel` |
+| `saola/context_menu` | — | `context_menu` |
+| `saola/date_picker` | — | `date_picker` |
+| `saola/drawer` | `drawer_simple` | `drawer` |
+| `saola/empty` | `empty_simple` | `empty` |
+| `saola/input_group` | `input_group_simple` | `input_group` |
+| `saola/item` | `item_simple`, `item_link` | `item` |
+| `saola/native_select` | `native_select_simple` | `native_select` |
+| `saola/navigation_bar` | `nav_bar_simple`, `nav_bar_link` | `nav_bar` |
+| `saola/navigation_menu` | `navigation_menu_simple` | `navigation_menu` |
+| `saola/spinner` | `spinner_simple` | `spinner` |
+| `saola/stepper` | `stepper_simple` | `stepper` |
 | `saola/theme` | — | `apply_to_html`, `watch_system_dark`, `get_system_dark` |
-| `saola/time_picker` | `time_picker_simple` | `time_picker_full` |
-| `saola/timeline` | `timeline_simple` | `timeline_full` |
-| `saola/toggle_group` | `toggle_group_simple` | `toggle_group_full` |
+| `saola/time_picker` | `time_picker_simple` | `time_picker` |
+| `saola/timeline` | `timeline_simple` | `timeline` |
+| `saola/toggle_group` | `toggle_group_simple` | `toggle_group` |
 | `saola/tooltip` | `tooltip`, `tooltip_side` | `attr`, `side_attr` |
-| `saola/tree_view` | `tree_view_simple` | `tree_view_full` |
+| `saola/tree_view` | `tree_view_simple` | `tree_view` |
 
 ### Third-party widget wrappers
 
@@ -147,7 +147,7 @@ field.field(
     label: "Email", description: "", error: "",
     orientation: field.Vertical, required: True, hint: "",
   ),
-  input.input_full(input.Email, option.Some(input.SyncValue(model.email)),
+  input.input(input.Email, option.Some(input.SyncValue(model.email)),
     on_input: option.Some(EmailChanged),
     extra_attrs: input.InputExtraAttrs(..input.default_extra_attrs, placeholder: "you@example.com"),
   ),
@@ -171,7 +171,7 @@ fn field_from_result(result: Result(String, String), attrs: field.FieldAttrs) ->
 - **Stateless widgets** — widgets are pure `fn ... -> Element(msg)`. The consumer's `Model` owns all state.
 - **Stateful components** — components (`saola/component/*`) carry their own Lustre runtime for cases where an isolated state machine genuinely simplifies the API.
 - **External-state duality** — form widgets accept `InitValue(v)` (seed once) or `SyncValue(v)` (keep in sync with model).
-- **Two-tier API** — each widget exposes a `_simple` shortcut for the common case and a `_full` function for complete control.
+- **Two-tier API** — each widget exposes a `_simple` shortcut for the common case and the widget name itself for complete control.
 - **Typed, not stringly typed** — variants (`ButtonVariant`, `BadgeVariant`, …) are Gleam custom types, not magic strings.
 
 ## Running the preview app

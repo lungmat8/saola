@@ -64,7 +64,7 @@ fn render_item(item: ContextMenuItem(msg)) -> Element(msg) {
   }
 }
 
-pub fn context_menu_full(
+pub fn context_menu(
   trigger: Element(msg),
   items: List(ContextMenuItem(msg)),
   open: Bool,
@@ -117,7 +117,7 @@ pub fn context_menu_simple(
   on_context_menu: fn(Int, Int) -> msg,
   on_close: fn() -> msg,
 ) -> Element(msg) {
-  context_menu_full(
+  context_menu(
     trigger,
     items,
     open,

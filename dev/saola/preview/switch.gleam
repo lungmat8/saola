@@ -17,7 +17,7 @@ pub fn view(notifications: Bool, marketing: Bool) -> Element(Message) {
       switch.switch_simple("Marketing emails", marketing, fn(v) {
         SwitchToggled("marketing", v)
       }),
-      switch.switch_full(
+      switch.switch(
         "Disabled switch",
         switch.InitChecked(True),
         on_change: fn(v) { SwitchToggled("disabled", v) },

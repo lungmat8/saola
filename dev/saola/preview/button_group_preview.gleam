@@ -27,7 +27,7 @@ pub fn view() -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Vertical")]),
-        button_group.button_group_full(
+        button_group.button_group(
           [
             h.button([a.type_("button"), a.class("btn btn-outline")], [
               text("Top"),

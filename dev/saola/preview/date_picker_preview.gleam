@@ -30,7 +30,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Custom placeholder")]),
-        date_picker.date_picker_full(
+        date_picker.date_picker(
           model.date_picker_2_selected,
           model.date_picker_2_open,
           model.date_picker_2_view_year,

@@ -44,7 +44,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Small")]),
-        native_select.native_select_full(
+        native_select.native_select(
           [
             native_select.NativeSelectOption("xs", "Extra Small"),
             native_select.NativeSelectOption("sm", "Small"),
@@ -62,7 +62,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Disabled")]),
-        native_select.native_select_full(
+        native_select.native_select(
           [
             native_select.NativeSelectOption("a", "Option A"),
             native_select.NativeSelectOption("b", "Option B"),

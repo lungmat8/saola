@@ -20,7 +20,7 @@ pub fn view() -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Variants")]),
-        progress.progress_full(
+        progress.progress(
           50,
           progress.ProgressAttrs(
             ..progress.default_attrs,
@@ -28,7 +28,7 @@ pub fn view() -> Element(Message) {
             label: "Loading…",
           ),
         ),
-        progress.progress_full(
+        progress.progress(
           75,
           progress.ProgressAttrs(
             ..progress.default_attrs,
@@ -36,7 +36,7 @@ pub fn view() -> Element(Message) {
             label: "75% complete",
           ),
         ),
-        progress.progress_full(
+        progress.progress(
           25,
           progress.ProgressAttrs(
             ..progress.default_attrs,
@@ -47,7 +47,7 @@ pub fn view() -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Custom range (0–5 steps)")]),
-        progress.progress_full(
+        progress.progress(
           3,
           progress.ProgressAttrs(
             min: 0,

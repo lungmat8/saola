@@ -24,14 +24,14 @@ pub fn dropdown_menu(is_open: Bool, on_close: fn() -> msg, ...) -> Element(msg)
 ### 2. Full function + convenience shortcuts
 
 Every widget exposes:
-- `widget_full(...)` — all options available
+- `widget(...)` — all options available
 - Shortcut functions for common cases (`widget_primary`, `widget_simple`, etc.)
 
-Shortcuts delegate to `widget_full` using `default_*` values.
+Shortcuts delegate to `widget` using `default_*` values.
 
 ```gleam
 pub fn button_primary(label: String, click_message: msg) -> Element(msg) {
-  button_full(Primary, label, Large, Some(click_message), default_extra_attrs)
+  button(Primary, label, Large, Some(click_message), default_extra_attrs)
 }
 ```
 
@@ -43,22 +43,22 @@ Use `pub fn default_*() -> T` (a function) for records that contain `Element(msg
 
 ### 4. Widget `Attrs` types — only for long parameter lists
 
-Introduce a `WidgetAttrs` record type **only** when `widget_full` would otherwise take more parameters than is readable (roughly 4+). The sole purpose of `Attrs` is to reduce the number of positional arguments — not to add abstraction for its own sake.
+Introduce a `WidgetAttrs` record type **only** when `widget` would otherwise take more parameters than is readable (roughly 4+). The sole purpose of `Attrs` is to reduce the number of positional arguments — not to add abstraction for its own sake.
 
 Keep the most important parameters as direct arguments; bundle secondary or optional ones into `Attrs`. The goal is a balanced signature, not collapsing everything into one record.
 
 ```gleam
 // CORRECT: two parameters, no need for a wrapper type
-pub fn spinner_full(size: SpinnerSize, class: String) -> Element(msg)
+pub fn spinner(size: SpinnerSize, class: String) -> Element(msg)
 
 // CORRECT: primary params stay direct, secondary ones are bundled
 pub type DialogAttrs {
   DialogAttrs(description: String, icon: Option(Element(msg)), class: String)
 }
-pub fn dialog_full(open: Bool, title: String, attrs: DialogAttrs) -> Element(msg)
+pub fn dialog(open: Bool, title: String, attrs: DialogAttrs) -> Element(msg)
 
 // WRONG: wrapping everything into one record just to reduce to a single parameter
-pub fn dialog_full(attrs: DialogAttrs) -> Element(msg)
+pub fn dialog(attrs: DialogAttrs) -> Element(msg)
 ```
 
 When an `Attrs` type is justified, pair it with a `pub const default_*` (or `pub fn default_*()` for generic fields) so callers can opt in to just the fields they need.
@@ -101,7 +101,7 @@ We prefer flat functions over builder/compound patterns, because Gleam’s featu
 
 ```gleam
 // Preferred: flat function
-alert_full(Destructive, title: "Error", description: "...", icon: some_icon)
+alert(Destructive, title: "Error", description: "...", icon: some_icon)
 alert_danger(title: "Error")
 
 // Discourage: compound/builder pattern

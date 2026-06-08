@@ -12,13 +12,13 @@ pub fn view() -> Element(Message) {
       text("Showcase of alert notifications."),
     ]),
     h.div([a.class("grid gap-4 mt-4")], [
-      alert.alert_full(
+      alert.alert(
         alert.Default,
         title: "Heads up!",
         description: "You can add components to your app using the CLI.",
         icon: None,
       ),
-      alert.alert_full(
+      alert.alert(
         alert.Destructive,
         title: "Error",
         description: "Your session has expired. Please log in again.",

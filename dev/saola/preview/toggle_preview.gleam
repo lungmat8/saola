@@ -27,13 +27,13 @@ pub fn view(model: Model) -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Outline variant")]),
         h.div([a.class("flex gap-2")], [
-          toggle.toggle_full(
+          toggle.toggle(
             model.toggle_bold,
             "Bold",
             ToggleBoldChanged,
             toggle.ToggleAttrs(..toggle.default_attrs, variant: toggle.Outline),
           ),
-          toggle.toggle_full(
+          toggle.toggle(
             model.toggle_italic,
             "Italic",
             ToggleItalicChanged,
@@ -44,19 +44,19 @@ pub fn view(model: Model) -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Sizes")]),
         h.div([a.class("flex gap-2 items-center")], [
-          toggle.toggle_full(
+          toggle.toggle(
             False,
             "Small",
             fn(_) { ToggleBoldChanged(model.toggle_bold) },
             toggle.ToggleAttrs(..toggle.default_attrs, size: toggle.Small),
           ),
-          toggle.toggle_full(
+          toggle.toggle(
             True,
             "Medium",
             fn(_) { ToggleBoldChanged(model.toggle_bold) },
             toggle.default_attrs,
           ),
-          toggle.toggle_full(
+          toggle.toggle(
             False,
             "Large",
             fn(_) { ToggleBoldChanged(model.toggle_bold) },

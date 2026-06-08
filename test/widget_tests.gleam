@@ -51,7 +51,7 @@ pub fn alert_destructive_renders_test() {
 
 pub fn alert_full_with_title_renders_test() {
   let html =
-    alert.alert_full(
+    alert.alert(
       alert.Default,
       title: "Heads up!",
       description: "A change was made.",
@@ -95,7 +95,7 @@ pub fn button_submit_has_type_submit_test() {
 
 pub fn button_disabled_renders_test() {
   let html =
-    button.button_full(
+    button.button(
       button.Primary,
       "Save",
       button.Large,
@@ -113,7 +113,7 @@ pub fn button_disabled_renders_test() {
 
 pub fn button_with_aria_label_renders_test() {
   let html =
-    button.button_full(
+    button.button(
       button.Ghost,
       "",
       button.Small,
@@ -131,7 +131,7 @@ pub fn button_with_aria_label_renders_test() {
 
 pub fn button_small_renders_test() {
   let html =
-    button.button_full(
+    button.button(
       button.Secondary,
       "Edit",
       button.Small,

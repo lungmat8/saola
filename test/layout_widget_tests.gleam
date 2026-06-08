@@ -16,7 +16,7 @@ import saola/tooltip
 pub fn tabs_simple_renders_tablist_test() {
   let html =
     tabs.tabs_simple(
-      tabs: [
+      items: [
         tabs.Tab("one", "First", h.p([], [h.text("Panel 1")])),
         tabs.Tab("two", "Second", h.p([], [h.text("Panel 2")])),
       ],
@@ -34,7 +34,7 @@ pub fn tabs_simple_renders_tablist_test() {
 pub fn tabs_active_has_aria_selected_test() {
   let html =
     tabs.tabs_simple(
-      tabs: [
+      items: [
         tabs.Tab("a", "Alpha", h.text("Content A")),
         tabs.Tab("b", "Beta", h.text("Content B")),
       ],
@@ -49,7 +49,7 @@ pub fn tabs_active_has_aria_selected_test() {
 pub fn tabs_panel_ids_linked_test() {
   let html =
     tabs.tabs_simple(
-      tabs: [tabs.Tab("settings", "Settings", h.text("Settings content"))],
+      items: [tabs.Tab("settings", "Settings", h.text("Settings content"))],
       active_id: "settings",
       on_tab_change: fn(id) { id },
     )
@@ -63,7 +63,7 @@ pub fn tabs_panel_ids_linked_test() {
 pub fn tabs_inactive_panel_hidden_test() {
   let html =
     tabs.tabs_simple(
-      tabs: [
+      items: [
         tabs.Tab("x", "X", h.text("X content")),
         tabs.Tab("y", "Y", h.text("Y content")),
       ],
@@ -79,7 +79,7 @@ pub fn tabs_inactive_panel_hidden_test() {
 
 pub fn dialog_open_renders_test() {
   let html =
-    dialog.dialog_full(
+    dialog.dialog(
       is_open: True,
       attrs: dialog.DialogAttrs(
         title: "Confirm",
@@ -101,7 +101,7 @@ pub fn dialog_open_renders_test() {
 
 pub fn dialog_closed_has_no_open_attr_test() {
   let html =
-    dialog.dialog_full(
+    dialog.dialog(
       is_open: False,
       attrs: dialog.DialogAttrs(
         title: "Info",
@@ -119,7 +119,7 @@ pub fn dialog_closed_has_no_open_attr_test() {
 pub fn dialog_with_footer_renders_test() {
   let footer = button.button_primary("OK", Nil)
   let html =
-    dialog.dialog_full(
+    dialog.dialog(
       is_open: True,
       attrs: dialog.DialogAttrs(
         title: "Warning",

@@ -11,7 +11,7 @@ pub type CollapsibleAttrs {
 
 pub const default_attrs = CollapsibleAttrs(disabled: False, class: "")
 
-pub fn collapsible_full(
+pub fn collapsible(
   open: Bool,
   trigger: Element(msg),
   content: Element(msg),
@@ -64,11 +64,5 @@ pub fn collapsible_simple(
   content: Element(msg),
   on_toggle: fn() -> msg,
 ) -> Element(msg) {
-  collapsible_full(
-    open,
-    h.text(trigger_label),
-    content,
-    on_toggle,
-    default_attrs,
-  )
+  collapsible(open, h.text(trigger_label), content, on_toggle, default_attrs)
 }

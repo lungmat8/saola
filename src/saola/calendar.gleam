@@ -190,7 +190,7 @@ fn render_day_cell(
   }
 }
 
-pub fn calendar_full(
+pub fn calendar(
   selected: Option(Date),
   view_year: Int,
   view_month: Month,
@@ -258,7 +258,7 @@ pub fn calendar_simple(
   on_prev_month: msg,
   on_next_month: msg,
 ) -> Element(msg) {
-  calendar_full(
+  calendar(
     selected,
     view_year,
     view_month,

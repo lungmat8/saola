@@ -18,7 +18,7 @@ pub const default_attrs = HoverCardAttrs(side: Bottom, class: "")
 /// Render a hover card — trigger + floating content visible on hover.
 /// Since Lustre manages state externally, `open` controls visibility.
 /// Wire `on_open`/`on_close` to mouseenter/mouseleave on the trigger element.
-pub fn hover_card_full(
+pub fn hover_card(
   open: Bool,
   trigger: Element(msg),
   content: Element(msg),
@@ -56,5 +56,5 @@ pub fn hover_card_simple(
   trigger: Element(msg),
   content: Element(msg),
 ) -> Element(msg) {
-  hover_card_full(open, trigger, content, default_attrs)
+  hover_card(open, trigger, content, default_attrs)
 }

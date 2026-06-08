@@ -26,7 +26,7 @@ pub type StepItem {
 ///
 /// - `active_step`: 0-indexed index of the current step
 /// - `on_step_click`: if `Some`, completed steps are clickable
-pub fn stepper_full(
+pub fn stepper(
   orientation: StepperOrientation,
   steps: List(StepItem),
   active_step: Int,
@@ -109,5 +109,5 @@ pub fn stepper_full(
 }
 
 pub fn stepper_simple(steps: List(StepItem), active_step: Int) -> Element(msg) {
-  stepper_full(Horizontal, steps, active_step, None, "")
+  stepper(Horizontal, steps, active_step, None, "")
 }

@@ -47,7 +47,7 @@ fn render_option(opt: SelectOption) -> Element(msg) {
 }
 
 /// Fully customizable native select.
-pub fn select_full(
+pub fn select(
   options: List(SelectOption),
   value: SelectValue,
   on_change on_change: fn(String) -> msg,
@@ -98,7 +98,7 @@ pub fn select_simple(
   options: List(SelectOption),
   on_change: fn(String) -> msg,
 ) -> Element(msg) {
-  select_full(
+  select(
     options,
     InitValue(""),
     on_change: on_change,

@@ -27,10 +27,10 @@ fn size_class(size: AvatarSize) -> String {
 ///
 /// Example:
 /// ```gleam
-/// avatar_full(ImageSrc("https://example.com/photo.jpg", "Jane Doe"), Medium, "")
-/// avatar_full(Initials("JD"), Large, "")
+/// avatar(ImageSrc("https://example.com/photo.jpg", "Jane Doe"), Medium, "")
+/// avatar(Initials("JD"), Large, "")
 /// ```
-pub fn avatar_full(
+pub fn avatar(
   source: AvatarSource,
   size: AvatarSize,
   class: String,
@@ -52,10 +52,10 @@ pub fn avatar_full(
 
 /// Avatar from an image URL.
 pub fn avatar_image(src: String, alt: String) -> Element(msg) {
-  avatar_full(ImageSrc(src, alt), Medium, "")
+  avatar(ImageSrc(src, alt), Medium, "")
 }
 
 /// Avatar from initials text.
 pub fn avatar_initials(text: String) -> Element(msg) {
-  avatar_full(Initials(text), Medium, "")
+  avatar(Initials(text), Medium, "")
 }

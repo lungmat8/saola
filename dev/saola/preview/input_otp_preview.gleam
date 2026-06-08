@@ -26,7 +26,7 @@ pub fn view(model: Model) -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("4-digit PIN")]),
-        input_otp.input_otp_full(
+        input_otp.input_otp(
           model.input_otp_value,
           InputOtpChanged,
           input_otp.InputOtpAttrs(..input_otp.default_attrs, length: 4),

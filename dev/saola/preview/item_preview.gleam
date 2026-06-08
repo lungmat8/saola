@@ -12,7 +12,7 @@ pub fn view() -> Element(Message) {
   let actions = [button.button_outline("View", StartedTrial)]
 
   let three_items = [
-    item.item_full(
+    item.item(
       variant: item.Default,
       size: item.Large,
       media: Some(lu.user([])),
@@ -22,7 +22,7 @@ pub fn view() -> Element(Message) {
       actions: actions,
       class: "",
     ),
-    item.item_full(
+    item.item(
       variant: item.Default,
       size: item.Large,
       media: Some(lu.user([])),
@@ -32,7 +32,7 @@ pub fn view() -> Element(Message) {
       actions: actions,
       class: "",
     ),
-    item.item_full(
+    item.item(
       variant: item.Default,
       size: item.Large,
       media: Some(lu.user([])),
@@ -50,7 +50,7 @@ pub fn view() -> Element(Message) {
     h.div([a.class("grid gap-8")], [
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Variants")]),
-        item.item_full(
+        item.item(
           variant: item.Default,
           size: item.Large,
           media: None,
@@ -60,7 +60,7 @@ pub fn view() -> Element(Message) {
           actions: actions,
           class: "",
         ),
-        item.item_full(
+        item.item(
           variant: item.Outline,
           size: item.Large,
           media: None,
@@ -70,7 +70,7 @@ pub fn view() -> Element(Message) {
           actions: actions,
           class: "",
         ),
-        item.item_full(
+        item.item(
           variant: item.Muted,
           size: item.Large,
           media: None,
@@ -83,7 +83,7 @@ pub fn view() -> Element(Message) {
       ]),
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Size: small")]),
-        item.item_full(
+        item.item(
           variant: item.Outline,
           size: item.Small,
           media: None,

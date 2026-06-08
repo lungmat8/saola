@@ -21,7 +21,7 @@ pub fn carousel_simple_renders_test() {
 
 pub fn carousel_orientation_attr_test() {
   let html =
-    carousel.carousel_full(
+    carousel.carousel(
       [h.div([], [h.text("S")])],
       0,
       False,
@@ -39,7 +39,7 @@ pub fn carousel_orientation_attr_test() {
 
 pub fn carousel_loop_attr_test() {
   let html =
-    carousel.carousel_full(
+    carousel.carousel(
       [h.div([], [h.text("S")])],
       0,
       False,

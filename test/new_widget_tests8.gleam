@@ -56,13 +56,7 @@ pub fn search_clearable_has_clear_button_test() {
 
 pub fn search_small_has_input_sm_class_test() {
   let html =
-    search.search_full(
-      search.Small,
-      "",
-      fn(_) { Nil },
-      None,
-      search.default_attrs,
-    )
+    search.search(search.Small, "", fn(_) { Nil }, None, search.default_attrs)
     |> element.to_string
   assert string.contains(html, "input-sm")
 }
@@ -80,7 +74,7 @@ pub fn time_picker_simple_renders_hour_select_test() {
 
 pub fn time_picker_24h_has_00_option_test() {
   let html =
-    time_picker.time_picker_full(
+    time_picker.time_picker(
       None,
       time_picker.TwentyFourHour,
       fn(_) { Nil },
@@ -92,7 +86,7 @@ pub fn time_picker_24h_has_00_option_test() {
 
 pub fn time_picker_with_seconds_renders_second_select_test() {
   let html =
-    time_picker.time_picker_full(
+    time_picker.time_picker(
       None,
       time_picker.TwentyFourHour,
       fn(_) { Nil },
@@ -131,7 +125,7 @@ pub fn nav_bar_simple_renders_header_test() {
 
 pub fn nav_bar_sticky_has_sticky_class_test() {
   let html =
-    navigation_bar.nav_bar_full(
+    navigation_bar.nav_bar(
       navigation_bar.Sticky,
       None,
       [],
@@ -154,7 +148,7 @@ pub fn nav_bar_link_active_has_aria_current_test() {
 
 pub fn stepper_horizontal_has_correct_class_test() {
   let html =
-    stepper.stepper_full(
+    stepper.stepper(
       stepper.Horizontal,
       [stepper.StepItem("Step 1", "", stepper.Pending)],
       0,
@@ -168,7 +162,7 @@ pub fn stepper_horizontal_has_correct_class_test() {
 
 pub fn stepper_vertical_has_correct_class_test() {
   let html =
-    stepper.stepper_full(
+    stepper.stepper(
       stepper.Vertical,
       [stepper.StepItem("Step A", "", stepper.Complete)],
       0,
@@ -185,7 +179,7 @@ pub fn stepper_active_step_has_active_class_test() {
     stepper.StepItem("Two", "", stepper.Active),
   ]
   let html =
-    stepper.stepper_full(stepper.Horizontal, steps, 1, None, "")
+    stepper.stepper(stepper.Horizontal, steps, 1, None, "")
     |> element.to_string
   assert string.contains(html, "stepper-step-active")
   assert string.contains(html, "aria-current=\"step\"")

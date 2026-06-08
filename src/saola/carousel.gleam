@@ -37,7 +37,7 @@ fn orientation_str(o: CarouselOrientation) -> String {
   }
 }
 
-pub fn carousel_full(
+pub fn carousel(
   slides: List(Element(msg)),
   current_index: Int,
   can_scroll_prev: Bool,
@@ -77,5 +77,5 @@ pub fn carousel_simple(
   current_index: Int,
   on_change: fn(Int, Bool, Bool) -> msg,
 ) -> Element(msg) {
-  carousel_full(slides, current_index, True, True, on_change, default_attrs)
+  carousel(slides, current_index, True, True, on_change, default_attrs)
 }

@@ -97,7 +97,7 @@ pub fn sidebar_trigger_renders_button_test() {
 
 pub fn sidebar_right_variant_test() {
   let html =
-    sidebar.sidebar_full(
+    sidebar.sidebar(
       True,
       None,
       sidebar.sidebar_content([]),
@@ -115,7 +115,7 @@ pub fn sidebar_right_variant_test() {
 
 pub fn sidebar_full_with_header_footer_test() {
   let html =
-    sidebar.sidebar_full(
+    sidebar.sidebar(
       True,
       Some(sidebar.sidebar_header([h.text("Header")])),
       sidebar.sidebar_content([]),
@@ -223,7 +223,7 @@ pub fn command_empty_state_renders_test() {
 
 pub fn command_highlighted_item_has_class_test() {
   let html =
-    command.command_full(
+    command.command(
       "",
       [command.CommandAction("v", "Item", "sel")],
       0,
@@ -283,8 +283,8 @@ pub fn resizable_simple_renders_custom_element_test() {
     rp.element(
       [rp.direction(rp.Horizontal), rp.on_resize(fn(sizes) { sizes })],
       [
-        rp.panel_full(50.0, 20.0, h.text("A")),
-        rp.panel_full(50.0, 20.0, h.text("B")),
+        rp.panel(50.0, 20.0, h.text("A")),
+        rp.panel(50.0, 20.0, h.text("B")),
       ],
     )
     |> element.to_string
@@ -296,8 +296,8 @@ pub fn resizable_has_panel_slots_test() {
     rp.element(
       [rp.direction(rp.Horizontal), rp.on_resize(fn(sizes) { sizes })],
       [
-        rp.panel_full(40.0, 10.0, h.text("Left")),
-        rp.panel_full(60.0, 10.0, h.text("Right")),
+        rp.panel(40.0, 10.0, h.text("Left")),
+        rp.panel(60.0, 10.0, h.text("Right")),
       ],
     )
     |> element.to_string
@@ -309,7 +309,7 @@ pub fn resizable_has_handles_test() {
   let html =
     rp.element(
       [rp.direction(rp.Horizontal), rp.on_resize(fn(sizes) { sizes })],
-      [rp.panel(50.0, h.text("A")), rp.panel(50.0, h.text("B"))],
+      [rp.panel_simple(50.0, h.text("A")), rp.panel_simple(50.0, h.text("B"))],
     )
     |> element.to_string
   assert string.contains(html, "resizable-split")
@@ -318,8 +318,8 @@ pub fn resizable_has_handles_test() {
 pub fn resizable_vertical_has_direction_test() {
   let html =
     rp.element([rp.direction(rp.Vertical), rp.on_resize(fn(sizes) { sizes })], [
-      rp.panel_full(50.0, 20.0, h.text("Top")),
-      rp.panel_full(50.0, 20.0, h.text("Bottom")),
+      rp.panel(50.0, 20.0, h.text("Top")),
+      rp.panel(50.0, 20.0, h.text("Bottom")),
     ])
     |> element.to_string
   assert string.contains(html, "direction=\"vertical\"")
@@ -330,9 +330,9 @@ pub fn resizable_three_panels_have_slots_test() {
     rp.element(
       [rp.direction(rp.Horizontal), rp.on_resize(fn(sizes) { sizes })],
       [
-        rp.panel_full(33.0, 10.0, h.text("A")),
-        rp.panel_full(34.0, 10.0, h.text("B")),
-        rp.panel_full(33.0, 10.0, h.text("C")),
+        rp.panel(33.0, 10.0, h.text("A")),
+        rp.panel(34.0, 10.0, h.text("B")),
+        rp.panel(33.0, 10.0, h.text("C")),
       ],
     )
     |> element.to_string
@@ -383,7 +383,7 @@ pub fn data_table_simple_renders_header_test() {
 
 pub fn data_table_full_renders_filter_test() {
   let html =
-    data_table.data_table_full(
+    data_table.data_table(
       [
         data_table.DataTableColumn(
           header: "Name",
@@ -406,7 +406,7 @@ pub fn data_table_full_renders_filter_test() {
 
 pub fn data_table_sort_button_renders_test() {
   let html =
-    data_table.data_table_full(
+    data_table.data_table(
       [
         data_table.DataTableColumn(
           header: "Name",
@@ -455,7 +455,7 @@ pub fn data_table_total_pages_test() {
 
 pub fn data_table_full_pagination_renders_test() {
   let html =
-    data_table.data_table_full(
+    data_table.data_table(
       [
         data_table.DataTableColumn(
           header: "Name",

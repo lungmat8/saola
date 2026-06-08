@@ -26,7 +26,7 @@ pub const default_attrs = TreeViewAttrs(class: "")
 /// - `open_ids`: list of node IDs currently expanded
 /// - `on_toggle`: dispatched when a node's expand/collapse is toggled
 /// - `on_select`: dispatched when a leaf node is activated (optional)
-pub fn tree_view_full(
+pub fn tree_view(
   items: List(TreeItem(msg)),
   open_ids: List(String),
   on_toggle: fn(String) -> msg,
@@ -130,5 +130,5 @@ pub fn tree_view_simple(
   open_ids: List(String),
   on_toggle: fn(String) -> msg,
 ) -> Element(msg) {
-  tree_view_full(items, open_ids, on_toggle, None, default_attrs)
+  tree_view(items, open_ids, on_toggle, None, default_attrs)
 }

@@ -50,7 +50,7 @@ pub fn view(model: Model) -> Element(Message) {
       h.div([a.class("grid gap-4")], [
         h.h2([], [text("Full command palette (keyboard navigation)")]),
         h.div([a.style("max-width", "480px")], [
-          command.command_full(
+          command.command(
             model.command_query,
             items,
             model.command_highlighted,

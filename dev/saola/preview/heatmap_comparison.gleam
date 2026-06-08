@@ -298,7 +298,7 @@ fn size_btn(size: Int, current: Int) -> Element(Message) {
   let label = int.to_string(size) <> "×" <> int.to_string(size)
   case size == current {
     True ->
-      button.button_full(
+      button.button(
         button.Primary,
         label,
         button.Small,
@@ -307,7 +307,7 @@ fn size_btn(size: Int, current: Int) -> Element(Message) {
         button.default_extra_attrs,
       )
     False ->
-      button.button_full(
+      button.button(
         button.Secondary,
         label,
         button.Small,
@@ -321,7 +321,7 @@ fn size_btn(size: Int, current: Int) -> Element(Message) {
 fn scheme_btn(scheme: String, current: String) -> Element(Message) {
   case scheme == current {
     True ->
-      button.button_full(
+      button.button(
         button.Primary,
         scheme,
         button.Small,
@@ -330,7 +330,7 @@ fn scheme_btn(scheme: String, current: String) -> Element(Message) {
         button.default_extra_attrs,
       )
     False ->
-      button.button_full(
+      button.button(
         button.Secondary,
         scheme,
         button.Small,

@@ -13,7 +13,7 @@ pub type ButtonGroupAttrs {
 
 pub const default_attrs = ButtonGroupAttrs(orientation: Horizontal, class: "")
 
-pub fn button_group_full(
+pub fn button_group(
   children: List(Element(msg)),
   attrs: ButtonGroupAttrs,
 ) -> Element(msg) {
@@ -29,5 +29,5 @@ pub fn button_group_full(
 }
 
 pub fn button_group_simple(children: List(Element(msg))) -> Element(msg) {
-  button_group_full(children, default_attrs)
+  button_group(children, default_attrs)
 }

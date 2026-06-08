@@ -14,7 +14,7 @@ pub type ToggleGroupType {
   MultiSelect
 }
 
-pub fn toggle_group_full(
+pub fn toggle_group(
   items: List(ToggleGroupItem),
   selected: List(String),
   on_change: fn(List(String)) -> msg,
@@ -65,5 +65,5 @@ pub fn toggle_group_simple(
   selected: List(String),
   on_change: fn(List(String)) -> msg,
 ) -> Element(msg) {
-  toggle_group_full(items, selected, on_change, SingleSelect, "")
+  toggle_group(items, selected, on_change, SingleSelect, "")
 }

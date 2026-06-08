@@ -27,7 +27,7 @@ pub const default_attrs = TimePickerAttrs(
 )
 
 /// Time picker using three native selects (hour, minute, optional second).
-pub fn time_picker_full(
+pub fn time_picker(
   value: Option(TimeValue),
   format: TimePickerFormat,
   on_change: fn(TimeValue) -> msg,
@@ -171,7 +171,7 @@ pub fn time_picker_simple(
   value: Option(TimeValue),
   on_change: fn(TimeValue) -> msg,
 ) -> Element(msg) {
-  time_picker_full(value, TwentyFourHour, on_change, default_attrs)
+  time_picker(value, TwentyFourHour, on_change, default_attrs)
 }
 
 fn pad2(n: Int) -> String {

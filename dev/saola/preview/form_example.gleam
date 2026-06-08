@@ -22,7 +22,7 @@ pub fn view(model: Model) -> Element(Message) {
     content: [
       h.form([a.class("grid gap-4"), e.on_submit(FormSubmitted)], [
         field("name", "Name", [
-          input.input_full(
+          input.input(
             input.Text,
             Some(input.SyncValue(model.form_name)),
             on_input: Some(FormNameChanged),
@@ -37,7 +37,7 @@ pub fn view(model: Model) -> Element(Message) {
           ),
         ]),
         field("email", "Email", [
-          input.input_full(
+          input.input(
             input.Email,
             Some(input.SyncValue(model.form_email)),
             on_input: Some(FormEmailChanged),
@@ -52,7 +52,7 @@ pub fn view(model: Model) -> Element(Message) {
           ),
         ]),
         field("message", "Message", [
-          textarea.textarea_full(
+          textarea.textarea(
             Some(textarea.SyncValue(model.form_message)),
             on_input: Some(FormMessageChanged),
             extra_attrs: textarea.TextareaExtraAttrs(
@@ -66,7 +66,7 @@ pub fn view(model: Model) -> Element(Message) {
             ),
           ),
         ]),
-        checkbox.checkbox_full(
+        checkbox.checkbox(
           "Send me product updates",
           checkbox.InitChecked(True),
           checkbox.ExtraAttrs(
@@ -76,7 +76,7 @@ pub fn view(model: Model) -> Element(Message) {
           ),
           "This checkbox submits a normal form value.",
         ),
-        button.button_full(
+        button.button(
           button.Primary,
           "Send",
           button.Large,

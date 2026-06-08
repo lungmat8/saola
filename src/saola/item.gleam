@@ -81,7 +81,7 @@ fn item_body(
   [media_el, content_el, actions_el]
 }
 
-pub fn item_full(
+pub fn item(
   variant variant: ItemVariant,
   size size: ItemSize,
   media media: Option(Element(msg)),
@@ -105,7 +105,7 @@ pub fn item_simple(
     None -> []
     Some(act) -> [act]
   }
-  item_full(
+  item(
     variant: Default,
     size: Large,
     media: None,

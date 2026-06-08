@@ -46,10 +46,10 @@ pub type ButtonExtraAttrs {
 ///
 /// Example:
 /// ```gleam
-/// button_full(Primary, "Save", Large, None, Some(UserClickSave), default_extra_attrs)
-/// button_full(Outline, "Delete", Large, Some(icon/lt.trash([])), Some(UserClickDelete), default_extra_attrs)
+/// button(Primary, "Save", Large, None, Some(UserClickSave), default_extra_attrs)
+/// button(Outline, "Delete", Large, Some(icon/lt.trash([])), Some(UserClickDelete), default_extra_attrs)
 /// ```
-pub fn button_full(
+pub fn button(
   variant: ButtonVariant,
   label: String,
   size: ButtonSize,
@@ -118,18 +118,11 @@ pub const default_extra_attrs = ButtonExtraAttrs(False, None, default_aria)
 // --- Convenience shortcuts ---
 
 pub fn button_primary(label: String, click_message: msg) -> Element(msg) {
-  button_full(
-    Primary,
-    label,
-    Large,
-    None,
-    Some(click_message),
-    default_extra_attrs,
-  )
+  button(Primary, label, Large, None, Some(click_message), default_extra_attrs)
 }
 
 pub fn button_secondary(label: String, click_message: msg) -> Element(msg) {
-  button_full(
+  button(
     Secondary,
     label,
     Large,
@@ -140,29 +133,15 @@ pub fn button_secondary(label: String, click_message: msg) -> Element(msg) {
 }
 
 pub fn button_outline(label: String, click_message: msg) -> Element(msg) {
-  button_full(
-    Outline,
-    label,
-    Large,
-    None,
-    Some(click_message),
-    default_extra_attrs,
-  )
+  button(Outline, label, Large, None, Some(click_message), default_extra_attrs)
 }
 
 pub fn button_ghost(label: String, click_message: msg) -> Element(msg) {
-  button_full(
-    Ghost,
-    label,
-    Large,
-    None,
-    Some(click_message),
-    default_extra_attrs,
-  )
+  button(Ghost, label, Large, None, Some(click_message), default_extra_attrs)
 }
 
 pub fn button_destructive(label: String, click_message: msg) -> Element(msg) {
-  button_full(
+  button(
     Destructive,
     label,
     Large,
@@ -174,7 +153,7 @@ pub fn button_destructive(label: String, click_message: msg) -> Element(msg) {
 
 /// Submit button (type="submit"). Use inside a <form>.
 pub fn button_submit(label: String) -> Element(msg) {
-  button_full(
+  button(
     Primary,
     label,
     Large,
@@ -186,7 +165,7 @@ pub fn button_submit(label: String) -> Element(msg) {
 
 /// Small icon-only close button (×).
 pub fn button_close(click_message: msg) -> Element(msg) {
-  button_full(
+  button(
     Outline,
     "",
     Small,
