@@ -53,7 +53,6 @@
 //// ])
 //// ```
 
-import gleam/bool
 import gleam/dynamic/decode
 import gleam/float
 import gleam/int
@@ -100,9 +99,9 @@ type Model {
     is_open: Bool,
     filtered_choices: iv.Array(Item),
     selected_item: Option(Item),
-    // 1-based index of the item to focus when navigating with keyboard.
-    // Zero means no one is focused.
-    focused_index: Int,
+    // Zero-based index of the item to focus when navigating with keyboard.
+    // None means no item is focused.
+    focused_index: Option(Int),
     // Preselected item value (used when choices arrive later)
     preselect_value: Option(String),
     // Track if we've registered the outside-click listener already
@@ -238,7 +237,7 @@ fn init(_) -> #(Model, effect.Effect(Message)) {
       is_open: False,
       filtered_choices: iv.new(),
       selected_item: None,
-      focused_index: 0,
+      focused_index: None,
       preselect_value: None,
       has_outside_listener: False,
     ),
@@ -256,7 +255,7 @@ fn update(model: Model, message: Message) -> #(Model, effect.Effect(Message)) {
           has_outside_listener: True,
           filter_text: "",
           filtered_choices: iv.from_list(model.choices),
-          focused_index: 0,
+          focused_index: None,
         )
       let listener_eff = case model.has_outside_listener {
         True -> effect.none()
@@ -265,17 +264,22 @@ fn update(model: Model, message: Message) -> #(Model, effect.Effect(Message)) {
       #(new_model, effect.batch([emit(Focused), listener_eff]))
     }
     UserClickedOutside -> {
-      #(Model(..model, is_open: False, focused_index: 0), effect.none())
+      #(Model(..model, is_open: False, focused_index: None), effect.none())
     }
     UserNavigate(dir) -> {
-      let size = iv.size(model.filtered_choices)
-      let fi = case dir {
-        SlideUp -> model.focused_index - 1
-        SlideDown -> model.focused_index + 1
+      let focused_index = case iv.size(model.filtered_choices) {
+        0 -> None
+        count ->
+          case dir, model.focused_index {
+            SlideUp, None -> None
+            SlideUp, Some(0) -> None
+            SlideUp, Some(i) -> Some(i - 1)
+            SlideDown, None -> Some(0)
+            SlideDown, Some(i) -> Some(int.min(i + 1, count - 1))
+          }
       }
-      let fi = int.clamp(fi, 0, size)
-      let scroll_eff = scroll_to_focused(fi)
-      #(Model(..model, focused_index: fi, is_open: True), scroll_eff)
+      let scroll_eff = scroll_to_focused(focused_index)
+      #(Model(..model, focused_index:, is_open: True), scroll_eff)
     }
     UserPickedChoice(item) -> {
       let new_model =
@@ -284,7 +288,7 @@ fn update(model: Model, message: Message) -> #(Model, effect.Effect(Message)) {
           selected_item: Some(item),
           filter_text: item.name,
           is_open: False,
-          focused_index: 0,
+          focused_index: None,
           filtered_choices: iv.from_list(model.choices),
         )
       #(new_model, emit(Selected(item.value)))
@@ -297,7 +301,7 @@ fn update(model: Model, message: Message) -> #(Model, effect.Effect(Message)) {
           filter_text: text,
           is_open: True,
           filtered_choices: iv.from_list(filtered),
-          focused_index: 0,
+          focused_index: None,
         )
       #(new_model, emit(TextInput(text)))
     }
@@ -376,27 +380,31 @@ fn register_outside_click_listener() -> effect.Effect(Message) {
   Nil
 }
 
-fn scroll_to_focused(focused_index: Int) -> effect.Effect(Message) {
-  use <- bool.guard(focused_index <= 0, effect.none())
-  use _dispatch, root <- effect.after_paint
-  let options = ffi.query_selector_all(root, "[role='option']")
-  let scroll_target = {
-    use el_dyn <- result.try(array.get(options, focused_index - 1))
-    use el <- result.try(
-      web_element.cast(el_dyn) |> result.map_error(fn(_) { Nil }),
-    )
-    use container <- result.try(web_element.parent_element(el))
-    Ok(#(el, container))
-  }
-  case scroll_target {
-    Error(_) -> False
-    Ok(#(el, container)) -> {
-      use <- on.true(ffi.is_out_of_view(el, container))
-      web_element.scroll_into_view(el)
-      True
+fn scroll_to_focused(focused_index: Option(Int)) -> effect.Effect(Message) {
+  case focused_index {
+    None -> effect.none()
+    Some(index) -> {
+      use _dispatch, root <- effect.after_paint
+      let options = ffi.query_selector_all(root, "[role='option']")
+      let scroll_target = {
+        use el_dyn <- result.try(array.get(options, index))
+        use el <- result.try(
+          web_element.cast(el_dyn) |> result.map_error(fn(_) { Nil }),
+        )
+        use container <- result.try(web_element.parent_element(el))
+        Ok(#(el, container))
+      }
+      case scroll_target {
+        Error(_) -> False
+        Ok(#(el, container)) -> {
+          use <- on.true(ffi.is_out_of_view(el, container))
+          web_element.scroll_into_view(el)
+          True
+        }
+      }
+      Nil
     }
   }
-  Nil
 }
 
 fn setup_keyup_handler(focused_item: Option(Item)) -> Attribute(Message) {
@@ -464,8 +472,8 @@ fn render_popover(
   listbox_id: String,
 ) -> Element(Message) {
   let focused_item = case model.focused_index {
-    fi if fi < 1 -> None
-    fi -> iv.get(model.filtered_choices, fi - 1) |> option.from_result
+    None -> None
+    Some(i) -> iv.get(model.filtered_choices, i) |> option.from_result
   }
   h.div([a.attribute("data-popover", ""), a.style("width", "12rem")], [
     h.header([], [
@@ -506,7 +514,7 @@ fn render_options(model: Model) -> List(#(String, Element(Message))) {
       Some(s) -> s.value == item.value
       None -> False
     }
-    let is_focused = model.focused_index == i + 1
+    let is_focused = model.focused_index == Some(i)
     #(
       item.value,
       h.div(
